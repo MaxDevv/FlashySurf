@@ -123,7 +123,6 @@
                             <div class="question limited">
                                 <span>Question: ${flashcard.question}</span><br>
                                 <span>Paragraph: ${flashcard.paragraph}</span>
-                                ${flashcard.images.map(img => `<img src="${img}" alt="Image">`).join('')}
                             </div>
                             <div class="answer">
                                 <div class="choices">
