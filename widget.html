@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+
+    dataSet = {
+        "math": [
+            {"id":"281a4f3b","domain":"Advanced Math","visuals":{"type":"null","svg_content":"null"},"question":{"choices":{"A":"f(x) = 3,000(0.02)^x","B":"f(x) = 0.98(3,000)^x","C":"f(x) = 3,000(0.002)^x","D":"f(x) = 3,000(0.98)^x"},"question":"A certain college had 3,000 students enrolled in 2015. The college predicts that after 2015, the number of students enrolled each year will be 2% less than the number of students enrolled the year before. Which of the following functions models the relationship between the number of students enrolled, *f(x)*, and the number of years after 2015, *x*?","paragraph":"null","explanation":"Because the change in the number of students decreases by the same percentage each year, the relationship between the number of students and the number of years can be modeled with a decreasing, exponential function in the form *f(x) = a(1 - r)^x*, where *f(x)* is the number of students, *a* is the number of students in 2015, *r* is the rate of decrease each year, and *x* is the number of years since 2015. It’s given that 3,000 students were enrolled in 2015 and that the rate of decrease is predicted to be 2%, or 0.02. Substituting these values into the decreasing exponential function yields f(x) = 3,000(1 - 0.02)^x, which is equivalent to f(x) = 3,000(0.98)^x.","correct_answer":"D"},"difficulty":"Medium"},
+            {"id":"b81173a5","domain":"Advanced Math","visuals":{"type":"null","svg_content":"null"},"question":{"choices":{"A":"-2","B":"0","C":"2","D":"4"},"question":"The graph of the function \\(f(x)= x^2 + 2x + 3\\) intersects the x-axis at two points. What is the sum of the x-coordinates of these two points? ","paragraph":"null","explanation":"The sum of the roots of a quadratic equation in the form of \\(ax^2 + bx + c = 0\\) is equal to \\(-b/a\\).  In this case, a = 1 and b = 2, so the sum of the roots is \\(-2/1 = -2\\). ","correct_answer":"A"},"difficulty":"Hard"}]
+    ,"english": [
+            {"id":"281a4f3b","domain":"Advanced Math","visuals":{"type":"null","svg_content":"null"},"question":{"choices":{"A":"f(x) = 3,000(0.02)^x","B":"f(x) = 0.98(3,000)^x","C":"f(x) = 3,000(0.002)^x","D":"f(x) = 3,000(0.98)^x"},"question":"A certain college had 3,000 students enrolled in 2015. The college predicts that after 2015, the number of students enrolled each year will be 2% less than the number of students enrolled the year before. Which of the following functions models the relationship between the number of students enrolled, *f(x)*, and the number of years after 2015, *x*?","paragraph":"null","explanation":"Because the change in the number of students decreases by the same percentage each year, the relationship between the number of students and the number of years can be modeled with a decreasing, exponential function in the form *f(x) = a(1 - r)^x*, where *f(x)* is the number of students, *a* is the number of students in 2015, *r* is the rate of decrease each year, and *x* is the number of years since 2015. It’s given that 3,000 students were enrolled in 2015 and that the rate of decrease is predicted to be 2%, or 0.02. Substituting these values into the decreasing exponential function yields f(x) = 3,000(1 - 0.02)^x, which is equivalent to f(x) = 3,000(0.98)^x.","correct_answer":"D"},"difficulty":"Medium"},
+            {"id":"b81173a5","domain":"Advanced Math","visuals":{"type":"null","svg_content":"null"},"question":{"choices":{"A":"-2","B":"0","C":"2","D":"4"},"question":"The graph of the function \\(f(x)= x^2 + 2x + 3\\) intersects the x-axis at two points. What is the sum of the x-coordinates of these two points? ","paragraph":"null","explanation":"The sum of the roots of a quadratic equation in the form of \\(ax^2 + bx + c = 0\\) is equal to \\(-b/a\\).  In this case, a = 1 and b = 2, so the sum of the roots is \\(-2/1 = -2\\). ","correct_answer":"A"},"difficulty":"Hard"}]
+    };
+    question = dataSet[(Math.random() > 0.5 ? "math" : "english")]
+    question = question[Math.floor(Math.random()*question.length)]["question"];
+    
+    flashcard = {
+        question: question.question,
+        paragraph: question.paragraph,
+        choices: Object.keys(question.choices).map(key => (`${key}): ${question.choices[key]}`)),
+        images: [],
+        answer: question.correct_answer,
+        explanation: question.explanation,
+        // choices:["yes","no"],
+        images: [],
+  };
+//     flashcard = {
+//         question:"Balls",
+//         choices:["yes","no"],
+//         images: [],
+//         answer: "Both",
+//         explanation: "superpositon"
+//   };
+
+    
+    function completedCallback() {
+
+    };
+    function createFlashcardWidget(flashcard) {
+        GM_setValue('forceCard', true);
+            
+
+        let closeTimer = 10;
+        let selectedChoice = null;
+        let isCorrect = false;
+        let intervalId;
+        let forcePause;
+            if (!forcePause) {
+                forcePause = setInterval(() => {        document.querySelectorAll('video').forEach(vid => vid.pause());
+                }, 100);
+            }
+    
+        // Create container
+        const widgetEl = document.createElement('div');
+        widgetEl.id = 'flashcard-widget';
+        
+        // Add styles directly to widget
+        const styles = document.createElement('style');
+        styles.textContent = `
+            .background {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 10000vw;
+                height: 100000vh;
+                overflow: hidden;
+                background-color: gray;
+                opacity: 70%;
+                z-index: 99999999999999;
+            }
+            .cover-container { color: black; 
+                overflow: hidden;}
+            .widget {
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: max(40vw, 35vh);
+                border-radius: 1.5em;
+                padding: 1.4em;
+                background-color: white;
+                border: 0.075em solid black;
+                display: flex;
+                flex-direction: column;
+                font-family: monospace;
+                gap: 1.5em;
+                box-shadow: 0px 0px 60px 3px rgba(0,0,0,0.2);
+                z-index: 999999999999999;
+            }
+            .title { font-weight: bold; font-size: large; }
+            .limited { max-height: 10em; overflow-y: scroll; }
+            .choices { display: flex; flex-direction: column; gap: 0.2em; }
+            .choice {
+                padding: 2px 4px;
+                border-radius: 6px;
+                text-align: left;
+                background-color: color-mix(in srgb, silver 30%, white 70%);
+                border: none;
+                color: black;
+            }
+        `;
+    
+        function render() {
+            widgetEl.innerHTML = closeTimer > 0 ? `
+                <div class="cover-container">
+                    <div class="background"></div>
+                    <div class="widget">
+                        <div class="title">FlashySurf - Flashcard</div>
+                        ${selectedChoice ? `
+                            <span class="limited">
+                                <span style="color: ${isCorrect ? 'green' : 'red'};">${isCorrect ? 'Correct' : 'Incorrect'}</span>
+                                <br>Chosen Answer: ${selectedChoice}
+                                <br>Actual Answer: ${flashcard.answer}
+                                <br>Explanation: ${flashcard.explanation}
+                            </span>
+                            Closing in ${closeTimer.toFixed(1)} seconds
+                        ` : `
+                            <div class="question limited">
+                                <span>Question: ${flashcard.question}</span><br>
+                                <span>Paragraph: ${flashcard.paragraph}</span>
+                                ${flashcard.images.map(img => `<img src="${img}" alt="Image">`).join('')}
+                            </div>
+                            <div class="answer">
+                                <div class="choices">
+                                    ${flashcard.choices.map(choice => `
+                                        <button class="choice">${choice}</button>
+                                    `).join('')}
+                                </div>
+                            </div>
+                        `}
+                    </div>
+                </div>
+            ` : '';
+            widgetEl.appendChild(styles);
+        }
+    
+        function submittedAnswer(answer) {
+            selectedChoice = answer;
+            isCorrect = answer[0] == [flashcard.answer[0]]; // Your original comparison method
+            if (!isCorrect) closeTimer += 30;
+    
+            if (!intervalId) {
+                intervalId = setInterval(() => {
+                    closeTimer -= 0.1;
+                    if (closeTimer < 0) {
+                        widgetEl.remove();
+                        completedCallback();
+                        clearInterval(intervalId);
+                        clearInterval(forcePause);
+                        forcePause = 1;
+                        GM_setValue('forceCard', false);
+                    }
+                    render();
+                }, 100);
+            }
+            render();
+        }
+    
+        // Event delegation for choices
+        widgetEl.addEventListener('click', (e) => {
+            if (e.target.classList.contains('choice')) {
+                submittedAnswer(e.target.textContent);
+            }
+        });
+    
+        // Initial render
+        render();
+        document.body.appendChild(widgetEl);
+    }
+    
+    // Start the widget
+    if (GM_getValue('forceCard', false) || random.random() < 0.10) {
+        setTimeout(() => {
+            createFlashcardWidget(flashcard);
+        }, 1000);
+    }
+    
+</script>
+</html>

@@ -1,0 +1,1000 @@
+{
+    "013b49a8-e0e3-4cde-8913-5016b184fb62": {
+        "updateDate": 1691007959816,
+        "pPcc": "SAT#H",
+        "questionId": "002dba45",
+        "skill_cd": "H.C.",
+        "score_band_range_cd": 5,
+        "uId": "013b49a8-e0e3-4cde-8913-5016b184fb62",
+        "skill_desc": "Linear equations in two variables",
+        "createDate": 1691007959816,
+        "program": "SAT",
+        "primary_class_cd_desc": "Algebra",
+        "ibn": null,
+        "external_id": "65ac5dc5-af25-4ecf-8562-a346047750a6",
+        "primary_class_cd": "H",
+        "difficulty": "M",
+        "module": "math",
+        "content": {
+            "keys": [
+                ".1764",
+                " .1765",
+                " 3/17"
+            ],
+            "rationale": "<p style=\"text-align: left;\">The correct answer is <math alttext=\"three seventeenths\"><mfrac>\n\t<mn>3</mn>\n\t<mn>17</mn>\n</mfrac>\n</math>. It&rsquo;s given that line <math alttext=\"j\"><mi>j</mi>\n</math> is perpendicular to line <math alttext=\"k\"><mi>k</mi>\n</math> in the <em>xy</em>-plane. This means that the slope of line <math alttext=\"j\"><mi>j</mi>\n</math> is the negative reciprocal of the slope of line <math alttext=\"k\"><mi>k</mi>\n</math>. The equation of line <math alttext=\"k\"><mi>k</mi>\n</math>, <math alttext=\"y equals minus StartFraction 17 Over 3 EndFraction x plus 5\"><mi>y</mi><mo>=</mo><mo>-</mo><mfrac><mn>17</mn><mn>3</mn></mfrac><mi>x</mi><mo>+</mo><mn>5</mn></math>, is written in slope-intercept form <math alttext=\"y equals m x plus b\"><mrow>\n\t<mi>y</mi>\n\t<mo>=</mo>\n\t<mrow>\n\t\t<mrow>\n\t\t\t<mi>m</mi>\n\t\t\t<mi>x</mi>\n\t\t</mrow>\n\t\t<mo>+</mo>\n\t\t<mi>b</mi>\n\t</mrow>\n</mrow>\n</math>, where <math alttext=\"m\"><mi>m</mi>\n</math> is the slope of the line and <math alttext=\"b\"><mi>b</mi>\n</math> is the <em>y</em>-coordinate of the <em>y</em>-intercept of the line. It follows that the slope of line <math alttext=\"k\"><mi>k</mi>\n</math> is <math alttext=\"negative StartFraction 17 Over 3 EndFraction\"><mrow>\n\t<mo>-</mo>\n\t<mfrac>\n\t\t<mn>17</mn>\n\t\t<mn>3</mn>\n\t</mfrac>\n</mrow>\n</math>. The negative reciprocal of a number is <math alttext=\"negative 1\"><mo>-</mo><mn>1</mn>\n</math> divided by the number. Therefore, the negative reciprocal of <math alttext=\"negative StartFraction 17 Over 3 EndFraction\"><mrow>\n\t<mo>-</mo>\n\t<mfrac>\n\t\t<mn>17</mn>\n\t\t<mn>3</mn>\n\t</mfrac>\n</mrow>\n</math> is <math alttext=\"StartStartFraction negative 1 OverOver negative StartFraction 17 Over 3 EndFraction EndEndFraction\"><mfrac><mrow><mo>-</mo><mn>1</mn></mrow><mrow><mo>-</mo><mstyle displaystyle=\"true\"><mfrac><mn>17</mn><mn>3</mn></mfrac></mstyle></mrow></mfrac></math>, or <math alttext=\"three seventeenths\"><mfrac>\n\t<mn>3</mn>\n\t<mn>17</mn>\n</mfrac>\n</math>. Thus, the slope of line <math alttext=\"j\"><mi>j</mi>\n</math> is <math alttext=\"three seventeenths\"><mfrac>\n\t<mn>3</mn>\n\t<mn>17</mn>\n</mfrac>\n</math>. Note that 3/17, .1764, .1765, and 0.176 are examples of ways to enter a correct answer.</p>",
+            "origin": "manifold",
+            "stem": "<p>Line <math alttext=\"k\"><mi>k</mi>\n</math> is defined by <math alttext=\"y equals minus StartFraction 17 Over 3 EndFraction x plus 5\"><mi>y</mi><mo>=</mo><mo>-</mo><mfrac><mrow><mn>17</mn></mrow><mrow><mn>3</mn></mrow></mfrac><mi>x</mi><mo>+</mo><mrow><mn>5</mn></mrow></math>. Line <math alttext=\"j\"><mi>j</mi>\n</math> is perpendicular to line <math alttext=\"k\"><mi>k</mi>\n</math> in the <em>xy</em>-plane. What is the slope of line <math alttext=\"j\"><mi>j</mi>\n</math>?</p>",
+            "externalid": "65ac5dc5-af25-4ecf-8562-a346047750a6",
+            "templateid": "7239cf53-8b85-4e79-9653-145b90572d78",
+            "vaultid": "8e8b222f-ccd2-4ef0-bdce-2b534c2edbfa",
+            "type": "spr",
+            "answerOptions": [],
+            "correct_answer": [
+                ".1764",
+                " .1765",
+                " 3/17"
+            ]
+        }
+    },
+    "016d3534-2566-4551-af72-a61ad0c95b5f": {
+        "updateDate": 1691007959617,
+        "pPcc": "SAT#H",
+        "questionId": "f224df07",
+        "skill_cd": "H.E.",
+        "score_band_range_cd": 4,
+        "uId": "016d3534-2566-4551-af72-a61ad0c95b5f",
+        "skill_desc": "Linear inequalities in one or two variables",
+        "createDate": 1691007959617,
+        "program": "SAT",
+        "primary_class_cd_desc": "Algebra",
+        "ibn": "022222-DC",
+        "external_id": null,
+        "primary_class_cd": "H",
+        "difficulty": "M",
+        "module": "math",
+        "content": {
+            "item_id": "022222-DC",
+            "section": "Math",
+            "prompt": "<p class=\"stem_paragraph \">A cargo helicopter delivers only 100-pound packages and 120-pound packages. For each delivery trip, the helicopter must carry at least 10 packages, and the total weight of the packages can be at most 1,100 pounds. What is the maximum number of 120-pound packages that the helicopter can carry per trip?</p>\n",
+            "answer": {
+                "style": "Multiple Choice",
+                "choices": {
+                    "a": {
+                        "body": "<p class=\"choice_paragraph \">2</p>\n"
+                    },
+                    "b": {
+                        "body": "<p class=\"choice_paragraph \">4</p>\n"
+                    },
+                    "c": {
+                        "body": "<p class=\"choice_paragraph \">5</p>\n"
+                    },
+                    "d": {
+                        "body": "<p class=\"choice_paragraph \">6</p>\n"
+                    }
+                },
+                "correct_choice": "c",
+                "rationale": "<p>Choice C is correct. Let <span class=\"italic\">a</span> equal the number of 120-pound packages, and let <span class=\"italic\">b</span> equal the number of 100-pound packages. It&rsquo;s given that the total weight of the packages can be at most 1,100 pounds: the inequality <span class=\"math-container\"><img align=\"middle\" role=\"math\" class=\"math-img\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJEAAAAWCAYAAADAbX5DAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAABGJhU0UAAAALV/ZLFgAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAACjklEQVRoQ+2XYZKDIAyFPZ4H8jjepVfpTVhIDCiQ8NxW9sfmm2HaYpCXR0C71Ly2Jaz7Oxw/MyG8w74uqT+3btxrO8WsIYY0MTPR8kkgWqGY9x7W+LG95uRq5aQxwwdCAuvJSgFtIfpE13qx3FcmqH/PRssngWhF8+H+4s2T8Fz3isgag+SIxBDvfU0d1Joiop3WDuIxbJ4UWj027YAlbtHj50eEONMWP5Adb+YDaL2TD8217nHEWJcF56cXo5WTxjQfSmXxIqECedxRRMqRfi60oysjAtNXbp3qPoEW0SgfRCuaT84hBpKxsSu1kcYzkpfmU+I3azTTh4wkgxYRmXbsQJ6sLYJzoR1dBPcXcUiBoEUkaPkgWtF8SgEUXdbGOVPGjmMFLSeLGT5k7ghsioB+a5Nd+3vCuM82U/R9XESAVjQf1n2dY6RTrt8pHkHLyWKGDxlUIN8gmhBd4h79pr1+9b2i6itm2220WI8WUSfO8pGv3S8ewbq3xgwfMohAPqrj4tULDh573VMINEbitKKpUc0DtKL5kB/VS/VIp1z/85Poiz5kRgLlxbF3nSdrjavfD3qTc18rtGa0ODW2ebZWNJ/eqXo3n+5iKIzWqMcMHzKWQB6ki4+zQX8FyeDTzpVxyF9k0VcnpKGaB2jFYvj+dRFRzI2//Pk+QDFZa6TxtA8X1MmOahwJr3dgb0fWlc0xiqAK0SdjR1iGQ1oHMZLL6D4orNcuJCsnjad9uKBNJqdQv12Tvsb2Jyrmx5YqgkThxYEyMhzRasWw7pQ/z5O6VHO/hJUTae2cgE/74ExGFjR97bfxI02DHj0b/hh1nAY64YHXAsdRSY+cb78SOI7jOI7jOI7jOI7zT1iWH/UtZOqOxolhAAAAAElFTkSuQmCC\" alt=\"120 a, plus 100 b, is less than or equal to 1,100\"></span> represents this situation. It&rsquo;s also given that the helicopter must carry at least 10 packages: the inequality <span class=\"math-container\"><img align=\"middle\" role=\"math\" class=\"math-img\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEUAAAAWCAYAAACWl1FwAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAABGJhU0UAAAALV/ZLFgAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAABe0lEQVRYR+2V7bGEIAxFKY+CKIdebMVO8gIh4oaAkX36Y4c7w6xmIR8nUd2bgj2Cx5+wARTTo9qCAx93NRZsIdnL8oDbXsmpESUSAJk8ngAXrUGh/yoIef+1AEsM+GPp/h49OB8BY1/uJb9zAHMcdJGWhAIYPfrWnqbKYRHl9lN8KF3SGhO0Qjn84sacQPE/Ose+70xX7TqdbaB0HmECqcThkeMDloLtULjAurebiNAUnHJGh9I2mmoX/rXNZBsnYoZSOnRO0nqWdQdOF0rn/aHatWcqd1LYamLjJQvVgvYSvxKdszVrGoo6JcaEed9Vt7WXrPUsi/d/NSnWx6cxoHpEpayFaZN4N4YFBmsMpc23eb/l5E5dPL4Uhs+nBcpRlICSQQ1izMBgdaGU2qS9aZqkRx1si9BkglL8n6fiakrI730YrB6UJBm7m0tNnGAwmFGxVpGvVCB3/hPQExpBSaLH5Z1c/k1cVLrU1/wULS0tLS0tLS0t/Yyc+wNLm/viO87UngAAAABJRU5ErkJggg==\" alt=\"a, plus b, is greater than or equal to 10\"></span> represents this situation. Values of <span class=\"italic\">a</span> and <span class=\"italic\">b</span> that satisfy these two inequalities represent the allowable numbers of 120-pound packages and 100-pound packages the helicopter can transport. To maximize the number of 120-pound packages, <span class=\"italic\">a</span>, in the helicopter, the number of 100-pound packages, <span class=\"italic\">b</span>, in the helicopter needs to be minimized. Expressing <span class=\"italic\">b</span> in terms of <span class=\"italic\">a</span> in the second inequality yields <span class=\"math-container\"><img align=\"middle\" role=\"math\" class=\"math-img\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEUAAAAWCAYAAACWl1FwAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAABGJhU0UAAAALV/ZLFgAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAABYUlEQVRYR+2V0RGEIAxEKY+CKIdebMVOcgkhwkEAZZQvdoY55dBsXgIaEZweLP64AyBOfarDGbD+VGPB4Wg+Dgu4bImnSmzEATL53IAkrUHh/xKI8n6pTm/BWA8YexgcEJ2bBBji4CtolFAAo3tbz1NXGWzheLtGYoYCBwPRdG8rMRhadx9Oqjo/W0FpbGEG+X4XX3njJY+sI1OCydBdI1Nw4jM6lHqrMMx3ofA7U77i6SqIVCg3WS0a6AmcJpTG+dGan5UGn+cy71rQlvGR+Lk+mDegpCL0h1ZU7YwKOyOf0w5ZCbq0UxZsH7VLND8aubst+wSGqA+lLsSbB60GuMr1SqqAEkB1PtEzMERNKAs+yQFAltf1BcpzlerkpEZdwknNV64FhVTGHnl5qrIb+f0FdJ6kBKXy/4C+UA8KibfLd15SI+AgOhGMgJqSJEWX+nhn/29tbW1tbW1tbW0NZMwPoZm44qI9u2IAAAAASUVORK5CYII=\" alt=\"b is greater than or equal to, 10 minus a\"></span>, so the minimum value of <span class=\"italic\">b</span> is equal to <span class=\"math-container\"><img align=\"middle\" role=\"math\" class=\"math-img\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACsAAAAWCAYAAABZuWWzAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAABGJhU0UAAAALV/ZLFgAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAAA6klEQVRIS+2V4Q3EIAiFHc+BHMddXMVNOJByrYj8uHheLvElpkpt/XhiG7RKChBzhWvYCUqi+NUi4DRz3hYJjAXL925APd6qmiMt2pqGBaiQ4xinXQip7IW9XSqQLNiaIeIFubo4J5gAw0uBxRzqcjN2EHDZOez4ACe5FlZKUYwRJm3UHHZSn6vr1jKFY4YhK2DlHdT12uAUyjoDrdRUrOmXZWC6OuFp8mG/e8CsxN0ym8Ju+HQ1sJhxJQZ7fxEesU6e7TpLN+sPpHeP3++Y4dYI6vnjWAkqEmDqEqQA6/I7Ojo6Ojr6J4XwAl35p5bhi2j0AAAAAElFTkSuQmCC\" alt=\"10 minus a\"></span>. Substituting <span class=\"math-container\"><img align=\"middle\" role=\"math\" class=\"math-img\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACsAAAAWCAYAAABZuWWzAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAABGJhU0UAAAALV/ZLFgAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAAA6klEQVRIS+2V4Q3EIAiFHc+BHMddXMVNOJByrYj8uHheLvElpkpt/XhiG7RKChBzhWvYCUqi+NUi4DRz3hYJjAXL925APd6qmiMt2pqGBaiQ4xinXQip7IW9XSqQLNiaIeIFubo4J5gAw0uBxRzqcjN2EHDZOez4ACe5FlZKUYwRJm3UHHZSn6vr1jKFY4YhK2DlHdT12uAUyjoDrdRUrOmXZWC6OuFp8mG/e8CsxN0ym8Ju+HQ1sJhxJQZ7fxEesU6e7TpLN+sPpHeP3++Y4dYI6vnjWAkqEmDqEqQA6/I7Ojo6Ojr6J4XwAl35p5bhi2j0AAAAAElFTkSuQmCC\" alt=\"10 minus a\"></span> for <span class=\"italic\">b</span> in the first inequality results in <span class=\"math-container\"><img align=\"middle\" role=\"math\" class=\"math-img\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALwAAAAaCAYAAAANDDZYAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAABGJhU0UAAAANvpXuIwAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAADIklEQVR4Xu2ZAbKqMAxFWR4LYjnuxa24k36aNIKlCbcG+/RPzgwzElOS3KaljlNwDelxS/M0p9sjpWL6alJ6pNs8peX+G/kGX0RK97T8ULMLv5r3pdyXKc2rAuX2iewI+aNcTb/7svP5ezG1ejJIroiPFcMb/9NQDvNtnd3PxLbq1xgxZ4Q41sG2Zl/WPYEHt3zZtgWo70ej1ZNBcoV86Ciz6bLHG38EnzzaWPVreDVDfIjHbc4Guupg2vmUx/Bki3D12Lxap1XNcuuCX8HY5Jj1ALmi9VCcRn3e+COhpuiMy3PRXugZq36NUXO2WwXcUGiCPK40PC2KYzNyEcoOWBLMH/lqrMQdaMOf1YPkitaTxax9rohfTJdwpjPng8WVObDyfKefRs7ZEykGbXhaOeX8x8FehczsF0UxEWzfkkOaGW14QasHyRXyoUY6+gie+MXkBtGZbXodGRnXk59Wv4VHs25dexI8CEn3WrBXeysxttliSn7uhgdyhXzo+UcfwRO/mFygOlsLV2p4ZyFq9Vt4NOvWFU2QH7CKsHYeW/SHtuytsyq9dirbJrZ9aQvg0+Lx848+gid+Mbk0wHVuNzzH7m90QavfwqNZj64EkiCfh45Coq+T5q4DCiN+WoPXqOIBuUI+9PyGkAVP/GJ6mx6drTpkzJ/v8BfNWTExZwnSjqF8z8GOzVj/YGgFZ1tb8D2S3zUNb+cK+ZQfg1o+nvjF9DY9OnOedlyppSc/rX6LT89ZMTFWgjxIT14mv/6+fq2S6Ls/OmQc8ueH5Kc1WI0qHpArWk++1zV5P76XHp1rXwupCWl8q580RszZEzVYWTlnidc7SGtHqVch+2ATLfnJ2DMswaFcUR+lWbzxPfTobC1aDa4Neyv0PHvEnD3Rgsnu3r5ei371bQeSycgf8wTIZKCNjHImOJLrmY/sKq3cr4jvAdGZc7w+dsaqn2pvvW0GzFnghBoJPBJ8G7k5tOaS5ssf29f5sUaDNorlNzULVnhX+Z3dxDrTj4DePuurptwGwf9N3iCuPsIGQRAEQRAEQRAEQRAEQRAEQRAEwSCm6R/Lpmx4FIR0QQAAAABJRU5ErkJggg==\" alt=\"120 a, plus 100, times, open parenthesis, 10 minus a, close parenthesis, is less than or equal to 1,100\"></span>. Using the distributive property to rewrite this inequality yields <span class=\"math-container\"><img align=\"middle\" role=\"math\" class=\"math-img\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAAAWCAYAAACFbNPBAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAABGJhU0UAAAALV/ZLFgAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAACyElEQVR4Xu2YgbGDIAyGHc+BHMdduko34QkhSpHAj0bau5fvzqumQf4kBG2nnNcyuXl9u3i549zbrfPk7ftR9Hstic/sNpeTz0ikeEog2rV8NKjF9ks6e+ipFzMsD+yYT3Y0x+JejgaXfMl2TJBfj0aKpwSiXctHA7pvObZf0tlDLSaJ2hgkRsQn8F5nbwhHPpl7r24uDKIx1DTcRPlY393T8vqwXcVtMy3bx3a75v1q8eQg2rV8NKjW6od0plDtjg02p6dezLA8HF1DCxAVSONig4QmOi/etImiaYcF+lM6Cp2bgDZIbzyIdi2faLpMK7andPbWiuGa1eK/sv6+kgcOBm2Q0GnzuqWOJzsnLW2iaAqQ/RCHLH60QRg0HkS7lk803UaK7QmdZL9Wq5640XqljMxDl8BT0sK1NNmnvSSMbPVkIoVJQeNBtGv5RNNtpNi0dfbWinX1NAYjxVRjVB4CqEC6wZaEbaWSRb5pyV561w2Ptcx2JLt+SA3TF09du5ZPND0Wm7ZOtFYe0tTfGIwUU41ReQggAun97Jw09HFV3JHAxLCftGhy4PsC2rV8ouk2UmyaOkt+rZzy91fiReuVMiIPOy2BYTcRvqfJzos3/8FTmpxsZ6E5rO+ZBqlr1/KJptvUF4aOTo1a9cSN1itlRB52agJpkCx+mw36yywkOP6wD9f870hik2B9eUASaMIR7Vo+WogLQ1HnnVoxrBNpFLReKSPysCNOFjutJTzfXUq7Td615CMIymB9PLZFT8Ih7Uo+GtRi09J5p1Y5pLfeJD31YkbkYUeajJ8e5eMz6E/f8kSceH/qk82JRxc+Si15QWe2EyLatXzu0lpMWjpH1crTWy/PqDz8O8LjdcFfFYw2vFj9aflov2ZJWL0GE3bGC68Kxneweg3GP1afeE0wnsHqZRiGYRiGYRiGYRiGYRiGYXQzTX/wWeGGv/N/NQAAAABJRU5ErkJggg==\" alt=\"120 a, plus 1,000, minus 100 a, is less than or equal to 1,100\"></span>, or <span class=\"math-container\"><img align=\"middle\" role=\"math\" class=\"math-img\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIsAAAAWCAYAAADw4W9iAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAABGJhU0UAAAALV/ZLFgAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAACRklEQVRoQ+2XDZKDIAyFPZ4H8jjexat4ExYIqcjvYzd0bSffjLOaBsiDt7FdHMacZl8X4275WvfT/b1hji3KWY1NyXLeybGV6yyB1C6VI8WIPqY15s/6LqNs5jD0AQ+IF6XYNTh9fjelGmsgtUvlSEFzj5mlNQapvZtjzt2sBcHnvtpnMhAbKi3CuXjZjlvstxi70mb/2Om681Ft5P7eZiK1S+WgkNbrnzNlRB/TGjNdH7kqmMUbKj/I2FAh9IIXd7d05YaMQc1yuZ3ye5uJ1C6VE0JVWGMrf1Sfozdmuj7vqHW3R84T5YcdGyqEPBS/FkaMMNJZHJyPmaVdu1ROCGUgJklB9cXUxkzVRwnRYfvn2kT3eGlRimEbKm4WoHapnBB6wTWOmIRB9cXUxszSFz60Au2pUQRbLISK7zjfypLYtZHtq2YedDOR2qVyQshD9Y2bhEH1xdTGzNAX3k/2kNKDBVtUsauAojmvZo4UeF6gdqmcEHrBNf57Z5HW5ztCYSEHTZQfZPrlpzQxxfIiUuaapV27VE4IZfzGNPJmEdJHgXphdiboZ5U3RvhS7J/5F1EUqzHNLEDtUjk9RkwjahYpfeyoXlFphyh1jNSdlINt5iyzOKDahXIQqHasGyH6mNYYEX3cVcrXXdA9t7xJbBh360xCC+ImQGltjK8z6WZI7VI5Eozqc/QM9iR9j8G31K3/6psJH5y7LV/9V1GNJ+j7Gnx3A159n8q363srrpVKv/aexLfrUxRFURRFURRFUZSPZFl+ALa9LKBwdFjiAAAAAElFTkSuQmCC\" alt=\"20 a, plus 1,000, is less than or equal to 1,100\"></span>. Subtracting 1,000 from both sides of this inequality yields <span class=\"math-container\"><img align=\"middle\" role=\"math\" class=\"math-img\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEcAAAAWCAYAAACSYoFNAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAABGJhU0UAAAALV/ZLFgAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAABjklEQVRYR+2V7RGDIAyGGY+BHMddXMVNUkIIHzFAtF77h+fOq8QAb96gdQjACbt3gLd8+f3E3wY4tirHQ0i55PyaY9O1Iha9w5xizAYH0AOeUG9KsTJZjv+BppOx6J3mwLmDV4o8dx/GZBgbKEVg19x2NLG3gLDzVjVMQvqo41KXRe9XNZGLyZxooIMwp5lUG5hCmXIi+bo2QINMwfy+MaXDlHsxx6D3SU2Z6KDfQ4m80LW42sAUilC8bMwFSyE1FlMkPEc3Z6z3bk2ZS3Fx3FuojWubUkzf8IkpTNccg947NWXoYRAbnKGIbbMUUt/ZeFRFDKHi7pvC/NSc/JEThViPoHpqOgUw/PzVk2PQa60pEjuubITQQvOPl7ZwtxOCJyaNzRnrtdaUT0y/u7a/vWhE+ojHMf9jVbEZd0zqmmPQa6qJHewZw8gToJ0I2Q3KaQ20QoWPDeqZg5j0znLyd0a9WnFtbrsRwwbhLZrCBrFhbzIyB7HoteT8BS4Ob/Vr/motFovFYrFYLBYv4twHaQrSivFxH2wAAAAASUVORK5CYII=\" alt=\"20 a, is less than or equal to 100\"></span>. Dividing both sides of this inequality by 20 results in <span class=\"math-container\"><img align=\"middle\" role=\"math\" class=\"math-img\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAWCAYAAABKbiVHAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAABGJhU0UAAAALV/ZLFgAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAAA7ElEQVRIS+2U2xHEIAhFLc+CKMdebCWdENQlYoRENzv5Wc9MxjwQLg/j3gQxItCSbpsLYlrfBbeA3gFJwneCl+z1gBgBnQ+4jYpBMg1eltFjoN354wW1BXbmESZakpXTQvZ5AwfgZ40REQlO0gNQqzhReqZMs4Gk9LOtwlWPR0Uwh71oU/GvCNJKuAWvlrU4HhNxR44hfalV+WSilpGYrYxFGQ0Ru7xonXZGBk9F6WJkL/lETRzDO1E8H+fDYLRJnKKstp+hEax5qr+M+o3jnAUegtJtEmEaPqD/h/3Af22JdX03P4vFYvFHOLcDDHx8qt19fE8AAAAASUVORK5CYII=\" alt=\"a, is less than or equal to 5\"></span>. This means that the maximum number of 120-pound packages that the helicopter can carry per trip is 5.<p>Choices A, B, and D are incorrect and may result from incorrectly creating or solving the system of inequalities.</p></p>\n"
+            }
+        }
+    },
+    "02672cb2-7340-4344-8dc8-257d5159823b": {
+        "updateDate": 1691007959815,
+        "pPcc": "SAT#H",
+        "questionId": "3008cfc3",
+        "skill_cd": "H.C.",
+        "score_band_range_cd": 7,
+        "uId": "02672cb2-7340-4344-8dc8-257d5159823b",
+        "skill_desc": "Linear equations in two variables",
+        "createDate": 1691007959815,
+        "program": "SAT",
+        "primary_class_cd_desc": "Algebra",
+        "ibn": null,
+        "external_id": "83c4d031-e8f1-4415-8c6c-33d11d65e85b",
+        "primary_class_cd": "H",
+        "difficulty": "H",
+        "module": "math",
+        "content": {
+            "keys": [
+                "33"
+            ],
+            "rationale": "<p style=\"text-align: left;\">The correct answer is <math alttext=\"33\"><mn>33</mn>\n</math>. It&rsquo;s given in the table that the coordinates of two points on a line in the <em>xy</em>-plane are <math alttext=\"left parenthesis k comma 13 right parenthesis\"><mo>(</mo><mi>k</mi><mo>,</mo><mn>13</mn><mo>)</mo></math> and <math alttext=\"left parenthesis k plus 7 comma negative 15 right parenthesis\"><mo>(</mo><mi>k</mi><mo>+</mo><mn>7</mn><mo>,</mo><mo>-</mo><mn>15</mn><mo>)</mo></math>. The <em>y</em>-intercept is another point on the line. The slope computed using any pair of points from the line will be the same. The slope of a line, <math alttext=\"m\"><mi>m</mi>\n</math>, between any two points, <math alttext=\"left parenthesis x 1 comma y 1 right parenthesis\"><mfenced><mrow><msub><mi>x</mi><mn>1</mn></msub><mo>,</mo><msub><mi>y</mi><mn>1</mn></msub></mrow></mfenced></math> and <math alttext=\"left parenthesis x 2 comma y 2 right parenthesis\"><mfenced><mrow><msub><mi>x</mi><mn>2</mn></msub><mo>,</mo><msub><mi>y</mi><mn>2</mn></msub></mrow></mfenced></math>, on the line can be calculated using the slope formula, <math alttext=\"m equals StartFraction left parenthesis y 2 minus y 1 right parenthesis Over left parenthesis x 2 minus x 1 right parenthesis EndFraction\"><mi>m</mi><mo>=</mo><mfrac><mfenced><mrow><msub><mi>y</mi><mn>2</mn></msub><mo>-</mo><msub><mi>y</mi><mn>1</mn></msub></mrow></mfenced><mfenced><mrow><msub><mi>x</mi><mn>2</mn></msub><mo>-</mo><msub><mi>x</mi><mn>1</mn></msub></mrow></mfenced></mfrac></math>. It follows that the slope of the line with the given points from the table, <math alttext=\"left parenthesis k comma 13 right parenthesis\"><mo>(</mo><mi>k</mi><mo>,</mo><mn>13</mn><mo>)</mo></math>&nbsp;and&nbsp;<math alttext=\"left parenthesis k plus 7 comma negative 15 right parenthesis\"><mo>(</mo><mi>k</mi><mo>+</mo><mn>7</mn><mo>,</mo><mo>-</mo><mn>15</mn><mo>)</mo></math>, is&nbsp;<math alttext=\"m equals StartFraction negative 15 minus 13 Over k plus 7 minus k EndFraction\"><mi>m</mi><mo>=</mo><mfrac><mrow><mo>-</mo><mn>15</mn><mo>-</mo><mn>13</mn></mrow><mrow><mi>k</mi><mo>+</mo><mn>7</mn><mo>-</mo><mi>k</mi></mrow></mfrac></math>, which is equivalent to&nbsp;<math alttext=\"m equals StartFraction negative 28 Over 7 EndFraction\"><mi>m</mi><mo>=</mo><mfrac><mrow><mo>-</mo><mn>28</mn></mrow><mn>7</mn></mfrac></math>, or&nbsp;<math alttext=\"m equals negative 4\"><mi>m</mi><mo>=</mo><mo>-</mo><mn>4</mn></math>. It's given that the&nbsp;<em>y</em>-intercept of the line is&nbsp;<math alttext=\"left parenthesis k minus 5 comma b right parenthesis\"><mo>(</mo><mi>k</mi><mo>-</mo><mn>5</mn><mo>,</mo><mi>b</mi><mo>)</mo></math>. Substituting <math alttext=\"negative 4\"><mo>-</mo><mn>4</mn>\n</math> for <math alttext=\"m\"><mi>m</mi>\n</math> and the coordinates of the points <math alttext=\"left parenthesis k minus 5 comma b right parenthesis\"><mo>(</mo><mi>k</mi><mo>-</mo><mn>5</mn><mo>,</mo><mi>b</mi><mo>)</mo></math> and&nbsp;<math alttext=\"left parenthesis k comma 13 right parenthesis\"><mo>(</mo><mi>k</mi><mo>,</mo><mn>13</mn><mo>)</mo></math> into the slope formula yields <math alttext=\"negative 4 equals StartFraction 13 minus b Over k minus left parenthesis k minus 5 right parenthesis EndFraction\"><mo>-</mo><mn>4</mn><mo>=</mo><mfrac><mrow><mn>13</mn><mo>-</mo><mi>b</mi></mrow><mrow><mi>k</mi><mo>-</mo><mfenced><mrow><mi>k</mi><mo>-</mo><mn>5</mn></mrow></mfenced></mrow></mfrac></math>, which is equivalent to&nbsp;<math alttext=\"negative 4 equals StartFraction 13 minus b Over k minus k plus 5 EndFraction\"><mo>-</mo><mn>4</mn><mo>=</mo><mfrac><mrow><mn>13</mn><mo>-</mo><mi>b</mi></mrow><mrow><mi>k</mi><mo>-</mo><mi>k</mi><mo>+</mo><mn>5</mn></mrow></mfrac></math>, or <math alttext=\"negative 4 equals StartFraction 13 minus b Over 5 EndFraction\"><mo>-</mo><mn>4</mn><mo>=</mo><mfrac><mrow><mn>13</mn><mo>-</mo><mi>b</mi></mrow><mn>5</mn></mfrac></math>. Multiplying both sides of this equation by <math alttext=\"5\"><mn>5</mn>\n</math> yields <math alttext=\"negative 20 equals 13 minus b\"><mo>-</mo><mn>20</mn><mo>=</mo><mn>13</mn><mo>-</mo><mi>b</mi></math>. Subtracting <math alttext=\"13\"><mn>13</mn>\n</math> from both sides of this equation yields&nbsp;<math alttext=\"negative 33 equals negative b\"><mo>-</mo><mn>33</mn><mo>=</mo><mo>-</mo><mi>b</mi></math>. Dividing both sides of this equation by&nbsp;<math alttext=\"negative 1\"><mo>-</mo><mn>1</mn></math> yields <math alttext=\"b equals 33\"><mi>b</mi><mo>=</mo><mn>33</mn></math>. Therefore, the value of <math alttext=\"b\"><mi>b</mi>\n</math> is <math alttext=\"33\"><mn>33</mn>\n</math>.</p>",
+            "origin": "manifold",
+            "stem": "<figure class=\"table\"><figure class=\"table\"><figure class=\"table\"><figure class=\"table\"><table border=\"1\">\n<tbody>\n<tr>\n<th style=\"width: 47.7376%; text-align: center;\" scope=\"col\"><math alttext=\"x\"><mi>x</mi>\n</math></th>\n<th style=\"width: 47.7376%; text-align: center;\" scope=\"col\"><math alttext=\"y\"><mi>y</mi>\n</math></th>\n</tr>\n<tr>\n<td style=\"width: 47.7376%; text-align: center;\"><math alttext=\"k\"><mi>k</mi>\n</math></td>\n<td style=\"width: 47.7376%; text-align: center;\"><math alttext=\"13\"><mn>13</mn>\n</math></td>\n</tr>\n<tr>\n<td style=\"width: 47.7376%; text-align: center;\"><math alttext=\"k plus 7\"><mrow>\n\t<mi>k</mi>\n\t<mo>+</mo>\n\t<mn>7</mn>\n</mrow>\n</math></td>\n<td style=\"width: 47.7376%; text-align: center;\"><math alttext=\"negative 15\"><mo>-</mo><mn>15</mn>\n</math></td>\n</tr>\n</tbody>\n</table></figure></figure></figure></figure>\n<p style=\"text-align: left;\">The table gives the coordinates of two points on a line in the <em>xy</em>-plane. The <em>y</em>-intercept of the line is <math alttext=\"left parenthesis k minus 5 comma b right parenthesis\"><mfenced><mrow><mi>k</mi><mo>-</mo><mrow><mn>5</mn></mrow><mo>,</mo><mi>b</mi></mrow></mfenced></math>, where <math alttext=\"k\"><mi>k</mi>\n</math> and <math alttext=\"b\"><mi>b</mi>\n</math> are constants. What is the value of <math alttext=\"b\"><mi>b</mi>\n</math>?</p>",
+            "externalid": "83c4d031-e8f1-4415-8c6c-33d11d65e85b",
+            "templateid": "02d42775-4c2c-4003-a7e9-c3b212c282e1",
+            "vaultid": "b04c729b-d5d7-490d-9cc8-476e0b034613",
+            "type": "spr",
+            "answerOptions": [],
+            "correct_answer": [
+                "33"
+            ]
+        }
+    },
+    "03422a73-15ea-4c0a-b655-c48c93adbcf6": {
+        "updateDate": 1691007959631,
+        "pPcc": "SAT#H",
+        "questionId": "d1b66ae6",
+        "skill_cd": "H.D.",
+        "score_band_range_cd": 6,
+        "uId": "03422a73-15ea-4c0a-b655-c48c93adbcf6",
+        "skill_desc": "Systems of two linear equations in two variables",
+        "createDate": 1691007959631,
+        "program": "SAT",
+        "primary_class_cd_desc": "Algebra",
+        "ibn": "070615-DC",
+        "external_id": null,
+        "primary_class_cd": "H",
+        "difficulty": "H",
+        "module": "math",
+        "content": {
+            "item_id": "070615-DC",
+            "section": "Math",
+            "body": "<div class=\"stimulus_reference \" xmlns=\"http://www.imsglobal.org/xsd/apip/apipv1p0/qtiitem/imsqti_v2p1\"><p class=\"standalone_statement style:1 \"><span class=\"math_expression \"><span class=\"math-container\"><img align=\"middle\" role=\"math\" class=\"math-img\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGsAAAAsCAYAAABi4kbYAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAABGJhU0UAAAAWNPAnzwAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAADE0lEQVR4Xu2aAZKDIAxFPZ4H8jjepVfpTVhJDMRIBBTR3c2bYWpbVyA/+bLYwWjLZxrc8rK20c1f54+TOPdxUziXtemj/o3RCBRqWiRAgdxnWl51wdx3diM7//VQdi3J9DsGrICB387Dua+bx8GNi1rrRxtAzHFezuo8d8gq0TFmWpkV5MT6zuPu+hSMt9pGbnwQnyfGLoMOwc0I5SkVCy1laxmazaj3AtFyfV7lKAah6qYJKtJ/5JtWhc0J1bVaQknHxWLBNePE31xVKNJxQoSEYm5BVlol2NnMpM78oRbE09cWoqYqrRVnxygJ8VBikQKF7rTokCuiHFIEDX6z5sfr1xtaBbsFpbcDIreCbEYs/4rBFYrl8YkAYt1YVa2pDX4XsbATDGbNKqdGLEiGaT6sqqeg+ct5aLaWWup7brfBYDurQDXZUSMWBeSNVRUWPHzBwBLYvyfnAXeg89lcNMGbEYTindJAVvFacWq11JEoQGw88Fws/z53/q/mdosw2lBjl8ZDRJt9r/0ZhmEYhmEYhmEYxmXwWRi1Ds90DqB9PGzHY+H/uG9a473R1yAfWtbs3LcGxxL7zu2G4wbzH9izLNnTSz3boR3p3ltM2s4+VJr4dRUBYirfPQJkmxiQzMAUZzdgU49ZUgFr/ThGq+ijSoc4NOq/CTLo6Ol5mzorVur6GLCt3ajBXfv1h0dNjqtWrOAAT/2kTCNUV8VDwFqx+I19F0joNwasdVV5Upbs0ZIzJAWreM1Ku0KD8IdagM5mtCT0xfqRwqcqrQVo72yxE+a9F0sDxX140SEnkqO2sjgym/migx/DyYKrSYPzpLbMFwQrF0uzzW5Ei6oY9AWxUhP2QQSxbqoqjdr+HhULO8dAQdYxezqiRCy6tjwnZSXw2Y0/R6Pxymtrcz6+x/VLpkCwlHWwNVlTJBYtFPhNmiWHf0/Q53cGQlq9nC85DFQ4jX13/jk3uUQQig+GBpjItLPESceWmmyvldbunsUSg4vl35eO/d/xmL0YdZRYqvEw0Yrvtz/DMAzDMAzDeCPD8AM+sOUCwC53qwAAAABJRU5ErkJggg==\" alt=\"negative x plus y, equals negative 3 point 5, and, x plus 3 y, equals 9 point 5\"></span></span></p></div>\n",
+            "prompt": "<p class=\"stem_paragraph \">If <span class=\"math-container\"><img align=\"middle\" role=\"math\" class=\"math-img\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAYCAYAAACSuF9OAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAABGJhU0UAAAAMyZLetQAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAABQElEQVRIS+2UURaFIAhEXZ4Lcjnuxa20E56AFJKSdc7rq/tVVjAOY0EDW4YYIuQNoC39DYANcgyQyqQXQIH0khjB7VlSgFiftNvXgJIgxFz9UqJ4VKnqfc8dYTi6LUcIdaXdEuiYVU5rN8ZKdU0NEaD7kUu6Pzay4eL5HutU/GbGqJFxntf6Ot2EWPG40e4SfXA/Y/bUjtxBunB7SeeCOKZzkRWsyyPHkM4U9+hVODfPAi+OoLP6uj3eWRbEuUFBc8FX4IZI0MQdpNMgyk+hpgJcjFx6MDKET3CeuoOwICVWdkE3FX7hEDE6GavIxryx0zv696AXdjGqgLhoXRr9ZyxyMGbuINaQ6diuoO/qODxBnEPHHTJg4P7JtgVo9062xG1voyh46h7vZj0r+P6o2TF2L8gtBjdN+Pj4+PgvIfwAyqIodYopo9oAAAAASUVORK5CYII=\" alt=\"the ordered pair x comma y\"></span> satisfies the system of equations above, what is the value of <span class=\"italic\">y</span> ?</p>\n",
+            "answer": {
+                "style": "SPR",
+                "rationale": "<p>The correct answer is <span class=\"math-container\"><img align=\"middle\" role=\"math\" class=\"math-img\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAwCAYAAAAVQYoQAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAABGJhU0UAAAAY00gKyAAAATBJREFUeNrt1q1LQ1EcxvGDIr4kcWFFgzYtwkCZiivO5gvYNIngPyDaNAimddPamsEgGGQwECxbVZzRICjCcENxIhPm98KTRBZ2foOF88CnLDz37p7fOfc61zo7KKGKH1RwjinnmT0cYgUL2MIdahhzxhlHUxc1zbCK9y3KetGHCZzhFaMWxRXdZeQJCau/P40ZrOECH1hyHcg1yp0ozuDburQHRc1z2ylpXpe1QTZR0C5c9SnO4h51lT1rS8+5kBCvNI2EdEkOdOhEb5CG3h6niPkWR4dPTqfaInbxggcM+RTH//ltXmO1bf14BlR8ZF28ruINy9IRPOJW3xomiRbrBm+YtCod1Ni9Y9ZysfL4RMqqtB9X+ELacrEuNQHHSP7h9VHY6tw9CSdeSEhI1+YXl85WARTPn3EAAAAASUVORK5CYII=\" alt=\"three halves\"></span>. One method for solving the system of equations for <span class=\"italic\">y</span> is to add corresponding sides of the two equations. Adding the left-hand sides gives <span class=\"math-container\"><img align=\"middle\" role=\"math\" class=\"math-img\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHsAAAAcCAYAAABBNsCdAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAABGJhU0UAAAAOJ5y/mQAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAACOElEQVRoQ+2WiZGDMAxFXR4FUQ690AqdaLFlcWhlEFoM8UZvhslBouP7WyZsgWmALnQwTAD5q2YAmGDoAvRjndpb0uZUC4AR+kYXmqjVQ4vaHNY89gG6+U7+2Cww9hC6Yfb2fQvTqjaiFjii+tkL7Ti3xN3j/C1tosHml3zZpoqoxTR0EOZv8sfmSY6+qZ83tMGFXg2W+rEuONciBt+t/sPg+fLsbtTmvFMbTU6sff8b2qGWo2SnBQa65+EjOZKdEejS4/ha4dMuY/FJiK17Dx9OMirhC9rU7pMj9WjSQiOMFt5MKkgRWysCjrP9jpVGnMbAmpwlbWr3yZHim7QoNWRlcX0eR5rRoxUBR9Jaq+TkSO3FjtTsk8BFnvMI/zFpUWqICotvjy65iHyfJSbMsZlYkrsjUk+WnFIcomafnCXXJo9JC3LEWcIr4Pn1O3EJXngJqjXuou37fHsB4x3n1+Q806ZWnxJ8lJu1iEVrxpCGdfTIO0LiighUa8nJkXSPPbxwtDlL2tTukyOdxyYtNOJowKRYQHL93BXeOeaKCEnkfig6OaIxrzanpE3NPik2/w2aa7+gJi3OxpUGaoQax6J1rr+y2CRG0ckp1nle9WIzbWr3Sfm2BqOe+YKatUh/NO7uRYBN0qXoLMpd0MNKycnR7aV7VlZtnulziZly4SUZ5E9a4KjQufQtpHEWkXbEnXyiNm9p8Qja0fsN/Fst1mOiPLK+BdfCcRzHcRzHcRzHcRzHceoQwg9kKJ3649R09wAAAABJRU5ErkJggg==\" alt=\"open parenthesis, negative x plus y, close parenthesis, plus, open parenthesis, x plus 3 y, close parenthesis\"></span>, or 4<span class=\"italic\">y</span>. Adding the right-hand sides yields <span class=\"math-container\"><img align=\"middle\" role=\"math\" class=\"math-img\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAWCAYAAAA2CDmeAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAABGJhU0UAAAALV/ZLFgAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAABq0lEQVRoQ+2W0a3DIAxFMx4DMU52ySrZxIW4BupAjIGq/fCRUN+LAr7m2pBthsNvEH7ew8F+Qvz7EYADfJpTDH+Ic3s5d1es/T+6CDh3cKtjoBk+pIHJwuHDr5w8isnzVoO6sg7UtUHI+ae6CK6HCsEFwfH/IcjhMkmAE3YnL3wJcnt4W5c4CX/aWNLFNVwdI8Qc1aWhtUfY0YuLgYJJ7XdVsPBOjS5DGl3ael4yqksDFkzfEToNuvwcLFWI91clx0dx9LTrNw3R6mreN2xwragjdsLn/J78uykv0KfNiqREiqOhdcxwNEcWf0cqlhldGtCQuFdZSzXOqOMltPBI29fO0FFNt48N0iV0b43VZzsZwk1eHSchVWIL6UiJ9HQIgabQCIlepqzTNVosZEj9uV6fyOjCqw3h4Pr6Cly9Ua0jdToOLnBfWGq9lqCelu0xhN7hR4L0BTWjS0NL33Sc9IlbXoJvk8pgGCg/S/OK4C1zOb0dcrtDKtW3UpcWvi4VAzdJTU4ij3qFfQbrmTfL7Q5hlfcrXQSZQmPaDMMwDMMwDMMwDMMwvsK2vQDnL3wRQYS+SAAAAABJRU5ErkJggg==\" alt=\"negative 3 point 5 plus 9 point 5, equals 6\"></span>. It follows that <span class=\"math-container\"><img align=\"middle\" role=\"math\" class=\"math-img\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAWCAYAAAC7ZX7KAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAABGJhU0UAAAALV/ZLFgAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAABD0lEQVRYR+2UjQ2EIAyFHY+BGKe7sAqb9CjQ47c1d+ppcryEiAj0o3249UIPaMLDOsQ89HMxA3VjCzDxw0zOpkl3AaOzTXxEhzY8DPiRhydTuwMY0SOYEc6DCe82oFdMPNnC3BJxkYEwq4zzGrVkHyhZwWDg3d/vDSR4OGW/PWUaGwNwGamrNTlGu36wAwegDaRL15/+7OySiiWrOJmngY4XLQcWgatDxfdJxo+KgVUPD5kTgcuFqPv5c6NjlpDGM2Oin2/Y+5MqEYEvyC5JTFYN3EtaRIqHs6Bm94i4MqolemnAXLIrssvqbcE8YoJU4L3FJ6kkJrWv46mleZr639pjVf+irrbC0tLS0t9p214Qtt0R41trCQAAAABJRU5ErkJggg==\" alt=\"4 y equals 6\"></span>. Finally, dividing both sides of <span class=\"math-container\"><img align=\"middle\" role=\"math\" class=\"math-img\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAWCAYAAAC7ZX7KAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAABGJhU0UAAAALV/ZLFgAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAABD0lEQVRYR+2UjQ2EIAyFHY+BGKe7sAqb9CjQ47c1d+ppcryEiAj0o3249UIPaMLDOsQ89HMxA3VjCzDxw0zOpkl3AaOzTXxEhzY8DPiRhydTuwMY0SOYEc6DCe82oFdMPNnC3BJxkYEwq4zzGrVkHyhZwWDg3d/vDSR4OGW/PWUaGwNwGamrNTlGu36wAwegDaRL15/+7OySiiWrOJmngY4XLQcWgatDxfdJxo+KgVUPD5kTgcuFqPv5c6NjlpDGM2Oin2/Y+5MqEYEvyC5JTFYN3EtaRIqHs6Bm94i4MqolemnAXLIrssvqbcE8YoJU4L3FJ6kkJrWv46mleZr639pjVf+irrbC0tLS0t9p214Qtt0R41trCQAAAABJRU5ErkJggg==\" alt=\"4 y equals 6\"></span> by 4 yields <span class=\"math-container\"><img align=\"middle\" role=\"math\" class=\"math-img\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAsCAYAAAAacYo8AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAABGJhU0UAAAAWNPAnzwAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAABNUlEQVRoQ+2X4Q2EIAyFHY+BGIddWIVNei21iijGEA1tji9p8PxxefZe39VFC5ACODzoMpePdOoGos9iUWsWCxDB4+FC0iseIEFwZ5EpOPzs8RH4YdTBFnGAuvV29wq2CXWW7UG3qFTbhBB/L0XXZVB1e3wVbs/jVaIIfF+x98UW9oQ3Mlu9VYjaLiaGUxDxUiZE/yd5GFzAzWEfBtkjVG9q7LHjFLciSZKALu+qjrhPqJcdE90mpItbJF38Ai9C39lbR8q9uLUjC6qsQkS/Cv+22++Tk8WH226rZP/3MtRtQsOO0NoWb9GwkdGc4fFceB2HI9it+kBHGW1DLbJGsA8dVhnJtiv1eHwUpU27hnMUeSBRKV2bEX5a7qwI5wjmcDiX4rf8GlMeL5nCJ5PJZDKZbCzLD7177AKyup5SAAAAAElFTkSuQmCC\" alt=\"y equals six fourths\"></span> or <span class=\"math-container\"><img align=\"middle\" role=\"math\" class=\"math-img\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAwCAYAAAAVQYoQAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAABGJhU0UAAAAY00gKyAAAATBJREFUeNrt1q1LQ1EcxvGDIr4kcWFFgzYtwkCZiivO5gvYNIngPyDaNAimddPamsEgGGQwECxbVZzRICjCcENxIhPm98KTRBZ2foOF88CnLDz37p7fOfc61zo7KKGKH1RwjinnmT0cYgUL2MIdahhzxhlHUxc1zbCK9y3KetGHCZzhFaMWxRXdZeQJCau/P40ZrOECH1hyHcg1yp0ozuDburQHRc1z2ylpXpe1QTZR0C5c9SnO4h51lT1rS8+5kBCvNI2EdEkOdOhEb5CG3h6niPkWR4dPTqfaInbxggcM+RTH//ltXmO1bf14BlR8ZF28ruINy9IRPOJW3xomiRbrBm+YtCod1Ni9Y9ZysfL4RMqqtB9X+ELacrEuNQHHSP7h9VHY6tw9CSdeSEhI1+YXl85WARTPn3EAAAAASUVORK5CYII=\" alt=\"three halves\"></span>. Note that 3/2 and 1.5 are examples of ways to enter a correct answer.<div data-ae_invis=\"true\" id=\"level-access-access-assistant-highlight-container\">&nbsp;</div></p>\n"
+            }
+        }
+    },
+    "03c3cdb9-a83e-4ba5-b117-81835f5be948": {
+        "updateDate": 1691007959637,
+        "pPcc": "SAT#H",
+        "questionId": "cb8f449f",
+        "skill_cd": "H.D.",
+        "score_band_range_cd": 4,
+        "uId": "03c3cdb9-a83e-4ba5-b117-81835f5be948",
+        "skill_desc": "Systems of two linear equations in two variables",
+        "createDate": 1691007959637,
+        "program": "SAT",
+        "primary_class_cd_desc": "Algebra",
+        "ibn": "10551-DC",
+        "external_id": null,
+        "primary_class_cd": "H",
+        "difficulty": "M",
+        "module": "math",
+        "content": {
+            "item_id": "10551-DC",
+            "section": "Math",
+            "body": "<div class=\"stimulus_reference \" xmlns=\"http://www.imsglobal.org/xsd/apip/apipv1p0/qtiitem/imsqti_v2p1\">\n\t<table class=\"table_Borderless\"><tbody><tr><td class=\"para_right tcp-5d4d032a-0e39-4647-bdb7-a6d885ca8ce5\"><span class=\"math-container\"><img align=\"middle\" role=\"math\" class=\"math-img\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADYAAAAsCAYAAAAuCEsgAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAABGJhU0UAAAAWNPAnzwAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAABU0lEQVRoQ+2YCw7DIAiGezwP5HG8S6/iTZhoUftYaxvLJuFLyNouGf4gSDe1MNsJjPOw3MoAZouCZAnzzkRRaGKEpUwZcH4GKy1jCIAKGwsVNhoqbDRU2A8B78CEDzuDrODjLBs+ZAmjWRbtVWFxvjQOPBQnEO6cCc6D5+VRF+h3rWPYiimCNlRmJSzPnWvHVL94eWbfFpyDyFFjqZCLiPeylYKCYq6aBz58apnaYbw/yGAPYsNYgsXSFSlDeDzU18vXK55uxd2u4BCG0F8Jb2WrfgHe276WuxEdW3earZ6wZaycLf2zdcQtYbmbxQUma40+OeLIFtIsrIgqEacstCw21QBPtm6RIrAvwpYFb9v9EJx1ubp1c23BbsRDcTMHDg/V2FBb7IrcvoOq9EQA+ZSXJIreTIdrBmdQpkSJ4p4c2Mh1dWh/OFEoiqIoiqL8kGn6ACoQGONzp7W2AAAAAElFTkSuQmCC\" alt=\"one half y equals 4\"></span></td>\n\t\t\t</tr><tr><td class=\"para_right tcp-b5f1f72c-60c5-4986-ae97-7e09cfbdfad8\"><span class=\"math-container\"><img align=\"middle\" role=\"math\" class=\"math-img\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAE8AAAAsCAYAAAAkVOVyAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAABGJhU0UAAAAWNPAnzwAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAABo0lEQVRoQ+2YAZKDIAxFPR4H8jjcxat4k6wkBihSCqVUdve/GWaqthV+fiJxmYVtXcjYnc5DUAttqxMN4rWyW8PCuQHxGhDHGbL7RivEew8iiPc2EK8DiNcBxOsA4nUA8TqAeB3MKh7RTtbIBl4HAlxBEG49QkssGNrISmi3ZLj7EeEUaSeDoIx7q7EYe+gdTvK5zB/cDS8gmat3yroNnau4LxFP685xbz4pCs8nnCO3gNAnP85X1+U+loau+xU5kzH+Alt23txOU+q7rnsitEzqjMaTiXRG8vK9huFJsySbSh9GhSsGSOrc2In0ok5zmRF/Pi8/8Im09e8cS8KFF5Nz1roYF2QWb7DrxEwvSpja0n2Jf1BSeQI40Kstuq4XNVNZOLX2KZgIObf7fA0a5Dqt/3XCRZP42tNL78P3l1HroqrFdRBKWG7c/EwIwkVBi0qHOy4hi7t5EXfR1P4kpFsVcCLuy4sXbztGpeuvxnc5/zEde9Cah3RsxG89Jt9fToffFkC4NqraH3Clqv0BV0Z3CH+aqdsfAAAAAAAAAPgyy/IDX3+Jlj+MRPIAAAAASUVORK5CYII=\" alt=\"x minus, one half y, equals 2\"></span></td>\n\t\t\t</tr></tbody></table></div>\n",
+            "prompt": "<p class=\"stem_paragraph \">The system of equations above has solution (<span class=\"italic\">x</span>, <span class=\"italic\">y</span>). What is the value of <span class=\"italic\">x</span> ?</p>\n",
+            "answer": {
+                "style": "Multiple Choice",
+                "choices": {
+                    "a": {
+                        "body": "<p><span class=\"math-container\"><img align=\"middle\" role=\"math\" class=\"math-img\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAYCAYAAADDLGwtAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAABGJhU0UAAAAMyZLetQAAAKJJREFUeNpjYICAJCA+CcTvgfgPEL8B4rVArMWABoqAuAaIfYDYGoijgPgyEH8AYlkGAkARiP9DDcELBKAKS7BJMgMxKxArAfFKIH4JxDLYFL6BmgLCj4HYCJd1+kBsCsR+QLwRiD8DsTMDEeAAEF8jRmEXEP8kpIgJiE9AwxMOTkLDyxUa4JFAvBcaS77ICmcD8VUg/gaVfAaNQkuGUTDiAAAlJSIMuWAgnwAAAABJRU5ErkJggg==\" alt=\"three\"></span><p>&nbsp;</p></p>\n"
+                    },
+                    "b": {
+                        "body": "<p><span class=\"math-container\"><img align=\"middle\" role=\"math\" class=\"math-img\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAAsCAYAAACHfIO0AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAABGJhU0UAAAAWNPAnzwAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAAAtUlEQVRIS+2Wyw3EIAxEKc8FuRz3Qit04rXlkERa9rB4kpOfhIhyGJkBf9oK7ay+rRepDPXvfVS7sotxzwk5nT0qNslsVEOUbLOgQFGRqFmFiYrM9ePXPkMI5JUdTAh0g/M5QI4YfgEeqROZAPDLgZlfvI/f2O4q0Jzl52b0VvW4hK68nO3vb8FfpQea+NCShOtSh2fp3nnOHtnGEqYDhGK+AHSnGVFa6IGRII74vapbFcWK1j5aKud8IVOUdgAAAABJRU5ErkJggg==\" alt=\"the fraction 7 over 2\"></span><p>&nbsp;</p></p>\n"
+                    },
+                    "c": {
+                        "body": "<p><span class=\"math-container\"><img align=\"middle\" role=\"math\" class=\"math-img\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAYCAYAAADDLGwtAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAABGJhU0UAAAAMyZLetQAAAHRJREFUeNpjYMAEjEB8CIj/A3ELAx6QA8RPCSlUAOLPQBxISOFuIF4HZeNUmALEH4BYEp9CaaiiNCQxrAo3A/FBqI9xKgwB4t9AbA7EAkgYpLAbymYCKWyACuLDOrAgccCCQQoWQ9nc+AKeYMyQrHAUDC8AAGaYJhMxC8ckAAAAAElFTkSuQmCC\" alt=\"four\"></span><p>&nbsp;</p></p>\n"
+                    },
+                    "d": {
+                        "body": "<p><span class=\"math-container\"><img align=\"middle\" role=\"math\" class=\"math-img\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAYCAYAAADDLGwtAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAABGJhU0UAAAAMyZLetQAAALJJREFUeNpjYEAFcUB8Boi/AfFnID4OxNpoahjagPg9EFcAsT0QuwFxHRCbICuyBOI/UBovWATEhxiIAPeAeCoQtwLxKyD+DcQXgDgQXeEPIP4ExBuA2AWIXYF4MxD/B2JvZIW/gPgKEDMjibEA8TUgPoqs8DkQ92Nx0gQg/oossIdYhdlAfBWL1deB+ACyQg6oe0AecAdiDyDeBg1bB3RrJIF4KTR2QKFwDIidGUbBiAMA8QIn8wquSVUAAAAASUVORK5CYII=\" alt=\"six\"></span><p>&nbsp;</p></p>\n"
+                    }
+                },
+                "correct_choice": "d",
+                "rationale": "<p>Choice D is correct. Adding the corresponding sides of the two equations eliminates <span class=\"italic\">y</span> and yields <span class=\"math-container\"><img align=\"middle\" role=\"math\" class=\"math-img\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAWCAYAAACosj4+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAABGJhU0UAAAALV/ZLFgAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAAA2ElEQVRIS+1UQRLEEBD0PA/yHH/xFT+ZjBkdVNhVu7LZg65SRGK07g7zBCh6styloTQXUv8MKDghwRyEBFEgx5318fekiCJ5e908esvPjqkpSUFwLJ31vKRMypyxxOubAp9CrZqsB+kgpbLuL8a3afiqoRagdiUl2vVDu06VcuhW+4r81AdFwLt7Nem/IfkgNJUhQHMzeJnxnWWj+U48lGkqti7INeDAFKFaTlHpDsuysm8tOy3IJIYSLgAODpUuoS55KAxxgd11pYMUWvcP29jY2Nj4SxhzAHpxNa6UmLl9AAAAAElFTkSuQmCC\" alt=\"x equals 6\"></span>, as shown.<p><span class=\"math-container\"><img align=\"middle\" role=\"math\" class=\"math-img\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFYAAABuCAYAAAC9f+Q3AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAABGJhU0UAAAA3eJk3kQAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAADtElEQVR4Xu2bC5aDIAxFuzwX5HLcS7fSnTBCDCB+BiFR1HfPyRnttBYeIfzST4t8+4/php+ZboEE5ttbQSGsJL+hc6Jag7BCkKd2Zvh9TQ9h5TEGwqoAYZWAsEpAWCUgrBIQVgkIq8QdhDW/wXTjn/5r0PiS2L2M8Q+ElYT3Mqw9Wli3v9AN5mdCJc14N3Rj5ceaTy+JwM/thxeEAvKgfozMkbB+32FecY7f9nLPtgTzjfiGGEsDSRBRz1upUayYrQ9etlCl5okr7O5XPFgCN2BNjfWKWQF7qJ2exdfTv2eUhoJFr3iDsBY+ytHy1ngDfmnLWP4YXMX7YddbJXmNx4a5pby3rnErYf1o7gQiy/U+rugZ3mq5jbBB1OBx7IU5YlEMPMdbbwV5wHIQyBEsnW6BDPZG+XjqdFYIeAxuUp7sA4BKOMaiiwvip0+jqvQKqMavciCqHLwzj8FIEPZUiCrI2Sun1+Dj6qphRQUAAAAAAAAA4DZwAsZ0CyQ4cjoLMok3YyCsEOSp9gicTl8hrDB8rA1hhYGwSkBYJSCsEhBWCQirBIRVolVhaxKjwQa1idFgg5rE6BlreamUV9XeT29c5U76LW0Kee0BYTnOcW4qtUybv2daq1zYd5iXl+tlL/csNye3KDHaf6jxvKq0m57rrQWJ0ZyoZi+3ClnpAYv3HTBP2rsOd88CWNTixqO4qlvIWthDbY+Kr6d/z5AIBX7PuFTUsOncZmyNsQ7ghFX2VnK0irDIrm4f4B5W2jon4ZxA+be07GjlonJ3mcQkkdv2Wh/zlLy1OjE6xKBQwNNGWf4e9/1kuRXRzggPYXHNGh6DgqhRg0bhyN7vQRVvuIJXUbNkTKdbIAPy2nVh46mTVgh4LH71hy4uB8dYdHFB/PSp8fnzrfBTG4gqR/WSESypXjKCJdorp9dy2yUjAAAA8FSS0RhWaAAAAAC4jJBXYE0vB2KWz2btyXvGJGqUbZjcS5EeFfFh5u125HKOtbeS4KTTora+59J8hrWTVjop2PeqLGGnrpm+R7rCW3kPl5IKRJX+v5D5wi6fRd12KSw/017uWfqd4Xnzz18eBrzXHjgpyBJ2I55Kx1mOr/Ezmzj1mI2mo1L06pwSbzpb2KZiLENxNb8Q7YWCrdflGvAw4UwrvxD5wi7fozN4NSZs3I2OTIOyhD1tukVlaSYU+K43VfJIC+cIa0mfqeVF7CBcnssGLy9q1KI+wVjQmywh1FjT65osLtvpogIAAAAAAADuyOfzB95OK6d13swHAAAAAElFTkSuQmCC\" alt=\"The equation one half y equals 4, added to the equation x minus one half y, equals 2, gives the equation x plus 0, equals 6\"></span></p><p>If (<span class=\"italic\">x</span>, <span class=\"italic\">y</span>) is a solution to the system, then (<span class=\"italic\">x</span>, <span class=\"italic\">y</span>) satisfies both equations in the system and any equation derived from them. Therefore, <span class=\"math-container\"><img align=\"middle\" role=\"math\" class=\"math-img\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAWCAYAAACosj4+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAABGJhU0UAAAALV/ZLFgAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAAA2ElEQVRIS+1UQRLEEBD0PA/yHH/xFT+ZjBkdVNhVu7LZg65SRGK07g7zBCh6styloTQXUv8MKDghwRyEBFEgx5318fekiCJ5e908esvPjqkpSUFwLJ31vKRMypyxxOubAp9CrZqsB+kgpbLuL8a3afiqoRagdiUl2vVDu06VcuhW+4r81AdFwLt7Nem/IfkgNJUhQHMzeJnxnWWj+U48lGkqti7INeDAFKFaTlHpDsuysm8tOy3IJIYSLgAODpUuoS55KAxxgd11pYMUWvcP29jY2Nj4SxhzAHpxNa6UmLl9AAAAAElFTkSuQmCC\" alt=\"x equals 6\"></span>.</p><p>Choices A, B, and C are incorrect and may be the result of errors when solving the system.</p><p>&nbsp;</p></p>\n"
+            }
+        }
+    },
+    "06868720-2332-4e01-b188-4f2342bc60a9": {
+        "updateDate": 1691007959812,
+        "pPcc": "SAT#H",
+        "questionId": "88e13c8c",
+        "skill_cd": "H.B.",
+        "score_band_range_cd": 2,
+        "uId": "06868720-2332-4e01-b188-4f2342bc60a9",
+        "skill_desc": "Linear functions",
+        "createDate": 1691007959812,
+        "program": "SAT",
+        "primary_class_cd_desc": "Algebra",
+        "ibn": null,
+        "external_id": "07aee0d5-9ae6-4612-bbac-cad96d3eb3dd",
+        "primary_class_cd": "H",
+        "difficulty": "E",
+        "module": "math",
+        "content": {
+            "keys": [
+                "49eeff16-6533-4de2-82ab-0fa867a1b9e4"
+            ],
+            "rationale": "<p>Choice C is correct. It's given that <math alttext=\"f left parenthesis x right parenthesis\"><mi>f</mi><mfenced><mi>x</mi></mfenced></math> is the total cost, in dollars, to lease a car from this dealership with a monthly payment of <math alttext=\"x\"><mi>x</mi>\n</math> dollars. Therefore, the total cost, in dollars, to lease the car when the monthly payment is <math alttext=\"dollar sign 400\"><mo>$</mo><mn>400</mn></math> is represented by the value of <math alttext=\"f left parenthesis x right parenthesis\"><mi>f</mi><mfenced><mi>x</mi></mfenced></math> when <math alttext=\"x equals 400\"><mi>x</mi><mo>=</mo><mn>400</mn></math>. Substituting <math alttext=\"400\"><mn>400</mn>\n</math> for <math alttext=\"x\"><mi>x</mi>\n</math> in the equation <math alttext=\"f left parenthesis x right parenthesis equals 36 x plus 1,000\"><mi>f</mi><mfenced><mi>x</mi></mfenced><mo>=</mo><mn>36</mn><mi>x</mi><mo>+</mo><mn>1,000</mn></math> yields <math alttext=\"f left parenthesis 400 right parenthesis equals 36 left parenthesis 400 right parenthesis plus 1,000\"><mo>&nbsp;</mo><mi>f</mi><mfenced><mn>400</mn></mfenced><mo>=</mo><mn>36</mn><mfenced><mn>400</mn></mfenced><mo>+</mo><mn>1,000</mn></math>, or <math alttext=\"f left parenthesis 400 right parenthesis equals 15,400\"><mi>f</mi><mfenced><mn>400</mn></mfenced><mo>=</mo><mn>15,400</mn></math>. Thus, when the monthly payment is <math alttext=\"dollar sign 400\"><mo>$</mo><mn>400</mn></math>, the total cost to lease a car is&nbsp;<math alttext=\"dollar sign 15,400\"><mo>$</mo><mn>15,400</mn></math>.&nbsp;</p>\n<p>Choice A is incorrect and may result from conceptual or calculation errors.</p>\n<p>Choice B is incorrect and may result from conceptual or calculation errors.</p>\n<p>Choice D is incorrect and may result from conceptual or calculation errors.</p>",
+            "origin": "manifold",
+            "stem": "<p style=\"text-align: left;\">The total cost <math alttext=\"f left parenthesis x right parenthesis\"><mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo></math>, in dollars, to lease a car for <math alttext=\"36\"><mn>36</mn>\n</math> months from a particular car dealership is given by <math alttext=\"f left parenthesis x right parenthesis equals 36 x plus 1,000\"><mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>=</mo><mrow><mn>36</mn></mrow><mi>x</mi><mo>+</mo><mrow><mn>1,000</mn></mrow></math>, where <math alttext=\"x\"><mi>x</mi>\n</math> is the monthly payment, in dollars. What is the total cost to lease a car when the monthly payment is <math alttext=\"dollar sign 400\"><mo>$</mo><mrow><mn>400</mn></mrow></math>?</p>",
+            "externalid": "07aee0d5-9ae6-4612-bbac-cad96d3eb3dd",
+            "templateid": "a3ca7cdf-f99e-43c1-8ba5-5d53281e3e2b",
+            "vaultid": "c9732476-d2cf-4394-91e0-3dbc616f32d0",
+            "type": "mcq",
+            "answerOptions": [
+                {
+                    "id": "5c07720a-1e81-4ac7-b872-ee8223d1e9f4",
+                    "content": "<p><math alttext=\"dollar sign 13,400\"><mo>$</mo><mn>13,400</mn>\n</math></p>"
+                },
+                {
+                    "id": "ee4d1f18-c696-4bc5-9bd5-621c1983ca27",
+                    "content": "<p><math alttext=\"dollar sign 13,000\"><mo>$</mo><mn>13,000</mn>\n</math></p>"
+                },
+                {
+                    "id": "49eeff16-6533-4de2-82ab-0fa867a1b9e4",
+                    "content": "<p><math alttext=\"dollar sign 15,400\"><mo>$</mo><mn>15,400</mn>\n</math></p>"
+                },
+                {
+                    "id": "e24f30c8-a269-49ad-8f99-2073c9702909",
+                    "content": "<p><math alttext=\"dollar sign 37,400\"><mo>$</mo><mrow><mn>37,400</mn></mrow></math></p>"
+                }
+            ],
+            "correct_answer": [
+                "C"
+            ]
+        }
+    },
+    "06f7c0c4-b7b3-4e9d-8e26-2a0d52fc0749": {
+        "updateDate": 1691007959626,
+        "pPcc": "SAT#H",
+        "questionId": "3cdbf026",
+        "skill_cd": "H.C.",
+        "score_band_range_cd": 6,
+        "uId": "06f7c0c4-b7b3-4e9d-8e26-2a0d52fc0749",
+        "skill_desc": "Linear equations in two variables",
+        "createDate": 1691007959626,
+        "program": "SAT",
+        "primary_class_cd_desc": "Algebra",
+        "ibn": "029556-DC",
+        "external_id": null,
+        "primary_class_cd": "H",
+        "difficulty": "H",
+        "module": "math",
+        "content": {
+            "item_id": "029556-DC",
+            "section": "Math",
+            "prompt": "<p class=\"stem_paragraph \">The graph of the equation <span class=\"math_expression \"><span class=\"math-container\"><img align=\"middle\" role=\"math\" class=\"math-img\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEwAAAAWCAYAAABqgnq6AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAABGJhU0UAAAALV/ZLFgAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAABq0lEQVRYR+2V4ZGEIAyFKY+CKIde/HV92EmOEAJsCIi7ut7N8M04i6yYx0uC5q+xOQPGbZBuHwF2Dzb84DBeD+vpArCBCz/W748JhM1Fk4JHUcPXNXFAFjCCMmshaHvEMIAdvG3N2b0N9y7sRNHFi3BIF20gtor14d+yKM4dbPCUYTG7RRgJpbg/OBbxs9aLWuZ0wnrliPdy47SZ45efMaxOSqNFmInQXKuBY+JwdElNJcbrerUdNXdprojMG0qH4kxfzxpWt4M0C5H6rq4uhOPWSaC4yl61r1OsomqOF+OwJ/Tt7KZ3O9eahUjjtYr7FDbs8AyT2UNYoFxM59a80OkKy9lNV+e8ihVYjdPfL7ydNKWyEZqv/NGy1TwUyIewmB8xa1j9AdFiI/hMNEzRewW5yqcMqzKaz4d6Li4iwVr79pgxTFYMr5EVREeEH1bXJwzjti1ZNsXmsCn8onwvHR8wZ1j7TEyKbEvWdUN1MRwje5G8aRLEf+AQjSkLk1mVyKu/UFoCtPboir+Ykhi67o53G01rLPrMtPYikM/P/9wai8VisVgsFhJjfgEiGTvNfbVs9QAAAABJRU5ErkJggg==\" alt=\"a, x plus k y, equals 6 \"></span></span> is a line in the <span class=\"italic \">xy</span>-plane, where <span class=\"italic\">a</span> and <span class=\"italic\">k </span>are constants. If the line contains the points <span class=\"math_expression \"><span class=\"math-container\"><img align=\"middle\" role=\"math\" class=\"math-img\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAAcCAYAAAA9UNxEAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAABGJhU0UAAAAOJ5y/mQAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAABZ0lEQVRYR+2WDQ7DIAiFPZ4H8jjepVfpTZhIWfFvsS0k2+KXmHWuUx88aJ0E9gjeeYg7wDH1swDsEL2DsA20AGwQ/kQs81HTFhz49Mvx9W+ALYDzMeVbiCYrhxSPZ9llG+ElD+sg0tnFnsnD+YeDrrX36Jsbr3KKPQOXo5s+rETz+iyGLNzul++T+tDORQRuMGp4OZgK7qnhANfievsVDqY/2jUryoKB4AtPlKJ5WXdndE/TNBQ4A0k2xikcvfIpkmopuK4xTXhtJ87ODayp4RnB3ADw8tMYiXkfSDaLAXf24vWnalhq5OLXzAJtmg45IfYuI/fQfJlAEiyCoPnSkWs27aG13gi275RgnJN9pJm4CWfWWizCZTBj6SahGrYeNQxLalv3zlDUr+Rplt912x1nxPN9io8pFs2jl/FhEujQnWgokt0U9J/LNexai3eAS2TbGXbvrwNd9KRXLBaLxWKxWCy+E+de9JtfwZVvxvkAAAAASUVORK5CYII=\" alt=\"with coordinates negative 2 comma negative 6 \"></span></span>and <span class=\"math_expression \"><span class=\"math-container\"><img align=\"middle\" role=\"math\" class=\"math-img\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC8AAAAcCAYAAADxyeavAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAABGJhU0UAAAAOJ5y/mQAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAABQklEQVRYR+2WAQ6DIAxFOR4H4jjchatwkw5a0NIVZjY0LOElxoiO/ra/OsOB6MEaCz4ClKUlAIjgrQEXOroAArgFhVeG+oIzYNOdcrkkEBwY61MfWAJkF5dya7PCh9OJjvu7kguYTt14qn2it2DSSrlESPi5gbyeDQk/C9iLh+tca/4hz6ZmKG2EAUSSM6DOX9PQuIQeajPUNstghxR73UEV/+YIPrjaFPdemdTKZ8RToRQNvNiq+JHflPWZkGgaWtn5zK3iaT8KPjo0YZxq3Q+2IW/xzVawTUazDolnGuQHaoWBzWidxjX+oZILtRuPvSpR5LViyULr1hFZa1WYRY3fFLAk1DgCLaNokNXP8MnXhON9+V/jS44Ejnh6J6QbDkjs9epiQDdH/AitMz+Dg33DDDxC7pRs7Waz2Ww2m//GmBc9GWhhpQVd6QAAAABJRU5ErkJggg==\" alt=\"0 comma negative 3\"></span></span>, what is the value of <span class=\"italic\">k </span>?</p>\n",
+            "answer": {
+                "style": "Multiple Choice",
+                "choices": {
+                    "a": {
+                        "body": "<span class=\"choice_cell align:right \">\n            <span class=\"math_expression \">\n              <span class=\"math-container\"><img align=\"middle\" role=\"math\" class=\"math-img\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAABGJhU0UAAAALV/ZLFgAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAAAiUlEQVRIS+2S0Q2AIAxEO14H6jjdhVXY5DxsUEiMMVr/eEkDIfBszspbgApXQdv2Uq9tfc8pNRRgl6HYdzmqQ0VBxySprtPH0oiufxAXYzzqDCpR3DM2thsnBGzeuLTtXU2PBrpUeCFOEogflizdM6X08/yO9E5TpTHHydLGketl/TDHi8XiESIbZ1KEIp9s3OcAAAAASUVORK5CYII=\" alt=\"negative 2\"></span></span>\n          </span>\n"
+                    },
+                    "b": {
+                        "body": "<span class=\"choice_cell align:right \">\n            <span class=\"math_expression \">\n              <span class=\"math-container\"><img align=\"middle\" role=\"math\" class=\"math-img\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAABGJhU0UAAAALV/ZLFgAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAAAWUlEQVRIS+3O0QnAMAhFUcdzIMdxF1dxk1dM2kJ/AqWv5McDkoTARWEIE6gnzicHwirIDafriNbQwnNThWfA2BsXYEf4+qzraixQ58Oejb/o8O23cGvtNZEDeqlvPaYrsHgAAAAASUVORK5CYII=\" alt=\"negative 1\"></span></span>\n          </span>\n"
+                    },
+                    "c": {
+                        "body": "<span class=\"math-container\"><img align=\"middle\" role=\"math\" class=\"math-img\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAYCAYAAADDLGwtAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAABGJhU0UAAAAMyZLetQAAAJRJREFUeNpjYICAUiDeC8RvgPg3ED8G4qlALMyABr4B8SIgjgRiWyBOBeLnQHwdiLmQFYozYAIrIP4PxAkMBAAHVGEtIYX+UIVB+BQJAfF9IL4ExMy4FIEcfxiI3wGxJi5FnNBg+gTEZvgcvwuIvwKxHS5F7EC8A4i/A7ELPsdvgfqwEYgt0LAMssL/eHALwygYUQAA0pUiCGEqb8UAAAAASUVORK5CYII=\" alt=\"2\"></span>\n"
+                    },
+                    "d": {
+                        "body": "<span class=\"math-container\"><img align=\"middle\" role=\"math\" class=\"math-img\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAYCAYAAADDLGwtAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAABGJhU0UAAAAMyZLetQAAAKJJREFUeNpjYICAJCA+CcTvgfgPEL8B4rVArMWABoqAuAaIfYDYGoijgPgyEH8AYlkGAkARiP9DDcELBKAKS7BJMgMxKxArAfFKIH4JxDLYFL6BmgLCj4HYCJd1+kBsCsR+QLwRiD8DsTMDEeAAEF8jRmEXEP8kpIgJiE9AwxMOTkLDyxUa4JFAvBcaS77ICmcD8VUg/gaVfAaNQkuGUTDiAAAlJSIMuWAgnwAAAABJRU5ErkJggg==\" alt=\"3\"></span>\n"
+                    }
+                },
+                "correct_choice": "a",
+                "rationale": "<p>Choice A is correct. The value of <span class=\"italic\">k</span> can be found using the slope-intercept form of a linear equation, <span class=\"math-container\"><img align=\"middle\" role=\"math\" class=\"math-img\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFIAAAAYCAYAAABp76qRAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAABGJhU0UAAAAMyZLetQAAAqVJREFUeNrtl0lIlVEUx+2JPhpIIZOkFjmEENUihIygAh+BBj6kkgdFNtKiFkK0KbUIgmigaKBFFOHKJlpILYqg0qKBhkUDRNiAEEFR2ICVQ/8rf+F6ON/zPvk+aHH/8APf/5177/F893z3vqwsLxfNAoOg2pdipApBCuQ4xqdYyAJfupFaysLkO8YfBG9dJ78O7iv+XPAXrFa+y3cgN2C9Z+Ac2Axegt/gESgFeeA4+AR+gtMg2xpbxpz2ijlPge+gIuRC3gQXwAbwgrk+BQu14N0MiFveONABbgcsMOjASmWcKe4f8AGcB8vAWhbNPNAHYBf/4WOcp14pWg+Yws8tzD8RwY78CrpBO6gBSfAafAaTZXCCk1daXgOf/Jw0CY3GVGXcfK7VKvyL9GstL5s5NInYIhbetN0m0K8U21aBRZLrlAhf655SxrZzYw2rSsl1SJNAH2i02ta01hHH5IKIK+M2Moli4V8DD5W8TOwWZZ59oJd5bx1lV421e1bxu9nKgzT+Gm2xx6CNf58EH7WtG0JyJ8B7xTfrHRDeIs6zQIlfx+86HNozYbGd45LCL1TG7QdvFL+CcyzRFjPvo3dsvf6gaofQ2nfBFeFNY2Ip4W/jjhsv/Cq+E++BATAvolP7Bril+Oag+xZ0mNZzgefgTkRXjxj4AZqFX821y4V/hvnId2wPuyaXD/9qRIX8wkMxZnkzeADtCRo0nQv0ZfiEM1E511gu/J28usSE/0QcSmV8d1+yYtdzzsUhF3Im47rAWbZxA++UnWmudkP3N9MuRyO8DA//SihSTuxO4eUwn0ar/bvYanFxsr9im4epFdZBcxn84nv8MJiYbuAhBub5Hz+ZawJv6DvY0nW+JGNTLbdvt8NdzMvLy8vLy8vLy8vL6//TP54swNovpdbCAAAAAElFTkSuQmCC\" alt=\"y equals, m x plus b\"></span>, where <span class=\"italic\">m</span> is the slope and <span class=\"italic\">b</span> is the <span class=\"italic\">y</span>-coordinate of the <span class=\"italic\">y</span>-intercept. The equation <span class=\"math-container\"><img align=\"middle\" role=\"math\" class=\"math-img\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEwAAAAWCAYAAABqgnq6AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAABGJhU0UAAAALV/ZLFgAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAABq0lEQVRYR+2V4ZGEIAyFKY+CKIde/HV92EmOEAJsCIi7ut7N8M04i6yYx0uC5q+xOQPGbZBuHwF2Dzb84DBeD+vpArCBCz/W748JhM1Fk4JHUcPXNXFAFjCCMmshaHvEMIAdvG3N2b0N9y7sRNHFi3BIF20gtor14d+yKM4dbPCUYTG7RRgJpbg/OBbxs9aLWuZ0wnrliPdy47SZ45efMaxOSqNFmInQXKuBY+JwdElNJcbrerUdNXdprojMG0qH4kxfzxpWt4M0C5H6rq4uhOPWSaC4yl61r1OsomqOF+OwJ/Tt7KZ3O9eahUjjtYr7FDbs8AyT2UNYoFxM59a80OkKy9lNV+e8ihVYjdPfL7ydNKWyEZqv/NGy1TwUyIewmB8xa1j9AdFiI/hMNEzRewW5yqcMqzKaz4d6Li4iwVr79pgxTFYMr5EVREeEH1bXJwzjti1ZNsXmsCn8onwvHR8wZ1j7TEyKbEvWdUN1MRwje5G8aRLEf+AQjSkLk1mVyKu/UFoCtPboir+Ykhi67o53G01rLPrMtPYikM/P/9wai8VisVgsFhJjfgEiGTvNfbVs9QAAAABJRU5ErkJggg==\" alt=\"a, x plus, k y equals 6 \"></span> can be rewritten in the form <span class=\"math-container\"><img align=\"middle\" role=\"math\" class=\"math-img\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGgAAAAsCAYAAACJ1f3bAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAABGJhU0UAAAAWNPAnzwAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAACIklEQVR4Xu2Zi5GEIAyGLc+CKIdebMVOWAIEIYe3d/tIouSbYVR0ZkN+EgK7GLyE3Yc1XuA2NbfB1dBA2FwSJWqSRAlhCy5eVr/PIVIIe/BrMzuXNcSxR7/E+9XHt9kxQOor70vXV0HbqBi7X+Ozi1Lx2CHG2eyE5/Ye3mWn8IkD5NTG+5tqGA0+9x0zs0ZRWQO400qeQGBPnizQBW2K9JacTxbbFCVNX7c4k285wAhvIxdturVIw+gps5QOPK87MvkeBZpuDTpSRyNQ6utFy47oZzAnKBCug8jI1luRBthUaLWSa/uKc2D2jtIhB5jO5hOIDBzFQBEw3dVnIYecpd0pymxaAKBIbsOK6XBAjbAiGCeHXcWWGYqEq1EjvDQTx5gLeirBRlqsyHmVZL7WiphAOTc+308AtTJ60tgHwYCcQGRHbtEzRk4g8sOjiPoUb0bgj+8+3DoEbe1p/69o78vrjjeNvjRiEQTAMUgS6IvRc3VEBcpH9P7X6JkdUYGOXa5FzxmyAt3obEjq1PovvGzbXU5WcZZrnGgv2yYauh+G7uk08W/bUBi4vUthQKvQ+m8qOcqSQLNtbKQcXwaMhY+WzKDZNha6DbcyB2i2jQ2sRJ3T5wDNtrGBM7M2Rblds21spBxfqqTsED3VnGbbWKCHvNELavZDmm1jAwfd5va2aipdImi2jY1R2qgLs/CCrNk2wzAMwzAMwzAMwzDuwbI8AGNCE8GsdrjrAAAAAElFTkSuQmCC\" alt=\"y equals, the negative of the fraction a, x, over k, end fraction, plus, the fraction 6 over k\"></span>. One of the given points, <span class=\"math-container\"><img align=\"middle\" role=\"math\" class=\"math-img\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC8AAAAcCAYAAADxyeavAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAABGJhU0UAAAAOJ5y/mQAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAABQklEQVRYR+2WAQ6DIAxFOR4H4jjchatwkw5a0NIVZjY0LOElxoiO/ra/OsOB6MEaCz4ClKUlAIjgrQEXOroAArgFhVeG+oIzYNOdcrkkEBwY61MfWAJkF5dya7PCh9OJjvu7kguYTt14qn2it2DSSrlESPi5gbyeDQk/C9iLh+tca/4hz6ZmKG2EAUSSM6DOX9PQuIQeajPUNstghxR73UEV/+YIPrjaFPdemdTKZ8RToRQNvNiq+JHflPWZkGgaWtn5zK3iaT8KPjo0YZxq3Q+2IW/xzVawTUazDolnGuQHaoWBzWidxjX+oZILtRuPvSpR5LViyULr1hFZa1WYRY3fFLAk1DgCLaNokNXP8MnXhON9+V/jS44Ejnh6J6QbDkjs9epiQDdH/AitMz+Dg33DDDxC7pRs7Waz2Ww2m//GmBc9GWhhpQVd6QAAAABJRU5ErkJggg==\" alt=\"with coordinates 0 comma negative 3\"></span>, is the <span class=\"italic\">y</span>-intercept. Thus, the <span class=\"italic\">y</span>-coordinate of the <span class=\"italic\">y</span>-intercept <span class=\"math-container\"><img align=\"middle\" role=\"math\" class=\"math-img\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAYCAYAAAARfGZ1AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAABGJhU0UAAAAMyZLetQAAALtJREFUeNpjYCAfJAHxSSB+D8R/gPgNEK8FYi0GKoAiIK4BYh8gtgbiKCC+DMQfgFiWgQZAEYj/Qy2mOhCAGl6CLiFCBGbDYiAzELMCsRIQrwTil0Asg67oPxE4BIvhb5DkHwOxETYvuRCBxbDo0wdiUyD2A+KNQPwZiJ0ZaAQOAPE1WhneBcQ/aWEwExCfgKZ3isBJaHp2hWaiSCDeC82tvpQaPhuIrwLxN6iBz6DZ35JhFIyCUTAKaAgA4Coui32ohvIAAAAASUVORK5CYII=\" alt=\"negative 3\"></span> must be equal to <span class=\"math-container\"><img align=\"middle\" role=\"math\" class=\"math-img\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAAsCAYAAACHfIO0AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAABGJhU0UAAAAWNPAnzwAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAAA40lEQVRIS+2W0Q3DIAxEGc8DeRx2YRU2cW2MK0pJFTtJv3gSokXiwp0jnPQLqpmAJ/nZBhaZ/VDBJsD7mwBRIeQJcvUJElXK8L2xZuD/yLL6gFOoPSDW8p1ihVqUE6g1WZLhtihYXmk4nRXDn1kXuyezqZKGrjuzNEv3iB28UyGbwmw1XADDBG2EhTb/56NyzrF5ioIccLQrjYQ70oqHGouK6X3GtiFzM3Q+oOXVN873m4uxEV8SEt59AC8KCfMtG8rJaHn1SqpwsKrzh8ul9802jzmNle1L51jZOmrMm81GSekFAVxRmK4FO5YAAAAASUVORK5CYII=\" alt=\"the fraction 6 over k\"></span>. Multiplying both sides by <span class=\"italic\">k</span> gives <span class=\"math-container\"><img align=\"middle\" role=\"math\" class=\"math-img\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAAAWCAYAAAB64jRmAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAABGJhU0UAAAALV/ZLFgAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAABJklEQVRYR+2VURLEEAyGHc+BHMddXMVNstEIKdWHFTv7kG/GVBXxx0/dDik4wEctHmKGUp+4+oX0+E0LyBF8W4tSPBIYIAEJgxTwOQsF7BHw4fFDbVKHYjtAXbQWjZicNZ60AJAh+nli6rve5V1WcXP0+N43QQUONtqEstyDUXDs5yOO2F/A6STeoMXPwS5bV0GjrSRssVJ9K+PYnsT7eNXj0XYGy7QAYaU3gTvwvDLBfJxuQr/NoqTdbtipNvWzG84ILLDIn5zJwmjZnuVaXs7hnl1X7QfO6jgx/Wbo/VTQ5hZtkavsSYuMVzvvlOqFgKzm3bZr+10I+7HwUZRMhLxpa5MKY9IfL55vaEKxykUKerLLyloasFAu2o4xDMMwDMP4Z5z7AIhC9+3LfOY5AAAAAElFTkSuQmCC\" alt=\"negative 3 k, equals 6\"></span>. Dividing both sides by <span class=\"math-container\"><img align=\"middle\" role=\"math\" class=\"math-img\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAYCAYAAAARfGZ1AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAABGJhU0UAAAAMyZLetQAAALtJREFUeNpjYCAfJAHxSSB+D8R/gPgNEK8FYi0GKoAiIK4BYh8gtgbiKCC+DMQfgFiWgQZAEYj/Qy2mOhCAGl6CLiFCBGbDYiAzELMCsRIQrwTil0Asg67oPxE4BIvhb5DkHwOxETYvuRCBxbDo0wdiUyD2A+KNQPwZiJ0ZaAQOAPE1WhneBcQ/aWEwExCfgKZ3isBJaHp2hWaiSCDeC82tvpQaPhuIrwLxN6iBz6DZ35JhFIyCUTAKaAgA4Coui32ohvIAAAAASUVORK5CYII=\" alt=\"negative 3\"></span> gives <span class=\"math-container\"><img align=\"middle\" role=\"math\" class=\"math-img\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAWCAYAAACCAs+RAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAABGJhU0UAAAALV/ZLFgAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAAA4UlEQVRYR+2ViQnFIBBELc+CLMdebMVOJuuxKl7wIUE/7APBI4EZ3VHV4oyCMg55eBWAh9Wkj7rctPWjVsDBrBYPU00YUomoD87MzcBbaKVB8/cZWWjzVtO4moskh3UyfUS7oC3tx33mAr3mSMxHFs3HRnEZDHAJhu6uzf59m1ZznOAaDPW2M3ETU52pBmnSfG/ijRNlE8MNWxa4bXJxurRKdnsTgVhr+VZIpu68vZLO5ftR85HGd74nfBJLXSy8LYXhNjgMZ3i7ubNSKuH/MPS/UHIxbd07IgiCIAjC36PUA7SaQZ0XQoIuAAAAAElFTkSuQmCC\" alt=\"k equals negative 2\"></span>.<p>Choices B, C, and D are incorrect and may result from errors made rewriting the given equation.</p></p>\n"
+            }
+        }
+    },
+    "0752e3f1-5acc-45cf-883e-5a93989a9531": {
+        "updateDate": 1691007959817,
+        "pPcc": "SAT#H",
+        "questionId": "ff501705",
+        "skill_cd": "H.D.",
+        "score_band_range_cd": 7,
+        "uId": "0752e3f1-5acc-45cf-883e-5a93989a9531",
+        "skill_desc": "Systems of two linear equations in two variables",
+        "createDate": 1691007959817,
+        "program": "SAT",
+        "primary_class_cd_desc": "Algebra",
+        "ibn": null,
+        "external_id": "5c09d547-9da9-4b9a-a436-ddc8c0c70764",
+        "primary_class_cd": "H",
+        "difficulty": "H",
+        "module": "math",
+        "content": {
+            "keys": [
+                "6"
+            ],
+            "rationale": "<p>The correct answer is <math alttext=\"6\"><mn>6</mn>\n</math>. A system of two linear equations in two variables, <math alttext=\"x\"><mi>x</mi>\n</math> and <math alttext=\"y\"><mi>y</mi>\n</math>, has no solution if the lines represented by the equations in the <em>xy</em>-plane are parallel and distinct. Lines represented by equations in standard form, <math alttext=\"upper A x plus upper B y equals upper C\"><mi>A</mi><mi>x</mi><mo>+</mo><mi>B</mi><mi>y</mi><mo>=</mo><mi>C</mi></math> and <math alttext=\"upper D x plus upper E y equals upper F\"><mi>D</mi><mi>x</mi><mo>+</mo><mi>E</mi><mi>y</mi><mo>=</mo><mi>F</mi></math>, are parallel if the coefficients for <math alttext=\"x\"><mi>x</mi>\n</math> and <math alttext=\"y\"><mi>y</mi>\n</math> in one equation are proportional to the corresponding coefficients in the other equation, meaning <math alttext=\"StartFraction upper D Over upper A EndFraction equals StartFraction upper E Over upper B EndFraction\"><mfrac><mi>D</mi><mi>A</mi></mfrac><mo>=</mo><mfrac><mi>E</mi><mi>B</mi></mfrac></math>;&nbsp;and the lines are distinct if the constants are not proportional, meaning <math alttext=\"StartFraction upper F Over upper C EndFraction\"><mfrac><mi>F</mi><mi>C</mi></mfrac></math> is not equal to&nbsp;<math alttext=\"StartFraction upper D Over upper A EndFraction\"><mfrac><mi>D</mi><mi>A</mi></mfrac></math> or <math alttext=\"StartFraction upper E Over upper B EndFraction\"><mfrac><mi>E</mi><mi>B</mi></mfrac></math>. The first equation in the given system is <math alttext=\"three halves y minus one fourth x equals two thirds minus three halves y\"><mfrac><mn>3</mn><mn>2</mn></mfrac><mi>y</mi><mo>-</mo><mfrac><mn>1</mn><mn>4</mn></mfrac><mi>x</mi><mo>=</mo><mfrac><mn>2</mn><mn>3</mn></mfrac><mo>-</mo><mfrac><mn>3</mn><mn>2</mn></mfrac><mi>y</mi></math>. Multiplying each side of this equation by <math alttext=\"12\"><mn>12</mn>\n</math> yields <math alttext=\"18 y minus 3 x equals 8 minus 18 y\"><mn>18</mn><mi>y</mi><mo>-</mo><mn>3</mn><mi>x</mi><mo>=</mo><mn>8</mn><mo>-</mo><mn>18</mn><mi>y</mi></math>. Adding <math alttext=\"18 y\"><mrow>\n\t<mn>18</mn>\n\t<mi>y</mi>\n</mrow>\n</math> to each side of this equation yields <math alttext=\"36 y minus 3 x equals 8\"><mn>36</mn><mi>y</mi><mo>-</mo><mn>3</mn><mi>x</mi><mo>=</mo><mn>8</mn></math>, or <math alttext=\"minus 3 x plus 36 y equals 8\"><mo>-</mo><mn>3</mn><mi>x</mi><mo>+</mo><mn>36</mn><mi>y</mi><mo>=</mo><mn>8</mn></math>. The second equation in the given system is <math alttext=\"one half x plus three halves equals p y plus nine halves\"><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>x</mi><mo>+</mo><mfrac><mn>3</mn><mn>2</mn></mfrac><mo>=</mo><mi>p</mi><mi>y</mi><mo>+</mo><mfrac><mn>9</mn><mn>2</mn></mfrac></math>. Multiplying each side of this equation by <math alttext=\"2\"><mn>2</mn>\n</math> yields <math alttext=\"x plus 3 equals 2 p y plus 9\"><mi>x</mi><mo>+</mo><mn>3</mn><mo>=</mo><mn>2</mn><mi>p</mi><mi>y</mi><mo>+</mo><mn>9</mn></math>. Subtracting <math alttext=\"2 p y\"><mrow>\n\t<mn>2</mn>\n\t<mi>p</mi>\n\t<mi>y</mi>\n</mrow>\n</math> from each side of this equation yields <math alttext=\"x plus 3 minus 2 p y equals 9\"><mi>x</mi><mo>+</mo><mn>3</mn><mo>-</mo><mn>2</mn><mi>p</mi><mi>y</mi><mo>=</mo><mn>9</mn></math>. Subtracting <math alttext=\"3\"><mn>3</mn>\n</math> from each side of this equation yields <math alttext=\"x minus 2 p y equals 6\"><mi>x</mi><mo>-</mo><mn>2</mn><mi>p</mi><mi>y</mi><mo>=</mo><mn>6</mn></math>. Therefore, the two equations in the given system, written in standard form, are&nbsp;<math alttext=\"minus 3 x plus 36 y equals 8\"><mo>-</mo><mn>3</mn><mi>x</mi><mo>+</mo><mn>36</mn><mi>y</mi><mo>=</mo><mn>8</mn></math> and<math alttext=\"x minus 2 p y equals 6\"><mo>&nbsp;</mo><mi>x</mi><mo>-</mo><mn>2</mn><mi>p</mi><mi>y</mi><mo>=</mo><mn>6</mn></math>. As previously stated, if this system has no solution, the lines represented by the equations in the <em>xy</em>-plane are parallel and distinct, meaning the proportion&nbsp;<math alttext=\"StartFraction 1 Over negative 3 EndFraction equals StartFraction minus 2 p Over 36 EndFraction\"><mfrac><mn>1</mn><mrow><mo>-</mo><mn>3</mn></mrow></mfrac><mo>=</mo><mfrac><mrow><mo>-</mo><mn>2</mn><mi>p</mi></mrow><mn>36</mn></mfrac></math>, or&nbsp;<math alttext=\"negative one third equals minus StartFraction p Over 18 EndFraction\"><mo>-</mo><mfrac><mn>1</mn><mn>3</mn></mfrac><mo>=</mo><mo>-</mo><mfrac><mi>p</mi><mn>18</mn></mfrac></math>, is true and the proportion <math alttext=\"six eighths equals StartFraction 1 Over negative 3 EndFraction\"><mfrac><mn>6</mn><mn>8</mn></mfrac><mo>=</mo><mfrac><mn>1</mn><mrow><mo>-</mo><mn>3</mn></mrow></mfrac></math> is not true. The proportion <math alttext=\"six eighths equals StartFraction 1 Over negative 3 EndFraction\"><mfrac><mn>6</mn><mn>8</mn></mfrac><mo>=</mo><mfrac><mn>1</mn><mrow><mo>-</mo><mn>3</mn></mrow></mfrac></math> is not true. Multiplying each side of the true proportion, <math alttext=\"negative one third equals minus StartFraction p Over 18 EndFraction\"><mo>-</mo><mfrac><mn>1</mn><mn>3</mn></mfrac><mo>=</mo><mo>-</mo><mfrac><mi>p</mi><mn>18</mn></mfrac></math>,&nbsp; by <math alttext=\"negative 18\"><mo>-</mo><mn>18</mn>\n</math> yields <math alttext=\"6 equals p\"><mn>6</mn><mo>=</mo><mi>p</mi></math>. Therefore, if the system has no solution, then the value of <math alttext=\"p\"><mi>p</mi>\n</math> is <math alttext=\"6\"><mn>6</mn>\n</math>.&nbsp;</p>",
+            "origin": "manifold",
+            "stem": "<p style=\"text-align: center;\"><math alttext=\"three halves y minus one fourth x equals two thirds minus three halves y\"><mrow><mfrac><mn>3</mn><mn>2</mn></mfrac></mrow><mi>y</mi><mo>-</mo><mrow><mfrac><mn>1</mn><mn>4</mn></mfrac></mrow><mi>x</mi><mo>=</mo><mrow><mfrac><mn>2</mn><mn>3</mn></mfrac></mrow><mo>-</mo><mrow><mfrac><mn>3</mn><mn>2</mn></mfrac></mrow><mi>y</mi></math></p>\n<p style=\"text-align: center;\"><math alttext=\"one half x plus three halves equals p y plus nine halves\"><mrow><mfrac><mn>1</mn><mn>2</mn></mfrac></mrow><mi>x</mi><mo>+</mo><mrow><mfrac><mn>3</mn><mn>2</mn></mfrac></mrow><mo>=</mo><mi>p</mi><mi>y</mi><mo>+</mo><mrow><mfrac><mn>9</mn><mn>2</mn></mfrac></mrow></math></p>\n<p style=\"text-align: left;\">In the given system of equations, <math alttext=\"p\"><mi>p</mi>\n</math> is a constant. If the system has no solution, what is the value of <math alttext=\"p\"><mi>p</mi>\n</math>?</p>",
+            "externalid": "5c09d547-9da9-4b9a-a436-ddc8c0c70764",
+            "templateid": "38d91c10-44e6-4a1a-b5a3-dd96ec4ed413",
+            "vaultid": "0801cf6e-2505-4448-816f-78bbe9068136",
+            "type": "spr",
+            "answerOptions": [],
+            "correct_answer": [
+                "6"
+            ]
+        }
+    },
+    "085f9e1d-b449-454e-9e38-6224fda4717c": {
+        "updateDate": 1691007959810,
+        "pPcc": "SAT#H",
+        "questionId": "8c5e6702",
+        "skill_cd": "H.B.",
+        "score_band_range_cd": 7,
+        "uId": "085f9e1d-b449-454e-9e38-6224fda4717c",
+        "skill_desc": "Linear functions",
+        "createDate": 1691007959810,
+        "program": "SAT",
+        "primary_class_cd_desc": "Algebra",
+        "ibn": null,
+        "external_id": "1a8089dd-7f49-40bb-9cf4-9d9040daa84f",
+        "primary_class_cd": "H",
+        "difficulty": "H",
+        "module": "math",
+        "content": {
+            "keys": [
+                "f7fd8058-eaa1-4f0a-b57c-44e47b402e76"
+            ],
+            "rationale": "<p style=\"text-align: left;\">Choice A is correct. It&rsquo;s given that the window repair specialist charges <math alttext=\"dollar sign 220\"><mo>$</mo><mn>220</mn></math> for the first two hours of repair plus an hourly fee for each additional hour. Let <math alttext=\"n\"><mi>n</mi>\n</math> represent the hourly fee for each additional hour after the first two hours. Since it&rsquo;s given that <math alttext=\"x\"><mi>x</mi>\n</math> is the number of hours of repair, it follows that the charge generated by the hourly fee after the first two hours can be represented by the expression <math alttext=\"n left parenthesis x minus 2 right parenthesis\"><mrow>\n\t<mi>n</mi>\n\t<mfenced>\n\t\t<mrow>\n\t\t\t<mi>x</mi>\n\t\t\t<mo>-</mo>\n\t\t\t<mn>2</mn>\n\t\t</mrow>\n\t</mfenced>\n</mrow>\n</math>. Therefore, the total cost, in dollars, for <math alttext=\"x\"><mi>x</mi>\n</math> hours of repair is <math alttext=\"f left parenthesis x right parenthesis equals 220 plus n left parenthesis x minus 2 right parenthesis\"><mo>&nbsp;</mo><mi>f</mi><mfenced><mi>x</mi></mfenced><mo>=</mo><mn>220</mn><mo>+</mo><mi>n</mi><mfenced><mrow><mi>x</mi><mo>-</mo><mn>2</mn></mrow></mfenced></math>.&nbsp;It&rsquo;s given that the total cost for <math alttext=\"5\"><mn>5</mn>\n</math> hours of repair is <math alttext=\"dollar sign 400\"><mo>$</mo><mn>400</mn></math>. Substituting <math alttext=\"5\"><mn>5</mn>\n</math> for <math alttext=\"x\"><mi>x</mi>\n</math> and <math alttext=\"400\"><mn>400</mn>\n</math> for <math alttext=\"f left parenthesis x right parenthesis\"><mi>f</mi><mfenced><mi>x</mi></mfenced></math> into the equation&nbsp;<math alttext=\"f left parenthesis x right parenthesis equals 220 plus n left parenthesis x minus 2 right parenthesis\"><mo>&nbsp;</mo><mi>f</mi><mfenced><mi>x</mi></mfenced><mo>=</mo><mn>220</mn><mo>+</mo><mi>n</mi><mfenced><mrow><mi>x</mi><mo>-</mo><mn>2</mn></mrow></mfenced></math> yields <math alttext=\"400 equals 220 plus n left parenthesis 5 minus 2 right parenthesis\"><mn>400</mn><mo>=</mo><mn>220</mn><mo>+</mo><mi>n</mi><mfenced><mrow><mn>5</mn><mo>-</mo><mn>2</mn></mrow></mfenced></math>, or <math alttext=\"400 equals 220 plus 3 n\"><mn>400</mn><mo>=</mo><mn>220</mn><mo>+</mo><mn>3</mn><mi>n</mi></math>. Subtracting <math alttext=\"220\"><mn>220</mn>\n</math> from both sides of this equation yields <math alttext=\"180 equals 3 n\"><mrow>\n\t<mn>180</mn>\n\t<mo>=</mo>\n\t<mrow>\n\t\t<mn>3</mn>\n\t\t<mi>n</mi>\n\t</mrow>\n</mrow>\n</math>. Dividing both sides of this equation by <math alttext=\"3\"><mn>3</mn>\n</math> yields <math alttext=\"n equals 60\"><mrow>\n\t<mi>n</mi>\n\t<mo>=</mo>\n\t<mn>60</mn>\n</mrow>\n</math>. Substituting <math alttext=\"60\"><mn>60</mn>\n</math> for <math alttext=\"n\"><mi>n</mi>\n</math> in the equation <math alttext=\"f left parenthesis x right parenthesis equals 220 plus n left parenthesis x minus 2 right parenthesis\"><mo>&nbsp;</mo><mi>f</mi><mfenced><mi>x</mi></mfenced><mo>=</mo><mn>220</mn><mo>+</mo><mi>n</mi><mfenced><mrow><mi>x</mi><mo>-</mo><mn>2</mn></mrow></mfenced></math> yields <math alttext=\"f left parenthesis x right parenthesis equals 220 plus 60 left parenthesis x minus 2 right parenthesis\"><mo>&nbsp;</mo><mi>f</mi><mfenced><mi>x</mi></mfenced><mo>=</mo><mn>220</mn><mo>+</mo><mn>60</mn><mfenced><mrow><mi>x</mi><mo>-</mo><mn>2</mn></mrow></mfenced></math>, which is equivalent to <math alttext=\"f left parenthesis x right parenthesis equals 220 plus 60 x minus 120\"><mo>&nbsp;</mo><mi>f</mi><mfenced><mi>x</mi></mfenced><mo>=</mo><mn>220</mn><mo>+</mo><mn>60</mn><mi>x</mi><mo>-</mo><mn>120</mn></math>, or <math alttext=\"f left parenthesis x right parenthesis equals 60 x plus 100\"><mo>&nbsp;</mo><mi>f</mi><mfenced><mi>x</mi></mfenced><mo>=</mo><mn>60</mn><mi>x</mi><mo>+</mo><mn>100</mn></math>. Therefore, the total cost, in dollars, for <math alttext=\"x\"><mi>x</mi>\n</math> hours of repair is&nbsp;<math alttext=\"f left parenthesis x right parenthesis equals 60 x plus 100\"><mo>&nbsp;</mo><mi>f</mi><mfenced><mi>x</mi></mfenced><mo>=</mo><mn>60</mn><mi>x</mi><mo>+</mo><mn>100</mn></math>.</p>\n<p style=\"text-align: left;\">Choice B is incorrect. This function represents the total cost, in dollars, for <math alttext=\"x\"><mi>x</mi>\n</math> hours of repair where the specialist charges <math alttext=\"dollar sign 340\"><mo>$</mo><mn>340</mn></math>, rather than <math alttext=\"dollar sign 220\"><mo>$</mo><mn>220</mn></math>, for the first two hours of repair.</p>\n<p style=\"text-align: left;\">Choice C is incorrect. This function represents the total cost, in dollars, for <math alttext=\"x\"><mi>x</mi>\n</math> hours of repair where the specialist charges <math alttext=\"dollar sign 160\"><mo>$</mo><mn>160</mn></math>, rather than <math alttext=\"dollar sign 220\"><mo>$</mo><mn>220</mn></math>, for the first two hours of repair, and an hourly fee of <math alttext=\"dollar sign 80\"><mo>$</mo><mn>80</mn></math>, rather than <math alttext=\"dollar sign 60\"><mo>$</mo><mn>60</mn></math>, after the first two hours.</p>\n<p style=\"text-align: left;\">Choice D is incorrect. This function represents the total cost, in dollars, for <math alttext=\"x\"><mi>x</mi>\n</math> hours of repair where the specialist charges <math alttext=\"dollar sign 380\"><mo>$</mo><mn>380</mn></math>, rather than <math alttext=\"dollar sign 220\"><mo>$</mo><mn>220</mn></math>, for the first two hours of repair, and an hourly fee of <math alttext=\"dollar sign 80\"><mo>$</mo><mn>80</mn></math>, rather than <math alttext=\"dollar sign 60\"><mo>$</mo><mn>60</mn></math>, after the first two hours.</p>",
+            "origin": "manifold",
+            "stem": "<p style=\"text-align: left;\">A window repair specialist charges <math alttext=\"dollar sign 220\"><mo>$</mo><mn>220</mn></math> for the first two hours of repair plus an hourly fee for each additional hour. The total cost for <math alttext=\"5\"><mn>5</mn>\n</math> hours of repair is <math alttext=\"dollar sign 400\"><mo>$</mo><mn>400</mn></math>. Which function <math alttext=\"f\"><mi>f</mi>\n</math> gives the total cost, in dollars, for <math alttext=\"x\"><mi>x</mi>\n</math> hours of repair, where <math alttext=\"x greater than or equals 2\"><mi>x</mi><mo>&#8805;</mo><mn>2</mn></math>?</p>",
+            "externalid": "1a8089dd-7f49-40bb-9cf4-9d9040daa84f",
+            "templateid": "9f9b4d3f-a9f9-4693-a605-d787059cfc83",
+            "vaultid": "4be45c7b-e54c-49f0-a1c8-19ce1a50b9d8",
+            "type": "mcq",
+            "answerOptions": [
+                {
+                    "id": "f7fd8058-eaa1-4f0a-b57c-44e47b402e76",
+                    "content": "<p><math alttext=\"f left parenthesis x right parenthesis equals 60 x plus 100\"><mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>=</mo><mn>60</mn><mi>x</mi><mo>+</mo><mn>100</mn></math></p>"
+                },
+                {
+                    "id": "c1e3887f-1fdb-480a-a3e7-0505638101c8",
+                    "content": "<p><math alttext=\"f left parenthesis x right parenthesis equals 60 x plus 220\"><mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>=</mo><mn>60</mn><mi>x</mi><mo>+</mo><mn>220</mn></math></p>"
+                },
+                {
+                    "id": "14dd1ede-0358-4ff4-88d0-40d933002a17",
+                    "content": "<p><math alttext=\"f left parenthesis x right parenthesis equals 80 x\"><mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>=</mo><mn>80</mn><mi>x</mi></math></p>"
+                },
+                {
+                    "id": "808cdb79-69d4-4fb3-85d3-92549f0ecbb7",
+                    "content": "<p><math alttext=\"f left parenthesis x right parenthesis equals 80 x plus 220\"><mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>=</mo><mn>80</mn><mi>x</mi><mo>+</mo><mn>220</mn></math></p>"
+                }
+            ],
+            "correct_answer": [
+                "A"
+            ]
+        }
+    },
+    "086da430-fcc3-492f-bc7a-4b448633701b": {
+        "updateDate": 1691007959629,
+        "pPcc": "SAT#H",
+        "questionId": "2937ef4f",
+        "skill_cd": "H.A.",
+        "score_band_range_cd": 6,
+        "uId": "086da430-fcc3-492f-bc7a-4b448633701b",
+        "skill_desc": "Linear equations in one variable",
+        "createDate": 1691007959629,
+        "program": "SAT",
+        "primary_class_cd_desc": "Algebra",
+        "ibn": "05397-DC",
+        "external_id": null,
+        "primary_class_cd": "H",
+        "difficulty": "H",
+        "module": "math",
+        "content": {
+            "item_id": "05397-DC",
+            "section": "Math",
+            "prompt": "<p class=\"stem_paragraph \">Hector used a tool called an auger to remove corn from a storage&nbsp;bin at a constant rate. The bin contained 24,000&nbsp;bushels of corn when Hector began to use the&nbsp;auger. After 5&nbsp;hours of using the auger, 19,350&nbsp;bushels of corn remained in the bin. If the auger continues to remove corn at this rate, what is the total number of hours Hector will have been using the auger when 12,840&nbsp;bushels of corn remain in the&nbsp;bin?</p>\n",
+            "answer": {
+                "style": "Multiple Choice",
+                "choices": {
+                    "a": {
+                        "body": "<p>&nbsp;&nbsp;3</p>\n"
+                    },
+                    "b": {
+                        "body": "<p>&nbsp;&nbsp;7</p>\n"
+                    },
+                    "c": {
+                        "body": "<p>&nbsp;&nbsp;8</p>\n"
+                    },
+                    "d": {
+                        "body": "<p>12</p>\n"
+                    }
+                },
+                "correct_choice": "d",
+                "rationale": "<p class=\"tcp-4d59c7c0-c73b-4f7a-88e6-86d117d03715\">Choice D is correct. After using the auger for 5 hours, Hector had removed 24,000 &ndash; 19,350 = 4,650 bushels of corn from the storage bin. During the 5-hour period, the auger removed corn from the bin at a constant rate of <!--EndFragment--><span class=\"math-container\"><img align=\"middle\" role=\"math\" class=\"math-img\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAF4AAAAsCAYAAADsOA+kAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAABGJhU0UAAAAWNPAnzwAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAACbklEQVR4Xu2aDZKDIAyFezwPxHG8i1fxJiwQAiH81lG7Yr4ZZqtG2j6SB7j9jKD3VS/mj9q09qeqYKx96Zq5yV3waL1pRa9j43GbItcXve79956OTYEAPeFRLIxDkRejmj22wMAoc6XeF/QTxebHr4BmXkt4rXe9LqnIln1dzHEU2vW3rCa63FetHzf4rCqmBUVQa99qIJP7WdkTsGZrfACnxn1Zm50DHg+VYYVJPTyxGcxmpVx/9pRtuRXlAxj7n1x49Gcrdi0LKdGSiDf7+1DYMLESq8liXD814V/g89QSvhGee/OIRdCYVwvPy/0b4XnMiGA0hr83AjGTWw1kYPTgtJVFrA3OMeHzfl41uSJDGe/9u2U1I6KGCZj186rlJDIivAUyN8bhfXFyBVFp5vJ7LLxKRqpmSpqZyjZDKCQ2nrlR/NhKA5ra3b2ij7w37uahlWNSLU78Dk5EVd+FPhEQNIpUqkiI4VWbCsvPlWIO4yrBfCJ/+Hi4NSK0skvVz+clfoycNk/ZD1SyiadSy8petgb79KI2rXnmlVnYIXcaF+ao8CBovA7C1/qZWPijtDM1FxLO54P47QDagye2U8kmTj8YrYwPMWg1Byvn8Ry1GiRdKppBqFgHhVaFWM1JjAhGs7ltWSJ8Ru2xB10GgsBtUS9fTs5I5vHMl8PSkf5PwQ8GFTq7jx1fRtVnHzDimcd7gZEgfogpzxd01XOL6BbwOfGz23GlxR6gCTcgE8kPCLN649cEwgWEibXxawLhRmQD8SNuW8sKKSL8xcizih8Rd3Z8611/IiicxOi2WhAEQRAEQRAEQRCE/8fn8wc3BSpKvHEyCgAAAABJRU5ErkJggg==\" alt=\"the fraction 4,650 over 5, equals 930\"></span><!--StartFragment--> bushels per hour. Assuming the auger continues to remove corn at this rate, after <span class=\"italic\">x</span> hours it will have removed 930<span class=\"italic\">x</span> bushels of corn. Because the bin contained 24,000 bushels of corn when Hector started using the auger, the equation 24,000 &ndash; 930<span class=\"italic\">x</span> = 12,840 can be used to find the number of hours, <span class=\"italic\">x</span>, Hector will have been using the auger when 12,840 bushels of corn remain in the bin. Subtracting 12,840 from both sides of this equation and adding 930<span class=\"italic\">x</span> to both sides of the equation yields 11,160 = 930<span class=\"italic\">x</span>. Dividing both sides of this equation by 930 yields <span class=\"italic\">x </span>= 12. Therefore, Hector will have been using the auger for 12 hours&nbsp;when 12,840 bushels of corn remain in the storage bin.<p>\n        <!--StartFragment-->Choice A is incorrect. Three hours after Hector began using the auger, 24,000 &ndash; 3(930) = 21,210 bushels of corn remained, not 12,840. Choice B is incorrect. Seven hours after Hector began using the auger, 24,000 &ndash; 7(930) = 17,490 bushels of corn will remain, not 12,840. Choice C is incorrect. Eight hours after Hector began using the auger, 24,000 &ndash; 8(930) = 16,560 bushels of corn will remain, not 12,840.<!--EndFragment--></p></p>\n"
+            }
+        }
+    },
+    "08ae0f01-75f8-491a-9958-ba37830d42e1": {
+        "updateDate": 1691007959811,
+        "pPcc": "SAT#H",
+        "questionId": "548a4929",
+        "skill_cd": "H.B.",
+        "score_band_range_cd": 5,
+        "uId": "08ae0f01-75f8-491a-9958-ba37830d42e1",
+        "skill_desc": "Linear functions",
+        "createDate": 1691007959811,
+        "program": "SAT",
+        "primary_class_cd_desc": "Algebra",
+        "ibn": null,
+        "external_id": "77e2c729-a66a-47de-9258-130399ad202e",
+        "primary_class_cd": "H",
+        "difficulty": "M",
+        "module": "math",
+        "content": {
+            "keys": [
+                "4c4342d5-140e-4d5a-b590-1bf913281a13"
+            ],
+            "rationale": "<p style=\"text-align: left;\">Choice A is correct. The <em>x</em>-intercept of a graph in the <em>xy</em>-plane is the point on the graph where <math alttext=\"y equals 0\"><mrow>\n\t<mi>y</mi>\n\t<mo>=</mo>\n\t<mn>0</mn>\n</mrow>\n</math>. It's given that function <math alttext=\"h\"><mi>h</mi>\n</math> is defined by&nbsp;<math alttext=\"h left parenthesis x right parenthesis equals 4 x plus 28\"><mi>h</mi><mfenced><mi>x</mi></mfenced><mo>=</mo><mn>4</mn><mi>x</mi><mo>+</mo><mn>28</mn></math>. Therefore, the equation representing the graph of <math alttext=\"y equals h left parenthesis x right parenthesis\"><mi>y</mi><mo>=</mo><mi>h</mi><mfenced><mi>x</mi></mfenced></math> is <math alttext=\"y equals 4 x plus 28\"><mrow>\n\t<mi>y</mi>\n\t<mo>=</mo>\n\t<mrow>\n\t\t<mrow>\n\t\t\t<mn>4</mn>\n\t\t\t<mi>x</mi>\n\t\t</mrow>\n\t\t<mo>+</mo>\n\t\t<mn>28</mn>\n\t</mrow>\n</mrow>\n</math>. Substituting <math alttext=\"0\"><mn>0</mn>\n</math> for <math alttext=\"y\"><mi>y</mi>\n</math> in the equation <math alttext=\"y equals 4 x plus 28\"><mrow>\n\t<mi>y</mi>\n\t<mo>=</mo>\n\t<mrow>\n\t\t<mrow>\n\t\t\t<mn>4</mn>\n\t\t\t<mi>x</mi>\n\t\t</mrow>\n\t\t<mo>+</mo>\n\t\t<mn>28</mn>\n\t</mrow>\n</mrow>\n</math> yields <math alttext=\"0 equals 4 x plus 28\"><mrow>\n\t<mn>0</mn>\n\t<mo>=</mo>\n\t<mrow>\n\t\t<mrow>\n\t\t\t<mn>4</mn>\n\t\t\t<mi>x</mi>\n\t\t</mrow>\n\t\t<mo>+</mo>\n\t\t<mn>28</mn>\n\t</mrow>\n</mrow>\n</math>. Subtracting <math alttext=\"28\"><mn>28</mn>\n</math> from both sides of this equation yields <math alttext=\"negative 28 equals 4 x\"><mrow>\n\t<mo>-</mo><mn>28</mn>\n\t<mo>=</mo>\n\t<mrow>\n\t\t<mn>4</mn>\n\t\t<mi>x</mi>\n\t</mrow>\n</mrow>\n</math>. Dividing both sides of this equation by <math alttext=\"4\"><mn>4</mn>\n</math> yields <math alttext=\"negative 7 equals x\"><mrow>\n\t<mo>-</mo><mn>7</mn>\n\t<mo>=</mo>\n\t<mi>x</mi>\n</mrow>\n</math>. Therefore, the <em>x</em>-intercept of the graph of&nbsp;<math alttext=\"y equals h left parenthesis x right parenthesis\"><mi>y</mi><mo>=</mo><mi>h</mi><mfenced><mi>x</mi></mfenced></math> in the <em>xy</em>-plane is&nbsp;<math alttext=\"left parenthesis negative 7 comma 0 right parenthesis\"><mfenced><mrow><mo>-</mo><mn>7</mn><mo>,</mo><mn>0</mn></mrow></mfenced></math>. It's given that the <em>x</em>-intercept of the graph of&nbsp;<math alttext=\"y equals h left parenthesis x right parenthesis\"><mi>y</mi><mo>=</mo><mi>h</mi><mfenced><mi>x</mi></mfenced></math> is&nbsp;<math alttext=\"left parenthesis a comma 0 right parenthesis\"><mfenced><mrow><mi>a</mi><mo>,</mo><mn>0</mn></mrow></mfenced></math>. Therefore, <math alttext=\"a equals negative 7\"><mrow>\n\t<mi>a</mi>\n\t<mo>=</mo>\n\t<mo>-</mo><mn>7</mn>\n</mrow>\n</math>. The <em>y</em>-intercept of a graph in the <em>xy</em>-plane is the point on the graph where <math alttext=\"x equals 0\"><mrow>\n\t<mi>x</mi>\n\t<mo>=</mo>\n\t<mn>0</mn>\n</mrow>\n</math>. Substituting <math alttext=\"0\"><mn>0</mn>\n</math> for <math alttext=\"x\"><mi>x</mi>\n</math> in the equation <math alttext=\"y equals 4 x plus 28\"><mrow>\n\t<mi>y</mi>\n\t<mo>=</mo>\n\t<mrow>\n\t\t<mrow>\n\t\t\t<mn>4</mn>\n\t\t\t<mi>x</mi>\n\t\t</mrow>\n\t\t<mo>+</mo>\n\t\t<mn>28</mn>\n\t</mrow>\n</mrow>\n</math> yields&nbsp;<math alttext=\"y equals 4 left parenthesis 0 right parenthesis plus 28\"><mi>y</mi><mo>=</mo><mn>4</mn><mfenced><mn>0</mn></mfenced><mo>+</mo><mn>28</mn></math>, or <math alttext=\"y equals 28\"><mrow>\n\t<mi>y</mi>\n\t<mo>=</mo>\n\t<mn>28</mn>\n</mrow>\n</math>. Therefore, the <em>y</em>-intercept of the graph of&nbsp;<math alttext=\"y equals h left parenthesis x right parenthesis\"><mi>y</mi><mo>=</mo><mi>h</mi><mfenced><mi>x</mi></mfenced></math> in the <em>xy</em>-plane is <math alttext=\"left parenthesis 0 comma 28 right parenthesis\"><mfenced><mrow><mn>0</mn><mo>,</mo><mn>28</mn></mrow></mfenced></math>. It's given that the <em>y</em>-intercept of the graph of&nbsp;<math alttext=\"y equals h left parenthesis x right parenthesis\"><mi>y</mi><mo>=</mo><mi>h</mi><mfenced><mi>x</mi></mfenced></math> is&nbsp;<math alttext=\"left parenthesis 0 comma b right parenthesis\"><mfenced><mrow><mn>0</mn><mo>,</mo><mi>b</mi></mrow></mfenced></math>. Therefore, <math alttext=\"b equals 28\"><mrow>\n\t<mi>b</mi>\n\t<mo>=</mo>\n\t<mn>28</mn>\n</mrow>\n</math>. If <math alttext=\"a equals negative 7\"><mrow>\n\t<mi>a</mi>\n\t<mo>=</mo>\n\t<mo>-</mo><mn>7</mn>\n</mrow>\n</math> and <math alttext=\"b equals 28\"><mrow>\n\t<mi>b</mi>\n\t<mo>=</mo>\n\t<mn>28</mn>\n</mrow>\n</math>, then the value of <math alttext=\"a plus b\"><mrow>\n\t<mi>a</mi>\n\t<mo>+</mo>\n\t<mi>b</mi>\n</mrow>\n</math> is <math alttext=\"negative 7 plus 28\"><mo>-</mo><mn>7</mn><mo>+</mo><mn>28</mn></math>, or <math alttext=\"21\"><mn>21</mn>\n</math>.</p>\n<p style=\"text-align: left;\">Choice B is incorrect. This is the value of <math alttext=\"b\"><mi>b</mi>\n</math>, not <math alttext=\"a plus b\"><mrow>\n\t<mi>a</mi>\n\t<mo>+</mo>\n\t<mi>b</mi>\n</mrow>\n</math>.</p>\n<p style=\"text-align: left;\">Choice C is incorrect and may result from conceptual or calculation errors.</p>\n<p style=\"text-align: left;\">Choice D is incorrect. This is the value of <math alttext=\"negative a plus b\"><mrow>\n\t<mrow>\n\t\t<mo>-</mo>\n\t\t<mi>a</mi>\n\t</mrow>\n\t<mo>+</mo>\n\t<mi>b</mi>\n</mrow>\n</math>, not <math alttext=\"a plus b\"><mrow>\n\t<mi>a</mi>\n\t<mo>+</mo>\n\t<mi>b</mi>\n</mrow>\n</math>.</p>",
+            "origin": "manifold",
+            "stem": "<p style=\"text-align: left;\">The function <math alttext=\"h\"><mi>h</mi>\n</math> is defined by <math alttext=\"h left parenthesis x right parenthesis equals 4 x plus 28\"><mi>h</mi><mfenced><mi>x</mi></mfenced><mo>=</mo><mrow><mn>4</mn></mrow><mi>x</mi><mo>+</mo><mrow><mn>28</mn></mrow></math>. The graph of <math alttext=\"y equals h left parenthesis x right parenthesis\"><mi>y</mi><mo>=</mo><mi>h</mi><mfenced><mi>x</mi></mfenced></math> in the <em>xy</em>-plane has an <em>x</em>-intercept at <math alttext=\"left parenthesis a comma 0 right parenthesis\"><mfenced><mrow><mi>a</mi><mo>,</mo><mn>0</mn></mrow></mfenced></math> and a <em>y</em>-intercept at <math alttext=\"left parenthesis 0 comma b right parenthesis\"><mfenced><mrow><mn>0</mn><mo>,</mo><mi>b</mi></mrow></mfenced></math>, where <math alttext=\"a\"><mi>a</mi>\n</math> and <math alttext=\"b\"><mi>b</mi>\n</math> are constants. What is the value of <math alttext=\"a plus b\"><mrow>\n\t<mi>a</mi>\n\t<mo>+</mo>\n\t<mi>b</mi>\n</mrow>\n</math>?</p>",
+            "externalid": "77e2c729-a66a-47de-9258-130399ad202e",
+            "templateid": "f2abcf7e-16ed-4f9c-a7d2-014fe22a45e5",
+            "vaultid": "5c48f153-fc4e-48ee-993e-2293d23658a1",
+            "type": "mcq",
+            "answerOptions": [
+                {
+                    "id": "4c4342d5-140e-4d5a-b590-1bf913281a13",
+                    "content": "<p><math alttext=\"21\"><mn>21</mn>\n</math></p>"
+                },
+                {
+                    "id": "6a7f24aa-529d-4f7d-82e3-6a357e18a444",
+                    "content": "<p><math alttext=\"28\"><mn>28</mn>\n</math></p>"
+                },
+                {
+                    "id": "f111bebb-6a71-47ef-89f1-524702a6c18b",
+                    "content": "<p><math alttext=\"32\"><mn>32</mn>\n</math></p>"
+                },
+                {
+                    "id": "e574a340-0c30-4980-ba78-e58ed69580a7",
+                    "content": "<p><math alttext=\"35\"><mn>35</mn>\n</math></p>"
+                }
+            ],
+            "correct_answer": [
+                "A"
+            ]
+        }
+    },
+    "09398c0c-b40b-4309-9ea8-a451e1342d9d": {
+        "updateDate": 1691007959815,
+        "pPcc": "SAT#H",
+        "questionId": "9bbce683",
+        "skill_cd": "H.C.",
+        "score_band_range_cd": 7,
+        "uId": "09398c0c-b40b-4309-9ea8-a451e1342d9d",
+        "skill_desc": "Linear equations in two variables",
+        "createDate": 1691007959815,
+        "program": "SAT",
+        "primary_class_cd_desc": "Algebra",
+        "ibn": null,
+        "external_id": "7e535b93-6192-4963-87af-547e39bbdfcf",
+        "primary_class_cd": "H",
+        "difficulty": "H",
+        "module": "math",
+        "content": {
+            "keys": [
+                "c63a0375-f1e8-4148-b302-707d33217892"
+            ],
+            "rationale": "<p>Choice D is correct. The equation of line <math alttext=\"h\"><mi>h</mi>\n</math> can be written in slope-intercept form <math alttext=\"y equals m x plus b\"><mrow>\n\t<mi>y</mi>\n\t<mo>=</mo>\n\t<mrow>\n\t\t<mrow>\n\t\t\t<mi>m</mi>\n\t\t\t<mi>x</mi>\n\t\t</mrow>\n\t\t<mo>+</mo>\n\t\t<mi>b</mi>\n\t</mrow>\n</mrow>\n</math>, where <math alttext=\"m\"><mi>m</mi>\n</math> is the slope of the line and <math alttext=\"left parenthesis 0 comma b right parenthesis\"><mfenced><mrow><mn>0</mn><mo>,</mo><mi>b</mi></mrow></mfenced></math> is the <em>y</em>-intercept of the line. It&rsquo;s given that line <math alttext=\"h\"><mi>h</mi>\n</math> contains the points <math alttext=\"left parenthesis 18 comma 130 right parenthesis\"><mfenced><mrow><mn>18</mn><mo>,</mo><mn>130</mn></mrow></mfenced></math>, <math alttext=\"left parenthesis 23 comma 160 right parenthesis\"><mfenced><mrow><mn>23</mn><mo>,</mo><mn>160</mn></mrow></mfenced></math>, and <math alttext=\"left parenthesis 26 comma 178 right parenthesis\"><mfenced><mrow><mn>26</mn><mo>,</mo><mn>178</mn></mrow></mfenced></math>. Therefore, its slope <math alttext=\"m\"><mi>m</mi>\n</math> can be found as <math alttext=\"StartFraction 160 minus 130 Over 23 minus 18 EndFraction\"><mfrac><mrow><mn>160</mn><mo>-</mo><mn>130</mn></mrow><mrow><mn>23</mn><mo>-</mo><mn>18</mn></mrow></mfrac></math>, or <math alttext=\"6\"><mn>6</mn>\n</math>. Substituting <math alttext=\"6\"><mn>6</mn>\n</math> for <math alttext=\"m\"><mi>m</mi>\n</math> in the equation <math alttext=\"y equals m x plus b\"><mrow>\n\t<mi>y</mi>\n\t<mo>=</mo>\n\t<mrow>\n\t\t<mrow>\n\t\t\t<mi>m</mi>\n\t\t\t<mi>x</mi>\n\t\t</mrow>\n\t\t<mo>+</mo>\n\t\t<mi>b</mi>\n\t</mrow>\n</mrow>\n</math> yields <math alttext=\"y equals 6 x plus b\"><mrow>\n\t<mi>y</mi>\n\t<mo>=</mo>\n\t<mrow>\n\t\t<mrow>\n\t\t\t<mn>6</mn>\n\t\t\t<mi>x</mi>\n\t\t</mrow>\n\t\t<mo>+</mo>\n\t\t<mi>b</mi>\n\t</mrow>\n</mrow>\n</math>. Substituting <math alttext=\"130\"><mn>130</mn>\n</math> for <math alttext=\"y\"><mi>y</mi>\n</math> and <math alttext=\"18\"><mn>18</mn>\n</math> for <math alttext=\"x\"><mi>x</mi>\n</math> in this equation yields <math alttext=\"130 equals 6 left parenthesis 18 right parenthesis plus b\"><mn>130</mn><mo>=</mo><mn>6</mn><mo>(</mo><mn>18</mn><mo>)</mo><mo>+</mo><mi>b</mi></math>, or <math alttext=\"130 equals 108 plus b\"><mn>130</mn><mo>=</mo><mn>108</mn><mo>+</mo><mi>b</mi></math>. Subtracting <math alttext=\"108\"><mn>108</mn>\n</math> from both sides of this equation yields <math alttext=\"22 equals b\"><mrow>\n\t<mn>22</mn>\n\t<mo>=</mo>\n\t<mi>b</mi>\n</mrow>\n</math>. Substituting <math alttext=\"22\"><mn>22</mn>\n</math> for <math alttext=\"b\"><mi>b</mi>\n</math> in <math alttext=\"y equals 6 x plus b\"><mrow>\n\t<mi>y</mi>\n\t<mo>=</mo>\n\t<mrow>\n\t\t<mrow>\n\t\t\t<mn>6</mn>\n\t\t\t<mi>x</mi>\n\t\t</mrow>\n\t\t<mo>+</mo>\n\t\t<mi>b</mi>\n\t</mrow>\n</mrow>\n</math> yields <math alttext=\"y equals 6 x plus 22\"><mrow>\n\t<mi>y</mi>\n\t<mo>=</mo>\n\t<mrow>\n\t\t<mrow>\n\t\t\t<mn>6</mn>\n\t\t\t<mi>x</mi>\n\t\t</mrow>\n\t\t<mo>+</mo>\n\t\t<mn>22</mn>\n\t</mrow>\n</mrow>\n</math>. Since line <math alttext=\"k\"><mi>k</mi>\n</math> is the result of translating line <math alttext=\"h\"><mi>h</mi>\n</math> down <math alttext=\"5\"><mn>5</mn>\n</math> units, an equation of line <math alttext=\"k\"><mi>k</mi>\n</math> is <math alttext=\"y equals 6 x plus 22 minus 5\"><mi>y</mi><mo>=</mo><mn>6</mn><mi>x</mi><mo>+</mo><mn>22</mn><mo>-</mo><mn>5</mn></math>, or <math alttext=\"y equals 6 x plus 17\"><mrow>\n\t<mi>y</mi>\n\t<mo>=</mo>\n\t<mrow>\n\t\t<mrow>\n\t\t\t<mn>6</mn>\n\t\t\t<mi>x</mi>\n\t\t</mrow>\n\t\t<mo>+</mo>\n\t\t<mn>17</mn>\n\t</mrow>\n</mrow>\n</math>. Substituting <math alttext=\"0\"><mn>0</mn>\n</math> for <math alttext=\"y\"><mi>y</mi>\n</math> in this equation yields <math alttext=\"0 equals 6 x plus 17\"><mrow>\n\t<mn>0</mn>\n\t<mo>=</mo>\n\t<mrow>\n\t\t<mrow>\n\t\t\t<mn>6</mn>\n\t\t\t<mi>x</mi>\n\t\t</mrow>\n\t\t<mo>+</mo>\n\t\t<mn>17</mn>\n\t</mrow>\n</mrow>\n</math>. Solving this equation for <math alttext=\"x\"><mi>x</mi>\n</math> yields <math alttext=\"x equals negative StartFraction 17 Over 6 EndFraction\"><mi>x</mi><mo>=</mo><mo>-</mo><mfrac><mn>17</mn><mn>6</mn></mfrac></math>. Therefore, the <em>x</em>-intercept of line <math alttext=\"k\"><mi>k</mi>\n</math> is&nbsp;<math alttext=\"left parenthesis negative StartFraction 17 Over 6 EndFraction comma 0 right parenthesis\"><mfenced><mrow><mo>-</mo><mfrac><mn>17</mn><mn>6</mn></mfrac><mo>,</mo><mn>0</mn></mrow></mfenced></math>.</p>\n<p>Choice A is incorrect and may result from conceptual or calculation errors.</p>\n<p>Choice B is incorrect and may result from conceptual or calculation errors.</p>\n<p>Choice C is incorrect and may result from conceptual or calculation errors.</p>",
+            "origin": "manifold",
+            "stem": "<figure class=\"table\"><figure class=\"table\"><figure class=\"table\"><figure class=\"table\"><figure class=\"table\"><table border=\"1\">\n<thead>\n<tr>\n<th style=\"width: 47.1852%; text-align: center;\" scope=\"col\"><math alttext=\"x\"><mi>x</mi>\n</math></th>\n<th style=\"width: 47.3594%; text-align: center;\" scope=\"col\"><math alttext=\"y\"><mi>y</mi>\n</math></th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td style=\"width: 47.1852%; text-align: center;\"><math alttext=\"18\"><mn>18</mn>\n</math></td>\n<td style=\"width: 47.3594%; text-align: center;\"><math alttext=\"130\"><mn>130</mn>\n</math></td>\n</tr>\n<tr>\n<td style=\"width: 47.1852%; text-align: center;\"><math alttext=\"23\"><mn>23</mn>\n</math></td>\n<td style=\"width: 47.3594%; text-align: center;\"><math alttext=\"160\"><mn>160</mn>\n</math></td>\n</tr>\n<tr>\n<td style=\"width: 47.1852%; text-align: center;\"><math alttext=\"26\"><mn>26</mn>\n</math></td>\n<td style=\"width: 47.3594%; text-align: center;\"><math alttext=\"178\"><mn>178</mn>\n</math></td>\n</tr>\n</tbody>\n</table></figure></figure></figure></figure></figure>\n<p style=\"text-align: left;\">For line <math alttext=\"h\"><mi>h</mi>\n</math>, the table shows three values of <math alttext=\"x\"><mi>x</mi>\n</math> and their corresponding values of <math alttext=\"y\"><mi>y</mi>\n</math>. Line <math alttext=\"k\"><mi>k</mi>\n</math> is the result of translating line <math alttext=\"h\"><mi>h</mi>\n</math> down <math alttext=\"5\"><mn>5</mn>\n</math> units in the <em>xy</em>-plane. What is the <em>x</em>-intercept of line <math alttext=\"k\"><mi>k</mi>\n</math>?</p>",
+            "externalid": "7e535b93-6192-4963-87af-547e39bbdfcf",
+            "templateid": "d38b0a4d-9557-42ec-9e82-3ba02d5c5234",
+            "vaultid": "deb9fa1d-5c92-43eb-ab9c-b3deb1b55827",
+            "type": "mcq",
+            "answerOptions": [
+                {
+                    "id": "b87fce98-1cce-4e5a-9496-4cdacc516169",
+                    "content": "<p><math alttext=\"left parenthesis negative StartFraction 26 Over 3 EndFraction comma 0 right parenthesis\"><mfenced><mrow><mrow><mrow><mo>-</mo><mfrac><mn>26</mn><mn>3</mn></mfrac></mrow></mrow><mo>,</mo><mn>0</mn></mrow></mfenced></math></p>"
+                },
+                {
+                    "id": "490fe6f6-e66d-48f5-8efa-815250ba6ca9",
+                    "content": "<p><math alttext=\"left parenthesis negative nine halves comma 0 right parenthesis\"><mfenced><mrow><mrow><mrow><mo>-</mo><mfrac><mn>9</mn><mn>2</mn></mfrac></mrow></mrow><mo>,</mo><mn>0</mn></mrow></mfenced></math></p>"
+                },
+                {
+                    "id": "aceaa16e-051e-4e42-80a2-64f55840ff1f",
+                    "content": "<p><math alttext=\"left parenthesis negative StartFraction 11 Over 3 EndFraction comma 0 right parenthesis\"><mfenced><mrow><mrow><mrow><mo>-</mo><mfrac><mn>11</mn><mn>3</mn></mfrac></mrow></mrow><mo>,</mo><mn>0</mn></mrow></mfenced></math></p>"
+                },
+                {
+                    "id": "c63a0375-f1e8-4148-b302-707d33217892",
+                    "content": "<p><math alttext=\"left parenthesis negative StartFraction 17 Over 6 EndFraction comma 0 right parenthesis\"><mfenced><mrow><mrow><mrow><mo>-</mo><mfrac><mn>17</mn><mn>6</mn></mfrac></mrow></mrow><mo>,</mo><mn>0</mn></mrow></mfenced></math></p>"
+                }
+            ],
+            "correct_answer": [
+                "D"
+            ]
+        }
+    },
+    "0a647aa0-56ae-4cc8-98c4-46202a5fa970": {
+        "updateDate": 1691007959620,
+        "pPcc": "SAT#H",
+        "questionId": "2b15d65f",
+        "skill_cd": "H.B.",
+        "score_band_range_cd": 6,
+        "uId": "0a647aa0-56ae-4cc8-98c4-46202a5fa970",
+        "skill_desc": "Linear functions",
+        "createDate": 1691007959620,
+        "program": "SAT",
+        "primary_class_cd_desc": "Algebra",
+        "ibn": "025812-DC",
+        "external_id": null,
+        "primary_class_cd": "H",
+        "difficulty": "H",
+        "module": "math",
+        "content": {
+            "item_id": "025812-DC",
+            "section": "Math",
+            "prompt": "<p class=\"stem_paragraph \">An economist modeled the demand <em class=\"inline_variable \">Q</em> for a certain product as a linear function of the selling price <em class=\"inline_variable \">P</em>. The demand was 20,000 units when the selling price was $40 per unit, and the demand was 15,000 units when the selling price was $60 per unit. Based on the model, what is the demand, in units, when the selling price is $55 per unit?</p>\n",
+            "answer": {
+                "style": "Multiple Choice",
+                "choices": {
+                    "a": {
+                        "body": "<p class=\"choice_paragraph \">16,250</p>\n"
+                    },
+                    "b": {
+                        "body": "<p class=\"choice_paragraph \">16,500</p>\n"
+                    },
+                    "c": {
+                        "body": "<p class=\"choice_paragraph \">16,750</p>\n"
+                    },
+                    "d": {
+                        "body": "<p class=\"choice_paragraph \">17,500</p>\n"
+                    }
+                },
+                "correct_choice": "a",
+                "rationale": "<p>Choice A is correct. Let the economist&rsquo;s model be the linear function <span class=\"math-container\"><img align=\"middle\" role=\"math\" class=\"math-img\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAWCAYAAABXEBvcAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAABGJhU0UAAAALV/ZLFgAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAABqElEQVRYR+1WUa6EIAz0eByI43gXr8JN2GIBay1QFZP96CSNhAdlmHbYt3DEGOLqlpiGNfyWvn+FsLozxxouriGm8RTEsEYHH5BgnDNuHkkwwTafiPkIOaYRe4NaZKGwKOw8rqiJIt9I6V3EP+nECNfx8HHQanmqAu/R78KyX9NVe0HcCiXrrO1VtAArMdceCUfH4KVgqvKgNqViFadIAswUkOqCLsS47NP4vLWmkEnDXrRyY2d7yIE2KefAn6po3EY9m2osrBfwuFtZK+bX+PxO22txEDzOLgJeOw67qnaFYKteZ1KoBZS4SHt3VQc+x2Tf/8JRsfLUqeq0K64h8+vvOYILKnEpuU7vr0bAljWekkuQOn+3NOHCO04S/S7ELhIg6SLulZSmoI9pnpqCpljkHF7xViHvQCug9J+HqFUhTtuSqo+k2wI/gXQmFyuBPx1c9CfQCFjWcAGb5xdr1EqHAGLD4pQEYlStu3j1/rFL3YVKwMyP8hk5tXZFGtZw7vWbI2EkVp462UgS/Ssgv8QlF22Pjng9cBsZDAaDwWAwGAwGwwssyw+kmlKEdkpOSQAAAABJRU5ErkJggg==\" alt=\"Q equals, m P plus b\"></span>, where <span class=\"italic\">Q</span> is the demand, <span class=\"italic\">P</span> is the selling price, <span class=\"italic\">m</span> is the slope of the line, and <span class=\"italic\">b</span> is the <span class=\"italic\">y</span>-coordinate of the <span class=\"italic\">y</span>-intercept of the line in the <span class=\"italic\">xy</span>-plane, where <span class=\"math-container\"><img align=\"middle\" role=\"math\" class=\"math-img\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAWCAYAAACyjt6wAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAABGJhU0UAAAALV/ZLFgAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAAA8UlEQVRIS+2U4Q2EIAyFGa8DMQ67sAqb1LZYBa5y5jzUH3wJgVTAx2vBPQliwgAOebg1H7l/HozeFBQ9C/UYEZ8TiikgUEfaTBEisnUyBUAHgUzfF20p+KPtZ/bM7gIGErOGNFhba04kkGZ56njYa5ZD39xjzDk5uIsZ4R5jGdGiBtQCm+CZjX7BKqWW1ixBHQOOFuP1c8WVFJ8RKHMsc/j2iMBB7jFHda10S0uU+9B17ypWdkpXs3sHB8in4/SMcU/RW6oiU0r0635pCO3CkWypXEVJA/h8XkoOi/NGzBvMmG/PGyifjDtSO5lMJq/CuQUK8335uPwLkQAAAABJRU5ErkJggg==\" alt=\"y equals Q\"></span>. Two pairs of the selling price <span class=\"italic\">P</span> and the demand <span class=\"italic\">Q</span> are given. Using the coordinate pairs <span class=\"math-container\"><img align=\"middle\" role=\"math\" class=\"math-img\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACcAAAAaCAYAAAA0R0VGAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAABGJhU0UAAAANvpXuIwAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAABXElEQVRYR+1V240EIQyjPAqiHHqZVugkS8IEBcY8Zk+6uw8sIbE8Escxs86CUiTvPMVEdC/9CogSRe8oXIO8RBeFPyCmmOa/giOfd+6fFSl6XgNjvxBVhqd1ZJl4z4KuQM7HfNrELe0MmXubrAYFgQrp550ekhCQYTH6+7C9kghVIlJjRXf8Wc6MvSQEu7xSjF3jQyiAVg33FuRmqitK/DZG08USBCeZtW7V1pVqDHSmeRijV1Ir7w2aMVNUUc7MPam2ackZscbkykWePgdW2kKUBYVZIGvskdtoyww75JA1Gj7avp7EylMrILNbVNvkxPeSoJAzedEHWJ75ovIZNLmNa9UsxYOOcVE2b79Q/dZV9RZqDSWYUsqp1LfYMg+h+tZ+47eRx2r78rSObHgUf+T/p5wvISTC/n30UrlA9G8kGPlgB5LsSxtUdX8gzhRc2BsbHBwcHBz8azj3Ac4uhEZwKWCPAAAAAElFTkSuQmCC\" alt=\"P comma Q\"></span>, two points that satisfy the function are <span class=\"math-container\"><img align=\"middle\" role=\"math\" class=\"math-img\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFUAAAAaCAYAAADG+xDjAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAABGJhU0UAAAANvpXuIwAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAAB+0lEQVRoQ+2Xa3KFMAiFszwXlOW4F7fiTmgIUPMgiplcf/HNOK3IwxxIbEMJnDtsYYP9BGCTcwPACfsWIB4DvQAOiC7oa251O2KALT3h2wqaYL0jcES08fW+KdJt/FUu7T1m6lhiVvjk59ueVlLYSbSYNNdfFAVPPzpRqdhVpL1/4hL0qi0LKIWdqWOJWeajHQPnvkFIFr6toCS9qJKonarcgEGultEZnt+HhZ6pY4lZ5SNknUobOqX7ygmRpHHvt//oSCgFYdNrqJEs6kQdS8wqHzbVu52E66cFycF4VijJKUkfVwrCptfkSeAzaqaOJWaVD5uSjsUHa/T1IjsJSckbUXPiUcHeboXir1ozdSwxq3zYVA/nSNTqbPlIVIqtz6uZOpaYVT5seha1HXtV1BdbwwKdU8oHYKKOJWaVD5tqHUnhWrD/BaoXBVLBOg7RDvEn8q5IudqvLDJTxxKzyodNLGphw0VpCxK05NIMy58bd9ALjuvP1LHErPIR8vSW/wB0hoZRx2gbXNujvX9C8o4EFWbqWGJW+SAodLUO6UgrmjASFZFJo6svlp8PGlbHtle9vWbqPMUgK3y071Imd+BmWmfJDYvr87Z8VUcDRR/uNuqI3q1Z8pQ3588v+KpOiezwXwzjLdio0bGykq/qOI7jOI7jOI7jMCH8AS1+ooprD8EtAAAAAElFTkSuQmCC\" alt=\"40 comma 20,000 \"></span> and <span class=\"math-container\"><img align=\"middle\" role=\"math\" class=\"math-img\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFUAAAAaCAYAAADG+xDjAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAABGJhU0UAAAANvpXuIwAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAACEklEQVRoQ+2WUbaEIAiGW14Lcjntpa20E28IJBIqznXmye+cHoYofn7RZpPE64j7tsfjipFCiwYxXvHYtxjOil8xnjEsQ4dp+naGLe73HfqZwMndIIbXvSTphiCeId//56JYGgAULnTwZeiReLTNyEn39+OeWxFH88ItPQf5RTza3JhsGnNyEf17BK5nmmro6+HRNi3HOgauYy9WnZN0gymPmqvlwLT1JkiD78VJME2FRvQkNPBom5XDJI0yBkn37yfg+WDx0SCfA6TxFGqSV/69E5jRhfJom5VDoXI34WpYIw8J5VkmG8aXvI3Pz5bxHtbxAjzTEkJqEEJwWeYzHm2zcihE+inX+nrhQyA+x7FAbgZzagXf8R51U2lhxfbXWjQebbNyKESLT7GWqVp0sTUGCnpg81oTKGkdMx5ts3Io5DdVnyVFwYGt4WHU1FrDwKytPdJj4SM6XBrI26tvqu8Q9zDf1La2WTkUIv0iBl9X2UytwaIgf0BUzuiXmqnV/GTxPNpm5TBpkeXfvlfgBichN8PNyQJ6WlrT06NqKjUmDdTaLDzaZuUAejAf4VokvgAawks3DODEcM67WLrv+OPe2v7Z2HxprVadnjZgRg5qN55NBjqaHyUZEua/V/OrOhZgujUMCVwRe7U+JR0b6vz5Br+qI3l20BeGsQksVOvsm8Wv6iwWi8VisVgsFosFsW1/lmKKpmpFVFIAAAAASUVORK5CYII=\" alt=\"60 comma 15,000\"></span>. The slope <span class=\"italic\">m</span> of the function can be found using the formula <span class=\"math-container\"><img align=\"middle\" role=\"math\" class=\"math-img\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAAAuCAYAAADXyhwkAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAABGJhU0UAAAAXQ/cXWQAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAACgElEQVR4Xu2ajZGDIBCFLY+CLMdebMVOOJZlBRWJINksB98Mczmjmbc/PCCTSTpab3pRk4aX+5hX+MuOJC0s6HWOBrnOEPysV63ZgpekhQW9LVqZPybeaGA2cKbuk6SFhX2qJ4LCjlR62b7beZK0sPGp44An99RAkhY2sKPSvqrNuzND0JK0sLEtSk9qMZM/EbTtOj/t90XSjmvCKEnwMjXOSSzRQuD1BhfoJ0Hbe1xw0WJ8eP4puVrcpaAhGiwAir9f1M4Lo73fvQaw2+sEnqsFwK2peWZtdAZQUMpE7S4dOhE7LpGUijPgjZZmLQhA8T7wbdtMXtGnYdwteN9YEIu1tFwAYJ/eLlA7lLLJiAVNiaqZfCJXC9B8Ae7AwI7T/pNXf4uYFuLfFuBMKgm/pJsC4EJ4sgcBgWcVAIOAm4MDizE3/x5eC3cDg4rgN3rzvn/G6h2Tjj57rWjpKXPg8An0yaUChB3/q4Xu30PJDjs0lmxvU9ULAJ/X2/DErMVaUnCa3PfBkRPmsKCX3CbbLcIAJXkswpWhZB+8PpJstKnh/9UR4P998zTZuE31ljTohPAQeBy8dihFByuxzQDBaYlSdLCT2nlxbgqk6GAH16f4+YG1AEJ0sJOa3pxTX4oOVpIn70RH1kaKDnbSX29cpzwlA8e1I9Of58c5mbk6CLSmhmcGBvCsu84+bIsR6dgScnQQvhkaLkCOt9qATYbcv65r6wSf6/H4awnTDK3+Jog4f0GYQ80ZUKqjaQvafTfo6qfQszmWcccrHU0XoMB3gdLn7njzeU0XoARc+OQciLoqAAYrJ/lAVwXAnQrsPsLx2+C7s6DBYDAYDAaDQTtM0x/3Pn0uWlwLjwAAAABJRU5ErkJggg==\" alt=\"m equals, the fraction with numerator Q sub 2, minus Q sub 1, and denominator P sub 2, minus P sub 1, end fraction\"></span>. Substituting the given values into this formula yields <span class=\"math-container\"><img align=\"middle\" role=\"math\" class=\"math-img\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJoAAAAsCAYAAACdbKF/AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAABGJhU0UAAAAWNPAnzwAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAADdUlEQVR4Xu2ZAbajIAxFXZ4LcjnupVvpThhCTEGMlk8DI+2753Cm9UcmgWcS7HR3Hsvk5vXptq8vnHu4xf9DH3djeRxsU9xjSexn56c+2FvZ1OLc062zzM1DXYMKH0aIvzsSjLrIz9XN0+LlVh4gzxcXJf9OWNnUEkUWY+P59+tQ40PJPVY2w/BcZ3I6jNOneV79tpQFJxuYz0UZU7Kglc0n8AN03DReDxZfjQ+jxN+V+IRwecyDIv4aGG/g5Pwtu3t2G2hks10yhdek3ofR42+K9GG50Hy0/FQtSwiaLtHQBCnwAh0zxXEDP7fZLpkSHqwtg9f4MHr8TTkX2nYQSEonL8C52HghzhaIr1vZbJfM4LljFqnxoeQeK5vt0jiIoK4yVcpl6TBaxBKb7VJ8IN6MvAyl8LzezhvxFblW5oNQco+VzXZpHGSjSoV2FeyIpYMfnL3IiBofRoy/G/ZCG6cZDj2Z/3+02Gt8GC3+rpwJrWqhjY7uJTafwnHoIiNqfBgp/u6cCm0LNhUVZ7Oj+FLyjKdlQCubWuQhymPOqfGh5B4rm6G4Kp1RbHHkIguZIXupK9mCh744VjY17OfNxz5bv/Mh/H2w+IckiHEp//Xg2/j1+LsRytCofYMBt4yfUyGlZi5X/tKruUvT5Lve4U6Q31c927dzy/j51LB4kXEfIE2p/9NLXNz0HU910kvRx6vxy5sOPFEoySlOOf0Mf7oA/xcRVZpxNFHF8mouNJoP4ztHRCuJoZSmP1rTCYZeJ2THZQKlExRxKiqvjGDguXqnBcBbRFS7XkwRFZdX9Gegkhv0Z+AXKBXV0D+aAnBH0neIYSgPGD+gYtOupdAqjtDLB9AA2TzZWLVfzaqAVhWsCJUk8Ufo6QMwRjsYEWkrcWbTorUQ0dNIhdbTB9CAkpP1WSmzPiyJmJZVOax18gE0gjMIbdT+BXTJa554r80mB9HQu01FVL18AI2IpSrpfbaNFrGxzdkmX2fDUqQvJHFp2auHD6AhIrTLHu0PmyyCoY9XIy+Baa8FoX0hIrR849MNbF228vlVoTX2ATRG21TiKLSjjVUjzvMcsx6PPj6AxmjvzIhd6ez8akHNaHi9MT55+ZSNTjc1zXDad0tKsqz2HQyAiE1GnjmIfYlrt8FnQiN6+QAAAAAAAAAAAAAAAADga5imf5hLc131QYfPAAAAAElFTkSuQmCC\" alt=\"m equals, the fraction with numerator 15,000 minus 20,000, and denominator 60 minus 40, end fraction\"></span>, or&nbsp; <span class=\"math-container\"><img align=\"middle\" role=\"math\" class=\"math-img\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEkAAAAWCAYAAACMq7H+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAABGJhU0UAAAALV/ZLFgAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAABXElEQVRYR+2VAY6EIAxFOR4H4jjcxat4ky5YW0opht3MRp30JWRGQOR/fzG8GYAdcgxQ/1KLea+/DMAGSYxzS1s/b0tiPEJZpht/Jc2gVGxAQSRUGgV7hijmWOB9zRh9/VpQ/Chkz7FcK+NiLpbagslsncAtjWkTi4t4npNwDPv0Yk8DU9BMMsUK0OwAZUo3R5t9gIulYhAO0M1liI3RGyCmda+a3sh/cOg4k8MpKbpIS21jOY6JHLQ2ka2TTOoWfHit4v7ay2Bdoty0rpmmod+KnHWzGcEP8IkkkkFXpUVIHesmHR29eBnbes1fE+MQvLvc+MxcMKgiDVgut6kh4qFkxNMO7mPvv9zXaNL4Aruq4cNNPMQyZOb4nVCCZgatGGDpr+CH7AzJ3efRX6F9XyWIK0LsG7Vd6x30rxrSOfsAKEV2E6awUa3pZFX69Z5VMY7jOI7jOI7zzYTwA53ZtDQGFaqEAAAAAElFTkSuQmCC\" alt=\"m equals, negative 250\"></span>. Therefore, <span class=\"math-container\"><img align=\"middle\" role=\"math\" class=\"math-img\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAG0AAAAWCAYAAADKHRJUAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAABGJhU0UAAAALV/ZLFgAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAACD0lEQVRoQ+2W67GEIAyFLY+CLMdebIVOWCAGY0gwrt7r/sg3w+xDwJOcEJ04KcW0hCmVr23Ma/n8KSSdYYkHnSmtaSbX22DxpHUm10PK2xyuI3EJZB4d+ppvSHFJIX9kmed7NvEsqHUuwuacgueE3WE3bNeE2qlxEPxYN6zbk85/I+2eQgGDmc/lBzQY9jtztxonCH4D0NonlievBh+WnG45JjSCn1ApVjy1fG5B00PB9Vp+KTWOge7KqIoQrQJ/CV6hZ4WmFap0cmBvOelPmka9gA4Ho1t3dsoK2hz1ucHGmdgnqEFuFdpO0TxX3flyHX37FFqh0J5GLdDSHu2m7fnEueL+kkjOleP9BvwktOBJm8HCQ+NgjWba/n+rfqFl8ftqmE1jGgviWksP1aryLrSyRmMULCbO8sylVWs3baRRzsm3cUmacK/D89RimtYCnkj6HUBXvofBsAJNirU9YvXfiQHzdLaH5IW4Vqs4xPKi8gb4oJbe6DR60/pE8gLVCvYKVtPEN1fJn/bQJsFTx0G0buobgCbdMIshUtwFnjj6grP9dRmLaa1rMdPU+2OQGECMMRucJ5dN8hjd7L/hWiVad6BtrlbsMRZexd1vJZFXMZm2xTXS07EHSkYIYsW+CZ4yeRCThHikOI77HROkndi/AAwq+rdCEfSYAeFfLnYcx3Ecx3Ecx3Ecx/ktpukDndY0NoK1IRAAAAAASUVORK5CYII=\" alt=\"Q equals, negative 250 P plus b\"></span>. The value of <span class=\"italic\">b</span> can be found by substituting one of the points into the function. Substituting the values of <span class=\"italic\">P</span> and <span class=\"italic\">Q</span> from the point <span class=\"math-container\"><img align=\"middle\" role=\"math\" class=\"math-img\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFIAAAAaCAYAAAAkJwuaAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAABGJhU0UAAAANvpXuIwAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAAB+ElEQVRoQ+2W23GEMAxFXR4FUQ690AqdKNYr+CGxWsd8ZMZnxpMgpGu4ss2mErgO2NIGxwUgoUUDwAXHlmA/HY8ATtiXiSEevTr3BFu+I5cVvFLtLsC5Y0xGrBHaVfxXhzX3kHagZkYO3d+O/CZFnI3as8/2g6LJ+U9nJE92T9JeW9wm3vPpQ5dmDmkHaqblWFv8OjZIOSKXFSzSG6lC7Uoi0x0txDuH6RnE3BHtSM2sHIW8KWOYlK+rJERF96Pf2t52Lw2RUAhumBg5oB2pmZUjoXons1n9CkGoGM8BQ5xF+rrSEAmFoI7LmTOiHamZlSOh7F3x0fG+QBxn81i8MZKEvQn7+BNcc+uPaEdqZuVIqF6EnpHVufGikZxfnz8j2pGaWTkS+mxku7xNI7/YAh587hiH+IB2pGZWjoRq79jV2qTfFzQHF/KEdR1iHcoWtOJzfft1REa0IzWzciQkRhYxfCnrhRRLXBsQ+ZnQwg/lzzmiHamZlaPQKi1/lHeBBq9LvNzvbdBeW6iWZ6IypB2omZWDoLnVe2gXWqMUz0hEVxePfjK6XzSpzm9HvXW+1UY+1SAzcqxvC0GuP6zKUahJ+3xd5E3tT6DR7q7iLtgdGoVWc3O2zOJNbQ/dvW8sukewOd6R8Vfe1F4sFovFYrFYLBb/hpR+ANaTooricwQ0AAAAAElFTkSuQmCC\" alt=\"with coordinates 40 comma 20,000 \"></span> yields <span class=\"math-container\"><img align=\"middle\" role=\"math\" class=\"math-img\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKEAAAAYCAYAAACSlJ0LAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAABGJhU0UAAAAMyZLetQAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAADDUlEQVRoQ+2WjZGEIAyFtzwLshx72Va2E44kREP4i8qOezP5Zrg9MUHyeKAv5/8SPltYXkvYPiGkrsuE8Anb8grr+/5Yl+AJwL/cllgZ3JOE9ypibMVbcmbFPIlFwxDeYRX39xZXPv7umPTAsRr30Jx1Q/XG7o15h958kEO8NU6BgniiUkTqOyaor2tYcmbFPIlZQ1yMI6aGtdb3Wj8oALgXf4pFt4yNfcsWK8pz70DP6dTdOtI/27Inssi6aCxW7WLGkjMr5mksGsL1aIGttfbMTAse42OLKUeOdewUJ3Nr8Kk+igNQhyvGlu5tHadaZIklZ1ZM6vo59Akw2jjWWvG6Ms5uoK0c54yOOO/OPAGrCXlOMB7WH7ugjfIQTEjupQLKna5FllhyZsWkLqT53aWaSYSbZBqmxVjWFc0Qb2OTJ5O1Vhi3Nn80FDwPx8ljzuhIsaW2ErsJj/XgWNMBQhM7kui6VUDZD1hyZsWkrp+C5ic05MUQryVa7MOIJj3QzJUYYQoeVxrkjI40Vhkrkc9LXVV0jcAwl8XLvhNOFMBYcmbFpK4psEDwb6/1xKe5xTihYQt5Kpj0aBhEvurvm7A0+lVd6uPTWPr7FCFB4mBKPCqqVUD9WLXkzIpJXcgME92hpWELuUgmPbC+PEbn0bUy4QkdaybUsM4jHfdPhGz8Ri5/NNbcWSsK6L3bLTmzYlLX4/Q0bFGacKBH/KtNSPePDZY3+9ipK5lkjgnlCc3ImlPXUURLPNoZ5f3aAxhLzqyYX2Cooclgdj30OJLas87oSAbrb3CLCTlGj4/PlKcjT7glHqPdW3WzwpIzK+ZJLBqyCeSpQ3UosxhqhUXsPqtheKuO2K9eoRqTCdM8hs/sH+X5bshjy8njfTX5UQ4wK+Yp8rnpJky3G/FotUUc1ToyScuEgEXHkcmtkOGg/nQidp45DRR57e8g5z6WV/JV6IT7rU1+CtyBUZl06XwRyyvzCnBSzjgFHwMK+MbudOrQq3XOqbV/KnzB2I7jOI7jOI7jOI7jOI7jOH1erz9DSlkHe+/ekwAAAABJRU5ErkJggg==\" alt=\"20,000 equals, negative 250 times 40, plus b\"></span>, or <span class=\"math-container\"><img align=\"middle\" role=\"math\" class=\"math-img\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJsAAAAWCAYAAADXT+6KAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAABGJhU0UAAAALV/ZLFgAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAACF0lEQVRoQ+2XjY2DMAyFGY+BGIddWIVNcnYcl5Bfw1lqUvmTEMVnB+fdw7QL4tzp9nVx+JGPdT/xfMMdW5SzOkjJclIkNVo5o3BsZf2QX9bQnbtb4bQdlXUvo20OcnwSNxULRrGrwfS6hKRGK2cUqLfWw/psH5IarZz/QmtePsogN+Y3Pff1U8iGTAXEJ3gBG4fLG5IarZxRIM3wwc37nVVDBw7Y4ARpzTzE73/d4W4PDRy7tDYeY0OG0AdJjVZOCH2Va1LQPycz26QaSs0GN/GGRvN6E0MIj16dxxcEl1Kz+fRrjU1JjVZOCHlYHPzYOkQivIDvXzbbHBrGyM126c65ooFATVxFdF1rNo8jkhqtnBAagqrZXuxDUqOVE0IZvJ+u2byh7/vu1lID4FDIoAjHnjUrqdHKCSEVWCD82DpqAnL9rGZ7u//WWqkWHhp7sFhkNGSmV8BbsbSoCTyThjG8n55e3jvJj4NqLX+pK7mQms2LWu9kSY1WTggNQdts82koNVvply2ZOTE53bQy7gDodsqf7d+garZJNZSYjXPStfz68bRj16eNpKQuLbo2QVKjlTMKNbMhb/YhqdHKKSEyW/BQd32eauXjPmLvuXmj/u/Je7tXg2jljEDLbMgvakjGQq+ECae8fhE/rre7UMYzTEMhfpx2vgMYbUxDITimW+92o49paBiGYRiGYRiGYRiGMSHL8gddyK6bMoZv+wAAAABJRU5ErkJggg==\" alt=\"20,000 equals, negative 10,000 plus b\"></span>. Adding 10,000 to both sides of this equation yields <span class=\"math-container\"><img align=\"middle\" role=\"math\" class=\"math-img\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEwAAAAWCAYAAABqgnq6AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAABGJhU0UAAAALV/ZLFgAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAABfElEQVRYR+2X7RGDMAiGM14GyjjZxVXchCYQlHzK9fBHe3nuPBWh0DcQW8fAGcGnUzgAiuk1juByjnJ4iGefE47w6NOiibHyKU4Bkl79Q0NIrDsP5a2Lam0jnxZNjJUPckYPzkdI9vqBIaMuhpQxegc+VTS6Z1DoFFhuKzQxVj4IO2YjdQAd6bYKfAOZG+8nWwMu6GQCNDFWPmiAdBnSKV+y87JA4b862sQjKI8YASy6HwEajZVg6xgrHzIUZWUrsiiaL/0NJFQvLBU3K7q3ZzQxVj5jQ4IFa+fZGl6sayS1RQs0MVY+aMDVbjZ8FmzUYfwsX64ObXfKsVSPhcBq3NS5R2+gTtUXkbm441qxl3uqIsbK5+6WRjAU0fhnBgnzULT21S7QxFj53HuI6Ka3uosLkgvBIsoi2/yaejQxJj5kyKsr96X6Qyy5RLty9R2Xoa6b14PPmwl4islY+fwcKHx495/JX4FbyWRP2wzIYzMa5c1ms9lsNpufwLkP/5okB2+ZRncAAAAASUVORK5CYII=\" alt=\"b equals 30,000 \"></span>. Therefore, the linear function the economist used as the model is <span class=\"math-container\"><img align=\"middle\" role=\"math\" class=\"math-img\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAAAWCAYAAAAmRLUHAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAABGJhU0UAAAALV/ZLFgAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAACkUlEQVRoQ+2XAbKrMAhFXZ4LcjnupVtxJ/kJSEQKispvO/M4M5n3GsFeyE20g6SUpczjUNq/fUyv9ven0HSO87LTWcqrTOx6H6Ke8prY9bHU2+yuE8s8sjg+7Jw7vKbze3s1czw5UTFADxQNxwKnujznoj/BZqZNE2nnpirLXMYT3Zi3NUV+Jvp3KpsLjRbTH9lrTY9XM8eTExUDYPOHUvu1v7AChf7ISYVa34uQCwvFjnO1gl4TmUSebFqtdNrJ2Ialh0P5Vn8b2hpIjVc0E56cqBiAAi1BDdOJPwRq3Ax11OSGtYm0EwfvrRsiylAacm2uaCY8OVExMGEFcqwY8z1FjKN7RwEGWk+kvpumCXTXyzD47sKa3o0gjdk4WrCja8RdQ+G9N41XNBOenKgYfULhbkM+Bdaw6etGZ488bMhmKsyxGrTNkzm1x6f8Xour/UMj4SbgOV7NHE9OVAxMgPiDd42G5c6n9IU/GUcLgQXVuBqEMzb8NPE26Fij3pOIuhq0Cfojz7uoDE9OVAxMeAzFF2KdAqIad5e+kx1mauwa5DzCaVGf1EB9unMPrPGaZo4nJyqGTbwHEv3Idy7ap4B3pipP/uo4gtdqGUVuHmszXeGJoe5o5nhyomJgggzDFwaC1lMLE2zDfQPUZJvJ1SCl7ob8dchf9tepy3gMhcaJ0czx5ETFdGgBKHhZllpfDaxzbcgiv4nUqkHF852jLRjf/ern1QjWYnlxGYo0M/OSZl7rmWYNT05UTGdbBDbGUd3p34ROJ30wAyn1aHXs7ycaaJx0/4sIzQ24Lk7Vs5xGVMwh2NQbicnXAGNOzx7TSdKBQ6AebevHJHlGeyz90mtKkiRJkiRJkiRJkiR/nGH4ByyG6kYiPEQRAAAAAElFTkSuQmCC\" alt=\"Q equals, negative 250 P plus 30,000\"></span>. Substituting 55 for <span class=\"italic\">P</span> yields <span class=\"math-container\"><img align=\"middle\" role=\"math\" class=\"math-img\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOYAAAAYCAYAAADu8oHSAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAABGJhU0UAAAAMyZLetQAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAAD6UlEQVR4Xu2YAZLDIAhFe7weKMfpXXqV3MRVEUMJKG1ItjvLm3FmaxDhCzbdW2AnrY90v93TY02pTX1MSmt63G9peR73FfwDsGDKn33k6inPvgkpznvumPIMSemZFvK8D5ZPei7kudx44Gt7ZvE9s+E+vXgudD8lH0POHJNOTjaeFD14bSBw2WIseUxq/eq6q3RD5gAOesnbnSuglU2cLSaMnYoEoo/jhnWbKPwzwg/X5Nu6//2RM9Jt3oGflZSPNWeKZY2XjSfgX25MfJbLvT7DhlKb+Bfqrt8cGCSnHvjkNrkKiHWfxPq4589MtEHRo9D8IHiuktAz3wWTTYtB0x3BohnZSWfIc7TmTLGs8bLxBOoh+86D76nFwmuIcnXddcOROGpHfxEQ4ybQ7MC1y4gLXT8zP5ZishZcjXtiZ2lMCX621pwpljVeNm3qMFu9yt+CEItPPZ9Vd6ohRbNR36fZGPn2ogrSbqp+Ky1LjTs/roMekHY4ktA0fpNvgw0CcYwL89PGhMPecrTmTLGs8bJpUxWP2kIfu8bse77uIZ3PjLPqThWG8mlhXAXksMXXD5W8UoAgm0iwRhMI5kHoVxuTb4MNArb7OCjv6g8NCUVB11hyblMdk05ONm3KDdRtp3nds+iz7audzwj04113daIeInEkAc79xeuJTMaoILvI2QhmdOjrgkUgiM+W9+5VRECyGTb/ZMwaFYuiv8pai4Jg0snJpk25gTpqjcnnLWeIoI8z6q5O1EWTxtQC9iqgT4G48h4GcQo0ee2yAZsmYs3PVjSa4BTJRmpMDur8iY6gEfi35NymOiadnGzaVMWjttCH1ph8LczvY+ScXXdkQg8GCscexFXUd/sc3vuvHlSg/eHQS+iaxpzvcaQx3825TXVMOjnZtCk31MZUYrGc4RV1VyeyJfxgJRtVo/YtCgvGwV4NxKSLYyoUIe9CFT4vLH+jDfVj8v1GEULxjAvT0phw+Mdz5ryj01Ebb9TGVOal86HA8/06xKvuOugQjdd1zeecDfNcGXyj34THKoHJU5GlwuU3JP9cKDrQvSy+rfsX6vzsN372Mm1M3JP+46Ht+RI/y5F/lrCs8bLxRGvAAuxNzmxSV1fXXWdzSkb+7SPdAL8J3lryIIII+Uh5vPrbi1NFY41j8W3dnzf+Ebxyrs9ZzrM1BS8bL0aNWcCmwcHtqA6vcfPhX3dT4KY4V8BvBoWWxD0KFM73aVtzXsbf4v+B0OHLkb41PSi3pte3pSf1Ms43Ufv4bwkd/gDw6uHz7dZfd05odg9Krme8Ifw1QocgCIIgCIIgCIIgCIIgCIIgCIIgCILC7fYDW0lZ78EL8uIAAAAASUVORK5CYII=\" alt=\"Q equals, negative 250 times 55, plus 30,000, equals 16,250\"></span>. It follows that when the selling price is $55 per unit, the demand is 16,250 units.<p>Choices B, C, and D are incorrect and may result from calculation or conceptual errors.</p><p>&nbsp;</p></p>\n"
+            }
+        }
+    },
+    "0b746561-2736-4f1e-abf9-351fea4e81f6": {
+        "updateDate": 1691007959814,
+        "pPcc": "SAT#H",
+        "questionId": "686b7244",
+        "skill_cd": "H.C.",
+        "score_band_range_cd": 7,
+        "uId": "0b746561-2736-4f1e-abf9-351fea4e81f6",
+        "skill_desc": "Linear equations in two variables",
+        "createDate": 1691007959814,
+        "program": "SAT",
+        "primary_class_cd_desc": "Algebra",
+        "ibn": null,
+        "external_id": "d4043654-05ea-4067-80ff-0c1687134c44",
+        "primary_class_cd": "H",
+        "difficulty": "H",
+        "module": "math",
+        "content": {
+            "keys": [
+                "5"
+            ],
+            "rationale": "<p style=\"text-align: left;\">The correct answer is <math alttext=\"5\"><mn>5</mn>\n</math>. It's given that the equation <math alttext=\"10 x plus 15 y equals 85\"><mrow>\n\t<mrow>\n\t\t<mrow>\n\t\t\t<mn>10</mn>\n\t\t\t<mi>x</mi>\n\t\t</mrow>\n\t\t<mo>+</mo>\n\t\t<mrow>\n\t\t\t<mn>15</mn>\n\t\t\t<mi>y</mi>\n\t\t</mrow>\n\t</mrow>\n\t<mo>=</mo>\n\t<mn>85</mn>\n</mrow>\n</math> represents the situation, where <math alttext=\"x\"><mi>x</mi>\n</math> is the number of on-site training courses, <math alttext=\"y\"><mi>y</mi>\n</math> is the number of online training courses, and <math alttext=\"85\"><mn>85</mn>\n</math> is the total number of hours of training courses the apprentice has enrolled in. Therefore, <math alttext=\"10 x\"><mrow>\n\t<mn>10</mn>\n\t<mi>x</mi>\n</mrow>\n</math> represents the number of hours the apprentice has enrolled in on-site training courses, and <math alttext=\"15 y\"><mrow>\n\t<mn>15</mn>\n\t<mi>y</mi>\n</mrow>\n</math> represents the number of hours the apprentice has enrolled in online training courses. Since <math alttext=\"x\"><mi>x</mi>\n</math> is the number of on-site training courses and <math alttext=\"y\"><mi>y</mi>\n</math> is the number of online training courses the apprentice has enrolled in, <math alttext=\"10\"><mn>10</mn>\n</math> is the number of hours each on-site course takes and <math alttext=\"15\"><mn>15</mn>\n</math> is the number of hours each online course takes. Subtracting these numbers gives <math alttext=\"15 minus 10\"><mn>15</mn><mo>-</mo><mn>10</mn></math>, or <math alttext=\"5\"><mn>5</mn>\n</math> more hours each online training course takes than each on-site training course.</p>",
+            "origin": "manifold",
+            "stem": "<p style=\"text-align: left;\">A certain apprentice has enrolled in <math alttext=\"85\"><mn>85</mn>\n</math> hours of training courses. The equation <math alttext=\"10 x plus 15 y equals 85\"><mrow>\n\t<mrow>\n\t\t<mrow>\n\t\t\t<mn>10</mn>\n\t\t\t<mi>x</mi>\n\t\t</mrow>\n\t\t<mo>+</mo>\n\t\t<mrow>\n\t\t\t<mn>15</mn>\n\t\t\t<mi>y</mi>\n\t\t</mrow>\n\t</mrow>\n\t<mo>=</mo>\n\t<mn>85</mn>\n</mrow>\n</math> represents this situation, where <math alttext=\"x\"><mi>x</mi>\n</math> is the number of on-site training courses and <math alttext=\"y\"><mi>y</mi>\n</math> is the number of online training courses this apprentice has enrolled in. How many more hours does each online training course take than each on-site training course?</p>",
+            "externalid": "d4043654-05ea-4067-80ff-0c1687134c44",
+            "templateid": "df3e32fa-106a-463b-86ee-fd39012ba9d5",
+            "vaultid": "335494fa-bdea-4036-9783-4daaf47124f6",
+            "type": "spr",
+            "answerOptions": [],
+            "correct_answer": [
+                "5"
+            ]
+        }
+    },
+    "0bcd05a7-46db-4786-891d-1566e2ebe64b": {
+        "updateDate": 1691007959634,
+        "pPcc": "SAT#H",
+        "questionId": "b86123af",
+        "skill_cd": "H.D.",
+        "score_band_range_cd": 1,
+        "uId": "0bcd05a7-46db-4786-891d-1566e2ebe64b",
+        "skill_desc": "Systems of two linear equations in two variables",
+        "createDate": 1691007959634,
+        "program": "SAT",
+        "primary_class_cd_desc": "Algebra",
+        "ibn": "08086-DC",
+        "external_id": null,
+        "primary_class_cd": "H",
+        "difficulty": "E",
+        "module": "math",
+        "content": {
+            "item_id": "08086-DC",
+            "section": "Math",
+            "prompt": "<p class=\"stem_paragraph \">Hiro and Sofia purchased shirts and pants from a store. The price of each shirt purchased was the same and the price of each pair of pants purchased was the same. Hiro purchased 4 shirts and 2 pairs of pants for $86, and Sofia purchased 3 shirts and 5 pairs of pants for $166. Which of the following systems of linear equations represents the situation, if <span class=\"italic\">x</span> represents the price, in dollars, of each shirt and <span class=\"italic\">y</span> represents the price, in dollars, of each pair of pants?</p>\n",
+            "answer": {
+                "style": "Multiple Choice",
+                "choices": {
+                    "a": {
+                        "body": "<p class=\"choice_paragraph \">\n            <span class=\"math_expression \">\n              <span class=\"math-container\"><img align=\"middle\" role=\"math\" class=\"math-img\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGcAAAA2CAYAAADak4erAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAABGJhU0UAAAAbSkFbcgAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAADv0lEQVR4Xu2aAZbjIAiGe7wcKMfJXeYqvYkbVBSJGLSa7s7yveeb1DIR+JF07LwMwzAMwzAMwzAMwzAMwzAMwzCMfxv3Ptx2/th/nItTj+Dc2x3bC9ZMYzvej/pA+dlLX2r5wFzBpR+nkX9jFejUk+JkYXZ3LuvXdT+79+MbAoUcXH2hOeFz7rTezx/L/MUFYcwSB51u3S9U4ObOuAqb97Gdr3OSnkDy1wt2TsI1FhMXYpm/uOB+1Nuad247Tqs8HyrsmlSKRhyJUCw5WB888yHtupi4T5HaeiGOUEzLSIELzvEkhyq5d/ATcXhBcLGAMHf1A9eFy9ao+RWKTm5r2Y9yjSUtjSaw9YEgJSvaaJwZFYcnBOAVO3vXUELxYeJL8dE3Oo95my7QdcvWk4nvwaWUkE8qFknBszW40LmC5Xv1kgSnO4clHv1b/sy5VGNDHIBv+Tt6d06qWCYMgImDpNDr+HbBaJFI8dPE13Y1EOavLXaYcvvyUS6UbfUO9IgThG+3BrDx4izYNYCUYDovCThdHE574ZAY2gbv0IqDwreEAbzdfjR3zSe04487J8bE16e7K07NpeYcOpOeSx0VohEH19QkG4tkZRJ46675h35gXD0xDMPFScJQZyd/Smq31lKER5Jwgi0WR229XCiyzX/F8tZhjKF9fhkPklurtQ7DMAzDMAzDMIxfQXmWtPDYW4D+oVmMSed3o+BXFPFlAZ7zwaUfFV81Nk0up7Adp86zCEH8XWdmeLDZOvTEoyQsLmqrsWnCT6GBu28Ze9Ceh/lA2H/WfBN6Us7zIOWHHspqbOJUH7WvBPzuYskLO669w7Ti+HuR9Wr4wJgPs7++AHLnqFd6KOibuBU2QwR1yxvzJNdsamjESVW270V/viTFJ62supzI8v64Lly2RtsvQZzkR7kGtdPYdBESLjuddk9shZqFdOLEAMiuwHZbBMyqccWuobTFgTwRX5i/Gpsh8CY86DRfeQ+ZUbEI789c6Fyd9/ca4U4cPk/91djEqX6ktsU/2d3BE9pDCPC6UyBgeu2NGTOK5E4c/rvUX41NnOqndpPc9vQ3nykOAMXhxfHvrds1gChO7CBNcRQ2cUomGF9vcmkp0Q4c1XyyQjTiSIHUWoCfW/ivURRRHGGe+quxiVMy6aFKH8ZEiGATFkJBetRXiYM+VIqB/x7OqwP8ACnBAPcPC4zaamxuycnJI90QhaGJQ/vTCF7PoOUDZSjAQVriALlQwmiJiOMJv79GV1swnkPTIo2Hya31N7eF1+sPvCrjcGqkRgsAAAAASUVORK5CYII=\" alt=\"4 x plus 2 y, equals 86, \nand, \n3 x plus 5 y, equals 166\"></span></span>\n          </p>\n"
+                    },
+                    "b": {
+                        "body": "<p class=\"choice_paragraph \">\n            <span class=\"math_expression \">\n              <span class=\"math-container\"><img align=\"middle\" role=\"math\" class=\"math-img\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGcAAAA2CAYAAADak4erAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAABGJhU0UAAAAbSkFbcgAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAADvElEQVR4Xu2aAZbjIAiGe7weKMfJXeYqvUlWRBQJGpJourPL955vUksF+cF0MvNyHMdxHMdxHMdxHMdxHMdxHMdxfjfbZ93e4cfys21p6jF+lhf4TOO9rZ/nYyDqWPR8UK7gMo5gFN+YBQX1tDjod9mC2+h3+1nCz+8IpMdS50TObcF6CT/eIWB4PRxyCGOUOBR0bz2tW7fts63viZtt0Io3ChYm4boV22d9h9dF1GGQw2XVj7UY3HsNVmUeK6xf3RZxNCgeflTEzYsYNLs7tI71Spxo82BX5403gpNJxio5DvCqONr62Nl1ZbaOP/ILl72hxXV0rJU4ah9TupwnsPeFIHdPsrEEc1YcFEVPnKzY0V3D4XHoRVLPU96GC7RvWT2Z9B5cthJyp2I52RfzI4XWOukuWXDeOSLxJM70ew463ldAK3my5Y842zkcebRR4iAp/DoaC64WSWv/PPHymCNwvu6yW9TtK0ftqNjaA7gjjrZZKI4ozoSuAVoJ5vMtAYeLI+k7xsTwY/AIizi0trTRjok4t6zdrrlDf/+pc9KepH8t3qFowVEw+b50okJM4tA5z74m82KA1wTNz0yCPLopJzwWWVCazXCkOFkYHiwlM4k1grxm9IVDE/SRJARQoDI0f6VQ2jb/FdOPDucaliPSeZhytPrR4TiO4ziO4ziO8+vRnms9/cse/0WzGgOf312B/kSRXlbQcz64jEOJ1WLTpAjDHmw2ngjPBDfxdz0z6+Vh91Q6FRe3tdh0waTsH/+PesBofR4WNyL+s+ab4P6x2mUyqaDlPM+ZxSZNnQdVL4vER+giefhYvf93Has4ca2Dlo8bEzHkzj/47Blw77AvvdJbBc2x2FxGiiGTjBVw7NwiTq6yZanO511SRMEAJZH1+uQXLnujH1dDnBxH7YPbWWwugQvvA8+CpZucxZFNnLQBXgyKD1mNM7qG0xcHks1iEfFabE6TF1U2TIvDZSshIyqWkOezFLpU5/FaVzgSR85X9xyDTZqygR8MyetUIt5n7IvLhJ4BN7jvFNhw64ZLjCiSI3HkZ3m8Fps0dQwmvb1ZIIt3YvGR4gAQZxQnvjeva4CmOOkE6YpjsElTfSjpPWFwUbSJQgav+E4fizitjWhHQJyb+K9RnKY4jXker8UmTbWx3KTIEQlyRn2TOHRjZ0FTMcjP0fzsrgFaCQZkfFoeLTZdqGv0AQlIwvDETfiWVAQqQxP09AZv0BMHKIWCoycijSfi/hqnjgXnOSxHpPMw+Z73Tx8Lr9cfGhHfdLUzyAwAAAAASUVORK5CYII=\" alt=\"4 x plus 3 y, equals 86, \nand, \n2 x plus 5 y, equals 166\n\"></span></span>\n          </p>\n"
+                    },
+                    "c": {
+                        "body": "<p class=\"choice_paragraph \">\n            <span class=\"math_expression \">\n              <span class=\"math-container\"><img align=\"middle\" role=\"math\" class=\"math-img\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGcAAAA2CAYAAADak4erAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAABGJhU0UAAAAbSkFbcgAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAADxElEQVR4Xu2aAZLrIAiGe7wcKMfJXXqV3sQXRBSJGNpoum+Xb8bZ1FBBfjRd24fjOI7jOI7jOI7jOI7jOI7jOI7zfxNeW1j2P+szhNR1CyG8wrY8wGduy/a6NYYWz1WPg3IFl7HtSYs3GBYbMxDM/udWcYowa9jdRr/hucY4vilQLwa6R3kKe+SrsLXYmKHBoI0ShwLqjYfVtYQ95srmtS376yLYnaBvzIVMJhWT7OfxWmxS1zk02Lq1t7W4opZttyr9uMqOSeVYxNHAYikTiRMTMeRVtztIXZdBvzCvdqVrxcSx2JjJE097pEymTDJWwLnzK+LIgpBiASWR9fjkFy57rRcXjXEQJ8dR++B2FhsTPIH0AGsFnZOVbCyOPhUHJ1e/T1bjjFXD6YsDyWaxiJxYbEzEpKcJ9sShe3CpJWRIxdLEhA8pdKlOfawrnIkj+6tnjsEmdekcqrEjDoDPGXtCZELPwOCPwgD8Icuv0+2KIUWSxtDEke/FfsylxSZ16eRkNFs9SLE1Dr7zjjgovJ5wAGyiOHGS81YNoIqjFHAljsEmddnpD4qB8m3wDKs4JHxPGCDarVt31YxCFUfpxzmkbc1gk7rstMQhR/m59Ib6FnHIpyXZVCSzVw2gJRigOGherTlYbN5CipOFYckY/SmpbJetVotweYJv0BMHKIWCrScitTvi/hqXtgVnHpYt0rmZsrX+8m3BcRzHcRzHcRznr0DH9dg+PNK+AP9Hs2qDzu/epc5H+1SCzvngMrYZsWIg7GAzHtbdKxBO9GecmbXzUQt0OHFOxTX0BEOeQgNn3zK+g/U8LE5W/LLmG2jx8u+wtPzccijb+kogBieShxXWX2FWcfjkNeLkRQyjv75oFStQiRNt7t/6I1gBtXOZ5JZNC4s4uRLXtdrDZWXiVlJXprYFk1+47LVWXFh0+rZW4qh9TD2UxYSfBD3hp1E5kWxVUAVzH7JiR68aDs/FoVCTWLy/Fe8UyJGcdO5v3COuVKwEE8QqWAjdWklXyYJzvyLxJI4UQsY7DW3bkkv+DMvK0cAkHFcKJIVfR2PBp0VCQsh+nngS5/BeEe80Wo7KUrcHMFIcAIojihPvja9SLcG8XxNQe+/H4ID9SoHXZAeJ4Z9czrCIY6nW1IV9E38a1U98WjlpTtJ/K95L5D2WP4yZEGiTtogkCN63VYhJnNY+rxQN9Q9NguDwaU08cwAZX8tmCCU5pWWnJAwPluyTWCPoxcCZlgQBClRay18pFN3mTzF863DGYNkinZspW+tv3joej3+nPuNwHoR0gwAAAABJRU5ErkJggg==\" alt=\"4 x plus 2 y, equals 166, \nand, \n3 x plus 5 y, equals 86\"></span></span>\n          </p>\n"
+                    },
+                    "d": {
+                        "body": "<p class=\"choice_paragraph \">\n            <span class=\"math_expression \">\n              <span class=\"math-container\"><img align=\"middle\" role=\"math\" class=\"math-img\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGcAAAA2CAYAAADak4erAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAABGJhU0UAAAAbSkFbcgAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAADwklEQVR4Xu2agXHrIAyGM54H8jjeJatkE56FEAhZYDnBpK/Vd8fVxQoI/UJOcR+O4ziO4ziO4ziO4ziO4ziO4zjO/014bWHZf6zPEFLXNJ7rA+ZMbQnba74PEvBp2R1Jv1ZQrOAytj1o8QbDYmOGAjRbHJx3Dfu0cd7wXPef3xUIfdDFoXsUp7B7vgpbi40ZGgzaKHHIod542m4N4RW25c2FDOC1LTEO0KQPLd/wM5hgFpvUdQ4Ntm56WYuZvWy7VenHbO9nt0UcDfKHl4G4MOGDZvcpZdfqmY7JdLJug42ZvHAliwEZZMyA88nfFUcbH4NWZ10JZD0+zQuXvdbzi8Y4iJP9qOfgdhYbEzyAWokh8u5JNpaJroqDouBC5GdkNt6xazh9ccBH5ouIicXGRAx6WmBPHLoHl62AjMhYIM/F5pFCl+zsj/UuZ+LIfkws9Mdik7raYBCO6raCJ79VnSEDegVZ2minwIL5dTQWjEiSM3HkZ7Ef/bXYpK42vIwcWz1IsTUOvvOJONpCIDmiOPHefbsGaIrTSOBKHINN6rLTHxQd5WXwDIs4NLa00UpA7Fu37q4ZRVOcRj/312KTuuxo4tBE+bl0QX2TOPRgZ1+TeTLA7wT1371rgFaAAZlQFDdua7G5hBQnC8OCcce3pDxmnAubJujHC7xATxygJAq2nojUZvj9NT4qC859WEqkM5lSWn95WXAcx3Ecx3Ecx/kLaOdas//Y439oVm3g+d0V8L1Vab1zPriMbbSvRRh2sJkO62YKhAv9GWdm8oWiPF0GDifOKbmGxgyDcjz+H3XAaD0Pi4sV/1nzDVr+8ndYlNBSiGmHspgZZaLonAgeZlj/vY5VHL74FnHxwofRry/kKxOiEqeR0NOQYsggY5acO2gRJ2fiulY1XGamTBgA+45+0Lxw2WuaX5h07bJW/KjnmPIYkM4QWbCUXRZnbOKkRfJkUOaQGTt613Aw+SjwtfgUH96v+TucPLGyYHIALlsB+SRjJbKGS6FLBp+PZUX9giQCTzGSQtz6zMnZ0slEueXPsOycFhiE406BoPDraCx4N0lICNnPA0/iHD4r/B0GBr2/LctWtzswUhwA/IzixHvjs7QVYN7fEvAWcSjoPWFwYrSJQu6e4Z0+FnEs2Zq6sO/Gf43qBz7tnLQmOb/m70fIeqpBzpAgVzLEJI5W51My6EGqbUcjS7cWI+mfJY6XKaVKa+BgEoY7e8O3pCJQaZqgtwRBgco8NW2+kihtmz/F8NLhjMFSIp3J5Gfery4dj8c/BSXfdO0gD6cAAAAASUVORK5CYII=\" alt=\"4 x plus 3 y, equals 166, \nand, \n2 x plus 5 y, equals 86\"></span></span>\n          </p>\n"
+                    }
+                },
+                "correct_choice": "a",
+                "rationale": "<p>Choice A is correct. Hiro purchased 4 shirts&nbsp;and each shirt cost <span class=\"italic\">x</span>&nbsp;dollars, so he&nbsp;spent a&nbsp;total of&nbsp;4<span class=\"italic\">x</span>&nbsp;dollars on shirts. Likewise, Hiro purchased 2 pairs of pants, and each pair of pants cost <span class=\"italic\">y</span>&nbsp;dollars, so he&nbsp;spent a total of 2<span class=\"italic\">y</span>&nbsp;dollars on pants. Therefore, the total amount that Hiro spent&nbsp;was 4<span class=\"italic\">x</span> + 2<span class=\"italic\">y</span>. Since Hiro spent $86 in total, this can be modeled by the equation 4<span class=\"italic\">x</span> + 2<span class=\"italic\">y</span> = 86. Using the same reasoning, Sofia bought 3 shirts at <span class=\"italic\">x</span>&nbsp;dollars each and 5 pairs of pants at <span class=\"italic\">y</span>&nbsp;dollars each, so she spent a total of&nbsp;3<span class=\"italic\">x</span> + 5<span class=\"italic\">y</span>&nbsp;dollars on shirts and pants. Since Sofia spent $166 in total, this can be modeled by the equation 3<span class=\"italic\">x</span> + 5<span class=\"italic\">y</span> = 166.<p>Choice B is incorrect and may be the result of switching the number of&nbsp;shirts Sofia purchased with the number of pairs of pants Hiro purchased. Choice C is incorrect and may be the result of switching&nbsp;the total price each person paid. Choice D is incorrect and may be the result of switching&nbsp;the total price each person paid as well as switching the number of shirts Sofia purchased with the number of pairs of pants Hiro purchased.</p></p>\n"
+            }
+        }
+    },
+    "0cfcbba4-6b23-45e4-90d4-d9ed3a4e5352": {
+        "updateDate": 1691007959814,
+        "pPcc": "SAT#H",
+        "questionId": "ee846db7",
+        "skill_cd": "H.C.",
+        "score_band_range_cd": 3,
+        "uId": "0cfcbba4-6b23-45e4-90d4-d9ed3a4e5352",
+        "skill_desc": "Linear equations in two variables",
+        "createDate": 1691007959814,
+        "program": "SAT",
+        "primary_class_cd_desc": "Algebra",
+        "ibn": null,
+        "external_id": "0b8822c0-8322-4969-8780-d3d067076d46",
+        "primary_class_cd": "H",
+        "difficulty": "E",
+        "module": "math",
+        "content": {
+            "keys": [
+                "ef20bcd9-06d8-48fc-910b-45bbbf9f915b"
+            ],
+            "rationale": "<p style=\"text-align: left;\">Choice A is correct. It's given that the store's sales of a certain Greek yogurt totaled <math alttext=\"1,277.94\"><mn>1,277.94</mn>\n</math> dollars last month. It's also given that the equation <math alttext=\"5.48 x plus 7.30 y equals 1,277.94\"><mn>5.48</mn><mi>x</mi><mo>+</mo><mn>7.30</mn><mi>y</mi><mo>=</mo><mn>1,277.94</mn></math> represents this situation, where <math alttext=\"x\"><mi>x</mi>\n</math> is the number of smaller containers sold and <math alttext=\"y\"><mi>y</mi>\n</math> is the number of larger containers sold. Since <math alttext=\"x\"><mi>x</mi>\n</math> represents the number of smaller containers of yogurt sold, the expression <math alttext=\"5.48 x\"><mrow>\n\t<mn>5.48</mn>\n\t<mi>x</mi>\n</mrow>\n</math> represents the total sales, in dollars, from smaller containers of yogurt. This means that <math alttext=\"x\"><mi>x</mi>\n</math> smaller containers of yogurt were sold at a price of <math alttext=\"5.48\"><mn>5.48</mn>\n</math> dollars each. Therefore, according to the equation, <math alttext=\"5.48\"><mn>5.48</mn>\n</math> represents the price, in dollars, of each smaller container.</p>\n<p style=\"text-align: left;\">Choice B is incorrect. This expression represents the total sales, in dollars, from selling <math alttext=\"y\"><mi>y</mi>\n</math> larger containers of yogurt.</p>\n<p style=\"text-align: left;\">Choice C is incorrect. This value represents the price, in dollars, of each larger container of yogurt.</p>\n<p style=\"text-align: left;\">Choice D is incorrect. This expression represents the total sales, in dollars, from selling <math alttext=\"x\"><mi>x</mi>\n</math> smaller containers of yogurt.</p>",
+            "origin": "manifold",
+            "stem": "<p style=\"text-align: left;\">A store sells two different-sized containers of a certain Greek yogurt. The store&rsquo;s sales of this Greek yogurt totaled <math alttext=\"1,277.94\"><mn>1,277.94</mn>\n</math> dollars last month. The equation <math alttext=\"5.48 x plus 7.30 y equals 1,277.94\"><mrow>\n\t<mrow>\n\t\t<mrow>\n\t\t\t<mn>5.48</mn>\n\t\t\t<mi>x</mi>\n\t\t</mrow>\n\t\t<mo>+</mo>\n\t\t<mrow>\n\t\t\t<mn>7.30</mn>\n\t\t\t<mi>y</mi>\n\t\t</mrow>\n\t</mrow>\n\t<mo>=</mo>\n\t<mn>1,277.94</mn>\n</mrow>\n</math> represents this situation, where <math alttext=\"x\"><mi>x</mi>\n</math> is the number of smaller containers sold and <math alttext=\"y\"><mi>y</mi>\n</math> is the number of larger containers sold. According to the equation, which of the following represents the price, in dollars, of each smaller container?</p>",
+            "externalid": "0b8822c0-8322-4969-8780-d3d067076d46",
+            "templateid": "dd6d4f0d-b551-4051-8c96-aa5d00a034e8",
+            "vaultid": "1059378a-fd27-40c0-af95-372a87d651e1",
+            "type": "mcq",
+            "answerOptions": [
+                {
+                    "id": "ef20bcd9-06d8-48fc-910b-45bbbf9f915b",
+                    "content": "<p><math alttext=\"5.48\"><mn>5.48</mn>\n</math></p>"
+                },
+                {
+                    "id": "6799c3f1-f890-4960-bb5a-50b710784d23",
+                    "content": "<p><math alttext=\"7.30 y\"><mrow>\n\t<mn>7.30</mn>\n\t<mi>y</mi>\n</mrow>\n</math></p>"
+                },
+                {
+                    "id": "da5cf79b-86f0-47db-a7c9-3aeeb4c2cb9a",
+                    "content": "<p><math alttext=\"7.30\"><mn>7.30</mn>\n</math></p>"
+                },
+                {
+                    "id": "da4d58be-ae69-42f3-b9e3-5246e7c1e5ba",
+                    "content": "<p><math alttext=\"5.48 x\"><mrow>\n\t<mn>5.48</mn>\n\t<mi>x</mi>\n</mrow>\n</math></p>"
+                }
+            ],
+            "correct_answer": [
+                "A"
+            ]
+        }
+    },
+    "0d8bdd95-d411-40c9-a290-dcb5c5fb2bf4": {
+        "updateDate": 1691007959816,
+        "pPcc": "SAT#H",
+        "questionId": "5b8a8475",
+        "skill_cd": "H.C.",
+        "score_band_range_cd": 2,
+        "uId": "0d8bdd95-d411-40c9-a290-dcb5c5fb2bf4",
+        "skill_desc": "Linear equations in two variables",
+        "createDate": 1691007959816,
+        "program": "SAT",
+        "primary_class_cd_desc": "Algebra",
+        "ibn": null,
+        "external_id": "451c1b50-026a-4bad-96b2-c090526934bf",
+        "primary_class_cd": "H",
+        "difficulty": "E",
+        "module": "math",
+        "content": {
+            "keys": [
+                "03c5bab3-0445-4b41-831e-f1a62f33d195"
+            ],
+            "rationale": "<p style=\"text-align: left;\">Choice A is correct. It's given that line <math alttext=\"j\"><mi>j</mi>\n</math> is perpendicular to line <math alttext=\"k\"><mi>k</mi>\n</math> in the <em>xy</em>-plane. It follows that the slope of line <math alttext=\"j\"><mi>j</mi>\n</math> is the opposite reciprocal of the slope of line <math alttext=\"k\"><mi>k</mi>\n</math>. The equation for line <math alttext=\"k\"><mi>k</mi>\n</math> is written in slope-intercept form <math alttext=\"y equals m x plus b\"><mrow>\n\t<mi>y</mi>\n\t<mo>=</mo>\n\t<mrow>\n\t\t<mrow>\n\t\t\t<mi>m</mi>\n\t\t\t<mi>x</mi>\n\t\t</mrow>\n\t\t<mo>+</mo>\n\t\t<mi>b</mi>\n\t</mrow>\n</mrow>\n</math>, where <math alttext=\"m\"><mi>m</mi>\n</math> is the slope of the line and&nbsp;<math alttext=\"b\"><mi>b</mi>\n</math> is the <em>y</em>-coordinate of the <em>y</em>-intercept of the line. It follows that the slope of line <math alttext=\"k\"><mi>k</mi>\n</math> is <math alttext=\"3\"><mn>3</mn>\n</math>. The opposite reciprocal of a number is <math alttext=\"negative 1\"><mo>-</mo><mn>1</mn>\n</math> divided by the number. Thus, the opposite reciprocal of <math alttext=\"3\"><mn>3</mn>\n</math> is <math alttext=\"negative one third\"><mo>-</mo><mfrac><mn>1</mn><mn>3</mn></mfrac></math>. Therefore, the slope of line <math alttext=\"j\"><mi>j</mi>\n</math> is <math alttext=\"negative one third\"><mrow>\n\t<mo>-</mo>\n\t<mfrac>\n\t\t<mn>1</mn>\n\t\t<mn>3</mn>\n\t</mfrac>\n</mrow>\n</math>.</p>\n<p style=\"text-align: left;\">Choice B is incorrect and may result from conceptual or calculation errors.</p>\n<p style=\"text-align: left;\">Choice C is incorrect and may result from conceptual or calculation errors.</p>\n<p style=\"text-align: left;\">Choice D is incorrect and may result from conceptual or calculation errors.</p>",
+            "origin": "manifold",
+            "stem": "<p style=\"text-align: left;\">Line <math alttext=\"k\"><mi>k</mi>\n</math> is defined by <math alttext=\"y equals 3 x plus 15\"><mrow>\n\t<mi>y</mi>\n\t<mo>=</mo>\n\t<mrow>\n\t\t<mrow>\n\t\t\t<mn>3</mn>\n\t\t\t<mi>x</mi>\n\t\t</mrow>\n\t\t<mo>+</mo>\n\t\t<mn>15</mn>\n\t</mrow>\n</mrow>\n</math>. Line <math alttext=\"j\"><mi>j</mi>\n</math> is perpendicular to line <math alttext=\"k\"><mi>k</mi>\n</math> in the <em>xy</em>-plane. What is the slope of line <math alttext=\"j\"><mi>j</mi>\n</math>?</p>",
+            "externalid": "451c1b50-026a-4bad-96b2-c090526934bf",
+            "templateid": "b946d1dd-7df6-414a-87c6-5ad488389f7a",
+            "vaultid": "58b70bc5-a55b-44b7-a39c-e7505dd6d2fe",
+            "type": "mcq",
+            "answerOptions": [
+                {
+                    "id": "03c5bab3-0445-4b41-831e-f1a62f33d195",
+                    "content": "<p><math alttext=\"negative one third\"><mrow>\n\t<mo>-</mo>\n\t<mfrac>\n\t\t<mn>1</mn>\n\t\t<mn>3</mn>\n\t</mfrac>\n</mrow>\n</math></p>"
+                },
+                {
+                    "id": "5b7fd79e-af3f-4401-a408-7aa14fee0ffb",
+                    "content": "<p><math alttext=\"negative one twelfth\"><mrow>\n\t<mo>-</mo>\n\t<mfrac>\n\t\t<mn>1</mn>\n\t\t<mn>12</mn>\n\t</mfrac>\n</mrow>\n</math></p>"
+                },
+                {
+                    "id": "20454c08-39dd-4a68-a50f-91ae7b8bc8f6",
+                    "content": "<p><math alttext=\"negative one eighteenth\"><mrow>\n\t<mo>-</mo>\n\t<mfrac>\n\t\t<mn>1</mn>\n\t\t<mn>18</mn>\n\t</mfrac>\n</mrow>\n</math></p>"
+                },
+                {
+                    "id": "8a2169b7-0b69-4970-947f-c2f5aac2d68e",
+                    "content": "<p><math alttext=\"negative one forty fifth\"><mrow>\n\t<mo>-</mo>\n\t<mfrac>\n\t\t<mn>1</mn>\n\t\t<mn>45</mn>\n\t</mfrac>\n</mrow>\n</math></p>"
+                }
+            ],
+            "correct_answer": [
+                "A"
+            ]
+        }
+    },
+    "0dc81d34-6ad5-4aab-b0f6-0e753be212d5": {
+        "updateDate": 1691007959820,
+        "pPcc": "SAT#H",
+        "questionId": "cfe67646",
+        "skill_cd": "H.E.",
+        "score_band_range_cd": 3,
+        "uId": "0dc81d34-6ad5-4aab-b0f6-0e753be212d5",
+        "skill_desc": "Linear inequalities in one or two variables",
+        "createDate": 1691007959820,
+        "program": "SAT",
+        "primary_class_cd_desc": "Algebra",
+        "ibn": null,
+        "external_id": "deb03694-cf78-40ff-a84f-f782eba08ba4",
+        "primary_class_cd": "H",
+        "difficulty": "E",
+        "module": "math",
+        "content": {
+            "keys": [
+                "b149c905-dac7-40a0-a139-0dad315f8987"
+            ],
+            "rationale": "<p style=\"text-align: left;\">Choice A is correct. The given point,&nbsp;<math alttext=\"left parenthesis 8 comma 2 right parenthesis\"><mfenced><mrow><mn>8</mn><mo>,</mo><mn>2</mn></mrow></mfenced></math>, is located in the first quadrant in the <em>xy</em>-plane. The system of inequalities in choice A represents all the points in the first quadrant in the <em>xy</em>-plane. Therefore,&nbsp;<math alttext=\"left parenthesis 8 comma 2 right parenthesis\"><mfenced><mrow><mn>8</mn><mo>,</mo><mn>2</mn></mrow></mfenced></math> is a solution to the system of inequalities in choice A.</p>\n<p style=\"text-align: left;\">Alternate approach: Substituting <math alttext=\"8\"><mn>8</mn>\n</math> for <math alttext=\"x\"><mi>x</mi>\n</math> in the first inequality in choice A, <math alttext=\"x greater than 0\"><mi>x</mi><mo>&gt;</mo><mn>0</mn></math>, yields&nbsp;<math alttext=\"8 greater than 0\"><mn>8</mn><mo>&gt;</mo><mn>0</mn></math>, which is true. Substituting <math alttext=\"2\"><mn>2</mn>\n</math> for <math alttext=\"y\"><mi>y</mi>\n</math> in the second inequality in choice A,&nbsp;<math alttext=\"y greater than 0\"><mi>y</mi><mo>&gt;</mo><mn>0</mn></math>, yields&nbsp;<math alttext=\"2 greater than 0\"><mn>2</mn><mo>&gt;</mo><mn>0</mn></math>, which is true. Since the coordinates of the point&nbsp;<math alttext=\"left parenthesis 8 comma 2 right parenthesis\"><mfenced><mrow><mn>8</mn><mo>,</mo><mn>2</mn></mrow></mfenced></math> make the inequalities <math alttext=\"x greater than 0\"><mi>x</mi><mo>&gt;</mo><mn>0</mn></math> and&nbsp;<math alttext=\"y greater than 0\"><mi>y</mi><mo>&gt;</mo><mn>0</mn></math> true, the point&nbsp;<math alttext=\"left parenthesis 8 comma 2 right parenthesis\"><mfenced><mrow><mn>8</mn><mo>,</mo><mn>2</mn></mrow></mfenced></math> is a solution to the system of inequalities consisting of <math alttext=\"x greater than 0\"><mi>x</mi><mo>&gt;</mo><mn>0</mn></math> and&nbsp;<math alttext=\"y greater than 0\"><mi>y</mi><mo>&gt;</mo><mn>0</mn></math>.</p>\n<p style=\"text-align: left;\">Choice B is incorrect. This system of inequalities represents all the points in the fourth quadrant, not the first quadrant, in the <em>xy</em>-plane.</p>\n<p style=\"text-align: left;\">Choice C is incorrect. This system of inequalities represents all the points in the second quadrant, not the first quadrant, in the <em>xy</em>-plane.</p>\n<p style=\"text-align: left;\">Choice D is incorrect. This system of inequalities represents all the points in the third quadrant, not the first quadrant, in the <em>xy</em>-plane.</p>",
+            "origin": "manifold",
+            "stem": "<p>The point&nbsp;<math alttext=\"left parenthesis 8 comma 2 right parenthesis\"><mo>(</mo><mrow><mn>8</mn></mrow><mo>,</mo><mrow><mn>2</mn></mrow><mo>)</mo></math> in the <em>xy</em>-plane is a solution to which of the following systems of inequalities?</p>",
+            "externalid": "deb03694-cf78-40ff-a84f-f782eba08ba4",
+            "templateid": "e61661b1-30fc-44cc-8f83-87fb0a79d408",
+            "vaultid": "64f446ae-7d24-4557-8ad5-c4dd2c337df1",
+            "type": "mcq",
+            "answerOptions": [
+                {
+                    "id": "b149c905-dac7-40a0-a139-0dad315f8987",
+                    "content": "<p><math alttext=\"x greater than 0\"><mi>x</mi><mo>&#62;</mo><mn>0</mn></math></p>\n<p><math alttext=\"y greater than 0\"><mi>y</mi><mo>&#62;</mo><mn>0</mn></math></p>"
+                },
+                {
+                    "id": "33be9836-dcd0-4372-96ed-b2424d9c279c",
+                    "content": "<p><math alttext=\"x greater than 0\"><mi>x</mi><mo>&#62;</mo><mn>0</mn></math></p>\n<p><math alttext=\"y less than 0\"><mi>y</mi><mo>&#60;</mo><mn>0</mn></math></p>"
+                },
+                {
+                    "id": "a456c4b4-a4dc-4582-aeaf-70994f483f05",
+                    "content": "<p><math alttext=\"x less than 0\"><mi>x</mi><mo>&#60;</mo><mn>0</mn></math></p>\n<p><math alttext=\"y greater than 0\"><mi>y</mi><mo>&#62;</mo><mn>0</mn></math></p>"
+                },
+                {
+                    "id": "0a6a760f-3f2b-49dd-937e-64945d009e90",
+                    "content": "<p><math alttext=\"x less than 0\"><mi>x</mi><mo>&#60;</mo><mn>0</mn></math></p>\n<p><math alttext=\"y less than 0\"><mi>y</mi><mo>&#60;</mo><mn>0</mn></math></p>"
+                }
+            ],
+            "correct_answer": [
+                "A"
+            ]
+        }
+    },
+    "0e4f8e37-c9cb-4b62-bae8-f6e516dd744b": {
+        "updateDate": 1691007959817,
+        "pPcc": "SAT#H",
+        "questionId": "608eeb6e",
+        "skill_cd": "H.D.",
+        "score_band_range_cd": 3,
+        "uId": "0e4f8e37-c9cb-4b62-bae8-f6e516dd744b",
+        "skill_desc": "Systems of two linear equations in two variables",
+        "createDate": 1691007959817,
+        "program": "SAT",
+        "primary_class_cd_desc": "Algebra",
+        "ibn": null,
+        "external_id": "632affe2-9dad-466c-b099-d98aa7c13b20",
+        "primary_class_cd": "H",
+        "difficulty": "E",
+        "module": "math",
+        "content": {
+            "keys": [
+                "512066c6-d2c3-4fd2-9d72-94970781f12e"
+            ],
+            "rationale": "<p>Choice C is correct. Adding the second equation of the given system to the first equation yields&nbsp;<math alttext=\"5 x plus left parenthesis minus 4 x plus y right parenthesis equals 15 plus left parenthesis negative 2 right parenthesis\"><mn>5</mn><mi>x</mi><mo>+</mo><mfenced><mrow><mo>-</mo><mn>4</mn><mi>x</mi><mo>+</mo><mi>y</mi></mrow></mfenced><mo>=</mo><mn>15</mn><mo>+</mo><mfenced><mrow><mo>-</mo><mn>2</mn></mrow></mfenced></math>, which is equivalent to&nbsp;<math alttext=\"x plus y equals 13\"><mi>x</mi><mo>+</mo><mi>y</mi><mo>=</mo><mn>13</mn></math>. So the value of&nbsp;<math alttext=\"x plus y\"><mi>x</mi><mo>+</mo><mi>y</mi></math> is <math alttext=\"13\"><mn>13</mn>\n</math>.</p>\n<p>Choice A is incorrect and may result from conceptual or calculation errors.</p>\n<p>Choice B is incorrect. This is the value of <math alttext=\"minus left parenthesis x plus y right parenthesis\"><mo>-</mo><mo>(</mo><mi>x</mi><mo>+</mo><mi>y</mi><mo>)</mo></math>.</p>\n<p>Choice D is incorrect and may result from conceptual or calculation errors.</p>",
+            "origin": "manifold",
+            "stem": "<p style=\"text-align: center;\"><math alttext=\"5 x equals 15\"><mrow>\n\t<mrow>\n\t\t<mn>5</mn>\n\t\t<mi>x</mi>\n\t</mrow>\n\t<mo>=</mo>\n\t<mn>15</mn>\n</mrow>\n</math></p>\n<p style=\"text-align: center;\"><math alttext=\"minus 4 x plus y equals negative 2\"><mrow>\n\t<mrow>\n\t\t<mrow>\n\t\t\t<mo>-</mo>\n\t\t\t<mn>4</mn>\n\t\t\t<mi>x</mi>\n\t\t</mrow>\n\t\t<mo>+</mo>\n\t\t<mi>y</mi>\n\t</mrow>\n\t<mo>=</mo>\n\t<mo>-</mo><mn>2</mn>\n</mrow>\n</math></p>\n<p style=\"text-align: left;\">The solution to the given system of equations is <math alttext=\"left parenthesis x comma y right parenthesis\"><mfenced><mrow><mi>x</mi><mo>,</mo><mi>y</mi></mrow></mfenced></math>. What is the value of <math alttext=\"x plus y\"><mrow>\n\t<mi>x</mi>\n\t<mo>+</mo>\n\t<mi>y</mi>\n</mrow>\n</math>?</p>",
+            "externalid": "632affe2-9dad-466c-b099-d98aa7c13b20",
+            "templateid": "01d6af1f-e527-4949-b437-f2746084f438",
+            "vaultid": "4ea9acca-0d3e-43d1-a363-0835991f7d86",
+            "type": "mcq",
+            "answerOptions": [
+                {
+                    "id": "1087ff86-10fb-4df4-b169-1a2f9f97e16d",
+                    "content": "<p><math alttext=\"negative 17\"><mo>-</mo><mn>17</mn>\n</math></p>"
+                },
+                {
+                    "id": "51186499-e3a1-4122-b34a-1f775f3ff93e",
+                    "content": "<p><math alttext=\"negative 13\"><mo>-</mo><mn>13</mn>\n</math></p>"
+                },
+                {
+                    "id": "512066c6-d2c3-4fd2-9d72-94970781f12e",
+                    "content": "<p><math alttext=\"13\"><mn>13</mn>\n</math></p>"
+                },
+                {
+                    "id": "56d4637c-0b4d-4146-8945-c019d723385f",
+                    "content": "<p><math alttext=\"17\"><mn>17</mn>\n</math></p>"
+                }
+            ],
+            "correct_answer": [
+                "C"
+            ]
+        }
+    },
+    "0f19277e-0678-408d-9177-8b708072d7a4": {
+        "updateDate": 1691007959810,
+        "pPcc": "SAT#H",
+        "questionId": "be9cb6a2",
+        "skill_cd": "H.B.",
+        "score_band_range_cd": 7,
+        "uId": "0f19277e-0678-408d-9177-8b708072d7a4",
+        "skill_desc": "Linear functions",
+        "createDate": 1691007959810,
+        "program": "SAT",
+        "primary_class_cd_desc": "Algebra",
+        "ibn": null,
+        "external_id": "d70b4faa-5ce1-4664-ae31-432dc125273a",
+        "primary_class_cd": "H",
+        "difficulty": "H",
+        "module": "math",
+        "content": {
+            "keys": [
+                "129255c7-47ed-444f-bf28-556cb304f1c9"
+            ],
+            "rationale": "<p style=\"text-align: left;\">Choice D is correct. It's given that the cost of renting a backhoe for up to <math alttext=\"10\"><mn>10</mn>\n</math> days is <math alttext=\"dollar sign 270\"><mo>$</mo><mn>270</mn>\n</math> for the first day and <math alttext=\"dollar sign 135\"><mo>$</mo><mn>135</mn>\n</math> for each additional day. Therefore, the cost <math alttext=\"y\"><mi>y</mi>\n</math>, in dollars, for <math alttext=\"x\"><mi>x</mi>\n</math> days, where <math alttext=\"x less than or equals 10\"><mi>x</mi><mo>&#8804;</mo><mn>10</mn></math>, is the sum of the cost for the first day, <math alttext=\"dollar sign 270\"><mo>$</mo><mn>270</mn>\n</math>, and the cost for the additional <math alttext=\"x minus 1\"><mrow>\n\t<mi>x</mi>\n\t<mo>-</mo>\n\t<mn>1</mn>\n</mrow>\n</math> days, <math alttext=\"dollar sign 135 left parenthesis x minus 1 right parenthesis\"><mo>$</mo><mn>135</mn><mfenced><mrow><mi>x</mi><mo>-</mo><mn>1</mn></mrow></mfenced></math>. It follows that <math alttext=\"y equals 270 plus 135 left parenthesis x minus 1 right parenthesis\"><mi>y</mi><mo>=</mo><mn>270</mn><mo>+</mo><mn>135</mn><mfenced><mrow><mi>x</mi><mo>-</mo><mn>1</mn></mrow></mfenced></math>, which is equivalent to <math alttext=\"y equals 270 plus 135 x minus 135\"><mi>y</mi><mo>=</mo><mn>270</mn><mo>+</mo><mn>135</mn><mi>x</mi><mo>-</mo><mn>135</mn></math>, or&nbsp;<math alttext=\"y equals 135 x plus 135\"><mi>y</mi><mo>=</mo><mn>135</mn><mi>x</mi><mo>+</mo><mn>135</mn></math>.</p>\n<p style=\"text-align: left;\">Choice A is incorrect. This equation represents a situation where the cost of renting a backhoe is <math alttext=\"dollar sign 135\"><mo>$</mo><mn>135</mn>\n</math> for the first day and <math alttext=\"dollar sign 270\"><mo>$</mo><mn>270</mn>\n</math> for each additional day.</p>\n<p style=\"text-align: left;\">Choice B is incorrect and may result from conceptual or calculation errors.</p>\n<p style=\"text-align: left;\">Choice C is incorrect and may result from conceptual or calculation errors.</p>",
+            "origin": "manifold",
+            "stem": "<p style=\"text-align: left;\">The cost of renting a backhoe for up to <math alttext=\"10\"><mn>10</mn>\n</math> days is <math alttext=\"dollar sign 270\"><mo>$</mo><mn>270</mn>\n</math> for the first day and <math alttext=\"dollar sign 135\"><mo>$</mo><mn>135</mn>\n</math> for each additional day. Which of the following equations gives the cost <math alttext=\"y\"><mi>y</mi>\n</math>, in dollars, of renting the backhoe for <math alttext=\"x\"><mi>x</mi>\n</math> days, where <math alttext=\"x\"><mi>x</mi>\n</math> is a positive integer and <math alttext=\"x less than or equals 10\"><mi>x</mi><mo>&#8804;</mo><mn>10</mn></math>?</p>",
+            "externalid": "d70b4faa-5ce1-4664-ae31-432dc125273a",
+            "templateid": "e03ef7ad-0804-4fbe-a105-37a1073f4989",
+            "vaultid": "d8ea6d67-aba7-4662-b92d-13917ed14f0f",
+            "type": "mcq",
+            "answerOptions": [
+                {
+                    "id": "25beb208-909d-4fbb-9801-7b73e80d090a",
+                    "content": "<p><math alttext=\"y equals 270 x minus 135\"><mrow>\n\t<mi>y</mi>\n\t<mo>=</mo>\n\t<mrow>\n\t\t<mrow>\n\t\t\t<mn>270</mn>\n\t\t\t<mi>x</mi>\n\t\t</mrow>\n\t\t<mo>-</mo>\n\t\t<mn>135</mn>\n\t</mrow>\n</mrow>\n</math></p>"
+                },
+                {
+                    "id": "93ba1249-e513-487f-8c76-c6647e020934",
+                    "content": "<p><math alttext=\"y equals 270 x plus 135\"><mrow>\n\t<mi>y</mi>\n\t<mo>=</mo>\n\t<mrow>\n\t\t<mrow>\n\t\t\t<mn>270</mn>\n\t\t\t<mi>x</mi>\n\t\t</mrow>\n\t\t<mo>+</mo>\n\t\t<mn>135</mn>\n\t</mrow>\n</mrow>\n</math></p>"
+                },
+                {
+                    "id": "aacf2e74-f99f-476b-8968-177fa3c6cbd6",
+                    "content": "<p><math alttext=\"y equals 135 x plus 270\"><mrow>\n\t<mi>y</mi>\n\t<mo>=</mo>\n\t<mrow>\n\t\t<mrow>\n\t\t\t<mn>135</mn>\n\t\t\t<mi>x</mi>\n\t\t</mrow>\n\t\t<mo>+</mo>\n\t\t<mn>270</mn>\n\t</mrow>\n</mrow>\n</math></p>"
+                },
+                {
+                    "id": "129255c7-47ed-444f-bf28-556cb304f1c9",
+                    "content": "<p><math alttext=\"y equals 135 x plus 135\"><mrow>\n\t<mi>y</mi>\n\t<mo>=</mo>\n\t<mrow>\n\t\t<mrow>\n\t\t\t<mn>135</mn>\n\t\t\t<mi>x</mi>\n\t\t</mrow>\n\t\t<mo>+</mo>\n\t\t<mn>135</mn>\n\t</mrow>\n</mrow>\n</math></p>"
+                }
+            ],
+            "correct_answer": [
+                "D"
+            ]
+        }
+    },
+    "0f4509b3-8e10-4da3-87d7-335413d614c4": {
+        "updateDate": 1691007959810,
+        "pPcc": "SAT#H",
+        "questionId": "097e10f5",
+        "skill_cd": "H.A.",
+        "score_band_range_cd": 1,
+        "uId": "0f4509b3-8e10-4da3-87d7-335413d614c4",
+        "skill_desc": "Linear equations in one variable",
+        "createDate": 1691007959810,
+        "program": "SAT",
+        "primary_class_cd_desc": "Algebra",
+        "ibn": null,
+        "external_id": "c57e37c9-32b5-4879-b56c-ae8aec1a46fc",
+        "primary_class_cd": "H",
+        "difficulty": "E",
+        "module": "math",
+        "content": {
+            "keys": [
+                "a2df8b53-95d9-4327-a6ec-90b3749344c7"
+            ],
+            "rationale": "<p style=\"text-align: left;\">Choice A is correct. Subtracting <math alttext=\"180\"><mn>180</mn>\n</math> from both sides of the given equation yields <math alttext=\"5 p equals 70\"><mrow>\n\t<mrow>\n\t\t<mn>5</mn>\n\t\t<mi>p</mi>\n\t</mrow>\n\t<mo>=</mo>\n\t<mn>70</mn>\n</mrow>\n</math>. Dividing both sides of this equation by <math alttext=\"5\"><mn>5</mn>\n</math> yields <math alttext=\"p equals 14\"><mrow>\n\t<mi>p</mi>\n\t<mo>=</mo>\n\t<mn>14</mn>\n</mrow>\n</math>. Therefore, the value of <math alttext=\"p\"><mi>p</mi>\n</math> that satisfies the equation&nbsp;<math alttext=\"5 p plus 180 equals 250\"><mn>5</mn><mi>p</mi><mo>+</mo><mn>180</mn><mo>=</mo><mn>250</mn></math> is <math alttext=\"14\"><mn>14</mn>\n</math>.</p>\n<p style=\"text-align: left;\">Choice B is incorrect. This value of <math alttext=\"p\"><mi>p</mi>\n</math> satisfies the equation <math alttext=\"5 p plus 180 equals 505\"><mn>5</mn><mi>p</mi><mo>+</mo><mn>180</mn><mo>=</mo><mn>505</mn></math>.</p>\n<p style=\"text-align: left;\">Choice C is incorrect. This value of <math alttext=\"p\"><mi>p</mi>\n</math> satisfies the equation <math alttext=\"5 p plus 180 equals 610\"><mn>5</mn><mi>p</mi><mo>+</mo><mn>180</mn><mo>=</mo><mn>610</mn></math>.</p>\n<p style=\"text-align: left;\">Choice D is incorrect. This value of <math alttext=\"p\"><mi>p</mi>\n</math> satisfies the equation <math alttext=\"5 p plus 180 equals 1,430\"><mn>5</mn><mi>p</mi><mo>+</mo><mn>180</mn><mo>=</mo><mn>1,430</mn></math>.</p>",
+            "origin": "manifold",
+            "stem": "<p>What value of <math alttext=\"p\"><mi>p</mi>\n</math> satisfies the equation <math alttext=\"5 p plus 180 equals 250\"><mrow>\n\t<mrow>\n\t\t<mrow>\n\t\t\t<mn>5</mn>\n\t\t\t<mi>p</mi>\n\t\t</mrow>\n\t\t<mo>+</mo>\n\t\t<mn>180</mn>\n\t</mrow>\n\t<mo>=</mo>\n\t<mn>250</mn>\n</mrow>\n</math>?</p>",
+            "externalid": "c57e37c9-32b5-4879-b56c-ae8aec1a46fc",
+            "templateid": "b4227c30-6fef-4c59-b31b-42e5fffffe26",
+            "vaultid": "ec560f22-5c07-4a9e-a5bd-06fd80bba904",
+            "type": "mcq",
+            "answerOptions": [
+                {
+                    "id": "a2df8b53-95d9-4327-a6ec-90b3749344c7",
+                    "content": "<p><math alttext=\"14\"><mn>14</mn>\n</math></p>"
+                },
+                {
+                    "id": "79d88f2f-f22f-4a51-8aa6-488303227a8c",
+                    "content": "<p><math alttext=\"65\"><mn>65</mn>\n</math></p>"
+                },
+                {
+                    "id": "3a3e3a97-e576-4996-be86-7cdce0668155",
+                    "content": "<p><math alttext=\"86\"><mn>86</mn>\n</math></p>"
+                },
+                {
+                    "id": "9ccdc3e0-5ad4-4f71-9129-8f5993b5193b",
+                    "content": "<p><math alttext=\"250\"><mn>250</mn>\n</math></p>"
+                }
+            ],
+            "correct_answer": [
+                "A"
+            ]
+        }
+    },
+    "0f604298-81ef-425e-9281-e8a04d46210b": {
+        "updateDate": 1691007959615,
+        "pPcc": "SAT#H",
+        "questionId": "84664a7c",
+        "skill_cd": "H.B.",
+        "score_band_range_cd": 2,
+        "uId": "0f604298-81ef-425e-9281-e8a04d46210b",
+        "skill_desc": "Linear functions",
+        "createDate": 1691007959615,
+        "program": "SAT",
+        "primary_class_cd_desc": "Algebra",
+        "ibn": "015564-DC",
+        "external_id": null,
+        "primary_class_cd": "H",
+        "difficulty": "E",
+        "module": "math",
+        "content": {
+            "item_id": "015564-DC",
+            "section": "Math",
+            "prompt": "<p class=\"stem_paragraph \">The front of a roller-coaster car is at the bottom of a hill and is 15 feet above the ground. If the front of the roller-coaster car rises at a constant rate of 8 feet per second, which of the following equations gives the height <span class=\"italic\">h</span>, in feet, of the front of the roller-coaster car <span class=\"italic\">s</span> seconds after it starts up the hill?</p>\n",
+            "answer": {
+                "style": "Multiple Choice",
+                "choices": {
+                    "a": {
+                        "body": "<p class=\"choice_paragraph \">\n            <span class=\"math_expression \">\n              <span class=\"math-container\"><img align=\"middle\" role=\"math\" class=\"math-img\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAE4AAAAWCAYAAABud6qHAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAABGJhU0UAAAALV/ZLFgAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAABj0lEQVRYR+2V4RGDIAyFHY+BGIddXMVNUiANREkwtdr+yXfHaWk0j5eACwFbgpAvcQV4Tz3GGpeSo41f5NQoWkLahvwAK0SmsY0sNl87sMY8EXP4s4tA03oezPsf8yi3aFxtJIMfWwqwhATbg8ZRFY8mVTOPlbyA9n6Jut4cW4ZoXDH1zA/If6eA4mnLluk7FsPRjgPJuGGrGIpqNQ47LUDaMF4yzlRMShhC77rZmTcsShnSs5at2vS8F8QLWwMUrMYRxzwE5Qsx9iYS4loncGHaS++AbxOs/H6hqGc/jwbPz5z7jMN53uXk0S62ty4TOum4q7TO4R0nCGrCBVM5PW4+tDVoxmlgwVnxpA/DEMS4KlgrhpRrn2NuIEHPfNtxGkODSQdhnTMcyJ8gdXZBmy90A8/N+6lx0sPWw/hTtI5DQdhxkonWBd5lnGlnSEFWoVcYvqqHM45+7z5Uk47k3GacdBZXDezdvNp1IoPiz4VeBc3rQ6t4ucXxjJZZg3Tz+rAWxHEcx3Ecx3Ecp7AsL0CpHX+o/eOJAAAAAElFTkSuQmCC\" alt=\"h equals, 8 s, plus 15\"></span></span>\n          </p>\n"
+                    },
+                    "b": {
+                        "body": "<p class=\"choice_paragraph \">\n            <span class=\"math_expression \">\n              <span class=\"math-container\"><img align=\"middle\" role=\"math\" class=\"math-img\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGoAAAAsCAYAAACNIC3mAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAABGJhU0UAAAAWNPAnzwAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAACaUlEQVR4Xu2ZDZKDIAyFPZ4H8jjexat4E1aIQMAEsUUrs++bYdradBbyyA/sAK6xTIPZXvYxmnk19n3CmY0xi5nC92xMS2IHPoQEmDY3k+PNMm2vqRA1NmadzchsQEPIuYPZNn10uFnNPA5m3FRwnytsLE68cd6+gVCP4EUopSzJxkUd0txzrPO4OVuuU57cJkTYNLnos4/s4BEHGkHOJwfzNMfRbEIjwVKfT5kQ6ya8g4upr8LGQsKiwbiNT9KfhNQdgobUOLiVDaiAHHmsSTxlVdkILbwFqa8Roc3mTcAuTDhHXbFhomgCi2hK34k9T0idzluvWKKT48j91cpGhVR9LvTyncahTYM0IOJy5EPXGpSPaSeJQlkRb5qLj9YnM0czQija2fu+347tM1m0gyLJdjfkMEmo2iuWQ4qsELdzoXanjTGqSjVLrSHZKDkj/M1MKL9pzq5Y8t/zzeYMFPoWykcRW6TmyFboQtHzpHPa58dt6Vl67qips30LFdIRW3QholpwdSPk54wg6NlBMtiVh7LOg90PRkRqJEoHsC8X77gqlLiZknmUBfP433QZUVLxds9u6rwsLYTyRMHOxepWKMlhtYX5GzShtJTLI7wUXWfC9yuU4JjaRX+DKpTfJLweOWHiHP2ck+anEHGcfoVyC0xrkdRRtaa0GaJYceSODWKFce98r+DKBptbd5viP0Ai6dkAvAAtrdbetICH0BohCPVCkPo6gv934E1NDtgRjxZ7OrzzqAMuotWo0nUc+AHaobv2MA4eQoso6VIB/JhD14ca9V5IrDggEgAAAAAAAAAAAHpmGP4AJTvO7mTZ6voAAAAASUVORK5CYII=\" alt=\"h equals, 15 s, plus the fraction 335 over 8\"></span></span>\n          </p>\n"
+                    },
+                    "c": {
+                        "body": "<p class=\"choice_paragraph \">\n            <span class=\"math_expression \">\n              <span class=\"math-container\"><img align=\"middle\" role=\"math\" class=\"math-img\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGEAAAAsCAYAAAB1wNYRAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAABGJhU0UAAAAWNPAnzwAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAACZ0lEQVR4Xu2aC5KDIAyGPZ4H8jjexav0JqzIK2CCkcW2TP9vhmlr0xXykwfOTiCxLZPZX/yYzfoy9n3GlY0xm1ni92QsW2YHGJxzl92FzqlmW/bX3MkaG/NazUxsgBLnuMnsmzU507zMOk9m3j18fFbYWA5h5nX/BiL8m+DgWhrhbI5oQerpw2udd0fydSFQ2sTIWJYjauwlO2ikAAXOsc55NPVQJJtYlEk6CmkMQjQQnFdNRwobixMNxbqJlpTEwXVRQInGeb1sfh7npHMNoGlEZcO0sRakIwWx1aQF1Ts9nhPu2BCHS+KxSCo+QX70f889r0gOlOfVy0bEKfZ8yPBH/+8Q4uMceevh43boo0uH9zplSn9/CGII2dmH3teODo6hSCmPE+H0NFKxQQYXwU1+nlM01GrEyUHC4H6rSUdxPmXBK4QqGVuEsPvJIktH9MS1bEGsc//s5pNf19SssUU4FlgsuhIJraTOgUSCvw8VO0XaxSEo2tWHsIaT3QdGgivKtQNG6+IlYbl75ffQnTaHjgSuMB7XOndLXMRZpOsWbVRYhhUhTDxPB7pCeBcpEmi+Z1MjM0eOcUVgHKNddAun7qioCeFz1iRUIoUyrghkF/pL3hHXi27FCZFGKXYUIo7n5qLBzpfbkEF0+zYbZAOBDrhNKohwbBa+eQGdoOcZVgQr0MOPen6aVIfk+sh1leABpCYldJD4z4o3IIvgizJJR2WnBzohiSBRe9IAGrkrgvZMA24AEb4AsSb4/F+ezpGOHkAUITxfo49g/MFuuMcm304tHSUh0oAAAAAAAAAAAABAH6bpD9qNzu6We2CzAAAAAElFTkSuQmCC\" alt=\"h equals, 8 s, plus the fraction 335 over 15\"></span></span>\n          </p>\n"
+                    },
+                    "d": {
+                        "body": "<p class=\"choice_paragraph \">\n            <span class=\"math_expression \">\n              <span class=\"math-container\"><img align=\"middle\" role=\"math\" class=\"math-img\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAE4AAAAWCAYAAABud6qHAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAABGJhU0UAAAALV/ZLFgAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAABmUlEQVRYR+2V4a3FIAiFO54DOY67dJVuwlMpBStY77ttf9zwJcTG2HA8oC4EbAlCHuIKsE89zhoXCGnr8gGsEPNQPpvI4vL4GkVfHo5QvYE15smYJb9jHOYzjKtFfE+LBprGGkhvZ96WAiwhwfaC2JoriyihGldEPqSFunl0sqw11UzZ9ZAlpoCTdGTL9BNHAysXIG0oTjOuE2jQHekJs6eMM64txbh9E4G7bnTndYKNGIqjnCfjqIghRi6guq79Xxa/LjCYMa4wdVSPLhNJrY3dhW0czsvuIX1yLc6VzuWN4ObGd+OscQV5peApOf3Dx0eIGHTcHXxaGNyE6AAyWNuQgNeNQ+7z6F6ZTyme+jCchUr+I+bMp8apxW10jA0k6J+hNqNpOk+0y7jOPfSyFe4wjmADr82bMs7I1cxrG5i9aL/BMm6m2qPuuyrElHGGBsy7d5y2aFbEN5jGafdLFcwaSXPzmBldcmbGuEL3qu45D72Nizu46FrEN4yKw+ZxdNUn8464Xy+ax/FkIzmO4ziO4ziO83ssyx+lLR1/hj6fowAAAABJRU5ErkJggg==\" alt=\"h equals, 15 s, plus 8\"></span></span>\n          </p>\n"
+                    }
+                },
+                "correct_choice": "a",
+                "rationale": "<p>Choice A is correct. It&rsquo;s given that the front of the roller-coaster car starts rising when it&rsquo;s 15 feet above the ground. This initial height of 15 feet can be represented by a constant term, 15, in an equation. Each second, the front of the roller-coaster car rises 8 feet, which can be represented by 8<span class=\"italic\">s</span>. Thus, the equation <span class=\"math-container\"><img align=\"middle\" role=\"math\" class=\"math-img\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAE4AAAAWCAYAAABud6qHAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAABGJhU0UAAAALV/ZLFgAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAABj0lEQVRYR+2V4RGDIAyFHY+BGIddXMVNUiANREkwtdr+yXfHaWk0j5eACwFbgpAvcQV4Tz3GGpeSo41f5NQoWkLahvwAK0SmsY0sNl87sMY8EXP4s4tA03oezPsf8yi3aFxtJIMfWwqwhATbg8ZRFY8mVTOPlbyA9n6Jut4cW4ZoXDH1zA/If6eA4mnLluk7FsPRjgPJuGGrGIpqNQ47LUDaMF4yzlRMShhC77rZmTcsShnSs5at2vS8F8QLWwMUrMYRxzwE5Qsx9iYS4loncGHaS++AbxOs/H6hqGc/jwbPz5z7jMN53uXk0S62ty4TOum4q7TO4R0nCGrCBVM5PW4+tDVoxmlgwVnxpA/DEMS4KlgrhpRrn2NuIEHPfNtxGkODSQdhnTMcyJ8gdXZBmy90A8/N+6lx0sPWw/hTtI5DQdhxkonWBd5lnGlnSEFWoVcYvqqHM45+7z5Uk47k3GacdBZXDezdvNp1IoPiz4VeBc3rQ6t4ucXxjJZZg3Tz+rAWxHEcx3Ecx3Ecp7AsL0CpHX+o/eOJAAAAAElFTkSuQmCC\" alt=\"h equals, 8 s plus 15\"></span> gives the height, in feet, of the front of the roller-coaster car <span class=\"italic\">s</span> seconds after it starts up the hill.<p>Choices B and C are incorrect and may result from conceptual errors in creating a linear equation. Choice D is incorrect and may result from switching the rate at which the roller-coaster car rises with its initial height.</p></p>\n"
+            }
+        }
+    },
+    "0fd18295-0212-48c4-ad13-46a0c7b0f444": {
+        "updateDate": 1691007959631,
+        "pPcc": "SAT#H",
+        "questionId": "e62cfe5f",
+        "skill_cd": "H.B.",
+        "score_band_range_cd": 4,
+        "uId": "0fd18295-0212-48c4-ad13-46a0c7b0f444",
+        "skill_desc": "Linear functions",
+        "createDate": 1691007959631,
+        "program": "SAT",
+        "primary_class_cd_desc": "Algebra",
+        "ibn": "070611-DC",
+        "external_id": null,
+        "primary_class_cd": "H",
+        "difficulty": "M",
+        "module": "math",
+        "content": {
+            "item_id": "070611-DC",
+            "section": "Math",
+            "prompt": "<p class=\"stem_paragraph \">According to a model, the head width, in millimeters, of a worker bumblebee can be estimated by adding 0.6 to four times the body weight of the bee, in grams. According to the model, what would be the head width, in millimeters, of a worker bumblebee that has a body weight of 0.5 grams?</p>\n",
+            "answer": {
+                "style": "SPR",
+                "rationale": "<p>The correct answer is 2.6. According to the model, the head width, in millimeters, of a worker bumblebee can be estimated by adding 0.6 to 4 times the body weight, in grams, of the bee. Let <span class=\"italic\">x</span> represent the body weight, in grams, of a worker bumblebee and let <span class=\"italic\">y</span> represent the head width, in millimeters. Translating the verbal description of the model into an equation yields <span class=\"math-container\"><img align=\"middle\" role=\"math\" class=\"math-img\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFMAAAAWCAYAAAC8J6DfAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAABGJhU0UAAAALV/ZLFgAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAABrElEQVRYR+2WAY6EIAxFPR4H4jjcxat4ky61U4FKaXU0u8nyEjI6CrS/v8wsvwGsEfCDRoC0AV6bwJYgHPPyiKtr3lV4n7z8K+s/BglZBJT3GlwAThBghZg/Qp6I90+yRirWnxYTYIMUzgLswQ9cps3bUsj3McuqJ82ie4Wpu+a2mHtgIeWwywKcxFPtpLWPJQrN8x8HNVfE5Hxj6se5F11oRC4WsVFF2oS0FuQA8XI0ZDCaKL29a8rzdl9Pi18R8zCUUnS5FpmgU2SZ6NOuRNTiKN8z9BwFrOL7JGwJ6hWzfk/rIORw52h/uanlljt8K6bnzOQ88HI0pFD1uT0Sk5/hpWq0+pCvrz+PG+4GLN3PWIVjMU/rGUVAPM6UcY3EROicNIyGL+1iGsndRQvS9wP0npi0/9kMNNr1y7vjfenFmIau/AbN8XWL9WBB5DyrCIhHTMm4eBSHFfPx8huuZKSbeu7i6tficWycICdsFf0pMXmd41ztxN3gDfBb2rY6B9QTEynFpvFWnFLMQ8jKZOa/HU/bTBzcaYeJoFj4/faeTCaTyWQymfwTluUHPN1bAsggt+4AAAAASUVORK5CYII=\" alt=\"y equals, 0 point 6 plus 4 x\"></span>. Substituting 0.5 grams for <span class=\"italic\">x</span> in this equation yields <span class=\"math-container\"><img align=\"middle\" role=\"math\" class=\"math-img\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGsAAAAaCAYAAACwwaJoAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAABGJhU0UAAAANvpXuIwAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAACRUlEQVRoQ+2WgZGEIAxFKc+CKIdebMVOOEKIYgyCWbmbuc2bYW4XF8LPDzmd8Zy4+ujcEsMW09/3iXGLYXHR+XXK/l9D3EJcnI9rnGNUzepdTH79rWFYmaly8hivUEwUrZtXeRRHSpSUQI2emOz2+5pqVJp+szBEeAsZbSmUEEoUiV3SQvj+JmBI+nM1RUieWs+gEXCWGRq7UC/mwXNyqoritNZtYUnf7wWTqTzxLagoYPA1OV51Tq0eIMdZQtqhY6r0u3wQNvn2P7pWe+klHdeNtRfOE7NIrw/Xc+7P6jmlHmDEUEC8gVhR58nWlW72Wza4iFbSpdg1x/Nz3JH28MSsvWAFE3Cf89nVeorxi/c5DkzBkPRIcS+B375VQNP8xjyBz0FQdb6S0J5ho2bVv6O9u2Zp9ZRYdSdr6UEf2F5cFAZsV4cGtbj8/CpEajd7IjqDm1e3pdlmtZD1iGaVqwmz1efy+IQ2Ifz2Eijupm0Usy77DSSFF6EEP9ewWUo9LSQ9UtwMvSZqg/WQkgCMvWDMMwvjywVH+1MBnwxU6mkhmpVjCHvlID7c3qpPaN3Y/qs7JpyvG0nKiFmcWxOqc6r1PDA5Gyi94qOzUE3Pq2IUXj1SNeGhz0mgs5FAEtwrqjfNkqpco4dMrvPM9RHU7crXg9EEfAodHsdZGCCZBZAgGrPO2TILgOTxeY2ew7BjjBTHDm4671b9B24T+DJSYWQ07eJbkVrdm+y3LplRphAyCT7Obn+GYRiGYRiGYRiGYRgKnPsBMQ8smOFoviIAAAC3dEVYdE1hdGhNTAA8bWF0aCB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMTk5OC9NYXRoL01hdGhNTCI+PG1pPnk8L21pPjxtbz49PC9tbz48bW4+MDwvbW4+PG1vPi48L21vPjxtbj42PC9tbj48bW8+KzwvbW8+PG1uPjQ8L21uPjxtbz4oPC9tbz48bW4+MDwvbW4+PG1vPi48L21vPjxtbj41PC9tbj48bW8+KTwvbW8+PC9tYXRoPqt5HAoAAAAASUVORK5CYII=\" alt=\"y equals, 0 point 6, plus 4 times 0 point 5\"></span>, or <span class=\"math-container\"><img align=\"middle\" role=\"math\" class=\"math-img\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAWCAYAAACCAs+RAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAABGJhU0UAAAALV/ZLFgAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAABH0lEQVRYR+2Viw3DIAxEGY+BGIddWIVNXANyII4NtA2RWvEk1BTxse/sxDwNQARvDaRHGtbH9DsEogfb7DMuTO27nZqEgwCQg4DgclCjZGgdxl724QluYt8SiqIW8O7T5dFb/F+T45AAPGhxX560HrfUyUPBxRYWtTuJKAKISIeVuesBZGt67A0qgxHB4XomYkuN7XyvWFY862fd6CdNa1pRqfEvyZDKRzMJDt3NEeBALFo31SNtQ2nNRdxRWiUIXDfhuOZamRd6J9VqTmSxG7knMA5NKA6V0XQiWSXnu258CznxzvnaN0MsrQRZuMoNtUEZUrK8vLpnzV70KUdfiKOKp7lWhS5DjVO16pfgr9+fo32VriqpzWaz2fwpxrwAihrbY5n9KPMAAABxdEVYdE1hdGhNTAA8bWF0aCB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMTk5OC9NYXRoL01hdGhNTCI+PG1pPnk8L21pPjxtbz49PC9tbz48bW4+MjwvbW4+PG1vPi48L21vPjxtbj42PC9tbj48L21hdGg+gNuqlQAAAABJRU5ErkJggg==\" alt=\"y equals 2 point 6\"></span>. Therefore, a worker bumblebee with a body weight of 0.5 grams has an estimated head width of 2.6 millimeters. Note that 2.6 and 13/5 are examples of ways to enter a correct answer.</p>\n"
+            }
+        }
+    },
+    "100071d1-6c80-44ab-9a31-9d182aed57ae": {
+        "updateDate": 1691007959818,
+        "pPcc": "SAT#H",
+        "questionId": "b0fc3166",
+        "skill_cd": "H.D.",
+        "score_band_range_cd": 1,
+        "uId": "100071d1-6c80-44ab-9a31-9d182aed57ae",
+        "skill_desc": "Systems of two linear equations in two variables",
+        "createDate": 1691007959818,
+        "program": "SAT",
+        "primary_class_cd_desc": "Algebra",
+        "ibn": null,
+        "external_id": "950dd818-fa5e-4231-b816-a13da78257e9",
+        "primary_class_cd": "H",
+        "difficulty": "E",
+        "module": "math",
+        "content": {
+            "keys": [
+                "2c37b29c-109c-4b6c-9b32-df29d9cd25d3"
+            ],
+            "rationale": "<p style=\"text-align: left;\">Choice C is correct. The solution to this system of linear equations is represented by the point that lies on both lines shown, or the point of intersection of the two lines. According to the graph, the point of intersection occurs when <math alttext=\"x equals 2\"><mrow>\n\t<mi>x</mi>\n\t<mo>=</mo>\n\t<mn>2</mn>\n</mrow>\n</math> and <math alttext=\"y equals 3\"><mrow>\n\t<mi>y</mi>\n\t<mo>=</mo>\n\t<mn>3</mn>\n</mrow>\n</math>, or at the point <math alttext=\"left parenthesis 2 comma 3 right parenthesis\"><mfenced><mrow><mn>2</mn><mo>,</mo><mn>3</mn></mrow></mfenced></math>. Therefore, the solution <math alttext=\"left parenthesis x comma y right parenthesis\"><mfenced><mrow><mi>x</mi><mo>,</mo><mi>y</mi></mrow></mfenced></math> to the system is <math alttext=\"left parenthesis 2 comma 3 right parenthesis\"><mfenced><mrow><mn>2</mn><mo>,</mo><mn>3</mn></mrow></mfenced></math>.</p>\n<p style=\"text-align: left;\">Choice A is incorrect and may result from conceptual or calculation errors.</p>\n<p style=\"text-align: left;\">Choice B is incorrect and may result from conceptual or calculation errors.</p>\n<p style=\"text-align: left;\">Choice D is incorrect and may result from conceptual or calculation errors.</p>",
+            "origin": "manifold",
