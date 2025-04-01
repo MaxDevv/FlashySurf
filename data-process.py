@@ -88,7 +88,7 @@ for id, question in data.items():
         if content['answer'].get('correct_choice'):
             flashcard = {
                 'question': content.get('prompt', content.get('stem', '')),
-                'paragraph': '',  # Extract paragraph if needed
+                'paragraph': content.get('body', ''),  # Extract paragraph if needed
                 'choices': choices,
                 'answer': content['answer'].get('correct_choice', ''),
                 'explanation': content['answer'].get('rationale', '')
