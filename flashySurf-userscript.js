@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         FlashySurf - Flash Cards for Passive learning
 // @namespace    http://tampermonkey.net/
-// @version      1.0
+// @version      1.1
 // @description  A userscript that creates flashcards from your browsing data for passive learning while surfing the web
 // @author       MaxDev
 // @match        *://*/*
@@ -44,7 +44,7 @@
     function createFlashcardWidget(flashcard) {
         GM_setValue('forceCard', true);
         
-        let closeTimer = 10;
+        let closeTimer = 17.5;
         let selectedChoice = null;
         let isCorrect = false;
         let intervalId;
@@ -142,7 +142,7 @@
 
             selectedChoice = answer;
             isCorrect = answer[0] === flashcard.answer[0];
-            if (!isCorrect) closeTimer += 30;
+            if (!isCorrect) closeTimer += 30 + Math.max(flashcard.explanation.length*60/1250, 20);
             if (isCorrect) {
                 GM_setValue("correctSATAnswers", GM_getValue("correctSATAnswers", 0) + 1);
             } else {
