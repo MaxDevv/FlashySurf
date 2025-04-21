@@ -193,6 +193,6 @@
     badge.style.padding = '5px 10px';
     badge.style.borderRadius = '5px';
     badge.style.zIndex = '10000';
-    badge.textContent = `FlashySurf Stats: Accuracy: ${GM_getValue('correctSATAnswers', 0)}/${GM_getValue('incorrectSATAnswers', 0)} (${GM_getValue('forceCard', false) ? 1 : 0} || ${randomWidget ? 1 : 0}) && ${!window.location.hostname.toLowerCase().includes("desmos") ? 1:0}`;
+    badge.textContent = `FlashySurf Stats: Accuracy: ${GM_getValue('correctSATAnswers', 0)}/${GM_getValue('incorrectSATAnswers', 0)+GM_getValue('correctSATAnswers', 0)} (${GM_getValue('forceCard', false) ? 1 : 0} || ${randomWidget ? 1 : 0}) && ${!window.location.hostname.toLowerCase().includes("desmos") ? 1:0}`;
     document.body.appendChild(badge);
 })();
