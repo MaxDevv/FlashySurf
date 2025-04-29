@@ -13,7 +13,9 @@
 
 (async function() {
     'use strict';
-
+    if (window.top !== window.self) {
+        return;
+    }
     let dataSet = {};
 
     function fetchDataset() {
