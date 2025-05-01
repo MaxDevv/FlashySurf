@@ -1,10 +1,10 @@
 <p align="center">
-  <img src="https://github.com/FlashySurf/FlashySurf/blob/main/Logo.png" alt="Logo">
+  <img src="https://github.com/MaxDevv/FlashySurf/blob/main/Logo.png?raw=true" alt="Logo">
 </p>
 
 # FlashySurf - Flash Cards for Passive SAT Learning
 
-FlashySurf is a userscript that helps you prepare for the SAT while you browse the web. Instead of dedicating specific study time, FlashySurf integrates SAT practice questions into your regular browsing experience, making preparation passive and consistent.
+FlashySurf is a browser extension that helps you prepare for the SAT while you browse the web. Instead of dedicating specific study time, FlashySurf integrates SAT practice questions into your regular browsing experience, making preparation passive and consistent.
 
 ## 🎯 Purpose
 
@@ -17,20 +17,41 @@ Designed for students aiming for high SAT scores (1500+) without the need for in
 - **Performance Tracking**: Tracks your accuracy with a small badge
 - **Explanation Feedback**: Provides detailed explanations for each answer
 - **Non-intrusive**: Designed to integrate into your browsing without being disruptive
+- **Customizable Frequency**: Control how often flashcards appear with the settings panel
 
 ## 📋 Requirements
 
 - A modern web browser (Chrome, Firefox, Edge, etc.)
-- A userscript manager extension with storage support:
-  - [Tampermonkey](https://www.tampermonkey.net/) (recommended)
-  - [Violentmonkey](https://violentmonkey.github.io/)
-  - [Greasemonkey](https://addons.mozilla.org/en-US/firefox/addon/greasemonkey/) (Firefox)
 
 ## 🚀 Installation
 
-1. Install a userscript manager extension (see Requirements)
+### Browser Extension (Recommended)
+
+1. Visit the extension store for your browser:
+   - [Chrome Web Store](https://chrome.google.com/webstore/category/extensions) (coming soon)
+   - [Firefox Add-ons](https://addons.mozilla.org/en-US/firefox/extensions/) (coming soon)
+   - [Edge Add-ons](https://microsoftedge.microsoft.com/addons/Microsoft-Edge-Extensions-Home) (coming soon)
+
+2. Search for "FlashySurf" and click "Add to Browser"
+
+### Manual Installation (Developer Mode)
+
+1. Download the extension files from the [GitHub repository](https://github.com/MaxDevv/FlashySurf)
+2. Unzip the files to a folder on your computer
+3. In Chrome/Edge, go to `chrome://extensions/` or `edge://extensions/`
+4. Enable "Developer mode" in the top-right corner
+5. Click "Load unpacked" and select the extension folder
+
+### Userscript Version (Alternative)
+
+If you prefer using a userscript manager:
+
+1. Install a userscript manager extension with storage support:
+   - [Tampermonkey](https://www.tampermonkey.net/) (recommended)
+   - [Violentmonkey](https://violentmonkey.github.io/)
+   - [Greasemonkey](https://addons.mozilla.org/en-US/firefox/addon/greasemonkey/) (Firefox)
 2. Click on the following link to install the FlashySurf userscript:
-   [Install FlashySurf](https://github.com/MaxDevv/flashysurf/raw/main/flashySurf-userscript.user.js)
+   [Install FlashySurf Userscript](https://github.com/MaxDevv/flashysurf/raw/main/flashySurf-userscript.user.js)
 3. Confirm the installation when prompted by your userscript manager
 
 ## 🔧 How It Works
@@ -42,7 +63,14 @@ FlashySurf randomly presents SAT practice questions while you browse the web. Wh
 3. Review the explanation to understand the correct approach
 4. The flashcard will automatically close after a short period (longer for incorrect answers to give you time to learn)
 
-The script tracks your performance over time, helping you identify areas for improvement.
+The extension tracks your performance over time, helping you identify areas for improvement.
+
+## 🛠️ Configuration
+
+Click on the FlashySurf icon in your browser toolbar to:
+- Adjust the frequency of flashcard appearances
+- View your performance statistics
+- Access additional settings
 
 ## 🧠 Learning Approach
 
@@ -51,9 +79,9 @@ FlashySurf uses principles of spaced repetition and passive learning to help you
 ## 🔜 Upcoming Features
 
 - Text input support for math problems requiring numerical answers
-- Customizable frequency of flashcard appearances
 - Topic filtering to focus on specific areas
 - Progress analytics to track improvement over time
+- Dark mode support
 
 ## 🤝 Contributing
 
@@ -62,7 +90,6 @@ Contributions are welcome! If you'd like to improve FlashySurf or add new featur
 ## 🙏 Acknowledgements
 
 Special thanks to [mdn522](https://github.com/mdn522) for providing the SAT question bank used in this project. The questions were sourced from the [sat-question-bank](https://github.com/mdn522/sat-question-bank/) repository.
-
 
 ## 📝 License
 
@@ -90,4 +117,5 @@ SOFTWARE.
 
 ---
 
-*FlashySurf: Surf the web, ace the SAT.*
+_Made with ❤️ by MaxDevv_
+

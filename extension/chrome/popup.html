@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FlashySurf Settings</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      width: 300px;
+      padding: 15px;
+    }
+    h1 {
+      font-size: 18px;
+      margin-top: 0;
+      color: #333;
+    }
+    .settings-group {
+      margin-bottom: 15px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 500;
+    }
+    .slider-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    input[type="range"] {
+      flex-grow: 1;
+    }
+    .value-display {
+      min-width: 40px;
+      text-align: right;
+    }
+    .stats {
+      margin-top: 20px;
+      padding-top: 15px;
+      border-top: 1px solid #eee;
+    }
+    .save-button {
+      background-color: #4285F4;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 500;
+      margin-top: 10px;
+    }
+    .save-button:hover {
+      background-color: #3367D6;
+    }
+  </style>
+</head>
+<body>
+  <h1>FlashySurf Settings</h1>
+  
+  <div class="settings-group">
+    <label for="widgetChance">Flashcard Frequency:</label>
+    <div class="slider-container">
+      <input type="range" id="widgetChance" min="0" max="100" step="1">
+      <span class="value-display" id="widgetChanceValue">10%</span>
+    </div>
+  </div>
+  
+  <button id="saveSettings" class="save-button">Save Settings</button>
+  
+  <div class="stats">
+    <h2>Your Stats</h2>
+    <div id="statsDisplay">Loading stats...</div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
