@@ -93,6 +93,7 @@
                 gap: 1.5em;
                 box-shadow: 0px 0px 60px 3px rgba(0,0,0,0.2);
                 z-index: 999999999999999;
+                color: black !important;
             }
             .title { font-weight: bold; font-size: large; }
             .limited { max-height: 10em; overflow-y: scroll; }
@@ -103,7 +104,7 @@
                 text-align: left;
                 background-color: color-mix(in srgb, silver 30%, white 70%);
                 border: none;
-                color: black;
+                color: black !important;
             }
         `;
     
@@ -195,6 +196,6 @@
     badge.style.padding = '5px 10px';
     badge.style.borderRadius = '5px';
     badge.style.zIndex = '10000';
-    badge.textContent = `FlashySurf Stats: Accuracy: ${GM_getValue('correctSATAnswers', 0)}/${GM_getValue('incorrectSATAnswers', 0)+GM_getValue('correctSATAnswers', 0)} (${GM_getValue('forceCard', false) ? 1 : 0} || ${randomWidget ? 1 : 0}) && ${!window.location.hostname.toLowerCase().includes("desmos") ? 1:0}`;
+    badge.textContent = `FlashySurf Stats: Accuracy: ${GM_getValue('correctSATAnswers', 0)}/${GM_getValue('incorrectSATAnswers', 0)+GM_getValue('correctSATAnswers', 0)}`+ (GM_getValue("devMode", false) ? ` (${GM_getValue('forceCard', false) ? 1 : 0} || ${randomWidget ? 1 : 0}) && ${!window.location.hostname.toLowerCase().includes("desmos") ? 1:0}` : '');
     document.body.appendChild(badge);
 })();

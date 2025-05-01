@@ -26,7 +26,7 @@ Designed for students aiming for high SAT scores (1500+) without the need for in
 
 1. Install a userscript manager extension (see Requirements)
 2. Click on the following link to install the FlashySurf userscript:
-   [Install FlashySurf](https://github.com/MaxDevv/flashysurf/raw/main/flashySurf-userscript.js)
+   [Install FlashySurf](https://github.com/MaxDevv/flashysurf/raw/main/flashySurf-userscript.user.js)
 3. Confirm the installation when prompted by your userscript manager
 
 ## 🔧 How It Works
