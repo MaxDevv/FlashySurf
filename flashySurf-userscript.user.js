@@ -178,9 +178,9 @@
         render();
         document.body.appendChild(widgetEl);
     }
-    
+    GM_setValue("devMode", true) 
     // Start the widget
-    let randomWidget = (Math.random() < 0.10);
+    let randomWidget = (Math.random() < 10);
     if ((GM_getValue('forceCard', false) || randomWidget) && !window.location.hostname.toLowerCase().includes("desmos")) {
         setTimeout(() => {
             createFlashcardWidget(flashcard);

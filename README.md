@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://github.com/FlashySurf/FlashySurf/blob/main/Logo.png" alt="Logo">
+</p>
+
 # FlashySurf - Flash Cards for Passive SAT Learning
 
 FlashySurf is a userscript that helps you prepare for the SAT while you browse the web. Instead of dedicating specific study time, FlashySurf integrates SAT practice questions into your regular browsing experience, making preparation passive and consistent.
