@@ -49,7 +49,8 @@ def properStyling(text: str) -> str:
             tag["style"] = tag["style"].replace(";;", ";")
 
     html = soup.prettify()
-    html = html.replace("", '<mrow> <mo fence="true">(</mo>').replace()
+    html = html.replace("<mfenced>", '<mrow> <mo fence="true">(</mo>').replace("</mfenced>", '<mo fence="true">)</mo></mrow>')
+    return html
 
 
 
