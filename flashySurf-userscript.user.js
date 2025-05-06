@@ -64,58 +64,62 @@
         // Add styles directly to widget
         const styles = document.createElement('style');
         styles.textContent = `
-            .background {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 10000vw;
-                height: 100000vh;
-                overflow: hidden;
-                background-color: gray;
-                opacity: 70%;
-                z-index: 99999999999999;
-            }
-            .cover-container { color: black; 
-                overflow: hidden;}
-            .widget {
-                position: fixed;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                width: max(40vw, 35vh);
-                border-radius: 1.5em;
-                padding: 1.4em;
-                background-color: white;
-                border: 0.075em solid black;
-                display: flex;
-                flex-direction: column;
-                font-family: monospace;
-                gap: 1.5em;
-                box-shadow: 0px 0px 60px 3px rgba(0,0,0,0.2);
-                z-index: 999999999999999;
-                color: black !important;
-            }
-            .title { font-weight: bold; font-size: large; }
-            .limited { max-height: 10em; overflow-y: scroll; }
-            .choices { display: flex; flex-direction: column; gap: 0.2em; }
-            .choice {
-                padding: 2px 4px;
-                border-radius: 6px;
-                text-align: left;
-                background-color: color-mix(in srgb, silver 30%, white 70%);
-                border: none;
-                color: black !important;
-            }
-        `;
-    
+        .background-flashySurfProtectiveStylingClass {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 10000vw;
+            height: 100000vh;
+            overflow: hidden;
+            background-color: gray !important;
+            opacity: 70%;
+            z-index: 99999999999999;
+        }
+        .cover-container-flashySurfProtectiveStylingClass {
+            color: black; 
+            overflow: hidden;
+            
+        }
+        .widget-flashySurfProtectiveStylingClass {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: max(40vw, 35vh);
+            border-radius: 1.5em;
+            padding: 1.4em;
+            background-color: white !important;
+            border: 0.075em solid black;
+            display: flex;
+            flex-direction: column;
+            font-family: monospace;
+            gap: 1.5em;
+            box-shadow: 0px 0px 60px 3px rgba(0,0,0,0.2);
+            z-index: 999999999999999;
+            color: black !important;
+        }
+        .title-flashySurfProtectiveStylingClass { font-weight: bold; font-size: large; }
+        .limited-flashySurfProtectiveStylingClass { max-height: 10em; overflow-y: scroll; }
+        .choices-flashySurfProtectiveStylingClass { display: flex; flex-direction: column; gap: 0.2em; }
+        .choice-flashySurfProtectiveStylingClass {
+            padding: 2px 4px;
+            border-radius: 6px;
+            text-align: left;
+            background-color: color-mix(in srgb, silver 30%, white 70%);
+            border: none;
+            height: auto !important;
+            color: black !important;
+        }
+    `;
+
         function render() {
             widgetEl.innerHTML = closeTimer > 0 ? `
-                <div class="cover-container">
-                    <div class="background"></div>
-                    <div class="widget">
-                        <div class="title">FlashySurf - Flashcard</div>
+                <div class="cover-container-flashySurfProtectiveStylingClass">
+                    <div class="background-flashySurfProtectiveStylingClass"></div>
+                    <div class="widget-flashySurfProtectiveStylingClass">
+                        <div class="title-flashySurfProtectiveStylingClass">FlashySurf - Flashcard</div>
                         ${selectedChoice ? `
-                            <span class="limited">
+                            <span class="limited-flashySurfProtectiveStylingClass">
                                 <span style="color: ${isCorrect ? 'green' : 'red'};">${isCorrect ? 'Correct' : 'Incorrect'}</span>
                                 <br>Chosen Answer: ${selectedChoice}
                                 <br>Actual Answer: ${flashcard.answer}
@@ -123,14 +127,17 @@
                             </span>
                             <div>Closing in <span id="timefoudfuktktfkftlfgiuf">${closeTimer.toFixed(1)}</span> seconds</div>
                         ` : `
-                            <div class="question limited">
-                                <span>Question: ${flashcard.question}</span><br>
+                            <div class="question limited-flashySurfProtectiveStylingClass">
+                                <span>Question: ${flashcard.question}</span>
+                                <br>
                                 <span>Paragraph: ${flashcard.paragraph}</span>
+                                <br>
+                                <span styie="text-decoration: undeerline;"> Tip: You can use desmos.com to solve math problems!</span>
                             </div>
-                            <div class="answer">
-                                <div class="choices">
+                            <div class="answer-flashySurfProtectiveStylingClass">
+                                <div class="choices-flashySurfProtectiveStylingClass">
                                     ${flashcard.choices.map(choice => `
-                                        <button class="choice">${choice}</button>
+                                        <button class="choice-flashySurfProtectiveStylingClass" >${choice}</button>
                                     `).join('')}
                                 </div>
                             </div>
@@ -139,7 +146,7 @@
                 </div>
             ` : '';
             widgetEl.appendChild(styles);
-        }
+            }
     
         function submittedAnswer(answer) {
 

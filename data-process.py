@@ -1,5 +1,7 @@
 import json, random
 from fractions import Fraction
+from bs4 import BeautifulSoup
+
 
 
 output = {
@@ -23,6 +25,42 @@ with open("cb-digital-questions.json", "r") as f:
 
 mathCount = 0
 englishCount = 0
+
+def properStyling(text: str) -> str:
+    if isinstance(text, str):
+        pass
+    elif isinstance(text, dict):
+        return {k: properStyling(v) for k, v in text.items()}
+    elif isinstance(text, list):
+        return [properStyling(i) for i in text]
+    
+
+    properCss = " color: black !important; overflow-wrap: break-word !important; display: inline !important; text-wrap-mode: wrap !important;"
+    
+    soup = BeautifulSoup(text, 'html.parser')
+    color = "black"
+
+    for tag in soup.find_all(['p', 'span']):
+        if tag.has_attr('style'):
+            tag['style'] += "; "+properCss
+        else:
+            tag['style'] = properCss
+        for i in range(10):
+            tag["style"] = tag["style"].replace(";;", ";")
+
+    return soup.prettify()
+
+
+
+def styleFlashCard(flashCard):
+    return {
+        'question': properStyling(flashCard['question']),
+        'paragraph': properStyling(flashCard['paragraph']),
+        'choices': properStyling(flashCard['choices']),
+        'answer': properStyling(flashCard['answer']),
+        'explanation': properStyling(flashCard['explanation'])
+    }
+
 
 for id, question in data.items():
     flashcard = {}
@@ -49,7 +87,7 @@ for id, question in data.items():
                 'answer': content['answer'].get('correct_choice', ''),
                 'explanation': content['answer'].get('rationale', '')
             }
-            output[question["module"]].append(flashcard)
+            output[question["module"]].append(properStyling(flashcard))
     
     elif content.get('correct_answer') and (len(content.get('answerOptions')) > 0) and question["module"] == "math":
         # Multiple choice math question
@@ -67,7 +105,7 @@ for id, question in data.items():
                 'answer': content['correct_answer'],
                 'explanation': content['rationale']
             }
-            output[question["module"]].append(flashcard)
+            output[question["module"]].append(properStyling(flashcard))
     elif content.get('correct_answer') and content.get("type", "") == "spr" and question["module"] == "math":
         # Input type math question, needs to be converted to multiple choice
 
@@ -94,7 +132,7 @@ for id, question in data.items():
             'answer': answerStr,
             'explanation': content.get('rationale', '')
         }
-        output[question["module"]].append(flashcard)
+        output[question["module"]].append(properStyling(flashcard))
     else:
         # Process English questions
         if (question.get("module") == "english" and 
@@ -124,7 +162,7 @@ for id, question in data.items():
                     'answer': answer,
                     'explanation': content.get('rationale', '')
                 }
-                output["english"].append(flashcard)
+                output["english"].append(properStyling(flashcard))
 
 print(f"Math questions: {len(output['math'])}/{mathCount}")
 print(f"English questions: {len(output['english'])}/{englishCount}")

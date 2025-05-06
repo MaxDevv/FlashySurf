@@ -50,20 +50,23 @@
             // Add styles directly to widget
             const styles = document.createElement('style');
             styles.textContent = `
-                .background {
+                .background-flashySurfProtectiveStylingClass {
                     position: fixed;
                     top: 0;
                     left: 0;
                     width: 10000vw;
                     height: 100000vh;
                     overflow: hidden;
-                    background-color: gray;
+                    background-color: gray !important;
                     opacity: 70%;
                     z-index: 99999999999999;
                 }
-                .cover-container { color: black; 
-                    overflow: hidden;}
-                .widget {
+                .cover-container-flashySurfProtectiveStylingClass {
+                    color: black; 
+                    overflow: hidden;
+                    
+                }
+                .widget-flashySurfProtectiveStylingClass {
                     position: fixed;
                     top: 50%;
                     left: 50%;
@@ -71,7 +74,7 @@
                     width: max(40vw, 35vh);
                     border-radius: 1.5em;
                     padding: 1.4em;
-                    background-color: white;
+                    background-color: white !important;
                     border: 0.075em solid black;
                     display: flex;
                     flex-direction: column;
@@ -81,27 +84,28 @@
                     z-index: 999999999999999;
                     color: black !important;
                 }
-                .title { font-weight: bold; font-size: large; }
-                .limited { max-height: 10em; overflow-y: scroll; }
-                .choices { display: flex; flex-direction: column; gap: 0.2em; }
-                .choice {
+                .title-flashySurfProtectiveStylingClass { font-weight: bold; font-size: large; }
+                .limited-flashySurfProtectiveStylingClass { max-height: 10em; overflow-y: scroll; }
+                .choices-flashySurfProtectiveStylingClass { display: flex; flex-direction: column; gap: 0.2em; }
+                .choice-flashySurfProtectiveStylingClass {
                     padding: 2px 4px;
                     border-radius: 6px;
                     text-align: left;
                     background-color: color-mix(in srgb, silver 30%, white 70%);
                     border: none;
+                    height: auto !important;
                     color: black !important;
                 }
             `;
         
             function render() {
                 widgetEl.innerHTML = closeTimer > 0 ? `
-                    <div class="cover-container">
-                        <div class="background"></div>
-                        <div class="widget">
-                            <div class="title">FlashySurf - Flashcard</div>
+                    <div class="cover-container-flashySurfProtectiveStylingClass">
+                        <div class="background-flashySurfProtectiveStylingClass"></div>
+                        <div class="widget-flashySurfProtectiveStylingClass">
+                            <div class="title-flashySurfProtectiveStylingClass">FlashySurf - Flashcard</div>
                             ${selectedChoice ? `
-                                <span class="limited">
+                                <span class="limited-flashySurfProtectiveStylingClass">
                                     <span style="color: ${isCorrect ? 'green' : 'red'};">${isCorrect ? 'Correct' : 'Incorrect'}</span>
                                     <br>Chosen Answer: ${selectedChoice}
                                     <br>Actual Answer: ${flashcard.answer}
@@ -109,17 +113,17 @@
                                 </span>
                                 <div>Closing in <span id="timefoudfuktktfkftlfgiuf">${closeTimer.toFixed(1)}</span> seconds</div>
                             ` : `
-                                <div class="question limited">
+                                <div class="question limited-flashySurfProtectiveStylingClass">
                                     <span>Question: ${flashcard.question}</span>
                                     <br>
                                     <span>Paragraph: ${flashcard.paragraph}</span>
                                     <br>
                                     <span styie="text-decoration: undeerline;"> Tip: You can use desmos.com to solve math problems!</span>
                                 </div>
-                                <div class="answer">
-                                    <div class="choices">
+                                <div class="answer-flashySurfProtectiveStylingClass">
+                                    <div class="choices-flashySurfProtectiveStylingClass">
                                         ${flashcard.choices.map(choice => `
-                                            <button class="choice">${choice}</button>
+                                            <button class="choice-flashySurfProtectiveStylingClass" >${choice}</button>
                                         `).join('')}
                                     </div>
                                 </div>
