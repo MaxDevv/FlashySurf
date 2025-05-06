@@ -28,9 +28,7 @@ Designed for students aiming for high SAT scores (1500+) without the need for in
 ### Browser Extension (Recommended)
 
 1. Visit the extension store for your browser:
-   - [Chrome Web Store](https://chrome.google.com/webstore/category/extensions) (coming soon)
-   - [Firefox Add-ons](https://addons.mozilla.org/en-US/firefox/extensions/) (coming soon)
-   - [Edge Add-ons](https://microsoftedge.microsoft.com/addons/Microsoft-Edge-Extensions-Home) (coming soon)
+   - [Chrome Web Store](https://chromewebstore.google.com/detail/ldajenfdgimgdajklkohhljdgdalcedb?utm_source=item-share-c)
 
 2. Search for "FlashySurf" and click "Add to Browser"
 
@@ -50,6 +48,7 @@ If you prefer using a userscript manager:
    - [Tampermonkey](https://www.tampermonkey.net/) (recommended)
    - [Violentmonkey](https://violentmonkey.github.io/)
    - [Greasemonkey](https://addons.mozilla.org/en-US/firefox/addon/greasemonkey/) (Firefox)
+   - [Stay iOS](https://apps.apple.com/us/app/stay-for-safari/id1591620171) (iOS)
 2. Click on the following link to install the FlashySurf userscript:
    [Install FlashySurf Userscript](https://github.com/MaxDevv/flashysurf/raw/main/flashySurf-userscript.user.js)
 3. Confirm the installation when prompted by your userscript manager
