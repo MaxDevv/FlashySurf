@@ -158,6 +158,7 @@
                         if (closeTimer <= 0){
                             closeTimer = 0.0;
                             closeButton.disabled = false;
+                            chrome.storage.local.set({ 'forceCard': false });
                             closeButton.onclick = () => {
                                 widgetEl.remove();
                                 clearInterval(forcePause);
@@ -175,7 +176,14 @@
         
             function submittedAnswer(answer) {
                 selectedChoice = answer;
+                console.log(answer, flashcard.answer, flashcard.choices);
                 isCorrect = (answer[0].toLowerCase() == flashcard.answer[0].toLowerCase());
+                if (!isCorrect) {
+                    try {
+                        isCorrect = (answer[0].toLowerCase() == flashcard.answer[0][0].toLowerCase());
+                    }
+                    catch {}
+                }
 
                 
                 chrome.storage.local.get(['correctSATAnswers', 'incorrectSATAnswers'], function(result) {
@@ -202,13 +210,14 @@
                 Array.from(document.getElementsByClassName("choice-flashySurfProtectiveStylingClass")).forEach((btn) => {
                     if (!Boolean(btn.attachedListeners)) {
                         btn.addEventListener('click', (e) => {
-                            submittedAnswer(e.target.textContent);
+                            submittedAnswer(btn.textContent);
                         });
+                        console.log(btn.textContent);
                         btn.attachedListeners = true;
                         clearInterval(btnInterval);
                     }
                 });    
-            }, 100);
+            }, 500);
             
         }
         

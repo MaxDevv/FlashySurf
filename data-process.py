@@ -1,4 +1,4 @@
-import json, random
+import json, random, re
 from fractions import Fraction
 from bs4 import BeautifulSoup
 
@@ -26,13 +26,20 @@ with open("cb-digital-questions.json", "r") as f:
 mathCount = 0
 englishCount = 0
 
-def properStyling(text: str) -> str:
+def cleanUp(text: str) -> str:
+    if isinstance(text, dict):
+        if "answer" in text:
+            if type(text["answer"]) == list and len(text["answer"]) == 1:
+                text["answer"] = text["answer"][0]
+        if "choices" in text:
+            if type(text["choices"]) == list:
+                text["choices"] = [re.sub(r'([ABCDabcd]\):)\n', r'\1', i) for i in text["choices"]]
     if isinstance(text, str):
         pass
     elif isinstance(text, dict):
-        return {k: properStyling(v) for k, v in text.items()}
+        return {k: cleanUp(v) for k, v in text.items()}
     elif isinstance(text, list):
-        return [properStyling(i) for i in text]
+        return [cleanUp(i) for i in text]
     
 
     properCss = " color: black !important; overflow-wrap: break-word !important; display: inline !important; text-wrap-mode: wrap !important;"
@@ -51,17 +58,6 @@ def properStyling(text: str) -> str:
     html = soup.prettify()
     html = html.replace("<mfenced>", '<mrow> <mo fence="true">(</mo>').replace("</mfenced>", '<mo fence="true">)</mo></mrow>')
     return html
-
-
-
-def styleFlashCard(flashCard):
-    return {
-        'question': properStyling(flashCard['question']),
-        'paragraph': properStyling(flashCard['paragraph']),
-        'choices': properStyling(flashCard['choices']),
-        'answer': properStyling(flashCard['answer']),
-        'explanation': properStyling(flashCard['explanation'])
-    }
 
 
 for id, question in data.items():
@@ -89,7 +85,7 @@ for id, question in data.items():
                 'answer': content['answer'].get('correct_choice', ''),
                 'explanation': content['answer'].get('rationale', '')
             }
-            output[question["module"]].append(properStyling(flashcard))
+            output[question["module"]].append(cleanUp(flashcard))
     
     elif content.get('correct_answer') and (len(content.get('answerOptions')) > 0) and question["module"] == "math":
         # Multiple choice math question
@@ -107,7 +103,7 @@ for id, question in data.items():
                 'answer': content['correct_answer'],
                 'explanation': content['rationale']
             }
-            output[question["module"]].append(properStyling(flashcard))
+            output[question["module"]].append(cleanUp(flashcard))
     elif content.get('correct_answer') and content.get("type", "") == "spr" and question["module"] == "math":
         # Input type math question, needs to be converted to multiple choice
 
@@ -134,7 +130,7 @@ for id, question in data.items():
             'answer': answerStr,
             'explanation': content.get('rationale', '')
         }
-        output[question["module"]].append(properStyling(flashcard))
+        output[question["module"]].append(cleanUp(flashcard))
     else:
         # Process English questions
         if (question.get("module") == "english" and 
@@ -164,7 +160,7 @@ for id, question in data.items():
                     'answer': answer,
                     'explanation': content.get('rationale', '')
                 }
-                output["english"].append(properStyling(flashcard))
+                output["english"].append(cleanUp(flashcard))
 
 print(f"Math questions: {len(output['math'])}/{mathCount}")
 print(f"English questions: {len(output['english'])}/{englishCount}")
