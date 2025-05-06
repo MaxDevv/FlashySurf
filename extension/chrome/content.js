@@ -32,17 +32,19 @@
         function createFlashcardWidget(flashcard) {
             chrome.storage.local.set({ 'forceCard': true });
             
-            let closeTimer = 17.5;
+
             let selectedChoice = null;
             let isCorrect = false;
-            let intervalId;
+            let closeTimer = 20;
             let forcePause;
             if (!forcePause) {
                 forcePause = setInterval(() => {
                     document.querySelectorAll('video').forEach(vid => vid.pause());
                 }, 100);
             }
-        
+            let intervalId = 0;
+            let btnInterval = 0;
+
             // Create container
             const widgetEl = document.createElement('div');
             widgetEl.id = 'flashcard-widget';
@@ -95,11 +97,24 @@
                     border: none;
                     height: auto !important;
                     color: black !important;
+                    cursor: pointer;
+                }
+                .close-button-flashySurfProtectiveStylingClass {
+                    padding: 8px 16px;
+                    border-radius: 4px;
+                    background-color: #007bff;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                .close-button-flashySurfProtectiveStylingClass:disabled {
+                    background-color: #ccc;
+                    cursor: not-allowed;
                 }
             `;
         
             function render() {
-                widgetEl.innerHTML = closeTimer > 0 ? `
+                widgetEl.innerHTML = `
                     <div class="cover-container-flashySurfProtectiveStylingClass">
                         <div class="background-flashySurfProtectiveStylingClass"></div>
                         <div class="widget-flashySurfProtectiveStylingClass">
@@ -111,7 +126,9 @@
                                     <br>Actual Answer: ${flashcard.answer}
                                     <br>Explanation: ${flashcard.explanation}
                                 </span>
-                                <div>Closing in <span id="timefoudfuktktfkftlfgiuf">${closeTimer.toFixed(1)}</span> seconds</div>
+                                <div>
+                                <button class="close-button-flashySurfProtectiveStylingClass" id="closeButton-flashySurf" disabled>Close</button>
+                                Closable in <span id="timefoudfuktktfkftlfgiuf">${closeTimer > 0 ? closeTimer.toFixed(1) : '0.0'}</span> seconds</div>
                             ` : `
                                 <div class="question limited-flashySurfProtectiveStylingClass">
                                     <span>Question: ${flashcard.question}</span>
@@ -123,21 +140,43 @@
                                 <div class="answer-flashySurfProtectiveStylingClass">
                                     <div class="choices-flashySurfProtectiveStylingClass">
                                         ${flashcard.choices.map(choice => `
-                                            <button class="choice-flashySurfProtectiveStylingClass" >${choice}</button>
+                                            <button class="choice-flashySurfProtectiveStylingClass">${choice}</button>
                                         `).join('')}
                                     </div>
                                 </div>
                             `}
                         </div>
                     </div>
-                ` : '';
+                `;
                 widgetEl.appendChild(styles);
+
+                if (selectedChoice && intervalId == 0) {
+                    const closeButton = document.getElementById('closeButton-flashySurf'); // Tixed bug that broke system
+                    closeTimer = isCorrect ? 5 : 20;
+                    intervalId = setInterval(() => {
+                        closeTimer -= 0.1;
+                        if (closeTimer <= 0){
+                            closeTimer = 0.0;
+                            closeButton.disabled = false;
+                            closeButton.onclick = () => {
+                                widgetEl.remove();
+                                clearInterval(forcePause);
+                                forcePause = 1;
+                                chrome.storage.local.set({ 'forceCard': false });
+                            };
+                            clearInterval(intervalId);
+                        }
+                        const timerEl = document.getElementById("timefoudfuktktfkftlfgiuf");
+                        if (timerEl) timerEl.innerText = closeTimer.toFixed(1);
+                        
+                    }, 100);
+                }
             }
         
             function submittedAnswer(answer) {
                 selectedChoice = answer;
-                isCorrect = answer[0] === flashcard.answer[0];
-                if (!isCorrect) closeTimer += 30 + Math.max(flashcard.explanation.length*60/1250, 20);
+                isCorrect = (answer[0].toLowerCase() == flashcard.answer[0].toLowerCase());
+
                 
                 chrome.storage.local.get(['correctSATAnswers', 'incorrectSATAnswers'], function(result) {
                     let correct = result.correctSATAnswers || 0;
@@ -149,34 +188,28 @@
                         chrome.storage.local.set({ "incorrectSATAnswers": incorrect + 1 });
                     }
                 });
-                
-                if (!intervalId) {
-                    intervalId = setInterval(() => {
-                        closeTimer -= 0.1;
-                        if (closeTimer < 0) {
-                            widgetEl.remove();
-                            clearInterval(intervalId);
-                            clearInterval(forcePause);
-                            forcePause = 1;
-                            chrome.storage.local.set({ 'forceCard': false });
-                        }
-                        const timerEl = document.getElementById("timefoudfuktktfkftlfgiuf");
-                        if (timerEl) timerEl.innerText = closeTimer.toFixed(1);
-                    }, 100);
-                }
                 render();
             }
-        
-            // Event delegation for choices
-            widgetEl.addEventListener('click', (e) => {
-                if (e.target.classList.contains('choice')) {
-                    submittedAnswer(e.target.textContent);
-                }
-            });
-        
+            
             // Initial render
             render();
             document.body.appendChild(widgetEl);
+
+            // Event delegation for choices
+            console.log("Attaching Listners");
+              
+            btnInterval = setInterval(() => {
+                Array.from(document.getElementsByClassName("choice-flashySurfProtectiveStylingClass")).forEach((btn) => {
+                    if (!Boolean(btn.attachedListeners)) {
+                        btn.addEventListener('click', (e) => {
+                            submittedAnswer(e.target.textContent);
+                        });
+                        btn.attachedListeners = true;
+                        clearInterval(btnInterval);
+                    }
+                });    
+            }, 100);
+            
         }
         
         // Start the widget
@@ -213,4 +246,5 @@
     } catch (error) {
         console.error("FlashySurf error:", error);
     }
+
 })();
