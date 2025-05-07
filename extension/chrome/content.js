@@ -112,7 +112,15 @@
                     cursor: not-allowed;
                 }
             `;
-        
+            function getAnswer() {
+                let answer = flashcard.answer; // Answer Letter like "A"
+                flashcard.choices.forEach((i) => {
+                    if (answer[0].toLowerCase() == i[0].toLowerCase()) {
+                        answer = i; // Answer choice
+                    }
+                })
+                return answer;
+            }
             function render() {
                 widgetEl.innerHTML = `
                     <div class="cover-container-flashySurfProtectiveStylingClass">
@@ -123,7 +131,7 @@
                                 <span class="limited-flashySurfProtectiveStylingClass">
                                     <span style="color: ${isCorrect ? 'green' : 'red'};">${isCorrect ? 'Correct' : 'Incorrect'}</span>
                                     <br>Chosen Answer: ${selectedChoice}
-                                    <br>Actual Answer: ${flashcard.answer}
+                                    <br>Actual Answer: ${getAnswer()}
                                     <br>Explanation: ${flashcard.explanation}
                                 </span>
                                 <div>
