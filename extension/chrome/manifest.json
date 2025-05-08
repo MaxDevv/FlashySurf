@@ -19,8 +19,7 @@
       "default_title": "FlashySurf Settings"
     },
     "permissions": [
-      "storage",
-      "activeTab"
+      "storage"
     ],
     "host_permissions": [
       "*://*/*"
