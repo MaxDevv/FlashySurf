@@ -121,29 +121,63 @@
                 })
                 return answer;
             }
+            let notesText = '';
+            let isInNotesSection = false;
             function render() {
+                // In the createFlashcardWidget function, modify the render function
+                let tips = [
+                    "You can use desmos.com to solve math problems!",
+                    "Taking notes improves memory by up to 30% even if you don't read them later!",
+                    "Try to understand the concept rather than memorizing the answer."
+                ]
+                
                 widgetEl.innerHTML = `
                     <div class="cover-container-flashySurfProtectiveStylingClass">
                         <div class="background-flashySurfProtectiveStylingClass"></div>
                         <div class="widget-flashySurfProtectiveStylingClass">
                             <div class="title-flashySurfProtectiveStylingClass">FlashySurf - Flashcard</div>
-                            ${selectedChoice ? `
-                                <span class="limited-flashySurfProtectiveStylingClass">
-                                    <span style="color: ${isCorrect ? 'green' : 'red'};">${isCorrect ? 'Correct' : 'Incorrect'}</span>
-                                    <br>Chosen Answer: ${selectedChoice}
-                                    <br>Actual Answer: ${getAnswer()}
-                                    <br>Explanation: ${flashcard.explanation}
-                                </span>
-                                <div>
-                                <button class="close-button-flashySurfProtectiveStylingClass" id="closeButton-flashySurf" disabled>Close</button>
-                                Closable in <span id="timefoudfuktktfkftlfgiuf">${closeTimer > 0 ? closeTimer.toFixed(1) : '0.0'}</span> seconds</div>
-                            ` : `
+                            ${selectedChoice ? 
+                                isInNotesSection && !isCorrect ? 
+                                `
+                                    <span class="limited-flashySurfProtectiveStylingClass">
+                                        <h3 style="color: red;">Take Notes</h3>
+                                        <p>Please describe how and why you got the question wrong and the right solution in your own words.</p>
+                                        <p><small>Did you know that notetaking improves memory by up to 30% even if you don't read them?</small></p>
+                                        <textarea id="notes-input-flashySurf" class="notes-input-flashySurfProtectiveStylingClass" 
+                                            placeholder="Please describe how and why you got the question wrong and the right solution in your own words..." 
+                                            rows="5">${notesText}</textarea>
+                                        <div class="word-count-flashySurfProtectiveStylingClass" id="word-count-flashySurf">0 words (minimum 10)</div>
+                                    </span>
+                                    <div>
+                                        <button class="back-button-flashySurfProtectiveStylingClass" id="backButton-flashySurf">Back to Explanation</button>
+                                        <button class="close-button-flashySurfProtectiveStylingClass" id="closeButton-flashySurf" disabled>Close</button>
+                                        <span>Closable when you write at least 10 words</span>
+                                    </div>
+                                ` 
+                                : 
+                                `
+                                    <span class="limited-flashySurfProtectiveStylingClass">
+                                        <span style="color: ${isCorrect ? 'green' : 'red'};">${isCorrect ? 'Correct' : 'Incorrect'}</span>
+                                        <br>Chosen Answer: ${selectedChoice}
+                                        <br>Actual Answer: ${getAnswer()}
+                                        <br>Explanation: ${flashcard.explanation}
+                                    </span>
+                                    <div>
+                                    ${isCorrect ? 
+                                        `<button class="close-button-flashySurfProtectiveStylingClass" id="closeButton-flashySurf" disabled>Close</button>
+                                        Closable in <span id="timefoudfuktktfkftlfgiuf">${closeTimer > 0 ? closeTimer.toFixed(1) : '0.0'}</span> seconds` 
+                                        : 
+                                        `<button class="next-button-flashySurfProtectiveStylingClass" id="nextButton-flashySurf">Next: Take Notes</button>`
+                                    }
+                                    </div>
+                                `
+                            : `
                                 <div class="question limited-flashySurfProtectiveStylingClass">
                                     <span>Question: ${flashcard.question}</span>
                                     <br>
                                     <span>Paragraph: ${flashcard.paragraph}</span>
                                     <br>
-                                    <span styie="text-decoration: undeerline;"> Tip: You can use desmos.com to solve math problems!</span>
+                                    <span style="text-decoration: underline;"> Tip: ${tips[Math.floor(Math.random()*tips.length)]}</span>
                                 </div>
                                 <div class="answer-flashySurfProtectiveStylingClass">
                                     <div class="choices-flashySurfProtectiveStylingClass">
@@ -158,28 +192,143 @@
                 `;
                 widgetEl.appendChild(styles);
 
-                if (selectedChoice && intervalId == 0) {
-                    const closeButton = document.getElementById('closeButton-flashySurf'); // Tixed bug that broke system
-                    closeTimer = isCorrect ? 5 : 20;
-                    intervalId = setInterval(() => {
-                        closeTimer -= 0.1;
-                        if (closeTimer <= 0){
-                            closeTimer = 0.0;
-                            closeButton.disabled = false;
-                            chrome.storage.local.set({ 'forceCard': false });
-                            closeButton.onclick = () => {
-                                widgetEl.remove();
-                                clearInterval(forcePause);
-                                forcePause = 1;
-                                chrome.storage.local.set({ 'forceCard': false });
-                            };
-                            clearInterval(intervalId);
-                        }
-                        const timerEl = document.getElementById("timefoudfuktktfkftlfgiuf");
-                        if (timerEl) timerEl.innerText = closeTimer.toFixed(1);
+                // Add event listeners for the new buttons and textarea
+                if (selectedChoice) {
+                    if (isInNotesSection && !isCorrect) {
+                        const notesInput = document.getElementById('notes-input-flashySurf');
+                        const wordCount = document.getElementById('word-count-flashySurf');
+                        const closeButton = document.getElementById('closeButton-flashySurf');
+                        const backButton = document.getElementById('backButton-flashySurf');
                         
-                    }, 100);
+                        // Update word count and enable/disable close button
+                        const updateWordCount = () => {
+                            const words = notesInput.value.trim().split(/\s+/).filter(word => word.length > 0);
+                            const count = words.length;
+                            wordCount.textContent = `${count} words (minimum 10)`;
+                            notesText = notesInput.value;
+                            
+                            if (count >= 10) {
+                                closeButton.disabled = false;
+                            } else {
+                                closeButton.disabled = true;
+                            }
+                        };
+                        
+                        notesInput.addEventListener('input', updateWordCount);
+                        updateWordCount(); // Initial count
+                        
+                        // Back button to return to explanation
+                        backButton.addEventListener('click', () => {
+                            isInNotesSection = false;
+                            render();
+                        });
+                        
+                        // Close button saves notes and closes widget
+                        closeButton.addEventListener('click', () => {
+                            // Save notes to storage
+                            const questionId = `${flashcard.question.substring(0, 30)}_${new Date().toISOString().split('T')[0]}`;
+                            chrome.storage.local.get(['satNotes'], function(result) {
+                                const notes = result.satNotes || {};
+                                notes[questionId] = {
+                                    question: flashcard.question,
+                                    answer: getAnswer(),
+                                    userAnswer: selectedChoice,
+                                    notes: notesText,
+                                    timestamp: Date.now()
+                                };
+                                chrome.storage.local.set({ 'satNotes': notes });
+                            });
+                            
+                            widgetEl.remove();
+                            clearInterval(forcePause);
+                            forcePause = 1;
+                            chrome.storage.local.set({ 'forceCard': false });
+                            chrome.storage.local.set({ 'lastCompleted': Number(new Date()) });
+                        });
+                    } else if (!isInNotesSection) {
+                        if (isCorrect) {
+                            // For correct answers, handle the close button timer
+                            if (intervalId == 0) {
+                                const closeButton = document.getElementById('closeButton-flashySurf');
+                                const timerEl = document.getElementById("timefoudfuktktfkftlfgiuf");
+                                closeTimer = 5;
+                                intervalId = setInterval(() => {
+                                    closeTimer -= 0.1;
+                                    if (closeTimer <= 0) {
+                                        closeTimer = 0.0;
+                                        closeButton.disabled = false;
+                                        chrome.storage.local.set({ 'forceCard': false });
+                                        chrome.storage.local.set({ 'lastCompleted': Number(new Date()) });
+                                        closeButton.onclick = () => {
+                                            widgetEl.remove();
+                                            clearInterval(forcePause);
+                                            forcePause = 1;
+                                            chrome.storage.local.set({ 'forceCard': false });
+                                        };
+                                        clearInterval(intervalId);
+                                    }
+                                    if (timerEl) timerEl.innerText = closeTimer.toFixed(1);
+                                }, 100);
+                            }
+                        } else {
+                            // For incorrect answers, handle the next button (no timer, just the button)
+                            const nextButton = document.getElementById('nextButton-flashySurf');
+                            
+                            // Add click handler for next button
+                            nextButton.addEventListener('click', () => {
+                                isInNotesSection = true;
+                                render();
+                            });
+                        }
+                    }
                 }
+
+                // Add CSS for new elements to the styles
+                styles.textContent += `
+                    .notes-input-flashySurfProtectiveStylingClass {
+                        width: 80%;
+                        padding: 8px;
+                        border: 1px solid #ccc;
+                        border-radius: 4px;
+                        font-family: inherit;
+                        font-size: 0.9em;
+                        resize: vertical;
+                        color: black !important;
+                        background-color: white !important;
+                        margin: 0 auto;
+                        display: block;
+                    }
+                    .word-count-flashySurfProtectiveStylingClass {
+                        font-size: 0.8em;
+                        color: #666;
+                        text-align: right;
+                        margin-top: 4px;
+                        width: 80%;
+                        margin: 4px auto 0;
+                    }
+                    .back-button-flashySurfProtectiveStylingClass {
+                        padding: 8px 16px;
+                        border-radius: 4px;
+                        background-color: #6c757d;
+                        color: white;
+                        border: none;
+                        cursor: pointer;
+                        margin-right: 8px;
+                    }
+                    .next-button-flashySurfProtectiveStylingClass {
+                        padding: 8px 16px;
+                        border-radius: 4px;
+                        background-color: #28a745;
+                        color: white;
+                        border: none;
+                        cursor: pointer;
+                    }
+                    .next-button-flashySurfProtectiveStylingClass:disabled {
+                        background-color: #ccc;
+                        cursor: not-allowed;
+                    }
+                `;
+
             }
         
             function submittedAnswer(answer) {
@@ -226,6 +375,19 @@
                     }
                 });    
             }, 500);
+            
+
+            // Check incase user answered on other website
+            let loadTime = Number(new Date());
+            setInterval(() => {
+                chrome.storage.local.get('lastCompleted', function(result) {
+                    if (((result.lastCompleted + 10 * 1000 /* Add 10 second load buffer */) > loadTime)) {
+                        widgetEl.remove();
+                        clearInterval(forcePause);
+                        forcePause = 1;
+                    }
+                });
+            })
             
         }
         

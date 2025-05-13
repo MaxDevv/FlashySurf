@@ -31,9 +31,6 @@ def cleanUp(text: str) -> str:
         if "answer" in text:
             if type(text["answer"]) == list and len(text["answer"]) == 1:
                 text["answer"] = text["answer"][0]
-        if "choices" in text:
-            if type(text["choices"]) == list:
-                text["choices"] = [re.sub(r'([ABCDabcd]\):)\n', r'\1', i) for i in text["choices"]]
     if isinstance(text, str):
         pass
     elif isinstance(text, dict):
@@ -57,6 +54,7 @@ def cleanUp(text: str) -> str:
 
     html = soup.prettify()
     html = html.replace("<mfenced>", '<mrow> <mo fence="true">(</mo>').replace("</mfenced>", '<mo fence="true">)</mo></mrow>')
+    html = re.sub(r'([ABCDabcd]\):)\\n', r'\1', re.sub(r'([ABCDabcd]\):)\n', r'\1', html)) 
     return html
 
 
