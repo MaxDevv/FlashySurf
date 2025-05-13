@@ -240,6 +240,7 @@
         });
 
         // Create stats badge
+        /*
         chrome.storage.local.get(['correctSATAnswers', 'incorrectSATAnswers', 'devMode'], function(result) {
             const badge = document.createElement('div');
             badge.style.position = 'fixed';
@@ -259,7 +260,7 @@
                 (devMode ? ` (${result.forceCard ? 1 : 0} || ${randomWidget ? 1 : 0}) && ${!window.location.hostname.toLowerCase().includes("desmos") ? 1:0}` : '');
             
             document.body.appendChild(badge);
-        });
+        }); */
     } catch (error) {
         console.error("FlashySurf error:", error);
     }

@@ -82,6 +82,69 @@ FlashySurf uses principles of spaced repetition and passive learning to help you
 - Progress analytics to track improvement over time
 - Dark mode support
 
+# Changelog
+
+## 1.4
+### 1.4.1 (2025-05-08)
+- Removed the `activeTab` permission from the Chrome extension manifest for improved security and privacy
+- Updated the flashcard frequency slider to have a minimum value of 5
+- Implemented function to get the correct answer choice instead of just the answer letter
+- Fixed bug where the timer wasn't being cleared when a correct answer was submitted
+- Fixed bug where the answer wasn't being displayed correctly
+- Implemented a more robust system for attaching listeners to choice buttons
+- Updated UserScript to account for new features
+
+### 1.4.0 (2025-05-06)
+- Improved answer checking, including handling of array style answers and single-element list answers
+- Fixed bug where the `forceCard` local storage value was not being reset when the close button was enabled
+- Reduced the interval for attaching listeners to choice buttons to 500ms
+- Implemented data cleaning in `data-process.py` to remove unnecessary characters and standardize answer formats
+- Removed the `properStyling` and `styleFlashCard` functions from `data-process.py`, replacing them with a single `cleanUp` function
+- Fixed issues with parenthesis handling in questions
+
+## 1.3
+### 1.3.0 (2025-05-06)
+- Enhanced flashcard widget with improved timer and button handling
+- Implemented a closable timer that enables the close button after a delay (5 seconds for correct answers, 20 seconds for incorrect)
+- Fixed bug where the height of choice buttons was not automatically adjusting to content
+- Added a close button to the flashcard widget for manual closing after timer expiration
+- Implemented case-insensitive answer checking
+- Fixed bug where event listeners were being attached multiple times to choice buttons
+- Adjusted styling of the close button
+- Fixed bug that broke the system with the submit button
+
+## 1.2
+### 1.2.0 (2025-05-06)
+- Improved flashcard styling and data processing
+- Added CSS styling to ensure proper text wrapping, black text color, and prevent style conflicts with websites
+- Implemented HTML parsing with BeautifulSoup in `data-process.py` for consistent appearance across websites
+- Modified `data-process.py` to apply styling to question, paragraph, choices, answer, and explanation fields
+- Fixed bug where the height of choice buttons was not automatically adjusting to content
+
+## 1.1
+### 1.1.0 (2025-05-01)
+- Refactored from userscript to browser extension for improved user experience
+- Updated installation instructions for browser stores and manual installation
+- Added configuration section for adjusting flashcard frequency and viewing statistics
+- Updated logo URL in README
+- Reduced default flashcard probability in the userscript
+- Added variable flashcard chances
+- Expanded math question database from 393 to 994 questions
+
+## 1.0
+### 1.0.0 (2025-04-03)
+- Initial release of FlashySurf
+- Implemented basic flashcard functionality for SAT questions
+- Added support for both math and English questions
+- Created userscript version with Tampermonkey/Greasemonkey support
+- Implemented basic statistics tracking
+- Added explanation feedback for answers
+- Fixed image mapping error
+- Increased duration to read explanations
+- Fixed text color error on certain websites
+- Added forced run only in top frame to prevent duplicate flashcards
+
+
 ## 🤝 Contributing
 
 Contributions are welcome! If you'd like to improve FlashySurf or add new features, please feel free to submit a pull request.
