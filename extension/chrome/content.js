@@ -6,7 +6,7 @@
     }
     let dataSet = {};
     let  randomWidget;
-
+    let answeredPage = false;
     function fetchDataset() {
         return new Promise((resolve, reject) => {
             fetch(chrome.runtime.getURL('questions.json'))
@@ -28,10 +28,17 @@
         dataSet = await fetchDataset();
         let questionList = dataSet[(Math.random() > 0.5 ? "math" : "english")];
         let flashcard = questionList[Math.floor(Math.random()*questionList.length)];
+        chrome.storage.local.get(['answeredQuestions'], (res) => {
+            for (let i = 0; i < 10; i++) {
+                if (res.answeredQuestions.includes(flashcard.id)) {
+                    flashcard = questionList[Math.floor(Math.random()*questionList.length)];
+                }
+            }
+        })
         
         function createFlashcardWidget(flashcard) {
             chrome.storage.local.set({ 'forceCard': true });
-            
+                        
 
             let selectedChoice = null;
             let isCorrect = false;
@@ -332,6 +339,7 @@
             }
         
             function submittedAnswer(answer) {
+                answeredPage = true;
                 selectedChoice = answer;
                 console.log(answer, flashcard.answer, flashcard.choices);
                 isCorrect = (answer[0].toLowerCase() == flashcard.answer[0].toLowerCase());
@@ -349,6 +357,11 @@
                     
                     if (isCorrect) {
                         chrome.storage.local.set({ "correctSATAnswers": correct + 1 });
+                        chrome.storage.local.get(['answeredQuestions'], (res) => {
+                            let a = res.answeredQuestions;
+                            a.push(flashcard.id);
+                            chrome.storage.local.set({ 'answeredQuestions': a });
+                        });
                     } else {
                         chrome.storage.local.set({ "incorrectSATAnswers": incorrect + 1 });
                     }
@@ -380,8 +393,9 @@
             // Check incase user answered on other website
             let loadTime = Number(new Date());
             setInterval(() => {
+
                 chrome.storage.local.get('lastCompleted', function(result) {
-                    if (((result.lastCompleted + 10 * 1000 /* Add 10 second load buffer */) > loadTime)) {
+                    if (((result.lastCompleted + 10 * 1000 /* Add 10 second load buffer */) > loadTime) && !answeredPage /* Fixes bug where current page would instantly unload widget when answered*/) {
                         widgetEl.remove();
                         clearInterval(forcePause);
                         forcePause = 1;
@@ -392,12 +406,16 @@
         }
         
         // Start the widget
-        chrome.storage.local.get(['forceCard', 'widgetChance'], function(result) {
-            randomWidget = (Math.random() < result.widgetChance);
-            if ((result.forceCard || randomWidget) && !window.location.hostname.toLowerCase().includes("desmos")) {
-                setTimeout(() => {
-                    createFlashcardWidget(flashcard);
-                }, 1000);
+        chrome.storage.local.get(['forceCard', 'widgetChance', 'lastBreak'], function(result) {
+            if (Number(Date.now()) > (result.lastBreak + 30 * 60 * 1000)) {
+
+                console.log("Running")
+                randomWidget = (Math.random() < result.widgetChance);
+                if ((result.forceCard || randomWidget) && !window.location.hostname.toLowerCase().includes("desmos")) {
+                    setTimeout(() => {
+                        createFlashcardWidget(flashcard);
+                    }, 1000);
+                }
             }
         });
 

@@ -54,7 +54,7 @@ def cleanUp(text: str) -> str:
 
     html = soup.prettify()
     html = html.replace("<mfenced>", '<mrow> <mo fence="true">(</mo>').replace("</mfenced>", '<mo fence="true">)</mo></mrow>')
-    html = re.sub(r'([ABCDabcd]\):)\\n', r'\1', re.sub(r'([ABCDabcd]\):)\n', r'\1', html)) 
+    html = re.sub(r'([ABCDabcd]\):)(\n+)', r'\1', html, count=1) 
     return html
 
 
@@ -77,6 +77,7 @@ for id, question in data.items():
         # Only include if there's a correct answer
         if content['answer'].get('correct_choice'):
             flashcard = {
+                'id': id,
                 'question': content.get('prompt', content.get('stem', '')),
                 'paragraph': content.get('body', ''),  # Extract paragraph if needed
                 'choices': choices,
@@ -95,6 +96,7 @@ for id, question in data.items():
         # Only include if there's a correct answer
         if content['correct_answer']:
             flashcard = {
+                'id': id,
                 'question': content.get('prompt', content.get('stem', '')),
                 'paragraph': content.get('body', ''),  # Extract paragraph if needed
                 'choices': choices,
@@ -122,6 +124,7 @@ for id, question in data.items():
         
         
         flashcard = {
+            'id': id,
             'question': content.get('prompt', content.get('stem', '')),
             'paragraph': content.get('body', ''),  # Extract paragraph if needed
             'choices': choices,
@@ -152,6 +155,7 @@ for id, question in data.items():
                 answer = content.get("correct_answer", [""])[0]
                 
                 flashcard = {
+                    'id': id,
                     'question': content.get('stem', ''),
                     'paragraph': paragraph,
                     'choices': choices,
@@ -166,4 +170,7 @@ print(f"English questions: {len(output['english'])}/{englishCount}")
 
 
 with open("questions.json", "w+") as f:
+    json.dump(output, f, indent=4)
+
+with open("./extension/chrome/questions.json", "w+") as f:
     json.dump(output, f, indent=4)

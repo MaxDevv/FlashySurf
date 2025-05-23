@@ -16,6 +16,7 @@ Designed for students aiming for high SAT scores (1500+) without the need for in
 - **Math & English Coverage**: Questions from both SAT sections
 - **Performance Tracking**: Tracks your accuracy with a small badge
 - **Explanation Feedback**: Provides detailed explanations for each answer
+- **Note-Taking**: Record your understanding of incorrect answers to reinforce learning
 - **Non-intrusive**: Designed to integrate into your browsing without being disruptive
 - **Customizable Frequency**: Control how often flashcards appear with the settings panel
 
@@ -60,7 +61,8 @@ FlashySurf randomly presents SAT practice questions while you browse the web. Wh
 1. Read the question and select your answer
 2. Get immediate feedback on your choice
 3. Review the explanation to understand the correct approach
-4. The flashcard will automatically close after a short period (longer for incorrect answers to give you time to learn)
+4. For incorrect answers, take notes on your understanding to reinforce learning
+5. The flashcard will automatically close after a short period (longer for incorrect answers to give you time to learn)
 
 The extension tracks your performance over time, helping you identify areas for improvement.
 
@@ -69,20 +71,25 @@ The extension tracks your performance over time, helping you identify areas for 
 Click on the FlashySurf icon in your browser toolbar to:
 - Adjust the frequency of flashcard appearances
 - View your performance statistics
+- Review your saved notes from incorrect answers
 - Access additional settings
 
 ## 🧠 Learning Approach
 
 FlashySurf uses principles of spaced repetition and passive learning to help you absorb SAT content gradually over time. By integrating practice into your daily browsing, you'll build familiarity with SAT question patterns without dedicated study sessions.
 
-## 🔜 Upcoming Features
-
-- Text input support for math problems requiring numerical answers
-- Topic filtering to focus on specific areas
-- Progress analytics to track improvement over time
-- Dark mode support
-
 # Changelog
+
+## 1.5
+### 1.5.0 (2025-05-13)
+- Implemented note-taking feature for incorrect answers
+- Added container to display user notes in the popup
+- Implemented display of user notes sorted by timestamp with delete functionality
+- Added note-taking section to flashcard widget for incorrect answers
+- Added word count validator to ensure minimum of 10 words in notes
+- Added back button to return to explanation
+- Added tips to question display
+- Improved widget closing logic and added load buffer
 
 ## 1.4
 ### 1.4.1 (2025-05-08)
@@ -180,4 +187,3 @@ SOFTWARE.
 ---
 
 _Made with ❤️ by MaxDevv_
-

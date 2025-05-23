@@ -1,19 +1,56 @@
+function getTimeDifference(date1, date2) {
+  const diffInMilliseconds = Math.abs(date2 - date1);
+
+  const totalSeconds = Math.floor(diffInMilliseconds / 1000);
+  const hours = formatToTwoDigits(Math.floor(totalSeconds / 3600));
+  const minutes = formatToTwoDigits(Math.floor((totalSeconds % 3600) / 60));
+  const seconds = formatToTwoDigits(totalSeconds % 60);
+
+  return { hours, minutes, seconds };
+}
+
+
+
+function formatToTwoDigits(number) {
+  return number.toLocaleString('en-US', {
+    minimumIntegerDigits: 2,
+    useGrouping: false,
+  });
+}
+
+
+
 document.addEventListener('DOMContentLoaded', function() {
     const widgetChanceSlider = document.getElementById('widgetChance');
     const widgetChanceValue = document.getElementById('widgetChanceValue');
-    const saveButton = document.getElementById('saveSettings');
     const statsDisplay = document.getElementById('statsDisplay');
     const notesContainer = document.getElementById('notesContainer');
     const notesTab = document.getElementById('notesTab');
     const statsTab = document.getElementById('statsTab');
+    const breakBtn = document.getElementById('break-button');
   
     // Load current settings
-    chrome.storage.local.get(['widgetChance', 'correctSATAnswers', 'incorrectSATAnswers', 'satNotes'], function(result) {
+    chrome.storage.local.get(['widgetChance', 'correctSATAnswers', 'incorrectSATAnswers', 'satNotes', 'lastBreak'], function(result) {
       // Set widget chance slider
       const widgetChance = result.widgetChance || 0.1;
       widgetChanceSlider.value = widgetChance * 100;
       widgetChanceValue.textContent = `${Math.round(widgetChance * 100)}%`;
-      
+      // Update Break Button
+      if (Number(Date.now()) <= (result.lastBreak + 4 * 60 * 60 * 1000)) {
+        breakBtn.disabled = true;
+        let origText = breakBtn.innerText;
+        setInterval(() => {
+          if (Number(Date.now()) > (result.lastBreak + 30 * 60 * 1000)) {
+            let timeDiff = getTimeDifference(Number(Date.now()), result.lastBreak + 4 * 60 * 60 * 1000);
+            let timeText = ` (Available In ${timeDiff.hours + ":" + timeDiff.minutes + ":" + timeDiff.seconds})`;
+            breakBtn.innerText = origText + timeText;
+          } else {
+            let timeDiff = getTimeDifference(Number(Date.now()), result.lastBreak + 30 * 60 * 1000);
+            let timeText = ` (Active For ${timeDiff.hours + ":" + timeDiff.minutes + ":" + timeDiff.seconds})`;
+            breakBtn.innerText = origText + timeText;
+          }
+        }, 100);
+      }
       // Update stats display
       const correct = result.correctSATAnswers || 0;
       const incorrect = result.incorrectSATAnswers || 0;
@@ -80,15 +117,15 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   
     // Save settings
-    saveButton.addEventListener('click', function() {
+    widgetChanceSlider.addEventListener('change', function() {
       const widgetChance = widgetChanceSlider.value / 100;
-      chrome.storage.local.set({ widgetChance: widgetChance }, function() {
-        // Show saved confirmation
-        saveButton.textContent = 'Saved!';
-        setTimeout(() => {
-          saveButton.textContent = 'Save Settings';
-        }, 500);
-      });
+      chrome.storage.local.set({ widgetChance: widgetChance });
     });
+
+    // Break Button
+    breakBtn.addEventListener('click', () => {
+        chrome.storage.local.set({ lastBreak: Number(Date.now())});
+        breakBtn.disabled = true;
+    })
   });
   
