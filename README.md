@@ -41,10 +41,13 @@ Designed for students aiming for high SAT scores (1500+) without the need for in
 4. Enable "Developer mode" in the top-right corner
 5. Click "Load unpacked" and select the extension folder
 
-### Userscript Version (Alternative)
+### ~~Userscript Version (Alternative)~~
+*Note: The userscript version has been discontinued due to maintenance difficulties*
+
+<details>
+<summary>Userscript Installation (Deprecated)</summary>
 
 If you prefer using a userscript manager:
-
 1. Install a userscript manager extension with storage support:
    - [Tampermonkey](https://www.tampermonkey.net/) (recommended)
    - [Violentmonkey](https://violentmonkey.github.io/)
@@ -53,6 +56,8 @@ If you prefer using a userscript manager:
 2. Click on the following link to install the FlashySurf userscript:
    [Install FlashySurf Userscript](https://github.com/MaxDevv/flashysurf/raw/main/flashySurf-userscript.user.js)
 3. Confirm the installation when prompted by your userscript manager
+
+</details>
 
 ## 🔧 How It Works
 
