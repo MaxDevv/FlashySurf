@@ -26,16 +26,81 @@
     
     try {
         dataSet = await fetchDataset();
-        let questionList = dataSet[(Math.random() > 0.5 ? "math" : "english")];
-        let flashcard = questionList[Math.floor(Math.random()*questionList.length)];
-        chrome.storage.local.get(['answeredQuestions'], (res) => {
-            for (let i = 0; i < 10; i++) {
-                if (res.answeredQuestions.includes(flashcard.id)) {
-                    flashcard = questionList[Math.floor(Math.random()*questionList.length)];
-                }
+        let flashcardList = dataSet[(Math.random() > 0.5 ? "math" : "english")];
+        let flashcard;
+        // Helper function to get a random flashcard from a list
+        function getRandomFlashcard(flashcardList) {
+            return flashcardList[Math.floor(Math.random() * flashcardList.length)];
+        }
+
+        // Function to avoid already answered questions
+        function avoidAnsweredQuestions(flashcard, flashcardList, answeredQuestions, maxAttempts = 10) {
+            let attempts = 0;
+            while (answeredQuestions.includes(flashcard.id) && attempts < maxAttempts) {
+                flashcard = getRandomFlashcard(flashcardList);
+                attempts++;
             }
-        })
-        
+            return flashcard;
+        }
+
+        // Function to get a flashcard from failed questions
+        function getFailedQuestionFlashcard(flashcardList, failedQuestions, answeredQuestions) {
+            return new Promise((resolve) => {
+                let possibleFlashCards = flashcardList.filter(flashcard => 
+                    failedQuestions.includes(flashcard.id)
+                );
+                
+                if (possibleFlashCards.length > 0) {
+                    let flashcard = getRandomFlashcard(possibleFlashCards);
+                    resolve(flashcard);
+                } else {
+                    // No failed questions available, get random and avoid answered ones
+                    let flashcard = getRandomFlashcard(flashcardList);
+                    flashcard = avoidAnsweredQuestions(flashcard, flashcardList, answeredQuestions);
+                    resolve(flashcard);
+                }
+            });
+        }
+
+        // Function to get a regular flashcard (avoiding answered questions)
+        function getRegularFlashcard(flashcardList, answeredQuestions) {
+            return new Promise((resolve) => {
+                let flashcard = getRandomFlashcard(flashcardList);
+                flashcard = avoidAnsweredQuestions(flashcard, flashcardList, answeredQuestions);
+                resolve(flashcard);
+            });
+        }
+
+        // Main function to select a flashcard
+        async function selectFlashcard(flashcardList) {
+            return new Promise((resolve) => {
+                if (Math.random() < 0.6) {
+                    // 60% chance to give a regular question (avoiding answered ones)
+                    console.log("New random question :D")
+                    chrome.storage.local.get(['answeredQuestions'], async (res) => {
+                        const answeredQuestions = res.answeredQuestions || [];
+                        const flashcard = await getRegularFlashcard(flashcardList, answeredQuestions);
+                        resolve(flashcard);
+                    });
+                } else {
+                    // 40% chance to give a previously failed question
+                    console.log("Previously failed question :D")
+                    chrome.storage.local.get(['failedQuestions', 'answeredQuestions'], async (res) => {
+                        const failedQuestions = res.failedQuestions || [];
+                        const answeredQuestions = res.answeredQuestions || [];
+                        const flashcard = await getFailedQuestionFlashcard(flashcardList, failedQuestions, answeredQuestions);
+                        resolve(flashcard);
+                    });
+                }
+            });
+        }
+
+        // Usage (replaces the original code block):
+        selectFlashcard(flashcardList).then(selectedFlashcard => {
+            flashcard = selectedFlashcard;
+        });
+
+
         function createFlashcardWidget(flashcard) {
             chrome.storage.local.set({ 'forceCard': true });
                         
@@ -351,10 +416,10 @@
                 }
 
                 
-                chrome.storage.local.get(['correctSATAnswers', 'incorrectSATAnswers'], function(result) {
+                chrome.storage.local.get(['correctSATAnswers', 'incorrectSATAnswers', 'failedQuestions'], function(result) {
                     let correct = result.correctSATAnswers || 0;
                     let incorrect = result.incorrectSATAnswers || 0;
-                    
+                    let failedQuestions = result.failedQuestions || [];
                     if (isCorrect) {
                         chrome.storage.local.set({ "correctSATAnswers": correct + 1 });
                         chrome.storage.local.get(['answeredQuestions'], (res) => {
@@ -362,8 +427,14 @@
                             a.push(flashcard.id);
                             chrome.storage.local.set({ 'answeredQuestions': a });
                         });
+                        if (failedQuestions.indexOf(flashcard.id) != -1) {
+                            failedQuestions.splice(failedQuestions.indexOf(flashcard.id), 1);
+                            chrome.storage.local.set({"failedQuestions": failedQuestions});
+                        }
                     } else {
+                        failedQuestions.push(flashcard.id);
                         chrome.storage.local.set({ "incorrectSATAnswers": incorrect + 1 });
+                        chrome.storage.local.set({"failedQuestions": failedQuestions});
                     }
                 });
                 render();
@@ -409,8 +480,10 @@
         chrome.storage.local.get(['forceCard', 'widgetChance', 'lastBreak'], function(result) {
             if (Number(Date.now()) > (result.lastBreak + 30 * 60 * 1000)) {
 
-                console.log("Running")
-                randomWidget = (Math.random() < result.widgetChance);
+                console.log("Running");
+                let v = Math.random();
+                randomWidget = (v < result.widgetChance);
+                // console.log(v, result.widgetChance, result.forceCard);
                 if ((result.forceCard || randomWidget) && !window.location.hostname.toLowerCase().includes("desmos")) {
                     setTimeout(() => {
                         createFlashcardWidget(flashcard);

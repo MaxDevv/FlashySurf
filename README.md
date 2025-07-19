@@ -79,6 +79,27 @@ Click on the FlashySurf icon in your browser toolbar to:
 FlashySurf uses principles of spaced repetition and passive learning to help you absorb SAT content gradually over time. By integrating practice into your daily browsing, you'll build familiarity with SAT question patterns without dedicated study sessions.
 
 # Changelog
+## 1.7
+### 1.7.0 (2025-07-19)
+- Implemented intelligent question selection system with 60/40 split between new and preveiously failed questions
+- Added failed questions tracking to help users focus on areas needing improvement
+- Enhanced question avoidance algorithm to prevent repetition of recently answered questions
+- Added automatic removal of questions from failed list when answered correctly
+- Improved local storage initialization to include failed questions tracking
+- Optimized flashcard selection logic with better randomization, cleaner code, and question filtering.
+- Added comprehensive logging for question selection debugging
+- Optimized question selection performance with promise-based asynchronous handling
+
+## 1.6
+### 1.6.0 (2025-05-23)
+- Implemented break timer feature allowing users to pause flashcards for 30 minutes
+- Added question ID tracking to prevent repetition of recently answered questions
+- Added "30 Minute Break" button in the popup with a 4-hour cooldown timer
+- Added countdown display showing time remaining on break
+- Updated extension version to 1.6.0
+- Improved local storage initialization for tracking answered questions and break times
+- Removed unused images to reduce extension size
+- Minor documentation updates
 
 ## 1.5
 ### 1.5.0 (2025-05-13)

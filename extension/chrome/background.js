@@ -1,7 +1,7 @@
 chrome.runtime.onInstalled.addListener(() => {
     console.log('FlashySurf extension installed');
     
-    chrome.storage.local.get(['correctSATAnswers', 'incorrectSATAnswers', 'forceCard', 'widgetChance', 'devMode', 'lastCompleted', 'satNotes', 'answeredQuestions', 'lastBreak'], (result) => {
+    chrome.storage.local.get(['correctSATAnswers', 'incorrectSATAnswers', 'forceCard', 'widgetChance', 'devMode', 'lastCompleted', 'satNotes', 'answeredQuestions', 'lastBreak', 'failedQuestions'], (result) => {
       if (result.correctSATAnswers === undefined) {
         chrome.storage.local.set({ correctSATAnswers: 0 });
       }
@@ -26,10 +26,11 @@ chrome.runtime.onInstalled.addListener(() => {
       if (result.answeredQuestions === undefined) {
         chrome.storage.local.set({ answeredQuestions: [] });
       }
-      
       if (result.lastBreak === undefined) {
         chrome.storage.local.set({ lastBreak: 0 });
-
+      }
+      if (result.failedQuestions === undefined) {
+        chrome.storage.local.set({ failedQuestions: [] });
       }
     });
   });

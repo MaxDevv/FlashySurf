@@ -1,0 +1,58 @@
+{
+  "math": [
+    {
+      "id": "fake-math-001",
+      "question": "<p style=\" color: black !important; overflow-wrap: break-word !important; display: inline !important; text-wrap-mode: wrap !important;\">What is 2 + 2?</p>",
+      "paragraph": "",
+      "choices": [
+        "A): 3",
+        "B): 4", 
+        "C): 5",
+        "D): 6"
+      ],
+      "answer": "B): 4",
+      "explanation": "<p style=\" color: black !important; overflow-wrap: break-word !important; display: inline !important; text-wrap-mode: wrap !important;\">Choice B is correct. This is basic addition: 2 + 2 = 4. This is a fundamental arithmetic operation where we combine two quantities of 2 to get a total of 4.</p>"
+    },
+    {
+      "id": "fake-math-002", 
+      "question": "<p style=\" color: black !important; overflow-wrap: break-word !important; display: inline !important; text-wrap-mode: wrap !important;\">If x = 10, what is the value of x - 5?</p>",
+      "paragraph": "",
+      "choices": [
+        "A): 3",
+        "B): 4",
+        "C): 5", 
+        "D): 15"
+      ],
+      "answer": "C): 5",
+      "explanation": "<p style=\" color: black !important; overflow-wrap: break-word !important; display: inline !important; text-wrap-mode: wrap !important;\">Choice C is correct. Given that x = 10, we substitute this value into the expression x - 5. This gives us 10 - 5 = 5. Therefore, the value of x - 5 when x = 10 is 5.</p>"
+    }
+  ],
+  "english": [
+    {
+      "id": "fake-english-001",
+      "question": "<p style=\" color: black !important; overflow-wrap: break-word !important; display: inline !important; text-wrap-mode: wrap !important;\">Which word is a synonym for 'happy'?</p>",
+      "paragraph": "",
+      "choices": [
+        "A): Sad",
+        "B): Joyful",
+        "C): Angry", 
+        "D): Tired"
+      ],
+      "answer": "B",
+      "explanation": "<p style=\" color: black !important; overflow-wrap: break-word !important; display: inline !important; text-wrap-mode: wrap !important;\">Choice B is correct. 'Joyful' is a synonym for 'happy' as both words express a positive emotional state of contentment and pleasure. The other choices represent different emotional states that are not synonymous with happiness.</p>"
+    },
+    {
+      "id": "fake-english-002",
+      "question": "<p style=\" color: black !important; overflow-wrap: break-word !important; display: inline !important; text-wrap-mode: wrap !important;\">What is the plural form of 'cat'?</p>",
+      "paragraph": "",
+      "choices": [
+        "A): Cat",
+        "B): Cats",
+        "C): Cates",
+        "D): Catses"
+      ],
+      "answer": "B",
+      "explanation": "<p style=\" color: black !important; overflow-wrap: break-word !important; display: inline !important; text-wrap-mode: wrap !important;\">Choice B is correct. The plural form of 'cat' is 'cats'. This follows the standard English pluralization rule of adding 's' to most singular nouns. The other options are not correct plural forms in English.</p>"
+    }
+  ]
+}
