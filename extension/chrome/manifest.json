@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "FlashySurf - Flash Cards for Passive SAT Learning",
-    "version": "1.7",
+    "version": "1.8",
     "description": "Prepare for the SAT while browsing the web with passive learning flash cards",
     "author": "MaxDev",
     "icons": {

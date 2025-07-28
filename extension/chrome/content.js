@@ -4,6 +4,16 @@
     if (window.top !== window.self) {
         return;
     }
+    let devMode = false;
+
+    chrome.storage.local.get(['correctSATAnswers', 'incorrectSATAnswers', 'forceCard', 'widgetChance', 'devMode', 'lastCompleted', 'satNotes', 'answeredQuestions', 'lastBreak', 'failedQuestions'], (result) => {    
+        devMode = result.devMode;
+        if (devMode) console.log("Data dump:", result);
+    });
+
+    if (!devMode) {
+        console.log = () => {}
+    }
     let dataSet = {};
     let  randomWidget;
     let answeredPage = false;
@@ -23,10 +33,46 @@
                 });
         });
     }
-    
+
+    function getRandomSubarray(arr, size) {
+        size = Math.min(size, arr.length);
+        var shuffled = arr.slice(0), i = arr.length, min = i - size, temp, index;
+        while (i-- > min) {
+            index = Math.floor((i + 1) * Math.random());
+            temp = shuffled[index];
+            shuffled[index] = shuffled[i];
+            shuffled[i] = temp;
+        }
+        return shuffled.slice(min);
+    }
+
+    function cosSim(vecA, vecB) {
+        if (vecA.length !== vecB.length) {
+            throw new Error("Vectors must be the same length");
+        }
+
+        let dotProduct = 0;
+        let normA = 0;
+        let normB = 0;
+
+        for (let i = 0; i < vecA.length; i++) {
+            dotProduct += vecA[i] * vecB[i];
+            normA += vecA[i] * vecA[i];
+            normB += vecB[i] * vecB[i];
+        }
+
+        if (normA === 0 || normB === 0) {
+            return 0; // avoid divide-by-zero if either vector is all zeros
+        }
+
+        return dotProduct / (Math.sqrt(normA) * Math.sqrt(normB));
+    }
+
     try {
         dataSet = await fetchDataset();
-        let flashcardList = dataSet[(Math.random() > 0.5 ? "math" : "english")];
+        // let flashcardList = dataSet[(Math.random() > 0.5 ? "math" : "english")];
+        // dateset is rougly evenly split now, and fixes bug
+        let flashcardList = [...dataSet["math"], ...dataSet["english"]];
         let flashcard;
         // Helper function to get a random flashcard from a list
         function getRandomFlashcard(flashcardList) {
@@ -62,6 +108,59 @@
             });
         }
 
+        // Function to get a flashcard that the user struggles with
+        function getStruggleQuestion(flashcardList, failedQuestions, answeredQuestions) {
+            return new Promise((resolve) => {
+                // get least accurate semantic question clusters
+                let clusters = Array.from({ length: 87 }, (_, i) => {
+                    return {
+                        id: i,
+                        failedQuestions: 0,
+                        answeredQuestions: 0
+                    }
+                });
+
+                answeredQuestions.forEach((q) => {
+                    let question = flashcardList.find(e => e.id === q);
+                    clusters[question["cluster"]].answeredQuestions += 1;
+                })
+
+                failedQuestions.forEach((q) => {
+                    let question = flashcardList.find(e => e.id === q);
+                    clusters[question["cluster"]].failedQuestions += 1;
+                })
+                
+                let clusterAccuracies = clusters.map((val) => {return {id: val.id, accuracy: (val.failedQuestions/(val.answeredQuestions + val.failedQuestions + (1/1000))) }}).sort((a, b) => b.accuracy - a.accuracy);
+                // clusters.sort((a, b) => (a.failedQuestions/(a.answeredQuestions + a.failedQuestions)) - (b.failedQuestions/(b.answeredQuestions + b.failedQuestions)))
+                // ;
+
+                let possibleFlashCards = flashcardList.filter(flashcard => {
+                    return clusterAccuracies.slice(0, 3).some((cluster) => {
+                        if (clusters[cluster.id].failedQuestions > 0) {
+                            if (flashcard.cluster == cluster.id) {
+                                console.log("found!");
+                                return true;
+                            } 
+                        }
+                    });
+                }
+                );
+                    console.log( possibleFlashCards);
+
+            
+                
+                if (possibleFlashCards.length > 0) {
+                    let flashcard = getRandomFlashcard(possibleFlashCards);
+                    resolve(flashcard);
+                } else {
+                    // No innacurate questions available, get random and avoid answered ones
+                    let flashcard = getRandomFlashcard(flashcardList);
+                    flashcard = avoidAnsweredQuestions(flashcard, flashcardList, answeredQuestions);
+                    resolve(flashcard);
+                }
+            });
+        }
+
         // Function to get a regular flashcard (avoiding answered questions)
         function getRegularFlashcard(flashcardList, answeredQuestions) {
             return new Promise((resolve) => {
@@ -74,16 +173,26 @@
         // Main function to select a flashcard
         async function selectFlashcard(flashcardList) {
             return new Promise((resolve) => {
-                if (Math.random() < 0.6) {
-                    // 60% chance to give a regular question (avoiding answered ones)
+                let num = Math.random();
+                if (num < 0.5) {
+                    // 50% chance to give a regular question (avoiding answered ones)
                     console.log("New random question :D")
                     chrome.storage.local.get(['answeredQuestions'], async (res) => {
                         const answeredQuestions = res.answeredQuestions || [];
                         const flashcard = await getRegularFlashcard(flashcardList, answeredQuestions);
                         resolve(flashcard);
                     });
-                } else {
-                    // 40% chance to give a previously failed question
+                } else if (num < 0.5 + 0.3) {
+                    // 30% chance to give a question **simmilar** to a previously failed question
+                    console.log("Semantically simmilar question to a previously failed question :D")
+                    chrome.storage.local.get(['failedQuestions', 'answeredQuestions'], async (res) => {
+                        const failedQuestions = res.failedQuestions || [];
+                        const answeredQuestions = res.answeredQuestions || [];
+                        const flashcard = await getStruggleQuestion(flashcardList, failedQuestions, answeredQuestions);
+                        resolve(flashcard);
+                    });
+                } else if (num < 0.5 + 0.3 + 0.2) {
+                    // 20% chance to give a previously failed question
                     console.log("Previously failed question :D")
                     chrome.storage.local.get(['failedQuestions', 'answeredQuestions'], async (res) => {
                         const failedQuestions = res.failedQuestions || [];
@@ -98,6 +207,7 @@
         // Usage (replaces the original code block):
         selectFlashcard(flashcardList).then(selectedFlashcard => {
             flashcard = selectedFlashcard;
+            console.log(flashcard);
         });
 
 
@@ -465,8 +575,10 @@
             let loadTime = Number(new Date());
             setInterval(() => {
 
-                chrome.storage.local.get('lastCompleted', function(result) {
-                    if (((result.lastCompleted + 10 * 1000 /* Add 10 second load buffer */) > loadTime) && !answeredPage /* Fixes bug where current page would instantly unload widget when answered*/) {
+                chrome.storage.local.get(['lastCompleted', 'lastBreak'], function(result) {
+                    if (    (((result.lastCompleted + 3 * 60 * 1000 /* Add 10 second load buffer, replaced with a 3 min delay between cards to reduce annoyances */) > loadTime) && !answeredPage /* Fixes bug where current page would instantly unload widget when answered*/ )
+                            || (Number(Date.now()) < (result.lastBreak + 30 * 60 * 1000))
+                        ) {
                         widgetEl.remove();
                         clearInterval(forcePause);
                         forcePause = 1;
@@ -491,7 +603,6 @@
                 }
             }
         });
-
         // Create stats badge
         /*
         chrome.storage.local.get(['correctSATAnswers', 'incorrectSATAnswers', 'devMode'], function(result) {

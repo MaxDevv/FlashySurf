@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/MaxDevv/FlashySurf/blob/main/Logo.png?raw=true" alt="Logo">
+  <img src="https://github.com/MaxDevv/FlashySurf/blob/main/Images/new-marquee.png?raw=true" alt="Marquee">
 </p>
 
 # FlashySurf - Flash Cards for Passive SAT Learning
@@ -13,10 +13,13 @@ Designed for students aiming for high SAT scores (1500+) without the need for in
 ## ✨ Features
 
 - **Passive Learning**: Random SAT questions appear while you browse the web
-- **Math & English Coverage**: Questions from both SAT sections
+- **Intelligent Question Selection**: Advanced algorithm that adapts to your performance patterns
+- **Semantic Clustering**: Questions are grouped by topic similarity to target your weak areas
+- **Math & English Coverage**: Questions from both SAT sections with balanced distribution
 - **Performance Tracking**: Tracks your accuracy with a small badge
 - **Explanation Feedback**: Provides detailed explanations for each answer
 - **Note-Taking**: Record your understanding of incorrect answers to reinforce learning
+- **Adaptive Learning**: System learns from your mistakes and focuses on challenging areas
 - **Non-intrusive**: Designed to integrate into your browsing without being disruptive
 - **Customizable Frequency**: Control how often flashcards appear with the settings panel
 
@@ -61,7 +64,15 @@ If you prefer using a userscript manager:
 
 ## 🔧 How It Works
 
-FlashySurf randomly presents SAT practice questions while you browse the web. When a question appears:
+FlashySurf uses an intelligent question selection system to present SAT practice questions while you browse the web. The system employs three different strategies:
+
+### Question Selection Algorithm
+- **50% New Questions**: Fresh questions you haven't seen before, avoiding recently answered ones
+- **30% Targeted Practice**: Questions semantically similar to ones you've struggled with, using clustering analysis to identify your weak topic areas
+- **20% Review Questions**: Direct review of questions you previously answered incorrectly
+
+### Learning Process
+When a question appears:
 
 1. Read the question and select your answer
 2. Get immediate feedback on your choice
@@ -69,7 +80,7 @@ FlashySurf randomly presents SAT practice questions while you browse the web. Wh
 4. For incorrect answers, take notes on your understanding to reinforce learning
 5. The flashcard will automatically close after a short period (longer for incorrect answers to give you time to learn)
 
-The extension tracks your performance over time, helping you identify areas for improvement.
+The extension tracks your performance over time and uses semantic clustering to identify topic areas where you need more practice, automatically adjusting future question selection to target your weaknesses.
 
 ## 🛠️ Configuration
 
@@ -81,17 +92,35 @@ Click on the FlashySurf icon in your browser toolbar to:
 
 ## 🧠 Learning Approach
 
-FlashySurf uses principles of spaced repetition and passive learning to help you absorb SAT content gradually over time. By integrating practice into your daily browsing, you'll build familiarity with SAT question patterns without dedicated study sessions.
+FlashySurf uses principles of spaced repetition, adaptive learning, and passive engagement to help you absorb SAT content gradually over time. Key features include:
+
+- **Semantic Clustering**: Questions are grouped into 87 topic clusters using advanced similarity analysis
+- **Adaptive Targeting**: The system identifies your least accurate topic areas and increases exposure to similar questions
+- **Performance-Based Selection**: Question difficulty and topic selection adapt based on your historical performance
+- **Balanced Coverage**: Ensures you see both math and English questions in proper proportion
+
+By integrating practice into your daily browsing, you'll build familiarity with SAT question patterns without dedicated study sessions while receiving personalized attention to your areas of weakness.
 
 # Changelog
+## 1.8
+### 1.8.0 (2025-07-26)
+- **Major Algorithm Enhancement**: Completely redesigned question selection system with advanced semantic clustering
+- **Semantic Question Clustering**: Implemented 87-cluster system to group questions by topic similarity using cosine similarity analysis
+- **Intelligent Weakness Targeting**: Added 30% probability for questions semantically similar to previously failed ones
+- **Enhanced Performance Analytics**: System now tracks cluster-level accuracy to identify specific topic weaknesses
+- **Improved Question Variety**: New 50%/30%/20% split (new questions/similar to failed/direct review of failed)
+- **Advanced Debugging**: Added comprehensive logging system for bugfixing
+- **Optimized Performance**: Enhanced Question filtering algorithms.
+- **Break button fix**: 30-min break button no longer needs user reloads to activate.
+
 ## 1.7
 ### 1.7.0 (2025-07-19)
-- Implemented intelligent question selection system with 60/40 split between new and preveiously failed questions
+- Implemented intelligent question selection system with 60/40 split between new and previously failed questions
 - Added failed questions tracking to help users focus on areas needing improvement
 - Enhanced question avoidance algorithm to prevent repetition of recently answered questions
 - Added automatic removal of questions from failed list when answered correctly
 - Improved local storage initialization to include failed questions tracking
-- Optimized flashcard selection logic with better randomization, cleaner code, and question filtering.
+- Optimized flashcard selection logic with better randomization, cleaner code, and question filtering
 - Added comprehensive logging for question selection debugging
 - Optimized question selection performance with promise-based asynchronous handling
 
@@ -176,7 +205,6 @@ FlashySurf uses principles of spaced repetition and passive learning to help you
 - Increased duration to read explanations
 - Fixed text color error on certain websites
 - Added forced run only in top frame to prevent duplicate flashcards
-
 
 ## 🤝 Contributing
 

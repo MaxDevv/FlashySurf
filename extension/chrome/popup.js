@@ -107,6 +107,11 @@ document.addEventListener('DOMContentLoaded', function() {
             });
           });
         });
+      } else {
+        
+        notesContainer.innerHTML = `
+        <h3>Your Notes</h3>
+        - No notes written yet, answer a few questions first. You'll write your first note when you fail a question. Remember, you can only grow if you're willing to fail :D`;
       }
     });
   

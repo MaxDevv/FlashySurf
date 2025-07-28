@@ -32,5 +32,10 @@ chrome.runtime.onInstalled.addListener(() => {
       if (result.failedQuestions === undefined) {
         chrome.storage.local.set({ failedQuestions: [] });
       }
+      
+      if (result.failedQuestions === undefined) {
+        chrome.storage.local.set({ failedQuestions: [] });
+      }
+
     });
   });
