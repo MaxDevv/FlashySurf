@@ -8,12 +8,13 @@
 
     chrome.storage.local.get(['correctSATAnswers', 'incorrectSATAnswers', 'forceCard', 'widgetChance', 'devMode', 'lastCompleted', 'satNotes', 'answeredQuestions', 'lastBreak', 'failedQuestions'], (result) => {    
         devMode = result.devMode;
+        // devMode = false;
+        if (!devMode) {
+            console.log = () => {}
+        }
         if (devMode) console.log("Data dump:", result);
     });
 
-    if (!devMode) {
-        console.log = () => {}
-    }
     let dataSet = {};
     let  randomWidget;
     let answeredPage = false;
@@ -93,7 +94,8 @@
         function getFailedQuestionFlashcard(flashcardList, failedQuestions, answeredQuestions) {
             return new Promise((resolve) => {
                 let possibleFlashCards = flashcardList.filter(flashcard => 
-                    failedQuestions.includes(flashcard.id)
+                    // Bugfix fixing error that caused users to repeatedly get "previously failed" questions that they had answeered correctly later.
+                    (failedQuestions.includes(flashcard.id) && (!answeredQuestions.includes(flashcard.id)))
                 );
                 
                 if (possibleFlashCards.length > 0) {
