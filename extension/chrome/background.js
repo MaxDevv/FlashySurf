@@ -1,5 +1,6 @@
 chrome.runtime.onInstalled.addListener(() => {
     console.log('FlashySurf extension installed');
+    chrome.tabs.create({ url: "https://flashysurf.com/onboarding", active: true });
     chrome.storage.local.get(['correctSATAnswers', 'incorrectSATAnswers', 'forceCard', 'widgetChance', 'devMode', 'lastCompleted', 'satNotes', 'answeredQuestions', 'lastBreak', 'failedQuestions', "uID", 'performanceReport'], (result) => {
       if (result.correctSATAnswers === undefined) {
         chrome.storage.local.set({ correctSATAnswers: 0 });

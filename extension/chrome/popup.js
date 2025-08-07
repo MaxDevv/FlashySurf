@@ -114,6 +114,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     const notesContainer = document.getElementById('notesContainer');
     const notesTab = document.getElementById('notesTab');
     const statsTab = document.getElementById('statsTab');
+    const helpLink = document.getElementById('helpLink');
     const generatePerformanceReportButton = document.getElementById("generate-performance-report");
     const breakBtn = document.getElementById('break-button');
 
@@ -239,6 +240,10 @@ document.addEventListener('DOMContentLoaded', async function () {
     breakBtn.addEventListener('click', () => {
         chrome.storage.local.set({ lastBreak: Number(Date.now()) });
         breakBtn.disabled = true;
+    })
+
+    helpLink.addEventListener('click', () => {
+        chrome.tabs.create({ url: "https://flashysurf.com/onboarding", active: true });
     })
 
 

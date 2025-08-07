@@ -119,6 +119,22 @@
             pointer-events: none;
             cursor: none;
         }
+
+        .report-tooltip {
+            opacity: 65%;
+            color: red;
+            padding: 1em;
+            padding-bottom: 0em;
+            padding-right: 5em;
+            font-size: x-small;
+            display: none;
+        }
+        .performance-report-btn-wrapper:hover  {
+            .report-tooltip {
+                display: block;
+
+            }
+        }
     </style>
 </head>
 <body>
@@ -129,16 +145,21 @@
             <input type="range" id="widgetChance" min="5" max="100" step="1">
             <span class="value-display" id="widgetChanceValue">10%</span>
         </div>
+        <br>
+        <button class="break-button" id="break-button">30 Minute Break</button>
+        <br><sub>*Can Only be used once Every 4 Hours</sub>
     </div>
+    <a href="#" id="helpLink"">Help and Onboarding Screen</a>
     <!-- <button id="saveSettings" class="save-button">Save Settings</button> -->
-    <br>
-    <button class="break-button" id="break-button">30 Minute Break</button>
-    <br><sub>*Can Only be used once Every 4 Hours</sub>
     
     <div class="stats">
         <h2>Your Stats:</h2>
         <div id="statsDisplay" class="statsDisplay">Loading stats...</div>
+        <div class="performance-report-btn-wrapper">
         <button id="generate-performance-report" disabled>Generate Performance Report</button>
+        <div class="report-tooltip">Need to have answered at least 25 questions, and failed at least 5 questions first. So answer more questions :D</div>
+
+        </div>
     <br><sub>* Get personalized report with insights on your SAT performance. <br> Note: Reports update every 12 hours based on your latest performance.</sub>
     </div>
 
