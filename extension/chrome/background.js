@@ -1,7 +1,6 @@
 chrome.runtime.onInstalled.addListener(() => {
     console.log('FlashySurf extension installed');
-    
-    chrome.storage.local.get(['correctSATAnswers', 'incorrectSATAnswers', 'forceCard', 'widgetChance', 'devMode', 'lastCompleted', 'satNotes', 'answeredQuestions', 'lastBreak', 'failedQuestions'], (result) => {
+    chrome.storage.local.get(['correctSATAnswers', 'incorrectSATAnswers', 'forceCard', 'widgetChance', 'devMode', 'lastCompleted', 'satNotes', 'answeredQuestions', 'lastBreak', 'failedQuestions', "uID", 'performanceReport'], (result) => {
       if (result.correctSATAnswers === undefined) {
         chrome.storage.local.set({ correctSATAnswers: 0 });
       }
@@ -32,10 +31,14 @@ chrome.runtime.onInstalled.addListener(() => {
       if (result.failedQuestions === undefined) {
         chrome.storage.local.set({ failedQuestions: [] });
       }
-      
-      if (result.failedQuestions === undefined) {
-        chrome.storage.local.set({ failedQuestions: [] });
+      if (result.uID === undefined) {
+        chrome.storage.local.set({ uID: crypto.randomUUID() });
       }
+      
+      if (result.performanceReport === undefined) {
+        chrome.storage.local.set({ performanceReport: {"image": undefined, "timestamp": 0} });
+      }
+      
 
     });
   });

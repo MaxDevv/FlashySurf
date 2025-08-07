@@ -22,6 +22,7 @@ Designed for students aiming for high SAT scores (1500+) without the need for in
 - **Adaptive Learning**: System learns from your mistakes and focuses on challenging areas
 - **Non-intrusive**: Designed to integrate into your browsing without being disruptive
 - **Customizable Frequency**: Control how often flashcards appear with the settings panel
+- **Performance Reports**: Generate personalized reports predicting your SAT score range and identifying your weakest topic areas
 
 ## 📋 Requirements
 
@@ -68,8 +69,8 @@ FlashySurf uses an intelligent question selection system to present SAT practice
 
 ### Question Selection Algorithm
 - **50% New Questions**: Fresh questions you haven't seen before, avoiding recently answered ones
-- **30% Targeted Practice**: Questions semantically similar to ones you've struggled with, using clustering analysis to identify your weak topic areas
-- **20% Review Questions**: Direct review of questions you previously answered incorrectly
+- **35% Targeted Practice**: Questions semantically similar to ones you've struggled with, using clustering analysis to identify your weak topic areas
+- **15% Review Questions**: Direct review of questions you previously answered incorrectly
 
 ### Learning Process
 When a question appears:
@@ -102,6 +103,28 @@ FlashySurf uses principles of spaced repetition, adaptive learning, and passive 
 By integrating practice into your daily browsing, you'll build familiarity with SAT question patterns without dedicated study sessions while receiving personalized attention to your areas of weakness.
 
 # Changelog
+## 1.9
+### 1.9.0 (2025-08-06)
+   **New Feature: Personalized Performance Reports**: Generate a detailed visual report of your SAT performance.
+   - Get insights into your top 3 weakest topic areas based on accuracy.
+   - The report is generated as a shareable image, perfect for discussing with tutors or study groups.
+   - Reports are cached for 12 hours to provide consistent feedback while minimizing API calls.
+
+   **Enhanced Weakness-Targeting Algorithm**:
+   - The system now analyzes your saved notes on incorrect answers to get a more accurate picture of your weaknesses.
+   - Improved cluster accuracy calculations for more precise targeting of difficult topics.
+   - Tuned question selection probabilities to 35% for semantically similar questions and 15% for direct reviews, optimizing the balance between new and review content.
+
+   **Major UI & UX Overhaul**:
+   - **Robust Flashcard Styling**: The flashcard widget now uses a Shadow DOM, preventing CSS conflicts with websites for a consistent and clean appearance everywhere.
+   - **Redesigned Settings Popup**: The extension popup has been reorganized with a cleaner layout, collapsible sections for notes, and improved readability for a more user-friendly experience.
+   - Added a confirmation dialog before deleting notes to prevent accidental data loss.
+
+   **Critical Bug Fix**:
+   - Fixed a persistent bug where questions that were previously failed but later answered correctly would continue to appear as "review" questions.
+
+   **Code Refinement**: Removed redundant functions and optimized internal logic for better performance and maintainability.
+
 ## 1.8
 ### 1.8.0 (2025-07-26)
 - **Major Algorithm Enhancement**: Completely redesigned question selection system with advanced semantic clustering
@@ -214,29 +237,7 @@ Contributions are welcome! If you'd like to improve FlashySurf or add new featur
 
 Special thanks to [mdn522](https://github.com/mdn522) for providing the SAT question bank used in this project. The questions were sourced from the [sat-question-bank](https://github.com/mdn522/sat-question-bank/) repository.
 
-## 📝 License
-
-MIT License
-
-Copyright (c) 2025 MaxDevv
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+Copyright © 2025 Maximus Adeola. All rights reserved.
 
 ---
 

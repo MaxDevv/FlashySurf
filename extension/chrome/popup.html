@@ -1,99 +1,150 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>FlashySurf Settings</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      width: 300px;
-      padding: 15px;
-    }
-    h1 {
-      font-size: 18px;
-      margin-top: 0;
-      color: #333;
-    }
-    .settings-group {
-      margin-bottom: 15px;
-    }
-    label {
-      display: block;
-      margin-bottom: 5px;
-      font-weight: 500;
-    }
-    .slider-container {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    input[type="range"] {
-      flex-grow: 1;
-    }
-    .value-display {
-      min-width: 40px;
-      text-align: right;
-    }
-    .stats {
-      margin-top: 20px;
-      padding-top: 15px;
-      border-top: 1px solid #eee;
-    }
-    .save-button, .break-button {
-      background-color: #4285F4;
-      color: white;
-      border: none;
-      padding: 8px 16px;
-      border-radius: 4px;
-      cursor: pointer;
-      font-weight: 500;
-      margin-top: 10px;
-    }
-    .save-button:hover {
-      background-color: #3367D6;
-    }
-    .notesContainer {
-      font-size: 0.8rem;
-    }
-    
-    .note-item {
-      padding-bottom: 0.5em;
-    }
-    sub {
-      opacity: 70%;
-    }
-    button:disabled,
-    button[disabled]{
-      border: 1px solid #999999;
-      background-color: #cccccc;
-      color: #666666;
-      opacity: 70%;
-      pointer-events: none;
-      cursor: none;
-    }
-  </style>
+    <title>FlashySurf Settings</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            width: 300px;
+            padding: 15px;
+        }
+        h1 {
+            font-size: 18px;
+            margin-top: 0;
+            color: #333;
+        }
+        .settings-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        .slider-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        input[type="range"] {
+            flex-grow: 1;
+        }
+        .value-display {
+            min-width: 40px;
+            text-align: right;
+        }
+        .stats {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+            h2 {
+                margin: 0.1em;
+                padding: 0;
+            }
+
+        }
+        button {
+            background-color: #4285F4;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #3367D6;
+        }
+        .notesContainer {
+            font-size: 0.8rem;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+            summary.heading {
+                margin: 0.1em;
+                padding: 0;
+                font-weight: bold;
+                font-size: large;
+            }
+            
+        }
+        
+        .note-item {
+            padding-bottom: 0.5em;
+            margin: 1em;
+            padding-left: 1em;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+            button {
+                padding: 2px 4px;
+                font-size: smaller;
+                background-color: #ff8181;
+                
+            }
+            details {
+                padding-left: 1.5em;
+                summary {
+                    margin-left: -1.5em;
+                }
+            }
+            .question {
+                details {
+
+                overflow-x:auto;
+                }
+            }
+
+        }
+
+        .statsDisplay {
+            padding-left: 1em;
+            p {
+                margin: 0.1em;
+                padding: 0;
+                opacity: 0.7;
+            }
+        }
+        sub {
+            opacity: 75%;
+        }
+        button:disabled,
+        button[disabled]{
+            border: 1px solid #999999;
+            background-color: #cccccc;
+            background-color: #999999;
+            color: #666666;
+            opacity: 70%;
+            pointer-events: none;
+            cursor: none;
+        }
+    </style>
 </head>
 <body>
-  <h1>FlashySurf Settings</h1>
-  
-  <div class="settings-group">
-    <label for="widgetChance">Flashcard Frequency:</label>
-    <div class="slider-container">
-      <input type="range" id="widgetChance" min="5" max="100" step="1">
-      <span class="value-display" id="widgetChanceValue">10%</span>
+    <h1>FlashySurf Settings</h1>
+    <div class="settings-group">
+        <label for="widgetChance">Flashcard Frequency:</label>
+        <div class="slider-container">
+            <input type="range" id="widgetChance" min="5" max="100" step="1">
+            <span class="value-display" id="widgetChanceValue">10%</span>
+        </div>
     </div>
-  </div>
-  
-  <!-- <button id="saveSettings" class="save-button">Save Settings</button> -->
-  <br>
-  <button class="break-button" id="break-button">30 Minute Break</button>
-  <br><sub>*Can Only be used once Every 4 Hours</sub>
-  
-  <div class="stats">
-    <h2>Your Stats</h2>
-    <div id="statsDisplay">Loading stats...</div>
+    <!-- <button id="saveSettings" class="save-button">Save Settings</button> -->
+    <br>
+    <button class="break-button" id="break-button">30 Minute Break</button>
+    <br><sub>*Can Only be used once Every 4 Hours</sub>
+    
+    <div class="stats">
+        <h2>Your Stats:</h2>
+        <div id="statsDisplay" class="statsDisplay">Loading stats...</div>
+        <button id="generate-performance-report" disabled>Generate Performance Report</button>
+    <br><sub>* Get personalized report with insights on your SAT performance. <br> Note: Reports update every 12 hours based on your latest performance.</sub>
+    </div>
+
+    
     <div id="notesContainer" class="notesContainer">Loading notes...</div>
-  </div>
-  
-  <script src="popup.js"></script>
+    
+    <script src="popup.js"></script>
 </body>
 </html>

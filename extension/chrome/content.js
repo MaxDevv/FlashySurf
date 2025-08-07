@@ -1,22 +1,20 @@
 // FlashySurf content script
-(async function() {
+(async function () {
     'use strict';
     if (window.top !== window.self) {
         return;
     }
     let devMode = false;
 
-    chrome.storage.local.get(['correctSATAnswers', 'incorrectSATAnswers', 'forceCard', 'widgetChance', 'devMode', 'lastCompleted', 'satNotes', 'answeredQuestions', 'lastBreak', 'failedQuestions'], (result) => {    
-        devMode = result.devMode;
-        // devMode = false;
+    chrome.storage.local.get(['correctSATAnswers', 'incorrectSATAnswers', 'forceCard', 'widgetChance', 'devMode', 'lastCompleted', 'satNotes', 'answeredQuestions', 'lastBreak', 'failedQuestions'], (result) => {
         if (!devMode) {
-            console.log = () => {}
+            console.log = () => { }
         }
         if (devMode) console.log("Data dump:", result);
     });
 
     let dataSet = {};
-    let  randomWidget;
+    let randomWidget;
     let answeredPage = false;
     function fetchDataset() {
         return new Promise((resolve, reject) => {
@@ -35,39 +33,6 @@
         });
     }
 
-    function getRandomSubarray(arr, size) {
-        size = Math.min(size, arr.length);
-        var shuffled = arr.slice(0), i = arr.length, min = i - size, temp, index;
-        while (i-- > min) {
-            index = Math.floor((i + 1) * Math.random());
-            temp = shuffled[index];
-            shuffled[index] = shuffled[i];
-            shuffled[i] = temp;
-        }
-        return shuffled.slice(min);
-    }
-
-    function cosSim(vecA, vecB) {
-        if (vecA.length !== vecB.length) {
-            throw new Error("Vectors must be the same length");
-        }
-
-        let dotProduct = 0;
-        let normA = 0;
-        let normB = 0;
-
-        for (let i = 0; i < vecA.length; i++) {
-            dotProduct += vecA[i] * vecB[i];
-            normA += vecA[i] * vecA[i];
-            normB += vecB[i] * vecB[i];
-        }
-
-        if (normA === 0 || normB === 0) {
-            return 0; // avoid divide-by-zero if either vector is all zeros
-        }
-
-        return dotProduct / (Math.sqrt(normA) * Math.sqrt(normB));
-    }
 
     try {
         dataSet = await fetchDataset();
@@ -93,11 +58,11 @@
         // Function to get a flashcard from failed questions
         function getFailedQuestionFlashcard(flashcardList, failedQuestions, answeredQuestions) {
             return new Promise((resolve) => {
-                let possibleFlashCards = flashcardList.filter(flashcard => 
+                let possibleFlashCards = flashcardList.filter(flashcard =>
                     // Bugfix fixing error that caused users to repeatedly get "previously failed" questions that they had answeered correctly later.
                     (failedQuestions.includes(flashcard.id) && (!answeredQuestions.includes(flashcard.id)))
                 );
-                
+
                 if (possibleFlashCards.length > 0) {
                     let flashcard = getRandomFlashcard(possibleFlashCards);
                     resolve(flashcard);
@@ -111,7 +76,7 @@
         }
 
         // Function to get a flashcard that the user struggles with
-        function getStruggleQuestion(flashcardList, failedQuestions, answeredQuestions) {
+        function getStruggleQuestion(flashcardList, failedQuestions, answeredQuestions, correctSATAnswers, incorrectSATAnswers, notes) {
             return new Promise((resolve) => {
                 // get least accurate semantic question clusters
                 let clusters = Array.from({ length: 87 }, (_, i) => {
@@ -131,10 +96,16 @@
                     let question = flashcardList.find(e => e.id === q);
                     clusters[question["cluster"]].failedQuestions += 1;
                 })
-                
-                let clusterAccuracies = clusters.map((val) => {return {id: val.id, accuracy: (val.failedQuestions/(val.answeredQuestions + val.failedQuestions + (1/1000))) }}).sort((a, b) => b.accuracy - a.accuracy);
+                // After looking through the dataset I realized that the fact that we remove failed questions immediately after theyve been answered means we have less data than we thought, so ill use the notes dataset and get all notes to make this more accurate
+                for (const [key, q] of Object.entries(notes)) {
+                    let question = flashcardList.find(e => e.question === q.question);
+                    clusters[question["cluster"]].failedQuestions += 1;
+                }
+
+                let clusterAccuracies = clusters.map((val) => { return { id: val.id, accuracy: ((val.answeredQuestions + val.failedQuestions) > 0 ? (val.answeredQuestions / (val.answeredQuestions + val.failedQuestions)) : (correctSATAnswers / (incorrectSATAnswers + correctSATAnswers + 0.1))) } }).sort((b, a) => b.accuracy - a.accuracy);
                 // clusters.sort((a, b) => (a.failedQuestions/(a.answeredQuestions + a.failedQuestions)) - (b.failedQuestions/(b.answeredQuestions + b.failedQuestions)))
                 // ;
+                console.log(clusterAccuracies, clusters);
 
                 let possibleFlashCards = flashcardList.filter(flashcard => {
                     return clusterAccuracies.slice(0, 3).some((cluster) => {
@@ -142,15 +113,15 @@
                             if (flashcard.cluster == cluster.id) {
                                 console.log("found!");
                                 return true;
-                            } 
+                            }
                         }
                     });
                 }
                 );
-                    console.log( possibleFlashCards);
+                console.log(possibleFlashCards);
 
-            
-                
+
+
                 if (possibleFlashCards.length > 0) {
                     let flashcard = getRandomFlashcard(possibleFlashCards);
                     resolve(flashcard);
@@ -184,17 +155,17 @@
                         const flashcard = await getRegularFlashcard(flashcardList, answeredQuestions);
                         resolve(flashcard);
                     });
-                } else if (num < 0.5 + 0.3) {
-                    // 30% chance to give a question **simmilar** to a previously failed question
+                } else if (num < 0.5 + 0.35) {
+                    // 35% chance to give a question **simmilar** to a previously failed question
                     console.log("Semantically simmilar question to a previously failed question :D")
-                    chrome.storage.local.get(['failedQuestions', 'answeredQuestions'], async (res) => {
+                    chrome.storage.local.get(['failedQuestions', 'answeredQuestions', 'satNotes', 'correctSATAnswers', 'incorrectSATAnswers'], async (res) => {
                         const failedQuestions = res.failedQuestions || [];
                         const answeredQuestions = res.answeredQuestions || [];
-                        const flashcard = await getStruggleQuestion(flashcardList, failedQuestions, answeredQuestions);
+                        const flashcard = await getStruggleQuestion(flashcardList, failedQuestions, answeredQuestions, res.correctSATAnswers, res.incorrectSATAnswers, res.satNotes);
                         resolve(flashcard);
                     });
-                } else if (num < 0.5 + 0.3 + 0.2) {
-                    // 20% chance to give a previously failed question
+                } else if (num < 0.5 + 0.35 + 0.15) {
+                    // 15% chance to give a previously failed question
                     console.log("Previously failed question :D")
                     chrome.storage.local.get(['failedQuestions', 'answeredQuestions'], async (res) => {
                         const failedQuestions = res.failedQuestions || [];
@@ -215,7 +186,7 @@
 
         function createFlashcardWidget(flashcard) {
             chrome.storage.local.set({ 'forceCard': true });
-                        
+
 
             let selectedChoice = null;
             let isCorrect = false;
@@ -232,11 +203,12 @@
             // Create container
             const widgetEl = document.createElement('div');
             widgetEl.id = 'flashcard-widget';
-            
+            const shadow = widgetEl.attachShadow({mode: 'closed'});
+
             // Add styles directly to widget
             const styles = document.createElement('style');
             styles.textContent = `
-                .background-flashySurfProtectiveStylingClass {
+                .background {
                     position: fixed;
                     top: 0;
                     left: 0;
@@ -247,12 +219,12 @@
                     opacity: 70%;
                     z-index: 99999999999999;
                 }
-                .cover-container-flashySurfProtectiveStylingClass {
+                .cover-container {
                     color: black; 
                     overflow: hidden;
                     
                 }
-                .widget-flashySurfProtectiveStylingClass {
+                .widget {
                     position: fixed;
                     top: 50%;
                     left: 50%;
@@ -270,10 +242,10 @@
                     z-index: 999999999999999;
                     color: black !important;
                 }
-                .title-flashySurfProtectiveStylingClass { font-weight: bold; font-size: large; }
-                .limited-flashySurfProtectiveStylingClass { max-height: 10em; overflow-y: scroll; }
-                .choices-flashySurfProtectiveStylingClass { display: flex; flex-direction: column; gap: 0.2em; }
-                .choice-flashySurfProtectiveStylingClass {
+                .title { font-weight: bold; font-size: large; }
+                .limited { max-height: 10em; overflow-y: scroll; }
+                .choices { display: flex; flex-direction: column; gap: 0.2em; }
+                .choice {
                     padding: 2px 4px;
                     border-radius: 6px;
                     text-align: left;
@@ -283,7 +255,7 @@
                     color: black !important;
                     cursor: pointer;
                 }
-                .close-button-flashySurfProtectiveStylingClass {
+                .close-button {
                     padding: 8px 16px;
                     border-radius: 4px;
                     background-color: #007bff;
@@ -291,7 +263,7 @@
                     border: none;
                     cursor: pointer;
                 }
-                .close-button-flashySurfProtectiveStylingClass:disabled {
+                .close-button:disabled {
                     background-color: #ccc;
                     cursor: not-allowed;
                 }
@@ -314,59 +286,59 @@
                     "Taking notes improves memory by up to 30% even if you don't read them later!",
                     "Try to understand the concept rather than memorizing the answer."
                 ]
-                
-                widgetEl.innerHTML = `
-                    <div class="cover-container-flashySurfProtectiveStylingClass">
-                        <div class="background-flashySurfProtectiveStylingClass"></div>
-                        <div class="widget-flashySurfProtectiveStylingClass">
-                            <div class="title-flashySurfProtectiveStylingClass">FlashySurf - Flashcard</div>
-                            ${selectedChoice ? 
-                                isInNotesSection && !isCorrect ? 
-                                `
-                                    <span class="limited-flashySurfProtectiveStylingClass">
+
+                shadow.innerHTML = `
+                    <div class="cover-container">
+                        <div class="background"></div>
+                        <div class="widget">
+                            <div class="title">FlashySurf - Flashcard</div>
+                            ${selectedChoice ?
+                        isInNotesSection && !isCorrect ?
+                            `
+                                    <span class="limited">
                                         <h3 style="color: red;">Take Notes</h3>
                                         <p>Please describe how and why you got the question wrong and the right solution in your own words.</p>
                                         <p><small>Did you know that notetaking improves memory by up to 30% even if you don't read them?</small></p>
-                                        <textarea id="notes-input-flashySurf" class="notes-input-flashySurfProtectiveStylingClass" 
+                                        <textarea id="notes-input-flashySurf" class="notes-input" 
                                             placeholder="Please describe how and why you got the question wrong and the right solution in your own words..." 
                                             rows="5">${notesText}</textarea>
-                                        <div class="word-count-flashySurfProtectiveStylingClass" id="word-count-flashySurf">0 words (minimum 10)</div>
+                                        <div class="word-count" id="word-count-flashySurf">0 words (minimum 10)</div>
                                     </span>
                                     <div>
-                                        <button class="back-button-flashySurfProtectiveStylingClass" id="backButton-flashySurf">Back to Explanation</button>
-                                        <button class="close-button-flashySurfProtectiveStylingClass" id="closeButton-flashySurf" disabled>Close</button>
+                                        <button class="back-button" id="backButton-flashySurf">Back to Explanation</button>
+                                        <button class="close-button" id="closeButton-flashySurf" disabled>Close</button>
                                         <span>Closable when you write at least 10 words</span>
                                     </div>
-                                ` 
-                                : 
                                 `
-                                    <span class="limited-flashySurfProtectiveStylingClass">
+                            :
+                            `
+                                    <span class="limited">
                                         <span style="color: ${isCorrect ? 'green' : 'red'};">${isCorrect ? 'Correct' : 'Incorrect'}</span>
                                         <br>Chosen Answer: ${selectedChoice}
                                         <br>Actual Answer: ${getAnswer()}
                                         <br>Explanation: ${flashcard.explanation}
                                     </span>
                                     <div>
-                                    ${isCorrect ? 
-                                        `<button class="close-button-flashySurfProtectiveStylingClass" id="closeButton-flashySurf" disabled>Close</button>
-                                        Closable in <span id="timefoudfuktktfkftlfgiuf">${closeTimer > 0 ? closeTimer.toFixed(1) : '0.0'}</span> seconds` 
-                                        : 
-                                        `<button class="next-button-flashySurfProtectiveStylingClass" id="nextButton-flashySurf">Next: Take Notes</button>`
-                                    }
+                                    ${isCorrect ?
+                                `<button class="close-button" id="closeButton-flashySurf" disabled>Close</button>
+                                        Closable in <span id="timefoudfuktktfkftlfgiuf">${closeTimer > 0 ? closeTimer.toFixed(1) : '0.0'}</span> seconds`
+                                :
+                                `<button class="next-button" id="nextButton-flashySurf">Next: Take Notes</button>`
+                            }
                                     </div>
                                 `
-                            : `
-                                <div class="question limited-flashySurfProtectiveStylingClass">
+                        : `
+                                <div class="question limited">
                                     <span>Question: ${flashcard.question}</span>
                                     <br>
                                     <span>Paragraph: ${flashcard.paragraph}</span>
                                     <br>
-                                    <span style="text-decoration: underline;"> Tip: ${tips[Math.floor(Math.random()*tips.length)]}</span>
+                                    <span style="text-decoration: underline;"> Tip: ${tips[Math.floor(Math.random() * tips.length)]}</span>
                                 </div>
-                                <div class="answer-flashySurfProtectiveStylingClass">
-                                    <div class="choices-flashySurfProtectiveStylingClass">
+                                <div class="answer">
+                                    <div class="choices">
                                         ${flashcard.choices.map(choice => `
-                                            <button class="choice-flashySurfProtectiveStylingClass">${choice}</button>
+                                            <button class="choice">${choice}</button>
                                         `).join('')}
                                     </div>
                                 </div>
@@ -374,44 +346,44 @@
                         </div>
                     </div>
                 `;
-                widgetEl.appendChild(styles);
+                shadow.appendChild(styles);
 
                 // Add event listeners for the new buttons and textarea
                 if (selectedChoice) {
                     if (isInNotesSection && !isCorrect) {
-                        const notesInput = document.getElementById('notes-input-flashySurf');
-                        const wordCount = document.getElementById('word-count-flashySurf');
-                        const closeButton = document.getElementById('closeButton-flashySurf');
-                        const backButton = document.getElementById('backButton-flashySurf');
-                        
+                        const notesInput = shadow.getElementById('notes-input-flashySurf');
+                        const wordCount = shadow.getElementById('word-count-flashySurf');
+                        const closeButton = shadow.getElementById('closeButton-flashySurf');
+                        const backButton = shadow.getElementById('backButton-flashySurf');
+
                         // Update word count and enable/disable close button
                         const updateWordCount = () => {
                             const words = notesInput.value.trim().split(/\s+/).filter(word => word.length > 0);
                             const count = words.length;
                             wordCount.textContent = `${count} words (minimum 10)`;
                             notesText = notesInput.value;
-                            
+
                             if (count >= 10) {
                                 closeButton.disabled = false;
                             } else {
                                 closeButton.disabled = true;
                             }
                         };
-                        
+
                         notesInput.addEventListener('input', updateWordCount);
                         updateWordCount(); // Initial count
-                        
+
                         // Back button to return to explanation
                         backButton.addEventListener('click', () => {
                             isInNotesSection = false;
                             render();
                         });
-                        
+
                         // Close button saves notes and closes widget
                         closeButton.addEventListener('click', () => {
                             // Save notes to storage
                             const questionId = `${flashcard.question.substring(0, 30)}_${new Date().toISOString().split('T')[0]}`;
-                            chrome.storage.local.get(['satNotes'], function(result) {
+                            chrome.storage.local.get(['satNotes'], function (result) {
                                 const notes = result.satNotes || {};
                                 notes[questionId] = {
                                     question: flashcard.question,
@@ -422,7 +394,7 @@
                                 };
                                 chrome.storage.local.set({ 'satNotes': notes });
                             });
-                            
+
                             widgetEl.remove();
                             clearInterval(forcePause);
                             forcePause = 1;
@@ -433,8 +405,8 @@
                         if (isCorrect) {
                             // For correct answers, handle the close button timer
                             if (intervalId == 0) {
-                                const closeButton = document.getElementById('closeButton-flashySurf');
-                                const timerEl = document.getElementById("timefoudfuktktfkftlfgiuf");
+                                const closeButton = shadow.getElementById('closeButton-flashySurf');
+                                const timerEl = shadow.getElementById("timefoudfuktktfkftlfgiuf");
                                 closeTimer = 5;
                                 intervalId = setInterval(() => {
                                     closeTimer -= 0.1;
@@ -456,8 +428,8 @@
                             }
                         } else {
                             // For incorrect answers, handle the next button (no timer, just the button)
-                            const nextButton = document.getElementById('nextButton-flashySurf');
-                            
+                            const nextButton = shadow.getElementById('nextButton-flashySurf');
+
                             // Add click handler for next button
                             nextButton.addEventListener('click', () => {
                                 isInNotesSection = true;
@@ -469,7 +441,7 @@
 
                 // Add CSS for new elements to the styles
                 styles.textContent += `
-                    .notes-input-flashySurfProtectiveStylingClass {
+                    .notes-input {
                         width: 80%;
                         padding: 8px;
                         border: 1px solid #ccc;
@@ -482,7 +454,7 @@
                         margin: 0 auto;
                         display: block;
                     }
-                    .word-count-flashySurfProtectiveStylingClass {
+                    .word-count {
                         font-size: 0.8em;
                         color: #666;
                         text-align: right;
@@ -490,7 +462,7 @@
                         width: 80%;
                         margin: 4px auto 0;
                     }
-                    .back-button-flashySurfProtectiveStylingClass {
+                    .back-button {
                         padding: 8px 16px;
                         border-radius: 4px;
                         background-color: #6c757d;
@@ -499,7 +471,7 @@
                         cursor: pointer;
                         margin-right: 8px;
                     }
-                    .next-button-flashySurfProtectiveStylingClass {
+                    .next-button {
                         padding: 8px 16px;
                         border-radius: 4px;
                         background-color: #28a745;
@@ -507,14 +479,14 @@
                         border: none;
                         cursor: pointer;
                     }
-                    .next-button-flashySurfProtectiveStylingClass:disabled {
+                    .next-button:disabled {
                         background-color: #ccc;
                         cursor: not-allowed;
                     }
                 `;
 
             }
-        
+
             function submittedAnswer(answer) {
                 answeredPage = true;
                 selectedChoice = answer;
@@ -524,11 +496,11 @@
                     try {
                         isCorrect = (answer[0].toLowerCase() == flashcard.answer[0][0].toLowerCase());
                     }
-                    catch {}
+                    catch { }
                 }
 
-                
-                chrome.storage.local.get(['correctSATAnswers', 'incorrectSATAnswers', 'failedQuestions'], function(result) {
+
+                chrome.storage.local.get(['correctSATAnswers', 'incorrectSATAnswers', 'failedQuestions'], function (result) {
                     let correct = result.correctSATAnswers || 0;
                     let incorrect = result.incorrectSATAnswers || 0;
                     let failedQuestions = result.failedQuestions || [];
@@ -541,26 +513,26 @@
                         });
                         if (failedQuestions.indexOf(flashcard.id) != -1) {
                             failedQuestions.splice(failedQuestions.indexOf(flashcard.id), 1);
-                            chrome.storage.local.set({"failedQuestions": failedQuestions});
+                            chrome.storage.local.set({ "failedQuestions": failedQuestions });
                         }
                     } else {
                         failedQuestions.push(flashcard.id);
                         chrome.storage.local.set({ "incorrectSATAnswers": incorrect + 1 });
-                        chrome.storage.local.set({"failedQuestions": failedQuestions});
+                        chrome.storage.local.set({ "failedQuestions": failedQuestions });
                     }
                 });
                 render();
             }
-            
+
             // Initial render
             render();
             document.body.appendChild(widgetEl);
 
             // Event delegation for choices
             console.log("Attaching Listners");
-              
+
             btnInterval = setInterval(() => {
-                Array.from(document.getElementsByClassName("choice-flashySurfProtectiveStylingClass")).forEach((btn) => {
+                Array.from(shadow.querySelectorAll(".choice")).forEach((btn) => {
                     if (!Boolean(btn.attachedListeners)) {
                         btn.addEventListener('click', (e) => {
                             submittedAnswer(btn.textContent);
@@ -569,29 +541,290 @@
                         btn.attachedListeners = true;
                         clearInterval(btnInterval);
                     }
-                });    
+                });
             }, 500);
-            
+
 
             // Check incase user answered on other website
             let loadTime = Number(new Date());
             setInterval(() => {
 
-                chrome.storage.local.get(['lastCompleted', 'lastBreak'], function(result) {
-                    if (    (((result.lastCompleted + 3 * 60 * 1000 /* Add 10 second load buffer, replaced with a 3 min delay between cards to reduce annoyances */) > loadTime) && !answeredPage /* Fixes bug where current page would instantly unload widget when answered*/ )
-                            || (Number(Date.now()) < (result.lastBreak + 30 * 60 * 1000))
-                        ) {
+                chrome.storage.local.get(['lastCompleted', 'lastBreak'], function (result) {
+                    if ((((result.lastCompleted + 3 * 60 * 1000 /* Add 10 second load buffer, replaced with a 3 min delay between cards to reduce annoyances */) > loadTime) && !answeredPage /* Fixes bug where current page would instantly unload widget when answered*/)
+                        || (Number(Date.now()) < (result.lastBreak + 30 * 60 * 1000))
+                    ) {
                         widgetEl.remove();
                         clearInterval(forcePause);
                         forcePause = 1;
                     }
                 });
             })
-            
+
         }
         
-        // Start the widget
-        chrome.storage.local.get(['forceCard', 'widgetChance', 'lastBreak'], function(result) {
+        
+        function showPerformanceReport(data) {
+            let forcePause;
+            if (!forcePause) {
+                forcePause = setInterval(() => {
+                    document.querySelectorAll('video').forEach(vid => vid.pause());
+                }, 100);
+            }
+
+            let reportImageBlob = null;
+            let reportImageUrl = null;
+
+            // Create container
+            const widgetEl = document.createElement('div');
+            widgetEl.id = 'performance-report-widget';
+            const shadow = widgetEl.attachShadow({mode: 'closed'});
+            
+            // Add styles directly to widget
+            const styles = document.createElement('style');
+            styles.textContent = `
+                .background {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 10000vw;
+                    height: 100000vh;
+                    overflow: hidden;
+                    background-color: gray !important;
+                    opacity: 70%;
+                    z-index: 99999999999999;
+                }
+                .cover-container {
+                    color: black; 
+                    overflow: hidden;
+                }
+                .widget {
+                    position: fixed;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 30vw;
+                    height: 80vh;
+                    border-radius: 1.5em;
+                    padding: 1.4em;
+                    background-color: white !important;
+                    border: 0.075em solid black;
+                    display: flex;
+                    flex-direction: column;
+                    font-family: monospace;
+                    gap: 1.5em;
+                    box-shadow: 0px 0px 60px 3px rgba(0,0,0,0.2);
+                    z-index: 999999999999999;
+                    color: black !important;
+                    overflow-y: auto;
+                    scrollbar-width: none;
+                    -ms-overflow-style: none;
+                }
+                ::-webkit-scrollbar {
+                    display: none;
+                }
+                .title { font-weight: bold; font-size: large; }
+                .limited { flex: 1; overflow-y: scroll; box-shadow: inset 0 -20px 20px -20px rgba(0, 0, 0, 0.6); }
+                .close-button {
+                    padding: 8px 16px;
+                    border-radius: 4px;
+                    background-color: #007bff;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                .download-button, .copy-button {
+                    padding: 8px 16px;
+                    border-radius: 4px;
+                    background-color: #28a745;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                .close-button:disabled, .download-button:disabled, .copy-button:disabled {
+                    background-color: #ccc;
+                    cursor: not-allowed;
+                }
+                .error-text {
+                    text-align: center;
+                    margin-top: 10px;
+                    color: #dc3545;
+                }
+            `;
+
+            function render(isLoading = true, errorMessage = null) {
+                const imageContent = errorMessage ? 
+                    `<div class="error-text">${errorMessage}</div>` :
+                    `<div style="width: 100%; display: flex; justify-content: center;">
+                        <img src="${isLoading ?  chrome.runtime.getURL('assets/loading.gif') : reportImageUrl}" 
+                            style="width: 80%; height: auto; display: block;" />
+                    </div>`;
+
+                shadow.innerHTML = `
+                    <div class="cover-container">
+                        <div class="background"></div>
+                        <div class="widget">
+                            <div class="title">FlashySurf - Performance Report</div>
+                            <div class="limited">
+                                ${imageContent}
+                                ${!isLoading && !errorMessage ? `
+                                    <br>
+                                    <span style="text-decoration: underline;">Performance reports provide a detailed assessment of your SAT strengths and weaknesses in an easy-to-understand format. Use these insights to focus your study time on areas that need the most improvement. Share your report with study buddies, tutors, or friends to get targeted help on your challenging topics.</span>
+                                ` : ''}
+                            </div>
+                            <div>
+                                ${!errorMessage ? `
+                                    Share your report: 
+                                    <button class="download-button" id="downloadButton-flashySurf" ${isLoading ? 'disabled' : ''}>Download Report</button>
+                                ` : ''}
+                                <button class="close-button" id="closeButton-flashySurf">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                shadow.appendChild(styles);
+
+                // Add event listeners for buttons
+                const downloadButton = shadow.getElementById('downloadButton-flashySurf');
+                const closeButton = shadow.getElementById('closeButton-flashySurf');
+
+                // Download button functionality
+                if (downloadButton && !isLoading) {
+                    downloadButton.addEventListener('click', () => {
+                        if (reportImageBlob) {
+                            const link = document.createElement('a');
+                            link.href = URL.createObjectURL(reportImageBlob);
+                            link.download = `FlashySurf_Performance_Report_${new Date().toISOString().split('T')[0]}.png`;
+                            document.body.appendChild(link);
+                            link.click();
+                            document.body.removeChild(link);
+                        }
+                    });
+                }
+
+                // Close button functionality
+                if (closeButton) {
+                    closeButton.addEventListener('click', () => {
+                        // Clean up blob URL
+                        if (reportImageUrl) {
+                            URL.revokeObjectURL(reportImageUrl);
+                        }
+                        widgetEl.remove();
+                        clearInterval(forcePause);
+                        forcePause = 1;
+                        chrome.storage.local.set({ 'forceCard': false });
+                    });
+                }
+            }
+
+            // Function to convert blob to base64
+            function blobToBase64(blob) {
+                return new Promise((resolve, reject) => {
+                    const reader = new FileReader();
+                    reader.onload = () => resolve(reader.result);
+                    reader.onerror = reject;
+                    reader.readAsDataURL(blob);
+                });
+            }
+
+            // Function to create blob from base64
+            function base64ToBlob(base64) {
+                const [header, data] = base64.split(',');
+                const mimeType = header.match(/:(.*?);/)[1];
+                const byteCharacters = atob(data);
+                const byteNumbers = new Array(byteCharacters.length);
+                for (let i = 0; i < byteCharacters.length; i++) {
+                    byteNumbers[i] = byteCharacters.charCodeAt(i);
+                }
+                const byteArray = new Uint8Array(byteNumbers);
+                return new Blob([byteArray], { type: mimeType });
+            }
+
+            // Function to check if cached report is still valid (within 12 hours)
+            function isCachedReportValid(timestamp) {
+                const now = Date.now();
+                const twelveHoursInMs = 12 * 60 * 60 * 1000; // 12 hours in milliseconds
+                return (now - timestamp) < twelveHoursInMs;
+            }
+
+            // Function to load cached report
+            async function loadCachedReport() {
+                return new Promise((resolve) => {
+                    chrome.storage.local.get(['performanceReport'], (result) => {
+                        if (result.performanceReport && 
+                            result.performanceReport.image && 
+                            result.performanceReport.timestamp &&
+                            isCachedReportValid(result.performanceReport.timestamp)) {
+                            resolve(result.performanceReport);
+                        } else {
+                            resolve(null);
+                        }
+                    });
+                });
+            }
+
+            // Function to generate report via API
+            async function generateReport() {
+                try {
+                    const response = await fetch('https://v2-1085676987010.us-central1.run.app/api/generateReport', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(data)
+                    });
+
+                    if (!response.ok) {
+                        throw new Error(`API request failed: ${response.status} ${response.statusText}`);
+                    }
+
+                    // Get the image as blob
+                    reportImageBlob = await response.blob();
+                    reportImageUrl = URL.createObjectURL(reportImageBlob);
+                    
+                    // Convert blob to base64 for storage
+                    const base64Image = await blobToBase64(reportImageBlob);
+                    
+                    // Store the report in chrome storage
+                    chrome.storage.local.set({ 
+                        'performanceReport': {
+                            "image": base64Image,
+                            "timestamp": Date.now()
+                        }
+                    });
+                    
+                    // Re-render with the actual image
+                    render(false);
+                } catch (error) {
+                    console.error('Error generating report:', error);
+                    render(false, 'Failed to generate report. Please try again.');
+                }
+            }
+
+            // Main initialization function
+            async function initialize() {
+                // Check for cached report first
+                const cachedReport = await loadCachedReport();
+                
+                if (cachedReport) {
+                    // Use cached report
+                    reportImageBlob = base64ToBlob(cachedReport.image);
+                    reportImageUrl = URL.createObjectURL(reportImageBlob);
+                    render(false);
+                } else {
+                    // Initial render with loading state
+                    render(true);
+                    // Generate new report
+                    await generateReport();
+                }
+            }
+
+            // Start the process
+            document.body.appendChild(widgetEl);
+            initialize();
+        }
+
+        
+        chrome.storage.local.get(['forceCard', 'widgetChance', 'lastBreak'], function (result) {
             if (Number(Date.now()) > (result.lastBreak + 30 * 60 * 1000)) {
 
                 console.log("Running");
@@ -603,6 +836,13 @@
                         createFlashcardWidget(flashcard);
                     }, 1000);
                 }
+            }
+        });
+
+        chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+            if (message.action === "showPerformanceReport") {
+                showPerformanceReport(message.data);
+                sendResponse({success: true});
             }
         });
         // Create stats badge
