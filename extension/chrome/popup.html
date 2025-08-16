@@ -120,7 +120,7 @@
             cursor: none;
         }
 
-        .report-tooltip {
+        #report-tooltip {
             opacity: 65%;
             color: red;
             padding: 1em;
@@ -130,7 +130,7 @@
             display: none;
         }
         .performance-report-btn-wrapper:hover  {
-            .report-tooltip {
+            #report-tooltip {
                 display: block;
 
             }
@@ -157,7 +157,7 @@
         <div id="statsDisplay" class="statsDisplay">Loading stats...</div>
         <div class="performance-report-btn-wrapper">
         <button id="generate-performance-report" disabled>Generate Performance Report</button>
-        <div class="report-tooltip">Need to have answered at least 25 questions, and failed at least 5 questions first. So answer more questions :D</div>
+        <div id="report-tooltip">Need to have answered at least 25 questions, and failed at least 5 questions first. So answer more questions :D</div>
 
         </div>
     <br><sub>* Get personalized report with insights on your SAT performance. <br> Note: Reports update every 12 hours based on your latest performance.</sub>

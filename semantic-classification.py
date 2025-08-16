@@ -15,7 +15,7 @@ def HTMLtoText(html):
     return text
 
 def questionToText(question):
-    question = ((HTMLtoText(question["question"]) + " ")*4) + "\n" + HTMLtoText(question["paragraph"]) + "\nChoices:\n" + HTMLtoText("\n ".join(question["choices"]))
+    question = ((HTMLtoText(question["question"]) + " ")*4) + "\n" + HTMLtoText(question["paragraph"]) + "\nChoices:\n" + HTMLtoText("\n ".join(question["choices"])) + "\nExplanation" +  HTMLtoText(question["explanation"]) 
     return question
 
 def embedQuestion(question):

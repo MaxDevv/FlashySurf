@@ -33,6 +33,75 @@
         });
     }
 
+    async function generatePerformanceReport() {
+        let data;
+        let dataSet = await fetchDataset();
+        let flashcardList = [...dataSet["math"], ...dataSet["english"]];
+        
+
+        let result = await chrome.storage.local.get(["failedQuestions", "answeredQuestions", "incorrectSATAnswers", "correctSATAnswers", "satNotes", "uID"]);
+        let answeredQuestions = result.answeredQuestions;
+        let failedQuestions = result.failedQuestions;
+        let correctSATAnswers = result.correctSATAnswers;
+        let incorrectSATAnswers  = result.incorrectSATAnswers;
+        let notes = result.satNotes;
+        if (failedQuestions < 5 || (failedQuestions + answeredQuestions) < 25) return false;
+        let clusters = Array.from({ length: 87 }, (_, i) => {
+            return {
+                id: i,
+                failedQuestions: 0,
+                answeredQuestions: 0
+            }
+        });
+
+        answeredQuestions.forEach((q) => {
+            let question = flashcardList.find(e => e.id === q);
+            clusters[question["cluster"]].answeredQuestions += 1;
+        })
+
+        failedQuestions.forEach((q) => {
+            let question = flashcardList.find(e => e.id === q);
+            clusters[question["cluster"]].failedQuestions += 1;
+        })
+
+        // After looking through the dataset I realized that the fact that we remove failed questions immediately after theyve been answered means we have less data than we thought, so ill use the notes dataset and get all notes to make this more accurate
+        for (const [key, q] of Object.entries(notes)) {
+            let question = flashcardList.find(e => e.question === q.question);
+            clusters[question["cluster"]].failedQuestions += 1;
+        }
+
+        let clusterAccuracies = clusters.map((val) => {return {id: val.id, accuracy: ((val.answeredQuestions + val.failedQuestions) > 0 ? ((val.answeredQuestions)/(val.answeredQuestions + val.failedQuestions)) : (correctSATAnswers/(incorrectSATAnswers + correctSATAnswers + 0.1))) }}).sort((b, a) => b.accuracy - a.accuracy);
+        let strugglePoints = []
+
+        clusterAccuracies.forEach((e) => {
+            if ((e.accuracy > 0) && (e.accuracy <  (correctSATAnswers/(incorrectSATAnswers + correctSATAnswers + 0.1))) && strugglePoints.length < 3) {
+                strugglePoints.push(e)
+            }
+        })
+
+        if (strugglePoints.length < 3) return false;
+        data = {
+            "correctSATAnswers": correctSATAnswers,
+            "incorrectSATAnswers": incorrectSATAnswers,
+            "strugglePoints": [
+                {
+                    "cluster": strugglePoints[0].id,
+                    "accuracy": strugglePoints[0].accuracy
+                },
+                {   
+                    "cluster": strugglePoints[1].id,
+                    "accuracy": strugglePoints[1].accuracy
+                },
+                {
+                    "cluster": strugglePoints[2].id,
+                    "accuracy": strugglePoints[2].accuracy
+                }
+            ],
+            "userID": result.uID
+        }
+        
+        return data;
+    }
 
     try {
         dataSet = await fetchDataset();
@@ -147,15 +216,18 @@
         async function selectFlashcard(flashcardList) {
             return new Promise((resolve) => {
                 let num = Math.random();
-                if (num < 0.5) {
-                    // 50% chance to give a regular question (avoiding answered ones)
+                if (devMode) {
+                    num = 0.9999;
+                }
+                if (num < 0.475) {
+                    // 47.5% chance to give a regular question (avoiding answered ones)
                     console.log("New random question :D")
                     chrome.storage.local.get(['answeredQuestions'], async (res) => {
                         const answeredQuestions = res.answeredQuestions || [];
                         const flashcard = await getRegularFlashcard(flashcardList, answeredQuestions);
                         resolve(flashcard);
                     });
-                } else if (num < 0.5 + 0.35) {
+                } else if (num < 0.475 + 0.35) {
                     // 35% chance to give a question **simmilar** to a previously failed question
                     console.log("Semantically simmilar question to a previously failed question :D")
                     chrome.storage.local.get(['failedQuestions', 'answeredQuestions', 'satNotes', 'correctSATAnswers', 'incorrectSATAnswers'], async (res) => {
@@ -164,7 +236,7 @@
                         const flashcard = await getStruggleQuestion(flashcardList, failedQuestions, answeredQuestions, res.correctSATAnswers, res.incorrectSATAnswers, res.satNotes);
                         resolve(flashcard);
                     });
-                } else if (num < 0.5 + 0.35 + 0.15) {
+                } else if (num < 0.475 + 0.35 + 0.15) {
                     // 15% chance to give a previously failed question
                     console.log("Previously failed question :D")
                     chrome.storage.local.get(['failedQuestions', 'answeredQuestions'], async (res) => {
@@ -173,6 +245,19 @@
                         const flashcard = await getFailedQuestionFlashcard(flashcardList, failedQuestions, answeredQuestions);
                         resolve(flashcard);
                     });
+                } else if (num < 0.475 + 0.35 + 0.15 + 0.025) {
+                    // 2.5% Chance to show user popup asking to generate score report if possible and not already done in last 12 hours
+                    chrome.storage.local.get(["performanceReport"], async (res) => {
+                        let canRender = res.performanceReport.timestamp < Date.now() + (12 * 60 * 60 * 1000);
+                        let performanceReport = await generatePerformanceReport()
+                        if (canRender && performanceReport) {
+                            resolve("Performance Report");
+                        } else {
+                            selectFlashcard(flashcardList).then(selectedFlashcard => {
+                                resolve(selectedFlashcard);
+                            });
+                        }
+                    })
                 }
             });
         }
@@ -184,8 +269,166 @@
         });
 
 
+        function createReportChoiceWidget() {
+            let forcePause;
+            // Start pausing any background videos.
+            if (!forcePause) {
+                forcePause = setInterval(() => {
+                    document.querySelectorAll('video').forEach(vid => vid.pause());
+                }, 100);
+            }
+
+            // --- Create the Widget Container and Shadow DOM ---
+            const widgetEl = document.createElement('div');
+            widgetEl.id = 'performance-report-choice-widget';
+            const shadow = widgetEl.attachShadow({ mode: 'closed' });
+
+            // --- Define Styles for the Widget (Restored to your original) ---
+            const styles = document.createElement('style');
+            styles.textContent = `
+                :host {
+                    all: initial;
+                }
+                .background {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100vw; /* Reduced from original 10000vw for sanity */
+                    height: 100vh; /* Reduced from original 100000vh for sanity */
+                    overflow: hidden;
+                    background-color: gray !important;
+                    opacity: 70%;
+                    z-index: 99999999999999;
+                }
+                .cover-container {
+                    color: black; 
+                    overflow: hidden;
+                }
+                .widget {
+                    position: fixed;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 30vw;
+                    border-radius: 1.5em;
+                    padding: 1.4em;
+                    background-color: white !important;
+                    border: 0.075em solid black;
+                    display: flex;
+                    flex-direction: column;
+                    font-family: monospace;
+                    gap: 1.5em;
+                    box-shadow: 0px 0px 60px 3px rgba(0,0,0,0.2);
+                    z-index: 999999999999999;
+                    color: black !important;
+                    overflow-y: auto;
+                    scrollbar-width: none;
+                    -ms-overflow-style: none;
+                }
+                ::-webkit-scrollbar {
+                    display: none;
+                }
+                .title { font-weight: bold; font-size: large; }
+                .limited { flex: 1; overflow-y: scroll; }
+
+                /* Button Styling */
+                .close-button {
+                    padding: 8px 16px;
+                    border-radius: 4px;
+                    background-color: #007bff; /* Blue */
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                .generate-report-button { /* Added this style for your new button */
+                    padding: 8px 16px;
+                    border-radius: 4px;
+                    background-color: #28a745; /* Green */
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+
+                /* Styling the list for better readability */
+                .limited ul {
+                    padding-left: 5px;
+                    list-style-type: circle;
+                }
+
+                .limited li {
+                    margin-bottom: 0.25em;
+                    padding-left: 0.5em;
+                    display: list-item;
+                }
+            `;
+
+            function render() {
+                // --- Define the HTML structure using your exact text ---
+                shadow.innerHTML = `
+                    <div class="cover-container">
+                        <div class="background"></div>
+                        <div class="widget">
+                            <div class="title">FlashySurf - Performance Report Ready :D</div>
+                            <div class="limited">
+                                <br>
+                                Score reports are one of the best ways to greatly improve your score, In one click you can, generate a pretty visual report that will:
+                                <ul>
+                                    <li>• Identify your top 3 weakest topic areas</li>
+                                    <li>• Predict your current SAT score range</li>
+                                    <li>• Create a shareable image that you can send to tutors, friends, and communities to get even more help.</li>
+                                </ul>
+                                <br><br>
+                            </div>
+                            <div>
+                                <button class="generate-report-button" id="generateReportButton-flashySurf">Generate Report</button>
+                                <button class="close-button" id="closeButton-flashySurf">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                shadow.appendChild(styles);
+
+                // --- Attach Event Listeners (Restored to separate handlers) ---
+                const generateButton = shadow.getElementById('generateReportButton-flashySurf');
+                const closeButton = shadow.getElementById('closeButton-flashySurf');
+
+                // Generate button functionality
+                if (generateButton) {
+                    generateButton.addEventListener('click', () => {
+                        // The main goal: call the function to show the report
+                        generatePerformanceReport().then((report) => {
+                            showPerformanceReport(report);
+                        });
+
+                        // Now, clean up this choice widget
+                        widgetEl.remove();
+                        clearInterval(forcePause);
+                        // No need to set forcePause to 1 or reset 'forceCard', assuming this widget doesn't affect that
+                    });
+                }
+
+                // Close button functionality
+                if (closeButton) {
+                    closeButton.addEventListener('click', () => {
+                        // Clean up the widget and interval
+                        widgetEl.remove();
+                        clearInterval(forcePause);
+                    });
+                }
+            }
+
+            // --- Final Steps ---
+            render();
+            document.body.appendChild(widgetEl);
+        }
+
         function createFlashcardWidget(flashcard) {
             chrome.storage.local.set({ 'forceCard': true });
+
+            if (flashcard == "Performance Report") {
+                createReportChoiceWidget();
+                return;
+            }
 
 
             let selectedChoice = null;
@@ -204,10 +447,25 @@
             const widgetEl = document.createElement('div');
             widgetEl.id = 'flashcard-widget';
             const shadow = widgetEl.attachShadow({mode: 'closed'});
+            
+            // Add event listeners to stop propagation **Fixes bug that allowed textbox keypresses to propogate into website hotkeys causing nuisance and possibly deeper errors to users**
+            shadow.addEventListener('keydown', (e) => {
+                e.stopPropagation();
+            });
 
+            shadow.addEventListener('keyup', (e) => {
+                e.stopPropagation();
+            });
+
+            shadow.addEventListener('keypress', (e) => {
+                e.stopPropagation();
+            });
             // Add styles directly to widget
             const styles = document.createElement('style');
             styles.textContent = `
+                :host {
+                    all: initial;
+                }
                 .background {
                     position: fixed;
                     top: 0;
@@ -582,6 +840,10 @@
             // Add styles directly to widget
             const styles = document.createElement('style');
             styles.textContent = `
+
+                :host {
+                    all: initial;
+                }
                 .background {
                     position: fixed;
                     top: 0;
@@ -824,14 +1086,23 @@
         }
 
         
-        chrome.storage.local.get(['forceCard', 'widgetChance', 'lastBreak'], function (result) {
-            if (Number(Date.now()) > (result.lastBreak + 30 * 60 * 1000)) {
+        chrome.storage.local.get(['forceCard', 'widgetChance', 'lastBreak', 'lastCompleted'], function (result) {
+            if ((Number(Date.now()) > (result.lastBreak + 30 * 60 * 1000)) && (Number(Date.now()) > (result.lastCompleted + 3 * 60 * 1000))) {
 
                 console.log("Running");
                 let v = Math.random();
                 randomWidget = (v < result.widgetChance);
                 // console.log(v, result.widgetChance, result.forceCard);
-                if ((result.forceCard || randomWidget) && !window.location.hostname.toLowerCase().includes("desmos")) {
+                let excludedSites = [
+                    "desmos.com",
+                    "flashysurf.com"
+                ]
+                for (let site of excludedSites) {
+                    if (window.location.hostname.toLowerCase().includes(site)) {
+                        return;
+                    }
+                }
+                if ((result.forceCard || randomWidget)) {
                     setTimeout(() => {
                         createFlashcardWidget(flashcard);
                     }, 1000);

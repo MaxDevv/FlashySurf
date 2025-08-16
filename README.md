@@ -104,6 +104,11 @@ By integrating practice into your daily browsing, you'll build familiarity with 
 
 # Changelog
 ## 1.9
+### 1.9.1
+   - Just some minor bugfixes and additions
+   - Bugfix fixed bug that allowed textbox keypresses to propogate into website hotkeys causing nuisance and possibly deeper errors to users
+   - Feature Addition: Added popup that showed off new generate reports feature.
+   
 ### 1.9.0 (2025-08-06)
    **New Feature: Personalized Performance Reports**: Generate a detailed visual report of your SAT performance.
    - Get insights into your top 3 weakest topic areas based on accuracy.

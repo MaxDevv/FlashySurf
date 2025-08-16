@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     const helpLink = document.getElementById('helpLink');
     const generatePerformanceReportButton = document.getElementById("generate-performance-report");
     const breakBtn = document.getElementById('break-button');
-
+    const reportTooltip = document.getElementById('report-tooltip');
 
     // Load current settings
     chrome.storage.local.get(['widgetChance', 'correctSATAnswers', 'incorrectSATAnswers', 'satNotes', 'lastBreak'], function (result) {
@@ -217,7 +217,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 
             notesContainer.innerHTML = `
                 <h3>Your Notes</h3>
-                - No notes written yet, answer a few questions first. You'll write your first note when you fail a question. Remember, you can only grow if you're willing to fail :D`;
+                <sub>- No notes written yet, answer a few questions first. You'll write your first note when you fail a question. Remember, you can only grow if you're willing to fail :D</sub>`;
         }
     });
 
@@ -251,6 +251,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     const [tab] = await chrome.tabs.query({active: true, currentWindow: true});
     
     if (report != false) {
+        reportTooltip.remove();
         generatePerformanceReportButton.addEventListener('click', () => {
   
             // Send message to content script
@@ -259,10 +260,11 @@ document.addEventListener('DOMContentLoaded', async function () {
                 data: report
             }, (response) => {
                 // console.log("DOM modified:", response);
+            window.close();
             });
         });
         chrome.storage.local.get(["performanceReport"], (res) => {
-            if (res.performanceReport.timestamp < (Date.now() +  12 * 60 * 60 * 1000)) {
+            if (res.performanceReport.timestamp > (Date.now() - 12 * 60 * 60 * 1000)) {
                 generatePerformanceReportButton.innerText = "Show Performance Report (updates in " + Math.round((12 * 60 * 60 * 1000 - (Date.now() - res.performanceReport.timestamp))/(60 * 60 * 1000)) + "h)";
             }
         })
