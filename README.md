@@ -2,27 +2,27 @@
   <img src="https://github.com/MaxDevv/FlashySurf/blob/main/Images/new-marquee.jpg?raw=true" alt="Marquee">
 </p>
 
-# FlashySurf - Flash Cards for Passive SAT Learning
+# FlashySurf - Flash Cards for Passive Study
 
-FlashySurf is a browser extension that helps you prepare for the SAT while you browse the web. Instead of dedicating specific study time, FlashySurf integrates SAT practice questions into your regular browsing experience, making preparation passive and consistent.
+FlashySurf is a browser extension that helps you study any subject while you browse the web. With v2.0, FlashySurf expands beyond SAT preparation to support custom flashcard collections, allowing you to study anything through passive learning integrated into your regular browsing experience.
 
 ## 🎯 Purpose
 
-Designed for students aiming for high SAT scores (1500+) without the need for intensive dedicated study sessions. FlashySurf turns your regular web browsing time into productive SAT preparation through spaced repetition and passive learning.
+Designed for learners who want to study without dedicated study sessions. FlashySurf turns your regular web browsing time into productive learning through spaced repetition and passive learning. With v2.0, the extension now supports custom flashcard collections, enabling you to study any subject matter while maintaining the core passive learning experience.
 
 ## ✨ Features
 
-- **Passive Learning**: Random SAT questions appear while you browse the web
+- **Passive Learning**: Random questions appear while you browse the web
+- **Custom Flashcard Collections**: Create, import, and manage your own flashcard collections for any subject
 - **Intelligent Question Selection**: Advanced algorithm that adapts to your performance patterns
 - **Semantic Clustering**: Questions are grouped by topic similarity to target your weak areas
-- **Math & English Coverage**: Questions from both SAT sections with balanced distribution
 - **Performance Tracking**: Tracks your accuracy with a small badge
 - **Explanation Feedback**: Provides detailed explanations for each answer
 - **Note-Taking**: Record your understanding of incorrect answers to reinforce learning
 - **Adaptive Learning**: System learns from your mistakes and focuses on challenging areas
 - **Non-intrusive**: Designed to integrate into your browsing without being disruptive
 - **Customizable Frequency**: Control how often flashcards appear with the settings panel
-- **Performance Reports**: Generate personalized reports predicting your SAT score range and identifying your weakest topic areas
+- **Performance Reports**: Generate personalized reports identifying your weakest topic areas
 
 ## 📋 Requirements
 
@@ -65,7 +65,7 @@ If you prefer using a userscript manager:
 
 ## 🔧 How It Works
 
-FlashySurf uses an intelligent question selection system to present SAT practice questions while you browse the web. The system employs three different strategies:
+FlashySurf uses an intelligent question selection system to present questions while you browse the web. With v2.0, the system now supports both SAT questions and custom flashcard collections. The system employs three different strategies:
 
 ### Question Selection Algorithm
 - **50% New Questions**: Fresh questions you haven't seen before, avoiding recently answered ones
@@ -79,19 +79,23 @@ When a question appears:
 2. Get immediate feedback on your choice
 3. Review the explanation to understand the correct approach
 4. For incorrect answers, take notes on your understanding to reinforce learning
-5. The flashcard will automatically close after a short period (longer for incorrect answers to give you time to learn)
+5. The flashcard will then give you the option close after a short period (requires note taking for incorrect answers to force you to learn)
 
-The extension tracks your performance over time and uses semantic clustering to identify topic areas where you need more practice, automatically adjusting future question selection to target your weaknesses.
+The extension tracks your performance over time and uses semantic clustering to identify topic areas where you need more practice, automatically adjusting future question selection to target your weaknesses. With v2.0, you can now create and manage multiple flashcard collections, enabling you to study any subject matter.
 
 ## 🛠️ Configuration
 
 Click on the FlashySurf icon in your browser toolbar to:
 - Adjust the frequency of flashcard appearances
-- View your performance statistics
+- View your performance statistics across all active collections
 - Review your saved notes from incorrect answers
+- Manage your flashcard collections (create, import, edit, delete)
+- Enable/disable specific flashcard collections
 - Access additional settings
 
-## 🧠 Learning Approach
+With v2.0, the configuration panel has been enhanced to support custom flashcard collections, allowing you to manage multiple collections and track your progress across different subjects.
+
+## 🧠 Learning Approach (SAT Specific)
 
 FlashySurf uses principles of spaced repetition, adaptive learning, and passive engagement to help you absorb SAT content gradually over time. Key features include:
 
@@ -103,6 +107,47 @@ FlashySurf uses principles of spaced repetition, adaptive learning, and passive 
 By integrating practice into your daily browsing, you'll build familiarity with SAT question patterns without dedicated study sessions while receiving personalized attention to your areas of weakness.
 
 # Changelog
+## 2.0
+### 2.0
+   - FINALLY DONE! (Kinda).
+   - Okay, lemme explain: FlashySurf V1 has been fully focused on the SAT, focused on only studying the sat, but after seeing the 60-100 point increases from multiple friends, reviews and even myself, I decided that flashysurf should grow beyond just the SAT, and that is V2.0
+   - Sorry Writing all the Changes I made Would take forever lol, I fed an AI my git diff and my to-do list that I completed with all my notes and it spat out this list of changes. Also am I the only one who noticed that AI glazes anything, using fancy words like robust and comprehensive.
+
+   - **Core Architecture**
+      - Transformed from SAT-specific tool to general-purpose study platform
+      - Updated extension name, version, and description to reflect broader capabilities
+      - Implemented data structures for tracking user progress across multiple collections
+
+   - **Custom Flashcard System**
+      - Added complete flashcard collection management:
+         - Create, import, and edit custom flashcard collections
+         - Drag-and-drop interface for easy collection uploads
+         - Download functionality to backup or share collections
+         - Delete collections with confirmation to prevent accidental loss
+         - Implemented collection selection system allowing users to enable/disable specific collections
+         - Added unique collection IDs and metadata storage (name, questions, notes, stats)
+
+   - **Statistics and Analytics**
+      - Enhanced stats display to aggregate data across all active collections
+      - Added individual collection statistics visible through hover tooltips
+      - Implemented comprehensive tracking of correct/incorrect answers per collection
+      - Maintained SAT-specific performance reports while adding general statistics
+
+   **User Interface**
+      - Redesigned popup interface with modern, intuitive collection management
+      - Added visual indicators for active collections with selection states
+      - Implemented responsive design for various screen sizes
+      - Added feedback link for user suggestions and bug reporting
+      - Enhanced help system with improved onboarding guidance
+
+   **Technical Changes**
+   - Disabled semantic similarity support for non-SAT mode learning until I figure out A way to work it.
+   - Implemented recursive collection selection with safety limits (Very Jank Code lol)
+   - Added confirmation dialogs for destructive operations
+   - Improved code organization with modular functions
+
+   This release represents a significant evolution from a SAT-focused tool to a comprehensive study platform, enabling users to create and manage custom flashcard collections for any subject while maintaining the core passive learning experience.
+   
 ## 1.9
 ### 1.9.1
    - Just some minor bugfixes and additions

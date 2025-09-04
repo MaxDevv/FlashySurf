@@ -4,33 +4,75 @@
     if (window.top !== window.self) {
         return;
     }
-    let devMode = false;
-
-    chrome.storage.local.get(['correctSATAnswers', 'incorrectSATAnswers', 'forceCard', 'widgetChance', 'devMode', 'lastCompleted', 'satNotes', 'answeredQuestions', 'lastBreak', 'failedQuestions'], (result) => {
-        if (!devMode) {
-            console.log = () => { }
+    let config = {
+        satMode: true,
+        devMode: true,
+        semanticSimmilarityInNotSATMode: false,
+        useSemanticSimmilarity: true
+    }
+    config.devMode = await chrome.storage.local.get("devMode");
+    let satCardsEnabled = await chrome.storage.local.get("satCardsEnabled");
+    config.satMode = satCardsEnabled.satCardsEnabled;
+    if (config.devMode) {
+        console.log = function () {};
+    }
+    // i think itd be best to randomly select one flascard collection first, then do all the rest of the code working off that
+    let userFlashCards = await chrome.storage.local.get("userFlashCards");
+    userFlashCards = userFlashCards.userFlashCards;
+    userFlashCards = userFlashCards.filter((e) => e.active);
+    console.log(userFlashCards);
+    let selectedFlashcards = userFlashCards[Math.floor(Math.random() * userFlashCards.length)];
+    function reallyDumbUneededRecursionForSelectingCollections(recursionLevel = 0) {
+        if (recursionLevel > 10) {
+            throw new Error("reallyDumbUneededRecursionForSelectingCollections repeated 10 times.");
+            return;
         }
-        if (devMode) console.log("Data dump:", result);
-    });
+        if (satCardsEnabled) {
+            if (selectedFlashcards.id == "sat") {
+                config.satMode = true;
+            } else {
+                config.satMode = false;
+            }
+        } else {
+            selectedFlashcards = userFlashCards[Math.floor(Math.random() * userFlashCards.length)];
+            reallyDumbUneededRecursionForSelectingCollections(recursionLevel + 1);
+        }
+    }
+
+    reallyDumbUneededRecursionForSelectingCollections();
+    
+
+
+    if (!config.satMode && !config.semanticSimmilarityInNotSATMode) {
+        // ToDo: implement semantic simmilarity for non SAT mode, im thinking some algorithm that removes filler words like "that" or "the" or "I" then it removes meaningless word prefixes and suffixes like "ly" and "ess" then it finds the most simmilar words to calculate semantic simmmilarity.
+        config.useSemanticSimmilarity = false;
+    }
 
     let dataSet = {};
     let randomWidget;
     let answeredPage = false;
     function fetchDataset() {
-        return new Promise((resolve, reject) => {
-            fetch(chrome.runtime.getURL('questions.json'))
-                .then(response => {
-                    if (response.ok) {
-                        return response.json();
-                    }
-                    throw new Error(`Failed to load dataset: ${response.status}`);
-                })
-                .then(data => resolve(data))
-                .catch(error => {
-                    console.error("Error loading dataset:", error);
-                    reject(error);
-                });
-        });
+        if (config.satMode) {
+            // old sat functionality
+            return new Promise((resolve, reject) => {
+                fetch(chrome.runtime.getURL('questions.json'))
+                    .then(response => {
+                        if (response.ok) {
+                            return response.json();
+                        }
+                        throw new Error(`Failed to load dataset: ${response.status}`);
+                    })
+                    .then(data => resolve(data))
+                    .catch(error => {
+                        console.error("Error loading dataset:", error);
+                        reject(error);
+                    });
+            });
+        } else {
+            return new Promise((resolve, reject) => {
+                resolve(selectedFlashcards.questions); 
+            });
+        }
     }
 
     async function generatePerformanceReport() {
@@ -104,10 +146,16 @@
     }
 
     try {
-        dataSet = await fetchDataset();
         // let flashcardList = dataSet[(Math.random() > 0.5 ? "math" : "english")];
         // dateset is rougly evenly split now, and fixes bug
-        let flashcardList = [...dataSet["math"], ...dataSet["english"]];
+        let flashcardList = [];
+        if (config.satMode) {
+            dataSet = await fetchDataset();
+            flashcardList = [...dataSet["math"], ...dataSet["english"]];
+        } else {
+            // NOTSATMODE, yet to implement
+            flashcardList = await fetchDataset();
+        }
         let flashcard;
         // Helper function to get a random flashcard from a list
         function getRandomFlashcard(flashcardList) {
@@ -127,6 +175,31 @@
         // Function to get a flashcard from failed questions
         function getFailedQuestionFlashcard(flashcardList, failedQuestions, answeredQuestions) {
             return new Promise((resolve) => {
+                
+                if (!config.satMode) {
+                    // new system, better data but im lazy rn
+                    // basically just loop through all the failed questions and answered questions and perform the operations i removed to make the data look like its from the old system
+                    let failedQuestionsOld = [];
+                    let answeredQuestionsOld = [];
+                    failedQuestions = failedQuestions.map(e => e.correct = false);
+                    answeredQuestions = answeredQuestions.map(e => e.correct = true);
+                    [...failedQuestions, ...answeredQuestions].sort((a, b) => a.time - b.time).forEach((e) => {
+                        if (e.correct) {
+                            answeredQuestionsOld.push(e.id)
+                        if (failedQuestionsOld.indexOf(e.id) != -1) {
+                            failedQuestionsOld.splice(failedQuestionsOld.indexOf(e.id), 1);
+                        }
+                        } else {
+                            failedQuestionsOld.push(e.id);
+                            // wait is there no functionality to remove answered questions???, watever idc
+                        }
+                    })
+
+                    failedQuestions = failedQuestionsOld;
+                    answeredQuestions = answeredQuestionsOld;
+                }
+
+
                 let possibleFlashCards = flashcardList.filter(flashcard =>
                     // Bugfix fixing error that caused users to repeatedly get "previously failed" questions that they had answeered correctly later.
                     (failedQuestions.includes(flashcard.id) && (!answeredQuestions.includes(flashcard.id)))
@@ -145,7 +218,7 @@
         }
 
         // Function to get a flashcard that the user struggles with
-        function getStruggleQuestion(flashcardList, failedQuestions, answeredQuestions, correctSATAnswers, incorrectSATAnswers, notes) {
+        function getSATStruggleQuestion(flashcardList, failedQuestions, answeredQuestions, correctSATAnswers, incorrectSATAnswers, notes) {
             return new Promise((resolve) => {
                 // get least accurate semantic question clusters
                 let clusters = Array.from({ length: 87 }, (_, i) => {
@@ -203,6 +276,14 @@
             });
         }
 
+        function getNonSATStruggleQuestion(flashcardList, failedQuestionIDs, answeredQuestionIDs) {
+            // NOTSATMODE, yet to implement
+            // Check out https://github.com/NaturalNode/natural, npm install natural
+
+        }
+
+
+        
         // Function to get a regular flashcard (avoiding answered questions)
         function getRegularFlashcard(flashcardList, answeredQuestions) {
             return new Promise((resolve) => {
@@ -214,38 +295,65 @@
 
         // Main function to select a flashcard
         async function selectFlashcard(flashcardList) {
-            return new Promise((resolve) => {
+            return new Promise(async (resolve) => {
                 let num = Math.random();
-                if (devMode) {
-                    num = 0.9999;
+                if (config.devMode) {
+                    let n = await chrome.storage.local.get("flashCardDevModeNum");
+                    n = n.flashCardDevModeNum;
+                    if (n != -1) {
+                        num = n;
+                    }
                 }
+                console.log(num);
                 if (num < 0.475) {
                     // 47.5% chance to give a regular question (avoiding answered ones)
-                    console.log("New random question :D")
-                    chrome.storage.local.get(['answeredQuestions'], async (res) => {
-                        const answeredQuestions = res.answeredQuestions || [];
-                        const flashcard = await getRegularFlashcard(flashcardList, answeredQuestions);
+                    console.log("New random question :D");
+                    if (config.satMode) {
+                        chrome.storage.local.get(['answeredQuestions'], async (res) => {
+                            const answeredQuestions = res.answeredQuestions || [];
+                            const flashcard = await getRegularFlashcard(flashcardList, answeredQuestions);
+                            resolve(flashcard);
+                        });
+                    } else {
+                        console.log("Not satmode")
+                        const flashcard = await getRegularFlashcard(flashcardList, selectedFlashcards.correctlyAnswered); // Should test Im not sure if this'll work lol
                         resolve(flashcard);
-                    });
+                    }
                 } else if (num < 0.475 + 0.35) {
                     // 35% chance to give a question **simmilar** to a previously failed question
+                    if (!config.useSemanticSimmilarity) {
+                        selectFlashcard(flashcardList).then(selectedFlashcard => {
+                            resolve(selectedFlashcard);
+                        });
+                    }
                     console.log("Semantically simmilar question to a previously failed question :D")
                     chrome.storage.local.get(['failedQuestions', 'answeredQuestions', 'satNotes', 'correctSATAnswers', 'incorrectSATAnswers'], async (res) => {
                         const failedQuestions = res.failedQuestions || [];
                         const answeredQuestions = res.answeredQuestions || [];
-                        const flashcard = await getStruggleQuestion(flashcardList, failedQuestions, answeredQuestions, res.correctSATAnswers, res.incorrectSATAnswers, res.satNotes);
+                        const flashcard = await getSATStruggleQuestion(flashcardList, failedQuestions, answeredQuestions, res.correctSATAnswers, res.incorrectSATAnswers, res.satNotes);
                         resolve(flashcard);
                     });
                 } else if (num < 0.475 + 0.35 + 0.15) {
                     // 15% chance to give a previously failed question
-                    console.log("Previously failed question :D")
-                    chrome.storage.local.get(['failedQuestions', 'answeredQuestions'], async (res) => {
-                        const failedQuestions = res.failedQuestions || [];
-                        const answeredQuestions = res.answeredQuestions || [];
-                        const flashcard = await getFailedQuestionFlashcard(flashcardList, failedQuestions, answeredQuestions);
+                    console.log("Previously failed question :D");
+                    if (config.satMode) {
+                        chrome.storage.local.get(['failedQuestions', 'answeredQuestions'], async (res) => {
+                            const failedQuestions = res.failedQuestions || [];
+                            const answeredQuestions = res.answeredQuestions || [];
+                            const flashcard = await getFailedQuestionFlashcard(flashcardList, failedQuestions, answeredQuestions);
+                            resolve(flashcard);
+                        });
+                    
+                    } else {
+                        const flashcard = await getFailedQuestionFlashcard(flashcardList, selectedFlashcards.correctlyAnswered, selectedFlashcards.incorrectlyAnswered);
                         resolve(flashcard);
-                    });
+                    }
                 } else if (num < 0.475 + 0.35 + 0.15 + 0.025) {
+                    if (!config.satMode) {
+                        selectFlashcard(flashcardList).then(selectedFlashcard => {
+                            resolve(selectedFlashcard);
+                        });
+                    }
                     // 2.5% Chance to show user popup asking to generate score report if possible and not already done in last 12 hours
                     chrome.storage.local.get(["performanceReport"], async (res) => {
                         let canRender = res.performanceReport.timestamp < Date.now() + (12 * 60 * 60 * 1000);
@@ -263,7 +371,9 @@
         }
 
         // Usage (replaces the original code block):
+        console.log("Selecting Flashcard...")
         selectFlashcard(flashcardList).then(selectedFlashcard => {
+            console.log("Flashcard Selected!")
             flashcard = selectedFlashcard;
             console.log(flashcard);
         });
@@ -542,7 +652,8 @@
                 let tips = [
                     "You can use desmos.com to solve math problems!",
                     "Taking notes improves memory by up to 30% even if you don't read them later!",
-                    "Try to understand the concept rather than memorizing the answer."
+                    "Try to understand the concept rather than memorizing the answer.",
+                    "Make sure to remember the strategy you use to answer this question so you reuse it or avoid it if you get the question wrong."
                 ]
 
                 shadow.innerHTML = `
@@ -589,7 +700,7 @@
                                 <div class="question limited">
                                     <span>Question: ${flashcard.question}</span>
                                     <br>
-                                    <span>Paragraph: ${flashcard.paragraph}</span>
+                                    ${flashcard.paragraph ? `<span>Paragraph: ${flashcard.paragraph}</span>` : ``}
                                     <br>
                                     <span style="text-decoration: underline;"> Tip: ${tips[Math.floor(Math.random() * tips.length)]}</span>
                                 </div>
@@ -640,18 +751,40 @@
                         // Close button saves notes and closes widget
                         closeButton.addEventListener('click', () => {
                             // Save notes to storage
-                            const questionId = `${flashcard.question.substring(0, 30)}_${new Date().toISOString().split('T')[0]}`;
-                            chrome.storage.local.get(['satNotes'], function (result) {
-                                const notes = result.satNotes || {};
-                                notes[questionId] = {
-                                    question: flashcard.question,
-                                    answer: getAnswer(),
-                                    userAnswer: selectedChoice,
-                                    notes: notesText,
-                                    timestamp: Date.now()
-                                };
-                                chrome.storage.local.set({ 'satNotes': notes });
-                            });
+                            const noteId = `${flashcard.id}_${new Date().toISOString().split('T')[0]}_${Math.round(Math.random()*10000).toString()}`;
+                            // WHO TF DESIGNED THIS, oh wait it was me, uhh no I blame this on chatgpt I barely use this but these comments arent trashy enough to be mine, now i gotta look through to see if anything depends on this trashy functionality and fix it
+                            // wait nvm i see the vision
+
+                            if (config.satMode) {
+                                chrome.storage.local.get(['satNotes'], function (result) {
+                                    const notes = result.satNotes || {};
+                                    notes[noteId] = {
+                                        question: flashcard.question,
+                                        answer: getAnswer(),
+                                        userAnswer: selectedChoice,
+                                        notes: notesText,
+                                        timestamp: Date.now()
+                                    };
+                                    chrome.storage.local.set({ 'satNotes': notes });
+                                });
+                            } else {
+                                chrome.storage.local.get(['userFlashCards'], function (result) {
+                                    let userFlashCards = result.userFlashCards;
+                                    // get/find the right flascards
+                                    for (let i = 0; i < userFlashCards.length; i++) {
+                                        if (userFlashCards[i].id == selectedFlashcards.id) {
+                                            userFlashCards[i].notes[noteId] = {
+                                                question: flashcard.question,
+                                                answer: getAnswer(),
+                                                userAnswer: selectedChoice,
+                                                notes: notesText,
+                                                timestamp: Date.now()
+                                            };
+                                        }
+                                    }
+                                    chrome.storage.local.set({ 'userFlashCards': userFlashCards }); // this feels like just the absolute perfect vector to like have all the flashcards erase themselves
+                                });
+                            }
 
                             widgetEl.remove();
                             clearInterval(forcePause);
@@ -757,28 +890,48 @@
                     catch { }
                 }
 
-
-                chrome.storage.local.get(['correctSATAnswers', 'incorrectSATAnswers', 'failedQuestions'], function (result) {
-                    let correct = result.correctSATAnswers || 0;
-                    let incorrect = result.incorrectSATAnswers || 0;
-                    let failedQuestions = result.failedQuestions || [];
-                    if (isCorrect) {
-                        chrome.storage.local.set({ "correctSATAnswers": correct + 1 });
-                        chrome.storage.local.get(['answeredQuestions'], (res) => {
-                            let a = res.answeredQuestions;
-                            a.push(flashcard.id);
-                            chrome.storage.local.set({ 'answeredQuestions': a });
-                        });
-                        if (failedQuestions.indexOf(flashcard.id) != -1) {
-                            failedQuestions.splice(failedQuestions.indexOf(flashcard.id), 1);
+                if (config.satMode) {
+                    chrome.storage.local.get(['correctSATAnswers', 'incorrectSATAnswers', 'failedQuestions'], function (result) {
+                        let correct = result.correctSATAnswers || 0;
+                        let incorrect = result.incorrectSATAnswers || 0;
+                        let failedQuestions = result.failedQuestions || [];
+                        if (isCorrect) {
+                            chrome.storage.local.set({ "correctSATAnswers": correct + 1 });
+                            chrome.storage.local.get(['answeredQuestions'], (res) => {
+                                let a = res.answeredQuestions;
+                                a.push(flashcard.id);
+                                chrome.storage.local.set({ 'answeredQuestions': a });
+                            });
+                            if (failedQuestions.indexOf(flashcard.id) != -1) {
+                                failedQuestions.splice(failedQuestions.indexOf(flashcard.id), 1);
+                                chrome.storage.local.set({ "failedQuestions": failedQuestions });
+                            }
+                        } else {
+                            failedQuestions.push(flashcard.id);
+                            chrome.storage.local.set({ "incorrectSATAnswers": incorrect + 1 });
                             chrome.storage.local.set({ "failedQuestions": failedQuestions });
+                            // I just realized how trashy this code is, but it "works", so idc ig.
                         }
-                    } else {
-                        failedQuestions.push(flashcard.id);
-                        chrome.storage.local.set({ "incorrectSATAnswers": incorrect + 1 });
-                        chrome.storage.local.set({ "failedQuestions": failedQuestions });
-                    }
-                });
+                    });
+                } else {
+                    chrome.storage.local.get(['userFlashCards'], function (result) {
+                        let userFlashCards = result.userFlashCards;
+                        // get/find the right flascards
+                        for (let i = 0; i < userFlashCards.length; i++) {
+                            if (userFlashCards[i].id == selectedFlashcards.id) {
+                                if (isCorrect) {
+                                    // New system tracks time, more work but also more data for semantic system
+                                    userFlashCards[i].correctlyAnswered.push({id: flashcard.id, time: Date.now()});
+                                } else {
+                                    userFlashCards[i].incorrectlyAnswered.push({id: flashcard.id, time: Date.now()});
+                                }
+                            }
+                        }
+
+                        chrome.storage.local.set({ 'userFlashCards': userFlashCards }); // this feels like just the absolute perfect vector to like have all the flashcards erase themselves
+                    });
+                    
+                }
                 render();
             }
 
@@ -1085,6 +1238,301 @@
             initialize();
         }
 
+
+        function showAddCollectionPopup() {
+            let forcePause;
+            // Start pausing any background videos.
+            if (!forcePause) {
+                forcePause = setInterval(() => {
+                    document.querySelectorAll('video').forEach(vid => vid.pause());
+                }, 100);
+            }
+
+            // --- Create the Widget Container and Shadow DOM ---
+            const widgetEl = document.createElement('div');
+            widgetEl.id = 'add-collection-widget';
+            const shadow = widgetEl.attachShadow({ mode: 'closed' });
+
+            // --- Define Styles for the Widget (From your edited file) ---
+            const styles = document.createElement('style');
+            styles.textContent = `
+                :host {
+                    all: initial;
+                }
+                .background {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100vw;
+                    height: 100vh;
+                    overflow: hidden;
+                    background-color: gray !important;
+                    opacity: 70%;
+                    z-index: 99999999999999;
+                }
+                .cover-container {
+                    color: black; 
+                    overflow: hidden;
+                }
+                .widget {
+                    position: fixed;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 30vw;
+                    border-radius: 1.5em;
+                    padding: 1.4em;
+                    background-color: white !important;
+                    border: 0.075em solid black;
+                    display: flex;
+                    flex-direction: column;
+                    font-family: monospace;
+                    gap: 1.5em;
+                    box-shadow: 0px 0px 60px 3px rgba(0,0,0,0.2);
+                    z-index: 999999999999999;
+                    color: black !important;
+                    overflow-y: auto;
+                    scrollbar-width: none;
+                    -ms-overflow-style: none;
+                }
+                ::-webkit-scrollbar {
+                    display: none;
+                }
+                .title { 
+                    font-weight: bold; 
+                    font-size: large; 
+                }
+                .limited { 
+                    flex: 1; 
+                    overflow-y: scroll; 
+                }
+
+                /* Button Styling */
+                .close-button {
+                    padding: 8px 16px;
+                    border-radius: 4px;
+                    background-color: #007bff; /* Blue */
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                .generate-report-button {
+                    padding: 8px 16px;
+                    border-radius: 4px;
+                    background-color: #28a745; /* Green */
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+
+                /* Styling the list for better readability */
+                .limited ul {
+                    padding-left: 5px;
+                    list-style-type: circle;
+                    max-width: 95%;
+                }
+
+                .limited li {
+                    margin-bottom: 0.25em;
+                    padding-left: 2.25em;
+                    display: list-item;
+                    text-indent: -1.75em;
+                    
+                }
+
+                .limited {
+                    h3 {
+                        text-decoration-line: underline;
+                        text-decoration-style: wavy;  
+                        text-decoration-color: rgba(133, 133, 133, 0.541);  
+                        margin-top: 0px;
+                        padding-top: 0px;
+                    }
+                    img {
+                        padding-left: 2em;
+                        
+                    }
+                }
+
+                .divider {
+                    width: 95%;
+                    margin-bottom: 1em;
+                    height: 1px;
+                    justify-self: center;
+                    background-color: black;
+                }
+
+                div.then {
+                    padding-bottom: 2em;
+                }
+
+                div.uploadDrag {
+                    display: flex;
+                    cursor: pointer;
+                    justify-self: center;
+                    width: 80%;
+                    border: 2px dashed #808080;
+                    padding: 1em;
+                    align-items: center;
+                    justify-content: center;
+                    flex-direction: column;
+                    border-radius: 1em;
+                    font-size: 1rem;
+                    p.plus {
+                        font-size: 10rem;
+                        font-weight: 100;
+                        opacity: 60%;
+                        padding: 0px;
+                        margin: 0px;
+                        height: 0.6em;
+                        display: flex;
+                        align-items: center;
+                    }
+                }
+                div.uploadDrag.hover {
+                    border-color: blue;
+                    border-width: 3px;
+                }
+            `;
+
+            function render() {
+                // --- Define the HTML structure using your edited file ---
+                shadow.innerHTML = `
+                    <div class="cover-container">
+                        <div class="background"></div>
+                        <div class="widget">
+                            <div class="title">FlashySurf - Upload Flaschard Collection</div>
+                            <div class="limited">
+                                <br>
+                                <h3>Steps to add/edit collections:</h3>
+                                <ul>
+                                    <li>1. If you want to edit a collection, start off by downloading it</li>
+                                    <img src="${chrome.runtime.getURL('assets/collection-download-instruction.png')}" alt="Screenshot-20250902-182102" border="0">
+                                    <li>2. Visit <a target="_blank" rel="noopener noreferrer" href="https://flashysurf.com/creator">flashysurf.com/creator</a> and create or edit your collection</li>
+                                    <li>3. Download the collection file from the creator website and upload the collection below ↓</li>
+                                </ul>
+
+                                <div class="divider"></div>
+
+                                <div class="then">Drag-And-Drop the Collection file Here ↓</div>
+
+                                <div class="uploadDrag" id="uploadDrag">
+                                    <p class="plus">+</p>
+                                <p>or click to upload</p>
+
+                                <input type="file" id="file-input" accept=".flashysurfcollection.json" style="display: none;">
+                                </div>
+
+                                <br><br>
+                            </div>
+                            <div>
+                                <button class="close-button" id="closeButton-flashySurf">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                shadow.appendChild(styles);
+
+                // --- Attach Original Event Listeners ---
+                const closeButton = shadow.getElementById('closeButton-flashySurf');
+
+                // Close button functionality
+                if (closeButton) {
+                    closeButton.addEventListener('click', () => {
+                        widgetEl.remove();
+                        clearInterval(forcePause);
+                    });
+                }
+
+                // --- Your new script for drag-and-drop functionality ---
+                const dropZone = shadow.getElementById('uploadDrag');
+                const fileInput = shadow.getElementById('file-input');
+
+                // Prevent default drag behavior and add hover class
+                dropZone.addEventListener('dragover', (e) => {
+                    e.preventDefault();
+                    dropZone.classList.add('hover');
+                });
+
+                // Remove hover class when dragging leaves the zone
+                dropZone.addEventListener('dragleave', () => {
+                    dropZone.classList.remove('hover');
+                });
+
+                // Handle dropped files
+                dropZone.addEventListener('drop', (e) => {
+                    e.preventDefault();
+                    dropZone.classList.remove('hover');
+                    const files = e.dataTransfer.files;
+                    handleFiles(files); // Custom function to process files
+                });
+
+                // Handle click to open file input
+                dropZone.addEventListener('click', () => {
+                    fileInput.click();
+                });
+
+                // Handle files selected via input
+                fileInput.addEventListener('change', (e) => {
+                    const files = e.target.files;
+                    handleFiles(files); // Custom function to process files
+                });
+
+                // Example function to process files (e.g., display names)
+                function handleFiles(files) {
+                    let file = files[0]
+                    const reader = new FileReader();
+                    let returnnnn = false;
+                    reader.onload = function(e) {
+                        try {
+                            const newCollection = JSON.parse(e.target.result);
+                            console.log(newCollection);
+                            chrome.storage.local.get("userFlashCards", (res) => {
+                                    let replaceIdx = -1;
+                                    res.userFlashCards.forEach((collection) => {
+                                        if (collection.id == newCollection.id) {
+                                            if (confirm(`ALERT this collection "${collection.name}" already exists, do you intend to update it?`)) {
+                                                replaceIdx = res.userFlashCards.indexOf(collection);
+                                            } else {
+                                                returnnnn = true;
+                                                return;
+                                            }
+                                        }
+                                    if (returnnnn) return;
+
+                                    })
+                                    if (returnnnn) return;
+                                    if (replaceIdx != -1) {
+                                        res.userFlashCards[replaceIdx].questions = newCollection.questions;
+                                        res.userFlashCards[replaceIdx].name = newCollection.name;
+                                    } else {
+                                        res.userFlashCards.push({
+                                            active: true,
+                                            correctlyAnswered: [],
+                                            incorrectlyAnswered: [],
+                                            notes: {},
+                                            ...newCollection
+                                        })
+                                    }
+
+                                    chrome.storage.local.set({ userFlashCards: res.userFlashCards}).then(() => {
+                                        alert("Flashcard Collection added/updated, you may safely close this widget or upload more collections :D");
+                                    });
+                                })
+                                
+                        } catch (error) {
+                            console.log('Error parsing JSON: ' + error.message);
+                        }
+                    };
+                    reader.readAsText(file);
+                }
+            }
+
+            // --- Final Steps ---
+            render();
+            document.body.appendChild(widgetEl);
+        
+        }
         
         chrome.storage.local.get(['forceCard', 'widgetChance', 'lastBreak', 'lastCompleted'], function (result) {
             if ((Number(Date.now()) > (result.lastBreak + 30 * 60 * 1000)) && (Number(Date.now()) > (result.lastCompleted + 3 * 60 * 1000))) {
@@ -1111,9 +1559,18 @@
         });
 
         chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-            if (message.action === "showPerformanceReport") {
-                showPerformanceReport(message.data);
-                sendResponse({success: true});
+            switch (message.action) {
+                case "showPerformanceReport":
+                    showPerformanceReport(message.data);
+                    sendResponse({success: true});
+                    break;
+                case "addCollection":
+                    showAddCollectionPopup();
+                    sendResponse({success: true});
+                    break;
+                default:
+                    console.log("Invalid event", message.action, message);
+                    sendResponse({success: false});
             }
         });
         // Create stats badge
@@ -1141,5 +1598,8 @@
     } catch (error) {
         console.error("FlashySurf error:", error);
     }
+
+
+
 
 })();

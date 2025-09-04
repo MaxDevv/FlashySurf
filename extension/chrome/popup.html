@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset='UTF-8' />
     <title>FlashySurf Settings</title>
     <style>
         body {
@@ -42,6 +43,9 @@
                 padding: 0;
             }
 
+            sub {
+                padding-bottom: 1em;
+            }
         }
         button {
             background-color: #4285F4;
@@ -135,6 +139,102 @@
 
             }
         }
+
+        .group {
+            
+            margin-top: 1.5em;
+            padding-top: 1.5em;
+            border-top: 1px solid #eee;
+            margin-bottom: 15px;
+        }
+        .collections-group {
+            margin-top: 1.5em;
+            padding-top: 1em;
+            border-top: 1px solid #eee;
+            margin-bottom: 15px;
+            display: flex;
+            white-space: nowrap;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: center;
+
+            .collection {
+                cursor: pointer;
+                opacity: 65%;
+                border: 1px solid #000000;
+                border-radius: 5px;
+                font-size: 0.75rem;
+                display: flex;
+                flex-direction: row;
+                /* justify-content: center; */
+                align-items: center;
+                padding: 0.25em;
+                padding-top: 0.2em;
+                padding-bottom: 0.2em;
+                margin-right: 0.5em;
+                margin-bottom: 0.5em;
+                height: 1.5em;
+                input[type="checkbox"] {
+                    font-size: 0.75rem;
+                    margin-right: 0em;
+                    width: 1.75em;
+                    height: 1.4em;
+                }
+                button {
+                    opacity: 75%;
+                    background-color: white;
+                    padding: 0em;
+                    margin: 0px;
+                    margin-right: 0.25em;
+                    color: black;
+                    border: 1px solid #000000;
+                    font-size: 0.75rem;
+                    
+                    height: 1.4em;
+                    width: 1.75em;
+                    vertical-align: middle;
+                    line-height: normal;
+                    align-items: center;
+                }
+            }
+            .collection[aria-disabled="true"] {
+                /* background-color: rgba(0, 0, 0, 0.116); */
+                opacity: 50%;
+            }
+
+            h3 {
+                margin: 0px;
+                padding: 0px;
+                font-size: large !important;
+                margin-bottom: -1.5em;
+            
+            }
+        }
+        
+        #helpLink  {
+            font-size: 0.75rem ;
+        }
+
+        .selected {
+            opacity: 100% !important;
+            color: green;
+            border-color: green;
+            input, button {
+                outline-color: green;
+                accent-color: green;
+                background-color: rgba(0, 128, 0, 0.075) !important;
+            }:hover {
+
+                background-color: rgba(0, 128, 0, 0.3) !important;
+            }
+            background-color: rgba(0, 128, 0, 0.15);
+        }
+        
+
+        #satFlashCards {
+            visibility: hidden; /* HOLY JANK CODE Note to self: Just dont touch this or the js related to it, if it work it work*/
+        }
     </style>
 </head>
 <body>
@@ -148,24 +248,51 @@
         <br>
         <button class="break-button" id="break-button">30 Minute Break</button>
         <br><sub>*Can Only be used once Every 4 Hours</sub>
+        <br>
+        <a href="#" id="helpLink">Help and Onboarding Screen</a>
     </div>
-    <a href="#" id="helpLink"">Help and Onboarding Screen</a>
+    
     <!-- <button id="saveSettings" class="save-button">Save Settings</button> -->
     
     <div class="stats">
         <h2>Your Stats:</h2>
         <div id="statsDisplay" class="statsDisplay">Loading stats...</div>
+        <sub>Stats only show for activated/selected flashcard collections.</sub>
+        <br>
         <div class="performance-report-btn-wrapper">
-        <button id="generate-performance-report" disabled>Generate Performance Report</button>
-        <div id="report-tooltip">Need to have answered at least 25 questions, and failed at least 5 questions first. So answer more questions :D</div>
+        
+        <button id="generate-performance-report" class="hide-if-sat-disabled" disabled>Generate Performance Report</button>
+        <div id="report-tooltip"  class="hide-if-sat-disabled">Need to have answered at least 25 questions, and failed at least 5 questions first. So answer more questions :D. Only for SAT Flashcards.</div>
+        <div id="report-tooltip" class="hide-if-sat-disabled">* Only for SAT Flashcards.</div>
 
         </div>
-    <br><sub>* Get personalized report with insights on your SAT performance. <br> Note: Reports update every 12 hours based on your latest performance.</sub>
-    </div>
+        <div class="hide-if-sat-disabled">
+            <br><sub>* Get personalized report with insights on your SAT performance. <br> Note: Reports update every 12 hours based on your latest performance.</sub>
+        </div>
 
+    </div>
+    <div class="collections-group" id="collections-group">
+        <h3 id="flashCardTitle">Flashcard Collections:</h3><br>
+        
+        <!-- Custom Flascard collections -->
+
+         <div class="collection" id="satFlashCards">
+            SAT Flashcards
+            <input type="checkbox" name="" id="">
+            <button class="download">&#10515;</button>
+            <button class="delete">&#9473;</button>
+         </div>
+
+         <button id="addCollection">&#10133; Add/Update/Edit Flashcard Collection</button>
+         <sub style="padding-top: 1em;">Tip: You can hover over flashcard collections to see indivdual stats</sub>
+    </div>
     
     <div id="notesContainer" class="notesContainer">Loading notes...</div>
     
+    
+    <div class="group">
+        <a id="feedback" href="https://tally.so/r/mDjY2Z">Share Your Feedback/Report A Bug</a>
+    </div>
     <script src="popup.js"></script>
 </body>
 </html>

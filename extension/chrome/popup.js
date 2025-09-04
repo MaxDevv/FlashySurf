@@ -107,6 +107,35 @@ async function generatePerformanceReport() {
     return data;
 }
 
+function renderStats() {
+    chrome.storage.local.get(['correctSATAnswers', 'incorrectSATAnswers', 'userFlashCards', 'satCardsEnabled'], function (result) {
+        let correct = 0;
+        let incorrect = 0;
+        if (result.satCardsEnabled) {
+            correct += result.correctSATAnswers || 0;
+            incorrect += result.incorrectSATAnswers || 0;
+        }
+
+        for (let collection of result.userFlashCards) {
+            if (collection.active) {
+                console.log(collection.name);
+                correct += collection.correctlyAnswered.length;
+                incorrect += collection.incorrectlyAnswered.length;
+            }
+        }
+        const total = correct + incorrect;
+        const accuracy = total > 0 ? Math.round((correct / total) * 100) : 0;
+
+
+        statsDisplay.innerHTML = `
+        <p>- Correct answers: ${correct}</p>
+        <p>- Incorrect answers: ${incorrect}</p>
+        <p>- Total questions: ${total}</p>
+        <p>- Accuracy: ${accuracy}%</p>
+    `;
+    });
+}
+
 document.addEventListener('DOMContentLoaded', async function () {
     const widgetChanceSlider = document.getElementById('widgetChance');
     const widgetChanceValue = document.getElementById('widgetChanceValue');
@@ -114,13 +143,17 @@ document.addEventListener('DOMContentLoaded', async function () {
     const notesContainer = document.getElementById('notesContainer');
     const notesTab = document.getElementById('notesTab');
     const statsTab = document.getElementById('statsTab');
+    const feedbackLink = document.getElementById("feedback");
     const helpLink = document.getElementById('helpLink');
     const generatePerformanceReportButton = document.getElementById("generate-performance-report");
     const breakBtn = document.getElementById('break-button');
     const reportTooltip = document.getElementById('report-tooltip');
 
     // Load current settings
-    chrome.storage.local.get(['widgetChance', 'correctSATAnswers', 'incorrectSATAnswers', 'satNotes', 'lastBreak'], function (result) {
+    // Update stats display
+    // To-do: update functionality of vereyphing in this get request below this to like account for all of ts custom flashcards
+    
+    chrome.storage.local.get(['widgetChance', 'lastBreak', "satNotes", "userFlashCards"], function (result) {
         // Set widget chance slider
         const widgetChance = result.widgetChance || 0.1;
         widgetChanceSlider.value = widgetChance * 100;
@@ -141,25 +174,17 @@ document.addEventListener('DOMContentLoaded', async function () {
                 }
             }, 100);
         }
-        // Update stats display
-        const correct = result.correctSATAnswers || 0;
-        const incorrect = result.incorrectSATAnswers || 0;
-        const total = correct + incorrect;
-        const accuracy = total > 0 ? Math.round((correct / total) * 100) : 0;
-
-
-        statsDisplay.innerHTML = `
-        <p>- Correct answers: ${correct}</p>
-        <p>- Incorrect answers: ${incorrect}</p>
-        <p>- Total questions: ${total}</p>
-        <p>- Accuracy: ${accuracy}%</p>
-    `;
-
+        
+        // Render Stats
+        renderStats();
 
         // Load notes
-        const notes = result.satNotes || {};
+        let notes = result.satNotes || {};
+        result.userFlashCards.forEach((e) => {
+            notes = {...notes, ...e.notes};
+        })
         if (Object.keys(notes).length > 0) {
-            let notesHTML = '<details><summary class="heading">Your Notes</summary>';
+            let notesHTML = '<details open><summary class="heading">Your Notes</summary>';
 
 
             // Sort notes by timestamp (newest first)
@@ -220,7 +245,7 @@ document.addEventListener('DOMContentLoaded', async function () {
                 <sub>- No notes written yet, answer a few questions first. You'll write your first note when you fail a question. Remember, you can only grow if you're willing to fail :D</sub>`;
         }
     });
-
+    
 
     // Update display when slider changes
     widgetChanceSlider.addEventListener('input', function () {
@@ -244,6 +269,11 @@ document.addEventListener('DOMContentLoaded', async function () {
 
     helpLink.addEventListener('click', () => {
         chrome.tabs.create({ url: "https://flashysurf.com/onboarding", active: true });
+    })
+
+
+    feedbackLink.addEventListener('click', () => {
+        chrome.tabs.create({ url: "https://tally.so/r/mDjY2Z", active: true });
     })
 
 
@@ -273,4 +303,182 @@ document.addEventListener('DOMContentLoaded', async function () {
         generatePerformanceReportButton.disabled = true;
     }
 
+
+
+    // Custom Flashcard Code
+
+    let baseCollectionSchema = {
+        name: "",
+        active: false,
+        correctlyAnswered: [],
+        incorrectlyAnswered: [],
+        notes: [],
+        questions: [],
+        id: "UUID"
+    }
+    // Collection selection system
+    // Iterate through useer made collections and attach html elments with added listeners for all 3 buttons
+    function toggleCollection(e) {
+        chrome.storage.local.get("userFlashCards", (res) => {
+            res.userFlashCards.forEach((collection) => {
+                if (collection.id == e.id) {
+                    collection.active = !collection.active;
+                }
+            })
+            chrome.storage.local.set({ userFlashCards: res.userFlashCards}).then(renderStats);
+        })
+    }
+
+    function downloadCollection(e) {
+        chrome.storage.local.get("userFlashCards", (res) => {
+            res.userFlashCards.forEach((collection) => {
+                if (collection.id == e.id) {
+                    // Ive decided to start citing my stackoverflow stuff so uhh: https://stackoverflow.com/questions/19721439/download-json-object-as-a-file-from-browser 
+                    function downloadObjectAsJson(exportObj, exportName){
+                        var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(exportObj));
+                        var downloadAnchorNode = document.createElement('a');
+                        downloadAnchorNode.setAttribute("href",     dataStr);
+                        downloadAnchorNode.setAttribute("download", exportName + ".json");
+                        document.body.appendChild(downloadAnchorNode); // required for firefox
+                        downloadAnchorNode.click();
+                        downloadAnchorNode.remove();
+                    }
+
+                    downloadObjectAsJson({questions: collection.questions, id: collection.id, name: collection.name}, "flashsurf-collection- ("+collection.name+") - ("+collection.id+").flashysurfcollection");
+                }
+            })
+
+        })
+    }
+
+    function deleteCollection(e) {
+        if (confirm("Are you SURE you want to delete this collection, this action is IRREVERSIBLE. If you plan on editing it or using it later you should download it before deleting.")) {
+            chrome.storage.local.get("userFlashCards", async (res) => {
+                let deletionIndex = -1;
+                res.userFlashCards.forEach((collection) => {
+                    if (collection.id == e.id) {
+                        deletionIndex = res.userFlashCards.indexOf(collection);
+                    }
+                })
+                if (deletionIndex != -1) {
+                    console.log(res.userFlashCards.splice(deletionIndex, 1));
+                }
+            
+                await chrome.storage.local.set({ userFlashCards: res.userFlashCards});
+                renderStats();
+                e.remove();
+            });
+        }
+    }
+
+
+    // Attach card buttons and eventlisters
+    chrome.storage.local.get("userFlashCards", (res) => {
+        res.userFlashCards.forEach((collection) => {
+            let downloadButton, deleteButton;
+            let collectionElement = document.createElement('div');
+            collectionElement.classList.add("collection");
+            collectionElement.title = `Correct: ${collection.correctlyAnswered.length} | Incorrect: ${collection.incorrectlyAnswered.length} | Accuracy: ${Math.round(collection.correctlyAnswered.length * 100 /(collection.incorrectlyAnswered.length + collection.correctlyAnswered.length)) ? Math.round(collection.correctlyAnswered.length * 100 /(collection.incorrectlyAnswered.length + collection.correctlyAnswered.length)) : 0}%`  // Yes my code is that unreadable, sue me
+            collectionElement.textContent = collection.name;
+            collectionElement.id = collection.id;
+            let checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            collectionElement.appendChild(checkbox);
+            checkbox.checked = collection.active;
+            if (checkbox.checked) {
+                collectionElement.classList.add("selected");
+            }
+        
+            if (collection.id != "sat") {
+                downloadButton = document.createElement('button');
+                downloadButton.classList.add("download");
+                downloadButton.innerHTML = "&#10515;";
+                collectionElement.appendChild(downloadButton);
+                
+                deleteButton = document.createElement('button');
+                deleteButton.classList.add("delete");
+                deleteButton.innerHTML = "&#9473;";
+                collectionElement.appendChild(deleteButton);
+            }
+
+            document.getElementById('satFlashCards').after(collectionElement);
+ 
+            // Todo: Add event listners, disable download and delete button and make toggle button custom for sat cards
+            if (collection.id != "sat") {
+                checkbox.addEventListener('change', () => {
+                    collectionElement.classList.toggle("selected");
+                    toggleCollection(collectionElement);
+                });
+                
+                downloadButton.addEventListener('click', () => {
+                    downloadCollection(collectionElement);
+                });
+
+                deleteButton.addEventListener('click', () => {
+                    deleteCollection(collectionElement);
+                })
+            } else {
+                checkbox.addEventListener('change', () => {
+                    collectionElement.classList.toggle("selected");
+                    toggleCollection(collectionElement);
+                    chrome.storage.local.set({satCardsEnabled: checkbox.checked});
+                    Array.from(document.getElementsByClassName("hide-if-sat-disabled")).forEach((e) => {
+                        e.hidden = !checkbox.checked;
+                    })
+                });
+            }
+
+        })
+    });
+
+
+    document.getElementById("addCollection").addEventListener('click', () => {
+            // Send message to content script
+            chrome.tabs.sendMessage(tab.id, {
+                action: "addCollection",
+                data: undefined
+            }, (response) => {
+                // console.log("DOM modified:", response);
+            window.close();
+            });
+
+    });
+    
+    chrome.storage.local.get("satCardsEnabled", (res) => {
+        Array.from(document.getElementsByClassName("hide-if-sat-disabled")).forEach((e) => {
+            if (!res.satCardsEnabled) {
+                e.hidden = true;
+            }
+        })
+    })
+    // Add flashcard collection button
+        // Shows html popup widget of upload collection button, and it should be split up into like 2 sections, one with a big plus that is like click to upload collection, and another that is like text that explains flashccard collections, how to edit them (download, delete, reupload), how to create them and how to import them, ill make a webpage on my website whre users can create and upload and import collections on the website
+
+
+    /* Old prompt:    
+
+    now I'm working on custom flashcard collections, write the js in popup.js for selecting flashcards with the checkbox, also for downloading flashcards (it should only download the questions array as json), deleting collections (you hsould add a confirmation popup that says the flashcards and user data will be permanetly deleted),  also i left the sat flascards as a temp for how i want the ui to look, however when the sat flashcards are toggled unlike other flashcards they should be able to be downloaded or deleted and when theyre toggled it should only affect the satCardsEnabled variable, also when someone switches selected flashcards, it should alter which stats are shown, like thier stats should only show the combined stats and notes of the currently selected flashcard collections, and make sure it is known that the generate performance reportts button only works for SAT flashcards, and also if sat flashcards are deselected the the whole performance reports section should be hidden
+
+flashcard collection schema: 
+
+"    {
+
+        active: false,
+
+        correctlyAnswered: [],
+
+        incorrectlyAnswered: [],
+
+        notes: [],
+
+        questions: [],
+
+        id: "UUID"
+
+    }"
+
+the whole point of this is for us to work towards releasing v2.0 where users are allowed to upload thier own custom flashcard collections */
+
+    
 });
+

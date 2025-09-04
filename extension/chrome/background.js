@@ -2,7 +2,7 @@ chrome.runtime.onInstalled.addListener(() => {
     console.log('FlashySurf extension installed');
     chrome.tabs.create({ url: "https://flashysurf.com/onboarding", active: true });
 
-    chrome.storage.local.get(['correctSATAnswers', 'incorrectSATAnswers', 'forceCard', 'widgetChance', 'devMode', 'lastCompleted', 'satNotes', 'answeredQuestions', 'lastBreak', 'failedQuestions', "uID", 'performanceReport'], (result) => {
+    chrome.storage.local.get(['correctSATAnswers', 'incorrectSATAnswers', 'forceCard', 'widgetChance', 'devMode', 'lastCompleted', 'satNotes', 'answeredQuestions', 'lastBreak', 'failedQuestions', "uID", 'performanceReport', 'userFlashCards', 'satCardsEnabled', 'flashCardDevModeNum'], (result) => {
       if (result.correctSATAnswers === undefined) {
         chrome.storage.local.set({ correctSATAnswers: 0 });
       }
@@ -41,6 +41,23 @@ chrome.runtime.onInstalled.addListener(() => {
         chrome.storage.local.set({ performanceReport: {"image": undefined, "timestamp": 0} });
       }
       
-
+      if (result.userFlashCards === undefined) {
+        chrome.storage.local.set({ userFlashCards: [{
+        name: "SAT Flashcards",
+        active: true,
+        correctlyAnswered: [],
+        incorrectlyAnswered: [],
+        notes: {},
+        questions: [],
+        id: "sat"
+    }] });
+      }
+      
+      if (result.satCardsEnabled === undefined) {
+        chrome.storage.local.set({ satCardsEnabled: true });
+      }
+      if (result.flashCardDevModeNum === undefined) {
+        chrome.storage.local.set({ flashCardDevModeNum: -1 });
+      }
     });
   });
