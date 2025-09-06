@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "FlashySurf - Flash Cards for Passive Study",
     "version": "2.0",
-    "description": "Study without every studying | Formerly a simple SAT study tool, flashysurf v2.0 expands into a full study tool where anyone can study anything simply by browsing the web with passive learning flash cards",
+    "description": "Study without ever Studying | Flashysurf v2.0 is an advanced study tool where anyone can learn passively via web browsing flashcards",
     "author": "MaxDev",
     "icons": {
       "16": "icons/16x16.png",
