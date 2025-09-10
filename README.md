@@ -109,8 +109,9 @@ By integrating practice into your daily browsing, you'll build familiarity with 
 # Changelog
 ## 2.0
 ### 2.0.1
-   - Minor bugfix:
+   - Minor & Major bugfixes:
       - Fixed ui bug that pushed fflashcard collections into ttitle itself for some reason.
+      - Fixed bug that crashes script if no collections are enabled
 
 ### 2.0
    - FINALLY DONE! (Kinda).

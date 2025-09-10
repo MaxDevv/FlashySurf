@@ -23,6 +23,9 @@
     console.log(userFlashCards);
     let selectedFlashcards = userFlashCards[Math.floor(Math.random() * userFlashCards.length)];
     function reallyDumbUneededRecursionForSelectingCollections(recursionLevel = 0) {
+        if (userFlashCards.length == 0) {
+            return;
+        }
         if (recursionLevel > 10) {
             throw new Error("reallyDumbUneededRecursionForSelectingCollections repeated 10 times.");
             return;
@@ -52,6 +55,11 @@
     let randomWidget;
     let answeredPage = false;
     function fetchDataset() {
+        if (userFlashCards.length == 0) {
+            return new Promise((resolve, reject) => {
+                resolve([]); 
+            });
+        }
         if (config.satMode) {
             // old sat functionality
             return new Promise((resolve, reject) => {
@@ -372,11 +380,13 @@
 
         // Usage (replaces the original code block):
         console.log("Selecting Flashcard...")
-        selectFlashcard(flashcardList).then(selectedFlashcard => {
-            console.log("Flashcard Selected!")
-            flashcard = selectedFlashcard;
-            console.log(flashcard);
-        });
+        if (userFlashCards.length != 0) {
+            selectFlashcard(flashcardList).then(selectedFlashcard => {
+                console.log("Flashcard Selected!")
+                flashcard = selectedFlashcard;
+                console.log(flashcard);
+            });
+        }
 
 
         function createReportChoiceWidget() {
@@ -1535,7 +1545,7 @@
         }
         
         chrome.storage.local.get(['forceCard', 'widgetChance', 'lastBreak', 'lastCompleted'], function (result) {
-            if ((Number(Date.now()) > (result.lastBreak + 30 * 60 * 1000)) && (Number(Date.now()) > (result.lastCompleted + 3 * 60 * 1000))) {
+            if ((Number(Date.now()) > (result.lastBreak + 30 * 60 * 1000)) && (Number(Date.now()) > (result.lastCompleted + 3 * 60 * 1000)) && (userFlashCards.length != 0)) {
 
                 console.log("Running");
                 let v = Math.random();
