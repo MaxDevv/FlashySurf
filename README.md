@@ -2,7 +2,7 @@
   <img src="https://github.com/MaxDevv/FlashySurf/blob/main/Images/new-marquee.jpg?raw=true" alt="Marquee">
 </p>
 
-# FlashySurf - Flash Cards for Passive Study
+# FlashySurf - Study without ever Studying
 
 FlashySurf is a browser extension that helps you study any subject while you browse the web. With v2.0, FlashySurf expands beyond SAT preparation to support custom flashcard collections, allowing you to study anything through passive learning integrated into your regular browsing experience.
 
@@ -108,6 +108,10 @@ By integrating practice into your daily browsing, you'll build familiarity with 
 
 # Changelog
 ## 2.0
+### 2.0.1
+   - Minor bugfix:
+      - Fixed ui bug that pushed fflashcard collections into ttitle itself for some reason.
+
 ### 2.0
    - FINALLY DONE! (Kinda).
    - Okay, lemme explain: FlashySurf V1 has been fully focused on the SAT, focused on only studying the sat, but after seeing the 60-100 point increases from multiple friends, reviews and even myself, I decided that flashysurf should grow beyond just the SAT, and that is V2.0
