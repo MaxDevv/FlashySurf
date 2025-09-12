@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/MaxDevv/FlashySurf/blob/main/Images/new-marquee.jpg?raw=true" alt="Marquee">
+  <img src="https://github.com/MaxDevv/FlashySurf/blob/main/Images/new-marquee.png?raw=true" alt="Marquee">
 </p>
 
 # FlashySurf - Study without ever Studying
