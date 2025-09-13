@@ -1,0 +1,122 @@
+FlashySurf V2.0: Study Without Ever Studying
+
+Transform your everyday web browsing into productive study time! Formerly a simple SAT study tool, FlashySurf v2.0 expands into a full study tool where anyone can study anything simply by browsing the web with passive learning flash cards. Users can Now create custom flashcard collections or use our built-in SAT question bank. No more dedicated study sessions, learn while you browse naturally.
+
+HOW IT WORKS:
+├── 🎯 Flashcards appear intelligently while you browse (algorithm adapts to your weak areas)
+├── 📚 NEW: Create custom flashcard collections for any subject or use built-in SAT questions
+├── ✅ Answer questions to test your knowledge across multiple subjects
+├── 🔄 Get immediate feedback with detailed explanations
+├── 📒 Take notes on incorrect answers to reinforce learning
+├── 🧠 Advanced algorithm analyzes mistakes and targets your weaknesses
+├── 📊 Generate personalized visual performance reports (SAT mode)
+└── 🌐 Learn passively as you continue your normal online activities
+
+KEY FEATURES:
+├── 🆕 v2.0: Custom Flashcard Collections - Create, import, and manage flashcards for ANY subject.
+├── AI Collections: Users can now convert any document, text or desired topic into flashcard collections with our new AI tool.
+├── 📤 Collection Management - Import/export collections, enable/disable specific sets
+├── 📈 Personalized Performance Reports (SAT) - Visual reports identifying your top 3 weakest areas
+├── 🧮 Built-in SAT question bank with Math and English coverage
+├── 📊 Performance tracking across all active collections with accuracy badges
+├── 📝 Note-taking system with review capability for incorrect answers
+├── ⏱️ Customizable frequency - control how often flashcards appear
+├── 🔔 Non-intrusive design using Shadow DOM for consistent appearance
+├── 💡 Detailed explanations for every answer
+├── ⏸️ Break timer - pause flashcards for 30 minutes when you need focus
+├── 🔄 Smart question rotation preventing repetition
+├── 🎯 Advanced semantic clustering (SAT) - 87 topic clusters for precise weakness targeting
+└── 🧠 Spaced repetition methodology for optimal retention
+
+PERFECT FOR:
+├── 📖 Anyone wanting to learn passively while browsing
+├── 🎓 Students preparing for the SAT exam, aiming for a high SAT score (1500+) without intensive study sessions.
+├── 💼 Professionals studying certifications or new skills
+├── 🌍 Language learners building vocabulary
+├── 🔬 Students reviewing course material
+├── 🏆 High achievers maximizing study efficiency
+├── 👥 Study groups sharing custom flashcard collections
+└── ⏰ Busy individuals who want productive browsing time
+
+FlashySurf uses principles spaced repetition and adaptive learning to help you absorb content gradually. By integrating practice into daily browsing, you build knowledge without dedicated study sessions. Create collections for any subject—languages, history, science, professional certifications, or use our comprehensive SAT question bank. For SAT users it is recommended that you install FlashySurf months in advance before your SAT.
+
+### Advanced Learning Approach
+- **Semantic Clustering**: Questions are grouped into 87 topic clusters using advanced similarity analysis (SAT mode)
+- **Adaptive Targeting**: The system identifies your least accurate topic areas and increases exposure to similar questions
+- **Performance-Based Selection**: Question difficulty and topic selection adapt based on your historical performance
+
+RECENT UPDATES:
+
+v2.0.2 (September 2025) - Minor bugfix & change:
+• Fixed collection button popup issue on chrome managed sites and new tab page
+• Made flascard height larger to improve user experience
+
+v2.0.1 (September 2025) - Minor & Major bugfixes:
+• Fixed UI bug that pushed flashcard collections into title
+• Fixed bug that crashes script if no collections are enabled
+
+v2.0 (September 2025) - EVEN MORE MAJOR UPDATE :D
+• MAJOR: Transformed from SAT-only to general-purpose study platform
+• Custom Flashcard System: Create, import, export, and manage collections for any subject
+• AI Collections: Users can now convert any document, text or desired topic into flashcard collections with our new AI tool.
+• Drag-and-drop collection uploads with JSON support
+• Enable/disable specific collections with visual indicators
+• Enhanced statistics aggregating data across all active collections
+• Redesigned popup interface with modern collection management
+• Maintained full SAT functionality with all previous features
+
+
+v1.9.0 (August 2025) - MAJOR UPDATE :D
+• NEW: Personalized Performance Reports - Generate detailed visual reports showing your top 3 weakest topic areas
+• Enhanced weakness-targeting algorithm
+• Major UI overhaul with improved flashcard styling and consistent appearance across all websites
+• Redesigned settings popup with cleaner layout and collapsible sections
+• Fixed critical bug where correctly answered questions continued appearing as review questions
+• Improved question selection probabilities (50%/35%/15% split for optimal learning balance)
+
+v1.8.0 (July 2025)
+• Major algorithm enhancement with advanced semantic clustering
+• Implemented 87-cluster system grouping questions by topic similarity
+• Intelligent weakness targeting: 35% questions similar to previously failed ones
+• Enhanced question variety with 50%/35%/15% split (new/similar to failed/direct review)
+• Advanced performance analytics tracking specific topic weaknesses
+• Fixed 30-minute break button activation issue
+
+v1.7.0 (July 2025)
+• Implemented intelligent question selection with 60/40 split between new and failed questions
+• Added failed questions tracking to focus on areas needing improvement
+• Enhanced question avoidance algorithm to prevent recent repetition
+• Optimized performance with promise-based asynchronous handling
+
+v1.6.0 (May 2025)
+• Added 30-minute break timer feature with 4-hour cooldown
+• Implemented question ID tracking to prevent repetition
+• Enhanced storage management for answered questions
+• Improved overall performance and reliability
+
+v1.5.0 (May 2025)
+• Added note-taking feature for incorrect answers
+• Implemented note review system with timestamp sorting
+• Added minimum word count validator for meaningful reflection
+• Improved widget closing logic and user interface
+
+QUESTION SELECTION ALGORITHM:
+• 50% New Questions: Fresh content avoiding recent answers
+• 35% Targeted Practice: Questions similar to your struggles (using semantic clustering for SAT)
+• 15% Review Questions: Direct review of previously incorrect answers
+
+INSTALLATION:
+Available on Chrome Web Store or manual installation via GitHub. Create your first custom collection or start with our SAT question bank immediately after installation!
+
+### Browser Extension (Recommended)
+1. Visit the Chrome Web Store: https://chromewebstore.google.com/detail/ldajenfdgimgdajklkohhljdgdalcedb
+2. Search for "FlashySurf" and click "Add to Browser"
+
+### Manual Installation (Developer Mode)
+1. Download the extension files from GitHub
+2. In Chrome/Edge, go to `chrome://extensions/` or `edge://extensions/`
+3. Enable "Developer mode" and click "Load unpacked" to select the extension folder
+
+START LEARNING PASSIVELY TODAY—TRANSFORM YOUR BROWSING TIME INTO STUDY TIME!
+
+*PRIVACY NOTE: FlashySurf generates performance reports using anonymous usage data (question statistics only). No personal information, browsing history, or identifiable data is collected. Performance reports are generated only with user permission.*

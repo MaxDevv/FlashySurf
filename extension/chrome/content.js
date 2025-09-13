@@ -621,7 +621,7 @@
                     color: black !important;
                 }
                 .title { font-weight: bold; font-size: large; }
-                .limited { max-height: 10em; overflow-y: scroll; }
+                .limited { max-height: 45vh; overflow-y: scroll; }
                 .choices { display: flex; flex-direction: column; gap: 0.2em; }
                 .choice {
                     padding: 2px 4px;
