@@ -1583,6 +1583,13 @@
                     sendResponse({success: false});
             }
         });
+
+        chrome.storage.local.get("forceAddCollection", (result) => {
+            if (result.forceAddCollection) {
+                chrome.storage.local.set({ forceAddCollection: false });
+                showAddCollectionPopup();
+            }
+        })
         // Create stats badge
         /*
         chrome.storage.local.get(['correctSATAnswers', 'incorrectSATAnswers', 'devMode'], function(result) {

@@ -108,6 +108,9 @@ By integrating practice into your daily browsing, you'll build familiarity with 
 
 # Changelog
 ## 2.0
+### 2.0.2
+   - Minor bugfix:
+      - On some sites like chrome managed sites or the new tab site, the add collection button wouldnt work and that confused users, so I made it popup with the flashysurf website and open the add collection there on the chance that did happen
 ### 2.0.1
    - Minor & Major bugfixes:
       - Fixed ui bug that pushed fflashcard collections into ttitle itself for some reason.

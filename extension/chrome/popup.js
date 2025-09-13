@@ -433,14 +433,21 @@ document.addEventListener('DOMContentLoaded', async function () {
 
 
     document.getElementById("addCollection").addEventListener('click', () => {
-            // Send message to content script
-            chrome.tabs.sendMessage(tab.id, {
-                action: "addCollection",
-                data: undefined
-            }, (response) => {
-                // console.log("DOM modified:", response);
-            window.close();
-            });
+
+        // Send message to content script
+        chrome.tabs.sendMessage(tab.id, {
+            action: "addCollection",
+            data: undefined
+        }, (response) => {
+            if (response === undefined) {
+
+                chrome.tabs.create({ url: "https://flashysurf.com/creator", active: true });
+                chrome.storage.local.set({"forceAddCollection": true});
+            } else  {
+                window.close();
+            }
+        });
+        
 
     });
     
