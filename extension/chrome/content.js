@@ -313,8 +313,8 @@
                     }
                 }
                 console.log(num);
-                if (num < 0.475) {
-                    // 47.5% chance to give a regular question (avoiding answered ones)
+                if (num < 0.45) {
+                    // 45% chance to give a regular question (avoiding answered ones)
                     console.log("New random question :D");
                     if (config.satMode) {
                         chrome.storage.local.get(['answeredQuestions'], async (res) => {
@@ -327,21 +327,22 @@
                         const flashcard = await getRegularFlashcard(flashcardList, selectedFlashcards.correctlyAnswered); // Should test Im not sure if this'll work lol
                         resolve(flashcard);
                     }
-                } else if (num < 0.475 + 0.35) {
+                } else if (num < 0.45 + 0.35) {
                     // 35% chance to give a question **simmilar** to a previously failed question
                     if (!config.useSemanticSimmilarity) {
                         selectFlashcard(flashcardList).then(selectedFlashcard => {
                             resolve(selectedFlashcard);
                         });
+                    } else { // Fixes bug where I made the mistake that i thought the resolve function acted as a return function, and that broke the code, when the SATMODE function was called when it wasnt supposed to, giving us 35% less flashcards cuz of the bug
+                        console.log("Semantically simmilar question to a previously failed question :D")
+                        chrome.storage.local.get(['failedQuestions', 'answeredQuestions', 'satNotes', 'correctSATAnswers', 'incorrectSATAnswers'], async (res) => {
+                            const failedQuestions = res.failedQuestions || [];
+                            const answeredQuestions = res.answeredQuestions || [];
+                            const flashcard = await getSATStruggleQuestion(flashcardList, failedQuestions, answeredQuestions, res.correctSATAnswers, res.incorrectSATAnswers, res.satNotes);
+                            resolve(flashcard);
+                        });
                     }
-                    console.log("Semantically simmilar question to a previously failed question :D")
-                    chrome.storage.local.get(['failedQuestions', 'answeredQuestions', 'satNotes', 'correctSATAnswers', 'incorrectSATAnswers'], async (res) => {
-                        const failedQuestions = res.failedQuestions || [];
-                        const answeredQuestions = res.answeredQuestions || [];
-                        const flashcard = await getSATStruggleQuestion(flashcardList, failedQuestions, answeredQuestions, res.correctSATAnswers, res.incorrectSATAnswers, res.satNotes);
-                        resolve(flashcard);
-                    });
-                } else if (num < 0.475 + 0.35 + 0.15) {
+                } else if (num < 0.45 + 0.35 + 0.15) {
                     // 15% chance to give a previously failed question
                     console.log("Previously failed question :D");
                     if (config.satMode) {
@@ -356,18 +357,30 @@
                         const flashcard = await getFailedQuestionFlashcard(flashcardList, selectedFlashcards.correctlyAnswered, selectedFlashcards.incorrectlyAnswered);
                         resolve(flashcard);
                     }
-                } else if (num < 0.475 + 0.35 + 0.15 + 0.025) {
+                } else if (num < 0.45 + 0.35 + 0.15 + 0.025) {
                     if (!config.satMode) {
                         selectFlashcard(flashcardList).then(selectedFlashcard => {
                             resolve(selectedFlashcard);
                         });
+                    } else {
+                        // 2.5% Chance to show user popup asking to generate score report if possible and not already done in last 12 hours
+                        chrome.storage.local.get(["performanceReport"], async (res) => {
+                            let canRender = res.performanceReport.timestamp < Date.now() + (12 * 60 * 60 * 1000);
+                            let performanceReport = await generatePerformanceReport()
+                            if (canRender && performanceReport) {
+                                resolve("Performance Report");
+                            } else {
+                                selectFlashcard(flashcardList).then(selectedFlashcard => {
+                                    resolve(selectedFlashcard);
+                                });
+                            }
+                        })
                     }
+                } else if (num < 0.45 + 0.35 + 0.15 + 0.025 + 0.025) {
                     // 2.5% Chance to show user popup asking to generate score report if possible and not already done in last 12 hours
-                    chrome.storage.local.get(["performanceReport"], async (res) => {
-                        let canRender = res.performanceReport.timestamp < Date.now() + (12 * 60 * 60 * 1000);
-                        let performanceReport = await generatePerformanceReport()
-                        if (canRender && performanceReport) {
-                            resolve("Performance Report");
+                    chrome.storage.local.get(["nextShareRequest"], async (res) => {
+                        if (Date.now() > res.nextShareRequest) {
+                            resolve("Share Request");
                         } else {
                             selectFlashcard(flashcardList).then(selectedFlashcard => {
                                 resolve(selectedFlashcard);
@@ -541,12 +554,195 @@
             render();
             document.body.appendChild(widgetEl);
         }
+        
+        function createShareRequestWidget() {
+            let forcePause;
+            // Start pausing any background videos.
+            if (!forcePause) {
+                forcePause = setInterval(() => {
+                    document.querySelectorAll('video').forEach(vid => vid.pause());
+                }, 100);
+            }
 
+            // --- Create the Widget Container and Shadow DOM ---
+            const widgetEl = document.createElement('div');
+            widgetEl.id = 'flashySurf-share-request-widget';
+            const shadow = widgetEl.attachShadow({ mode: 'closed' });
+
+            // --- Define Styles for the Widget ---
+            const styles = document.createElement('style');
+            styles.textContent = `
+                :host {
+                    all: initial;
+                }
+                .background {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100vw;
+                    height: 100vh;
+                    background-color: rgba(0, 0, 0, 0.7); /* Darker, more focused background */
+                    z-index: 2147483646; /* High but standard max z-index */
+                }
+                .widget {
+                    position: fixed;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 450px; /* Fixed width for better control */
+                    max-width: 90vw;
+                    border-radius: 16px;
+                    padding: 24px;
+                    background-color: #ffffff;
+                    border: 1px solid #e0e0e0;
+                    display: flex;
+                    flex-direction: column;
+                    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+                    gap: 20px;
+                    box-shadow: 0px 10px 40px rgba(0,0,0,0.15);
+                    z-index: 2147483647;
+                    color: #333333;
+                }
+                .title { 
+                    font-weight: 600; 
+                    font-size: 1.1em; 
+                    color: #111;
+                }
+                .message {
+                    font-size: 0.95em;
+                    line-height: 1.6;
+                    margin: 0;
+                }
+                .message strong {
+                    font-weight: 600;
+                }
+                .button-container {
+                    display: flex;
+                    justify-content: space-between;
+                    gap: 12px;
+                }
+                .button {
+                    flex-grow: 1;
+                    padding: 10px 16px;
+                    border-radius: 8px;
+                    border: 1px solid transparent;
+                    cursor: pointer;
+                    font-weight: 500;
+                    font-size: 0.9em;
+                    transition: background-color 0.2s, border-color 0.2s;
+                }
+                .dismiss-button {
+                    background-color: #f0f0f0;
+                    color: #555;
+                    border-color: #dcdcdc;
+                }
+                .dismiss-button:hover {
+                    background-color: #e0e0e0;
+                }
+                .support-button {
+                    background-color: #28a745; /* Green */
+                    color: white;
+                }
+                .support-button:hover {
+                    background-color: #218838;
+                }
+                .ps-container {
+                    border-top: 1px solid #eee;
+                    padding-top: 16px;
+                    margin-top: 4px;
+                    font-size: 0.85em;
+                    color: #666;
+                }
+                .power-session-button {
+                    display: inline-block;
+                    margin-top: 8px;
+                    padding: 8px 14px;
+                    border-radius: 6px;
+                    background-color: #007bff; /* Blue */
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                    font-weight: 500;
+                }
+                .power-session-button:hover {
+                    background-color: #0069d9;
+                }
+            `;
+
+            function render() {
+                shadow.innerHTML = `
+                    <div class="background"></div>
+                    <div class="widget">
+                        <div class="title">A quick message from the developer</div>
+                        <p class="message">
+                            Hi, I'm Max. I'm the solo dev behind FlashySurf.
+                            <br><br>
+                            I love working on this, but getting the word out is tough on my own. If you're finding FlashySurf useful, the best way you can support it is by sharing it with a friend, classmate or a fellow learner.
+                            <br><br>
+                            Please consider doing so, if you can think of anyone who might be interested in something like this, just a quick message to spread the word would mean <strong>a world of help</strong>, and it'd lets me focus on building features instead of running ads.
+                        </p>
+                        <div class="button-container">
+                            <button class="button dismiss-button" id="dismissButton-flashySurf">Don't show this again</button>
+                            <button class="button support-button" id="supportButton-flashySurf">I'll help spread the word</button>
+                        </div>
+                    </div>
+                `;
+                shadow.appendChild(styles);
+
+                // --- Attach Event Listeners ---
+                const dismissButton = shadow.getElementById('dismissButton-flashySurf');
+                const supportButton = shadow.getElementById('supportButton-flashySurf');
+                const background = shadow.querySelector('.background');
+
+                const closeWidget = () => {
+                    widgetEl.remove();
+                    clearInterval(forcePause);
+                };
+                
+                // Dismiss button functionality
+                if (dismissButton) {
+                    dismissButton.addEventListener('click', () => {
+                        // TODO: Your logic here. 
+                        // Set a flag in localStorage to prevent this from showing again.
+                        chrome.storage.local.set({'nextShareRequest': Date.now() + (60 * 24 * 60 * 60 * 1000)});
+                        // Mixpanel event
+                        console.log("User chose not to see this message again.");
+                        closeWidget();
+                    });
+                }
+
+                // Support button functionality
+                if (supportButton) {
+                    supportButton.addEventListener('click', () => {
+                        // TODO: Your logic here.
+                        // You could present a shareable link, or just use this as a positive signal.
+                        // It's mainly for user affirmation, but you could track this click.
+
+                        chrome.storage.local.set({'nextShareRequest': Date.now() + (10 * 24 * 60 * 60 * 1000)})
+                        console.log("User pledged to share!");
+                        closeWidget();
+                    });
+                }
+
+                // Allow clicking the background to close the widget
+                // if(background) {
+                //     background.addEventListener('click', closeWidget);
+                // }
+            }
+
+            // --- Final Steps ---
+            render();
+            document.body.appendChild(widgetEl);
+        }
         function createFlashcardWidget(flashcard) {
             chrome.storage.local.set({ 'forceCard': true });
 
             if (flashcard == "Performance Report") {
                 createReportChoiceWidget();
+                return;
+            } else if (flashcard == "Share Request") {
+                
+                createShareRequestWidget();
                 return;
             }
 

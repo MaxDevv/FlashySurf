@@ -108,6 +108,13 @@ By integrating practice into your daily browsing, you'll build familiarity with 
 
 # Changelog
 ## 2.0
+
+### 2.0.3
+   - Minor bugfixes & Changes:
+      - Add share request popup to encourage users to share the extension. 
+      - Fix bug in flashcard selection logic that reduced flashcards appearances by 35% below expected due to semantic similarity branch not working in SAT mode. 
+      - Adjust probability thresholds: 45% regular, 35% semantically similar, 15% failed, 5% special.
+
 ### 2.0.2
    - Minor bugfixes & Changes:
       - On some sites like chrome managed sites or the new tab site, the add collection button wouldnt work and that confused users, so I made it popup with the flashysurf website and open the add collection there on the chance that did happen

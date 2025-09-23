@@ -47,6 +47,11 @@ FlashySurf uses principles spaced repetition and adaptive learning to help you a
 
 RECENT UPDATES:
 
+v2.0.3 (September 2025) - Minor bugfixes & Changes:
+• Added share request popup to encourage users to share the extension
+• Fixed flashcard selection logic bug that reduced appearances by 35% below expected
+• Adjusted probability thresholds: 45% regular, 35% semantically similar, 15% failed, 5% special
+
 v2.0.2 (September 2025) - Minor bugfix & change:
 • Fixed collection button popup issue on chrome managed sites and new tab page
 • Made flascard height larger to improve user experience

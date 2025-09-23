@@ -2,7 +2,7 @@ chrome.runtime.onInstalled.addListener(() => {
     console.log('FlashySurf extension installed');
     chrome.tabs.create({ url: "https://flashysurf.com/onboarding", active: true });
 
-    chrome.storage.local.get(['correctSATAnswers', 'incorrectSATAnswers', 'forceCard', 'widgetChance', 'devMode', 'lastCompleted', 'satNotes', 'answeredQuestions', 'lastBreak', 'failedQuestions', "uID", 'performanceReport', 'userFlashCards', 'satCardsEnabled', 'flashCardDevModeNum', 'forceAddCollection'], (result) => {
+    chrome.storage.local.get(['correctSATAnswers', 'incorrectSATAnswers', 'forceCard', 'widgetChance', 'devMode', 'lastCompleted', 'satNotes', 'answeredQuestions', 'lastBreak', 'failedQuestions', "uID", 'performanceReport', 'userFlashCards', 'satCardsEnabled', 'flashCardDevModeNum', 'forceAddCollection', 'nextShareRequest'], (result) => {
       if (result.correctSATAnswers === undefined) {
         chrome.storage.local.set({ correctSATAnswers: 0 });
       }
@@ -62,6 +62,12 @@ chrome.runtime.onInstalled.addListener(() => {
 
       if (result.forceAddCollection === undefined) {
         chrome.storage.local.set({ forceAddCollection: false });
+      }
+      if (result.forceAddCollection === undefined) {
+        chrome.storage.local.set({ forceAddCollection: false });
+      }
+      if (result.nextShareRequest === undefined) {
+        chrome.storage.local.set({nextShareRequest: Date.now() + (5 * 24 * 60 * 60 * 1000)});
       }
     });
   });
