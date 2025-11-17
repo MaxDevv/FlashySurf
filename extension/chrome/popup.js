@@ -402,7 +402,8 @@ document.addEventListener('DOMContentLoaded', async function () {
                 collectionElement.appendChild(deleteButton);
             }
 
-            document.getElementById('flashCardTitle').after(collectionElement);
+            // document.getElementById('flashCardTitle').after(collectionElement);
+            document.getElementById('collections').appendChild(collectionElement);
  
             // Todo: Add event listners, disable download and delete button and make toggle button custom for sat cards
             if (collection.id != "sat") {

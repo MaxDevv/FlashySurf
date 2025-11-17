@@ -5,8 +5,8 @@
     <title>FlashySurf Settings</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            width: 300px;
+            /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+            width: 400px;
             padding: 15px;
         }
         h1 {
@@ -174,11 +174,19 @@
             display: flex;
             white-space: nowrap;
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
             flex-wrap: wrap;
-            align-items: center;
-
+            /* align-items: center; */
+            .collections {
+                padding-left: 1em;
+                margin-top: -2em;
+                display: flex;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
             .collection {
+                width: fit-content;
                 cursor: pointer;
                 opacity: 65%;
                 border: 1px solid #000000;
@@ -255,6 +263,11 @@
             margin-bottom: 1.25em;
         }
 
+        sub {
+            font-size: 0.75rem;
+            opacity: 75%;
+        }
+
     </style>
 </head>
 <body>
@@ -299,7 +312,10 @@
         <h3 id="flashCardTitle">Flashcard Collections:</h3><br>
         
         <!-- Custom Flascard collections -->
+        <div id="collections" class="collections">
 
+        </div>
+         
          <button id="addCollection">&#10133; Add/Update/Edit Flashcard Collection</button>
          <sub style="padding-top: 1em;">Tip: You can hover over flashcard collections to see indivdual stats</sub>
     </div>

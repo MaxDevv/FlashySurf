@@ -47,6 +47,11 @@ FlashySurf uses principles spaced repetition and adaptive learning to help you a
 
 RECENT UPDATES:
 
+v2.0.5 (November 2025) - Minor UI bugfixes:
+• Fixed flashcard collections layout display
+• Increased popup width to 400px for better spacing
+• Improved update vs install event handling
+
 v2.0.4 (September 2025) - Lil Feature addition ;D:
 • Added custom website exclusion feature allowing users to specify websites where flashcards won't appear
 

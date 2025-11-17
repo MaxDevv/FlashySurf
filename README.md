@@ -109,6 +109,12 @@ By integrating practice into your daily browsing, you'll build familiarity with 
 # Changelog
 ## 2.0
 
+### 2.0.5
+   - Minor UI bugfixes:
+      - Fixed flashcard collections layout display
+      - Increased popup width to 400px for better spacing
+      - Improved update vs install event handling
+
 ### 2.0.4
    - Lil Feature addition ;D
       - Added custom website exclusion feature allowing users to specify websites where flashcards won't appear
