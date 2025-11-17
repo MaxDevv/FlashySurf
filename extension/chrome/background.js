@@ -69,5 +69,9 @@ chrome.runtime.onInstalled.addListener(() => {
       if (result.nextShareRequest === undefined) {
         chrome.storage.local.set({nextShareRequest: Date.now() + (5 * 24 * 60 * 60 * 1000)});
       }
+
+      if (result.ignoreUrls === undefined) {
+        chrome.storage.local.set({ignoreUrls: []});
+      }
     });
   });

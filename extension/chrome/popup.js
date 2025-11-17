@@ -148,6 +148,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     const generatePerformanceReportButton = document.getElementById("generate-performance-report");
     const breakBtn = document.getElementById('break-button');
     const reportTooltip = document.getElementById('report-tooltip');
+    const ignoreUrls = document.getElementById('ignoreUrls');
 
     // Load current settings
     // Update stats display
@@ -458,6 +459,39 @@ document.addEventListener('DOMContentLoaded', async function () {
             }
         })
     })
+
+
+    ignoreUrls.addEventListener('input', () => {
+        function getHostname(input) {
+            try {
+                // If the input doesn't have a scheme, prepend "http://"
+                let url = input.match(/^https?:\/\//) ? input : `http://${input}`;
+                
+                // Use the built-in URL class to parse
+                let parsed = new URL(url);
+                return parsed.hostname;
+            } catch (e) {
+                console.error("Invalid URL:", input);
+                return null;
+            }
+        }
+        ignoreUrlList = [];
+
+        for (const line of ignoreUrls.value.split(/\r?\n/)) {
+            if (getHostname(line)) {
+                ignoreUrlList.push(getHostname(line));
+            }
+        }
+
+        chrome.storage.local.set({ 'ignoreUrls': ignoreUrlList });
+    });
+
+    chrome.storage.local.get(['ignoreUrls'], function (result) {
+        if (result.ignoreUrls.length > 0) {
+            ignoreUrls.value = result.ignoreUrls.join("\n");
+        }
+
+    });
     // Add flashcard collection button
         // Shows html popup widget of upload collection button, and it should be split up into like 2 sections, one with a big plus that is like click to upload collection, and another that is like text that explains flashccard collections, how to edit them (download, delete, reupload), how to create them and how to import them, ill make a webpage on my website whre users can create and upload and import collections on the website
 
@@ -486,6 +520,11 @@ flashcard collection schema:
 
 the whole point of this is for us to work towards releasing v2.0 where users are allowed to upload thier own custom flashcard collections */
 
+        var textAreas = document.getElementsByTagName('textarea');
+
+        Array.prototype.forEach.call(textAreas, function(elem) {
+            elem.placeholder = elem.placeholder.replace(/\\n/g, '\n');
+        });
     
 });
 

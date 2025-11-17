@@ -13,7 +13,7 @@
     config.devMode = await chrome.storage.local.get("devMode");
     let satCardsEnabled = await chrome.storage.local.get("satCardsEnabled");
     config.satMode = satCardsEnabled.satCardsEnabled;
-    if (config.devMode) {
+    if (!config.devMode) {
         console.log = function () {};
     }
     // i think itd be best to randomly select one flascard collection first, then do all the rest of the code working off that
@@ -1740,7 +1740,7 @@
         
         }
         
-        chrome.storage.local.get(['forceCard', 'widgetChance', 'lastBreak', 'lastCompleted'], function (result) {
+        chrome.storage.local.get(['forceCard', 'widgetChance', 'lastBreak', 'lastCompleted', 'ignoreUrls'], function (result) {
             if ((Number(Date.now()) > (result.lastBreak + 30 * 60 * 1000)) && (Number(Date.now()) > (result.lastCompleted + 3 * 60 * 1000)) && (userFlashCards.length != 0)) {
 
                 console.log("Running");
@@ -1749,10 +1749,12 @@
                 // console.log(v, result.widgetChance, result.forceCard);
                 let excludedSites = [
                     "desmos.com",
-                    "flashysurf.com"
+                    "flashysurf.com",
+                    ...result.ignoreUrls
                 ]
+
                 for (let site of excludedSites) {
-                    if (window.location.hostname.toLowerCase().includes(site)) {
+                    if (window.location.hostname.toLowerCase().includes(site.toLowerCase())) {
                         return;
                     }
                 }

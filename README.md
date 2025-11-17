@@ -109,10 +109,14 @@ By integrating practice into your daily browsing, you'll build familiarity with 
 # Changelog
 ## 2.0
 
+### 2.0.4
+   - Lil Feature addition ;D
+      - Added custom website exclusion feature allowing users to specify websites where flashcards won't appear
+
 ### 2.0.3
    - Minor bugfixes & Changes:
-      - Add share request popup to encourage users to share the extension. 
-      - Fix bug in flashcard selection logic that reduced flashcards appearances by 35% below expected due to semantic similarity branch not working in SAT mode. 
+      - Add share request popup to encourage users to share the extension.
+      - Fix bug in flashcard selection logic that reduced flashcards appearances by 35% below expected due to semantic similarity branch not working in SAT mode.
       - Adjust probability thresholds: 45% regular, 35% semantically similar, 15% failed, 5% special.
 
 ### 2.0.2

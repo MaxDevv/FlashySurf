@@ -16,6 +16,25 @@
         }
         .settings-group {
             margin-bottom: 15px;
+
+            textarea {
+                max-width: 80%;
+                height: fit-content;
+                min-width: 3em;
+                max-height: 10em;
+            }
+            label[for='textarea'] {
+                font-size: 0.85rem;
+                /* margin-bottom: 0px; */
+                margin-top: 1.5em;
+            }
+
+            sub.forIgnoreUrls {
+                color: rgb(150, 8, 8);
+                display: block !important;
+                margin-top: -0.35em;
+                margin-bottom: 0.1em;
+            }
         }
         label {
             display: block;
@@ -250,6 +269,10 @@
         <button class="break-button" id="break-button">30 Minute Break</button>
         <br><sub>*Can Only be used once Every 4 Hours</sub>
         <br>
+        <label for="textarea">Excluded Websites: </label>
+        <sub class="forIgnoreUrls">(Websites where flashysurf cards won't appear)</sub>
+        <textarea name="" id="ignoreUrls" placeholder="google.com\nhttp://microsoft.com\nhttps://nwikipedia.com/\netc."  rows="5" cols="50"></textarea><br>
+
         <a href="#" id="helpLink">Help and Onboarding Screen</a>
     </div>
     
