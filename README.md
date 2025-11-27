@@ -305,6 +305,15 @@ By integrating practice into your daily browsing, you'll build familiarity with 
 - Fixed text color error on certain websites
 - Added forced run only in top frame to prevent duplicate flashcards
 
+## ⚖️ License
+
+This project is **Source Available**.  
+You may view the source code and submit contributions, but you may not use, copy, 
+reproduce, distribute, or create derivative works from this code without explicit 
+written permission from the copyright owner.
+
+See the [LICENSE](./LICENSE.txt) file for details.
+
 ## 🤝 Contributing
 
 Contributions are welcome! If you'd like to improve FlashySurf or add new features, please feel free to submit a pull request.

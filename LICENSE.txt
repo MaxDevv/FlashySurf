@@ -1,0 +1,23 @@
+Copyright © 2025 Maximus Adeola. All rights reserved.
+
+This software is made available on a "Source Available" basis.
+
+You may view the source code and submit contributions through pull requests, 
+but you may not copy, use, reproduce, distribute, sublicense, sell, or create 
+derivative works from this software, in whole or in part, without the express 
+written permission of the copyright owner.
+
+Permission to contribute does not grant any rights to use this code outside 
+of this repository.
+
+Commercial use of any kind, including incorporation into a product or service 
+offered for sale or monetization, is strictly prohibited without written 
+authorization.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR 
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
+FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT. IN NO EVENT SHALL 
+THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER 
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT, OR OTHERWISE, ARISING 
+FROM, OUT OF, OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS 
+IN THE SOFTWARE.
