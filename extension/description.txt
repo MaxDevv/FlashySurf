@@ -40,10 +40,10 @@ PERFECT FOR:
 
 FlashySurf uses principles spaced repetition and adaptive learning to help you absorb content gradually. By integrating practice into daily browsing, you build knowledge without dedicated study sessions. Create collections for any subject—languages, history, science, professional certifications, or use our comprehensive SAT question bank. For SAT users it is recommended that you install FlashySurf months in advance before your SAT.
 
-### Advanced Learning Approach
-- **Semantic Clustering**: Questions are grouped into 87 topic clusters using advanced similarity analysis (SAT mode)
-- **Adaptive Targeting**: The system identifies your least accurate topic areas and increases exposure to similar questions
-- **Performance-Based Selection**: Question difficulty and topic selection adapt based on your historical performance
+ Advanced Learning Approach
+- Semantic Clustering: Questions are grouped into 87 topic clusters using advanced similarity analysis (SAT mode)
+- Adaptive Targeting: The system identifies your least accurate topic areas and increases exposure to similar questions
+- Performance-Based Selection: Question difficulty and topic selection adapt based on your historical performance
 
 RECENT UPDATES:
 
@@ -62,7 +62,7 @@ v2.0.3 (September 2025) - Minor bugfixes & Changes:
 
 v2.0.2 (September 2025) - Minor bugfix & change:
 • Fixed collection button popup issue on chrome managed sites and new tab page
-• Made flascard height larger to improve user experience
+• Made flashcard height larger to improve user experience
 
 v2.0.1 (September 2025) - Minor & Major bugfixes:
 • Fixed UI bug that pushed flashcard collections into title
