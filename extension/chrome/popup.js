@@ -165,7 +165,7 @@ document.addEventListener('DOMContentLoaded', async function () {
             let origText = breakBtn.innerText;
             setInterval(() => {
                 if (Number(Date.now()) > (result.lastBreak + 30 * 60 * 1000)) {
-                    let timeDiff = getTimeDifference(Number(Date.now()), result.lastBreak + 4 * 60 * 60 * 1000);
+                    let timeDiff = getTimeDifference(Number(Date.now()), result.lastBreak + 2 * 60 * 60 * 1000);
                     let timeText = ` (Available In ${timeDiff.hours + ":" + timeDiff.minutes + ":" + timeDiff.seconds})`;
                     breakBtn.innerText = origText + timeText;
                 } else {
