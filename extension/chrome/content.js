@@ -889,6 +889,7 @@
                             `
                                     <span class="limited">
                                         <span style="color: ${isCorrect ? 'green' : 'red'};">${isCorrect ? 'Correct' : 'Incorrect'}</span>
+                                        <br>Question: ${flashcard.question.length < 150 ? flashcard.question : "<details> <summary>Click to show question:</summary> "+ flashcard.question + " </details>"}
                                         <br>Chosen Answer: ${selectedChoice}
                                         <br>Actual Answer: ${getAnswer()}
                                         <br>Explanation: ${flashcard.explanation}
