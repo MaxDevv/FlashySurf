@@ -189,3 +189,5 @@ chrome.gcm.onMessage.addListener((message) => {
     });
   }
 });
+
+chrome.runtime.setUninstallURL("https://tally.so/r/wzPyyk");

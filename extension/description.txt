@@ -1,42 +1,47 @@
-FlashySurf V2.0: Study Without Ever Studying
+FlashySurf V2.1: Study Without Ever Studying
 
 Transform your everyday web browsing into productive study time! Formerly a simple SAT study tool, FlashySurf v2.0 expands into a full study tool where anyone can study anything simply by browsing the web with passive learning flash cards. Users can Now create custom flashcard collections or use our built-in SAT question bank. No more dedicated study sessions, learn while you browse naturally.
 
 HOW IT WORKS:
-├── 🎯 Flashcards appear intelligently while you browse (algorithm adapts to your weak areas)
-├── 📚 NEW: Create custom flashcard collections for any subject or use built-in SAT questions
-├── ✅ Answer questions to test your knowledge across multiple subjects
-├── 🔄 Get immediate feedback with detailed explanations
-├── 📒 Take notes on incorrect answers to reinforce learning
-├── 🧠 Advanced algorithm analyzes mistakes and targets your weaknesses
-├── 📊 Generate personalized visual performance reports (SAT mode)
-└── 🌐 Learn passively as you continue your normal online activities
+├── Flashcards appear intelligently while you browse (algorithm adapts to your weak areas)
+├── NEW: Create custom flashcard collections for any subject or use built-in SAT questions
+├── Answer questions to test your knowledge across multiple subjects
+├── Get immediate feedback with detailed explanations
+├── Take notes on incorrect answers to reinforce learning
+├── Advanced algorithm analyzes mistakes and targets your weaknesses
+├── Generate personalized visual performance reports (SAT mode)
+└── Learn passively as you continue your normal online activities
 
 KEY FEATURES:
-├── 🆕 v2.0: Custom Flashcard Collections - Create, import, and manage flashcards for ANY subject.
+├── Gamified Economy - Earn points for correct answers, spend on breaks, skips, and themes
+├── 5 Visual Themes - Dark Mode, Gold, Galaxy (animated stars), Cherry Blossom (falling petals), and Light (free)
+├── Referral Program - Earn 75 points instantly when friends install via your referral link
+├── Points System - +4 points for correct, +1 for incorrect answers (50 points/day cap), earn unlimited referral bonuses
+├── Custom Flashcard Collections - Create, import, and manage flashcards for ANY subject.
 ├── AI Collections: Users can now convert any document, text or desired topic into flashcard collections with our new AI tool.
-├── 📤 Collection Management - Import/export collections, enable/disable specific sets
-├── 📈 Personalized Performance Reports (SAT) - Visual reports identifying your top 3 weakest areas
-├── 🧮 Built-in SAT question bank with Math and English coverage
-├── 📊 Performance tracking across all active collections with accuracy badges
-├── 📝 Note-taking system with review capability for incorrect answers
-├── ⏱️ Customizable frequency - control how often flashcards appear
-├── 🔔 Non-intrusive design using Shadow DOM for consistent appearance
-├── 💡 Detailed explanations for every answer
-├── ⏸️ Break timer - pause flashcards for 30 minutes when you need focus
-├── 🔄 Smart question rotation preventing repetition
-├── 🎯 Advanced semantic clustering (SAT) - 87 topic clusters for precise weakness targeting
-└── 🧠 Spaced repetition methodology for optimal retention
+├── Collection Management - Import/export collections, enable/disable specific sets
+├── Personalized Performance Reports (SAT) - Visual reports identifying your top 3 weakest areas
+├── Built-in SAT question bank with Math and English coverage
+├── Performance tracking across all active collections with accuracy badges
+├── Note-taking system with review capability for incorrect answers
+├── Customizable frequency - control how often flashcards appear
+├── Non-intrusive design using Shadow DOM for consistent appearance
+├── Detailed explanations for every answer
+├── Break timer (20 points) - pause flashcards for 30 minutes when you need focus
+├── Smart question rotation preventing repetition
+├── Skip Card (9 points) - Skip questions without answering
+├── Advanced semantic clustering (SAT) - 87 topic clusters for precise weakness targeting
+└── Spaced repetition methodology for optimal retention
 
 PERFECT FOR:
-├── 📖 Anyone wanting to learn passively while browsing
-├── 🎓 Students preparing for the SAT exam, aiming for a high SAT score (1500+) without intensive study sessions.
-├── 💼 Professionals studying certifications or new skills
-├── 🌍 Language learners building vocabulary
-├── 🔬 Students reviewing course material
-├── 🏆 High achievers maximizing study efficiency
-├── 👥 Study groups sharing custom flashcard collections
-└── ⏰ Busy individuals who want productive browsing time
+├── Anyone wanting to learn passively while browsing
+├── Students preparing for the SAT exam, aiming for a high SAT score (1500+) without intensive study sessions.
+├── Professionals studying certifications or new skills
+├── Language learners building vocabulary
+├── Students reviewing course material
+├── High achievers maximizing study efficiency
+├── Study groups sharing custom flashcard collections
+└── Busy individuals who want productive browsing time
 
 FlashySurf uses principles spaced repetition and adaptive learning to help you absorb content gradually. By integrating practice into daily browsing, you build knowledge without dedicated study sessions. Create collections for any subject—languages, history, science, professional certifications, or use our comprehensive SAT question bank. For SAT users it is recommended that you install FlashySurf months in advance before your SAT.
 
@@ -46,6 +51,16 @@ FlashySurf uses principles spaced repetition and adaptive learning to help you a
 - Performance-Based Selection: Question difficulty and topic selection adapt based on your historical performance
 
 RECENT UPDATES:
+
+v2.1.0 (December 2025) - MAJOR GAMIFICATION UPDATE :D
+• Gamified Points System: Earn 4 points for correct answers, 1 point for incorrect (50 points/day cap)
+• 5 New Visual Themes: Dark Mode (20 pts), Gold (200 pts), Galaxy (275 pts - animated stars), Cherry Blossom (375 pts - falling petals)
+• Referral Program: Earn 75 points instantly when friends install via your referral link + push notifications
+• Skip Flashcards: Skip questions for 9 points
+• Break Timer Updated: 30-minute break now costs 20 points (shows countdown timer on button)
+• Semantic Clustering Fixed: Resolved critical issue with outdated embedded clustering database
+• UI Improvements: Prevented keyboard events from propagating during note-taking, reorganized help section
+• New Permissions: Added gcm, notifications, and identity permissions for referral system
 
 v2.0.5 (November 2025) - Minor UI bugfixes:
 • Fixed flashcard collections layout display
@@ -117,18 +132,6 @@ QUESTION SELECTION ALGORITHM:
 • 50% New Questions: Fresh content avoiding recent answers
 • 35% Targeted Practice: Questions similar to your struggles (using semantic clustering for SAT)
 • 15% Review Questions: Direct review of previously incorrect answers
-
-INSTALLATION:
-Available on Chrome Web Store or manual installation via GitHub. Create your first custom collection or start with our SAT question bank immediately after installation!
-
-### Browser Extension (Recommended)
-1. Visit the Chrome Web Store: https://chromewebstore.google.com/detail/ldajenfdgimgdajklkohhljdgdalcedb
-2. Search for "FlashySurf" and click "Add to Browser"
-
-### Manual Installation (Developer Mode)
-1. Download the extension files from GitHub
-2. In Chrome/Edge, go to `chrome://extensions/` or `edge://extensions/`
-3. Enable "Developer mode" and click "Load unpacked" to select the extension folder
 
 START LEARNING PASSIVELY TODAY—TRANSFORM YOUR BROWSING TIME INTO STUDY TIME!
 
