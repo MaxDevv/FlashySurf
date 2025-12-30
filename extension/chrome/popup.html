@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset='UTF-8' />
     <title>FlashySurf Settings</title>
@@ -9,12 +10,15 @@
             width: 400px;
             padding: 15px;
         }
+
         h1 {
             font-size: 18px;
             margin-top: 0;
             color: #333;
         }
+
         .settings-group {
+            padding-top: 1em;
             margin-bottom: 15px;
 
             textarea {
@@ -23,6 +27,7 @@
                 min-width: 3em;
                 max-height: 10em;
             }
+
             label[for='textarea'] {
                 font-size: 0.85rem;
                 /* margin-bottom: 0px; */
@@ -36,27 +41,33 @@
                 margin-bottom: 0.1em;
             }
         }
+
         label {
             display: block;
             margin-bottom: 5px;
             font-weight: 500;
         }
+
         .slider-container {
             display: flex;
             align-items: center;
             gap: 10px;
         }
+
         input[type="range"] {
             flex-grow: 1;
         }
+
         .value-display {
             min-width: 40px;
             text-align: right;
         }
+
         .stats {
             margin-top: 20px;
             padding-top: 15px;
             border-top: 1px solid #eee;
+
             h2 {
                 margin: 0.1em;
                 padding: 0;
@@ -66,6 +77,7 @@
                 padding-bottom: 1em;
             }
         }
+
         button {
             background-color: #4285F4;
             color: white;
@@ -76,23 +88,26 @@
             font-weight: 500;
             margin-top: 10px;
         }
+
         button:hover {
             background-color: #3367D6;
         }
+
         .notesContainer {
             font-size: 0.8rem;
             margin-top: 20px;
             padding-top: 15px;
             border-top: 1px solid #eee;
+
             summary.heading {
                 margin: 0.1em;
                 padding: 0;
                 font-weight: bold;
                 font-size: large;
             }
-            
+
         }
-        
+
         .note-item {
             padding-bottom: 0.5em;
             margin: 1em;
@@ -100,22 +115,26 @@
             margin-top: 20px;
             padding-top: 15px;
             border-top: 1px solid #eee;
+
             button {
                 padding: 2px 4px;
                 font-size: smaller;
                 background-color: #ff8181;
-                
+
             }
+
             details {
                 padding-left: 1.5em;
+
                 summary {
                     margin-left: -1.5em;
                 }
             }
+
             .question {
                 details {
 
-                overflow-x:auto;
+                    overflow-x: auto;
                 }
             }
 
@@ -123,17 +142,20 @@
 
         .statsDisplay {
             padding-left: 1em;
+
             p {
                 margin: 0.1em;
                 padding: 0;
                 opacity: 0.7;
             }
         }
+
         sub {
             opacity: 75%;
         }
+
         button:disabled,
-        button[disabled]{
+        button[disabled] {
             border: 1px solid #999999;
             background-color: #cccccc;
             background-color: #999999;
@@ -152,7 +174,8 @@
             font-size: x-small;
             display: none;
         }
-        .performance-report-btn-wrapper:hover  {
+
+        .performance-report-btn-wrapper:hover {
             #report-tooltip {
                 display: block;
 
@@ -160,12 +183,13 @@
         }
 
         .group {
-            
+
             margin-top: 1.5em;
             padding-top: 1.5em;
             border-top: 1px solid #eee;
             margin-bottom: 15px;
         }
+
         .collections-group {
             margin-top: 1.5em;
             padding-top: 1em;
@@ -176,6 +200,7 @@
             display: flex;
             flex-direction: column;
             flex-wrap: wrap;
+
             /* align-items: center; */
             .collections {
                 padding-left: 1em;
@@ -185,6 +210,7 @@
                 flex-direction: row;
                 flex-wrap: wrap;
             }
+
             .collection {
                 width: fit-content;
                 cursor: pointer;
@@ -202,12 +228,14 @@
                 margin-right: 0.5em;
                 margin-bottom: 0.5em;
                 height: 1.5em;
+
                 input[type="checkbox"] {
                     font-size: 0.75rem;
                     margin-right: 0em;
                     width: 1.75em;
                     height: 1.4em;
                 }
+
                 button {
                     opacity: 75%;
                     background-color: white;
@@ -217,7 +245,7 @@
                     color: black;
                     border: 1px solid #000000;
                     font-size: 0.75rem;
-                    
+
                     height: 1.4em;
                     width: 1.75em;
                     vertical-align: middle;
@@ -225,6 +253,7 @@
                     align-items: center;
                 }
             }
+
             .collection[aria-disabled="true"] {
                 /* background-color: rgba(0, 0, 0, 0.116); */
                 opacity: 50%;
@@ -235,29 +264,34 @@
                 padding: 0px;
                 font-size: large !important;
                 margin-bottom: -1.5em;
-            
+
             }
         }
-        
-        #helpLink  {
-            font-size: 0.75rem ;
+
+        #helpLink {
+            font-size: 0.75rem;
         }
 
         .selected {
             opacity: 100% !important;
             color: green;
             border-color: green;
-            input, button {
+
+            input,
+            button {
                 outline-color: green;
                 accent-color: green;
                 background-color: rgba(0, 128, 0, 0.075) !important;
-            }:hover {
+            }
+
+            :hover {
 
                 background-color: rgba(0, 128, 0, 0.3) !important;
             }
+
             background-color: rgba(0, 128, 0, 0.15);
         }
-        
+
 
         #flashCardTitle {
             margin-bottom: 1.25em;
@@ -268,64 +302,272 @@
             opacity: 75%;
         }
 
+        #current-points-display {
+            margin-top: 1em;
+            font-size: 1rem;
+            border-top: 1px solid #eee;
+            padding-top: 1rem;
+            display: block;
+        }
+
+        #current-points-display::after {
+            font-size: 1.1rem;
+            content: " ⬢";
+            color: #f0b90b;
+        }
+
+        #current-points-display::before {
+            font-size: 1.1rem;
+            content: "Your Points: ";
+            font-weight: bold;
+        }
+
+        #cant-afford-breaks {
+            color: red;
+            font-size: 0.75rem;
+        }
+
+        .points-display>details {
+            font-size: 0.8rem;
+            padding-left: 1rem;
+        }
+
+        .referral-message {
+            display: block;
+            margin-top: 0.5em;
+            font-size: 0.9rem;
+            font-weight: bold;
+            font-style: italic;
+            color: #555;
+        }
+
+        .refferalStats {
+            font-size: 0.85rem;
+            margin-top: 2em;
+
+            .totalReffered::before {
+                content: "Total Friends Referred: ";
+                font-weight: bold;
+                padding-left: 1rem;
+            }
+
+            .totalRefferalPoints::before {
+                content: "Total Referral Points Earned: ";
+                font-weight: bold;
+                padding-left: 1rem;
+            }
+
+            .totalRefferalPoints::after {
+                content: " ⬢";
+                color: #f0b90b;
+            }
+
+            summary {
+                font-weight: bold;
+                font-size: 1rem;
+            }
+
+            .referral-message {
+                font-size: 0.85rem;
+                font-weight: normal;
+                color: #555;
+
+                padding-left: 1rem;
+            }
+        }
+
+        .themes {
+            padding-top: 1em;
+
+            h3 {
+                margin: 0.1em;
+                padding: 0;
+            }
+
+            fieldset {
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                padding: 10px;
+                label {
+                    cursor: pointer;
+                }
+            }
+
+            legend {
+                font-weight: bold;
+            }
+            summary {
+                font-weight: bold;
+                font-size: 0.85rem;
+            }
+
+            div {
+                
+                margin-bottom: 8px;
+                border: #000000 1px solid;
+                border-radius: 2px;
+                display: flex;
+                align-items: center;
+
+                input[type="radio"] {
+                    margin-top: -3px;
+                    vertical-align: middle;
+                }
+
+                label {
+                    margin: 0px;
+                    margin-top: 0.2em;
+                    margin-bottom: 0.2em;
+                    flex-grow: 1;
+                }
+            }
+
+            div:has(input:checked) {
+
+                border: 2px solid green;
+                background-color: rgba(172, 255, 47, 0.267);
+            }
+
+            button {
+                margin: 0px;
+                margin-left: 0.5em;
+
+                padding: 3px 6px;
+                font-size: 0.75rem;
+            background-color: #021a41b6;
+
+                border: 1px solid #000000;
+            }
+            button:hover {
+                background-color: #013275;
+                color: white;
+            }
+            button:disabled {
+                background-color: #999999;
+                border: 1px solid #666666;
+                color: #444444;
+                opacity: 70%;
+                pointer-events: none;
+                cursor: none;
+            }
+
+            fieldset {
+                max-height: 15em;
+                overflow-y: auto;
+                
+            }
+
+        }
+
+        summary {
+            cursor: pointer !important;
+        }
     </style>
 </head>
+
 <body>
-    <h1>FlashySurf Settings</h1>
+    <h1 style="display: inline; padding-right: 0.5em;">FlashySurf Settings</h1> <a href="#" id="helpLink">How do I use
+        FlashySurf?</a>
+    <br>
     <div class="settings-group">
         <label for="widgetChance">Flashcard Frequency:</label>
         <div class="slider-container">
             <input type="range" id="widgetChance" min="5" max="100" step="1">
             <span class="value-display" id="widgetChanceValue">10%</span>
         </div>
+
         <br>
-        <button class="break-button" id="break-button">30 Minute Break</button>
-        <br><sub>*Can Only be used once Every 2 Hours</sub>
+        <div class="break-button">
+            <button id="break-button">30 Minute Break (20 Points)</button>
+            <br><sub id="cant-afford-breaks">*Can't afford breaks; you need at least 20 points. You can earn them by
+                answering flashcards!</sub>
+        </div>
         <br>
         <label for="textarea">Excluded Websites: </label>
         <sub class="forIgnoreUrls">(Websites where flashysurf cards won't appear)</sub>
-        <textarea name="" id="ignoreUrls" placeholder="google.com\nhttp://microsoft.com\nhttps://nwikipedia.com/\netc."  rows="5" cols="50"></textarea><br>
+        <textarea name="" id="ignoreUrls" placeholder="google.com\nhttp://microsoft.com\nhttps://wikipedia.com/\netc."
+            rows="5" cols="50"></textarea><br>
 
-        <a href="#" id="helpLink">Help and Onboarding Screen</a>
+
     </div>
-    
+
     <!-- <button id="saveSettings" class="save-button">Save Settings</button> -->
-    
+
+    <div class="points-display">
+        <span id="current-points-display">Loading Points... </span>
+        <details>
+            <summary>What are points?</summary>
+            <sub>Points reward you for studying. You earn 4 per correct answer, 1 per wrong answer. You can spend them
+                on breaks, skips, or cosmetic themes. Daily cap: 50 points. Total cap: 750 points. Refer friends for 75
+                uncapped bonus points!</sub>
+        </details>
+
+        <div class="themes">
+            <details open>
+                <summary>
+                    Flashcard Themes:
+                </summary>
+                <fieldset id="themesFieldset">
+                    <legend>Select a Theme:</legend>
+                </fieldset>
+            </details>
+        </div>
+
+        <span class="referral-message">Refer a friend for 75 points instantly (that's 3+ breaks or 8 skips!). <a
+                href="https://flashysurf.com/refer-a-friend?userID=" id="referFriendLink">Click here to get started
+                :D</a></span>
+
+
+    </div>
     <div class="stats">
         <h2>Your Stats:</h2>
         <div id="statsDisplay" class="statsDisplay">Loading stats...</div>
         <sub>Stats only show for activated/selected flashcard collections.</sub>
         <br>
         <div class="performance-report-btn-wrapper">
-        
-        <button id="generate-performance-report" class="hide-if-sat-disabled" disabled>Generate Performance Report</button>
-        <div id="report-tooltip"  class="hide-if-sat-disabled">Need to have answered at least 25 questions, and failed at least 5 questions first. So answer more questions :D. Only for SAT Flashcards.</div>
-        <div id="report-tooltip" class="hide-if-sat-disabled">* Only for SAT Flashcards.</div>
+
+            <button id="generate-performance-report" class="hide-if-sat-disabled" disabled>Generate Performance
+                Report</button>
+            <div id="report-tooltip" class="hide-if-sat-disabled">Need to have answered at least 25 questions, and
+                failed at least 5 questions first. So answer more questions :D. Only for SAT Flashcards.</div>
+            <div id="report-tooltip" class="hide-if-sat-disabled">* Only for SAT Flashcards.</div>
 
         </div>
         <div class="hide-if-sat-disabled">
-            <br><sub>* Get personalized report with insights on your SAT performance. <br> Note: Reports update every 12 hours based on your latest performance.</sub>
+            <br><sub>* Get personalized report with insights on your SAT performance. <br> Note: Reports update every 12
+                hours based on your latest performance.</sub>
         </div>
-
+        <div class="refferalStats">
+            <details>
+                <summary><span class="title">Referral Stats:</span></summary>
+                <br>
+                <span class="totalReffered" id="totalReffered">Loading...</span>
+                <br>
+                <span class="totalRefferalPoints" id="totalRefferalPoints">Loading...</span>
+                <!-- <br> -->
+                <!-- <span class="referral-message" id="extraBonus" style="font-size: 0.85rem; font-weight: normal;">Bonus Points! Your next referral will earn you a 25 point bonus on top of the 75 points!</span> -->
+            </details>
+        </div>
     </div>
     <div class="collections-group" id="collections-group">
         <h3 id="flashCardTitle">Flashcard Collections:</h3><br>
-        
+
         <!-- Custom Flascard collections -->
         <div id="collections" class="collections">
 
         </div>
-         
-         <button id="addCollection">&#10133; Add/Update/Edit Flashcard Collection</button>
-         <sub style="padding-top: 1em;">Tip: You can hover over flashcard collections to see indivdual stats</sub>
+
+        <button id="addCollection">&#10133; Add/Update/Edit Flashcard Collection</button>
+        <sub style="padding-top: 1em;">Tip: You can hover over flashcard collections to see indivdual stats</sub>
     </div>
-    
+
     <div id="notesContainer" class="notesContainer">Loading notes...</div>
-    
-    
+
+
     <div class="group">
         <a id="feedback" href="https://tally.so/r/mDjY2Z">Share Your Feedback/Report A Bug</a>
     </div>
     <script src="popup.js"></script>
 </body>
+
 </html>

@@ -377,7 +377,7 @@
                         })
                     }
                 } else if (num < 0.45 + 0.35 + 0.15 + 0.025 + 0.025) {
-                    // 2.5% Chance to show user popup asking to generate score report if possible and not already done in last 12 hours
+                    // 2.5% Chance to show user popup asking to share extension if possible and not already done in last 5 days
                     chrome.storage.local.get(["nextShareRequest"], async (res) => {
                         if (Date.now() > res.nextShareRequest) {
                             resolve("Share Request");
@@ -462,7 +462,7 @@
                     display: none;
                 }
                 .title { font-weight: bold; font-size: large; }
-                .limited { flex: 1; overflow-y: scroll; }
+                .limited { flex: 1; overflow-y: auto; }
 
                 /* Button Styling */
                 .close-button {
@@ -778,70 +778,6 @@
             });
             // Add styles directly to widget
             const styles = document.createElement('style');
-            styles.textContent = `
-                :host {
-                    all: initial;
-                }
-                .background {
-                    position: fixed;
-                    top: 0;
-                    left: 0;
-                    width: 10000vw;
-                    height: 100000vh;
-                    overflow: hidden;
-                    background-color: gray !important;
-                    opacity: 70%;
-                    z-index: 99999999999999;
-                }
-                .cover-container {
-                    color: black; 
-                    overflow: hidden;
-                    
-                }
-                .widget {
-                    position: fixed;
-                    top: 50%;
-                    left: 50%;
-                    transform: translate(-50%, -50%);
-                    width: max(40vw, 35vh);
-                    border-radius: 1.5em;
-                    padding: 1.4em;
-                    background-color: white !important;
-                    border: 0.075em solid black;
-                    display: flex;
-                    flex-direction: column;
-                    font-family: monospace;
-                    gap: 1.5em;
-                    box-shadow: 0px 0px 60px 3px rgba(0,0,0,0.2);
-                    z-index: 999999999999999;
-                    color: black !important;
-                }
-                .title { font-weight: bold; font-size: large; }
-                .limited { max-height: 45vh; overflow-y: scroll; }
-                .choices { display: flex; flex-direction: column; gap: 0.2em; }
-                .choice {
-                    padding: 2px 4px;
-                    border-radius: 6px;
-                    text-align: left;
-                    background-color: color-mix(in srgb, silver 30%, white 70%);
-                    border: none;
-                    height: auto !important;
-                    color: black !important;
-                    cursor: pointer;
-                }
-                .close-button {
-                    padding: 8px 16px;
-                    border-radius: 4px;
-                    background-color: #007bff;
-                    color: white;
-                    border: none;
-                    cursor: pointer;
-                }
-                .close-button:disabled {
-                    background-color: #ccc;
-                    cursor: not-allowed;
-                }
-            `;
             function getAnswer() {
                 let answer = flashcard.answer; // Answer Letter like "A"
                 flashcard.choices.forEach((i) => {
@@ -861,7 +797,8 @@
                     "Try to understand the concept rather than memorizing the answer.",
                     "Make sure to remember the strategy you use to answer this question so you reuse it or avoid it if you get the question wrong."
                 ]
-
+                chrome.storage.local.get(['points', 'pointsEarnedToday', 'userThemes'], function (result) {
+                           
                 shadow.innerHTML = `
                     <div class="cover-container">
                         <div class="background"></div>
@@ -871,7 +808,7 @@
                         isInNotesSection && !isCorrect ?
                             `
                                     <span class="limited">
-                                        <h3 style="color: red;">Take Notes</h3>
+                                         <h3 style="color: var(--incorrect-text);">Take Notes</h3>
                                         <p>Please describe how and why you got the question wrong and the right solution in your own words.</p>
                                         <p><small>Did you know that notetaking improves memory by up to 30% even if you don't read them?</small></p>
                                         <textarea id="notes-input-flashySurf" class="notes-input" 
@@ -887,8 +824,12 @@
                                 `
                             :
                             `
-                                    <span class="limited">
-                                        <span style="color: ${isCorrect ? 'green' : 'red'};">${isCorrect ? 'Correct' : 'Incorrect'}</span>
+                            <span class="limited">
+                                 <span style="color: ${isCorrect ? 'var(--correct-text)' : 'var(--incorrect-text)'};">
+                                 ${isCorrect ? 'Correct' : 'Incorrect'} ${(((result.points < 750) && (result.pointsEarnedToday[0] < 50)) || ( Number(Date.now()) > (result.pointsEarnedToday[1] + 24 * 60 * 60 * 1000) )) ? `${isCorrect ? ' +4 ⬢' : ' +1 ⬢'} points Earned${isCorrect ? '!' : ''}` :`+0 ⬢ (Daily/Total limit reached)`}
+
+
+                                        </span>
                                         <br>Question: ${flashcard.question.length < 150 ? flashcard.question : "<details> <summary>Click to show question:</summary> "+ flashcard.question + " </details>"}
                                         <br>Chosen Answer: ${selectedChoice}
                                         <br>Actual Answer: ${getAnswer()}
@@ -909,7 +850,9 @@
                                     <br>
                                     ${flashcard.paragraph ? `<span>Paragraph: ${flashcard.paragraph}</span>` : ``}
                                     <br>
-                                    <span style="text-decoration: underline;"> Tip: ${tips[Math.floor(Math.random() * tips.length)]}</span>
+<br>
+                                    <span style="text-decoration: underline;"> Tip: ${tips[Math.floor(Math.random() * tips.length)]}</span> 
+                                <button class="skip-button" id="skipButton-flashySurf">Skip Flashcard (Costs 9 Points)</button>
                                 </div>
                                 <div class="answer">
                                     <div class="choices">
@@ -922,8 +865,133 @@
                         </div>
                     </div>
                 `;
-                shadow.appendChild(styles);
+                
+                styles.textContent = `
+                
+                    ${result.userThemes.currentThemeCSS}
 
+                    .background {
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        width: 10000vw;
+                        height: 100000vh;
+                        overflow: hidden;
+                        background-color: var(--overlay-bg) !important;
+                        opacity: 70%;
+                        z-index: 99999999999999;
+                    }
+                    .cover-container {
+                        color: var(--text-color); 
+                        overflow: hidden;
+                        
+                    }
+                    .widget {
+                        position: fixed;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        width: max(40vw, 35vh);
+                        border-radius: 1.5em;
+                        padding: 1.4em;
+                        background-color: var(--bg-color) !important;
+                        border: 0.075em solid var(--border-color);
+                        display: flex;
+                        flex-direction: column;
+                        font-family: monospace;
+                        gap: 1.5em;
+                        box-shadow: 0px 0px 60px 3px var(--shadow-color);
+                        z-index: 999999999999999;
+                        color: var(--text-color) !important;
+                    }
+                    .title { font-weight: bold; font-size: large; }
+                    .limited { max-height: 45vh; overflow-y: auto; }
+                    .choices { display: flex; flex-direction: column; gap: 0.2em; }
+                    .choice {
+                        padding: 2px 4px;
+                        border-radius: 6px;
+                        text-align: left;
+                        background-color: var(--choice-bg);
+                        border: none;
+                        height: auto !important;
+                        color: var(--text-color) !important;
+                        cursor: pointer;
+                    }
+                    .close-button {
+                        padding: 8px 16px;
+                        border-radius: 4px;
+                        background-color: var(--close-button-bg);
+                        color: var(--close-button-text);
+                        border: none;
+                        cursor: pointer;
+                    }
+                    .close-button:disabled {
+                        background-color: var(--disabled-button-bg);
+                        cursor: not-allowed;
+                    }
+                    
+                    .skip-button {
+                        font-size: 0.80rem;
+                        font-weight: bold;
+                        padding-top: 0.125em;
+                        margin-top: 0.5em;
+                        cursor: pointer;
+                        opacity: 0.75;
+                        background: none;
+                        border-width: 1px;
+                        color: var(--text-color) !important;
+                    }
+                    
+                summary {
+                    cursor: pointer !important;
+                }
+                    
+                    .notes-input {
+                        width: 80%;
+                        padding: 8px;
+                        border: 1px solid var(--notes-border);
+                        border-radius: 4px;
+                        font-family: inherit;
+                        font-size: 0.9em;
+                        resize: vertical;
+                        color: var(--notes-text) !important;
+                        background-color: var(--notes-bg) !important;
+                        margin: 0 auto;
+                        display: block;
+                    }
+                    .word-count {
+                        font-size: 0.8em;
+                        color: var(--word-count-text);
+                        text-align: right;
+                        margin-top: 4px;
+                        width: 80%;
+                        margin: 4px auto 0;
+                    }
+                    .back-button {
+                        padding: 8px 16px;
+                        border-radius: 4px;
+                        background-color: var(--back-button-bg);
+                        color: var(--back-button-text);
+                        border: none;
+                        cursor: pointer;
+                        margin-right: 8px;
+                    }
+                    .next-button {
+                        padding: 8px 16px;
+                        border-radius: 4px;
+                        background-color: var(--next-button-bg);
+                        color: var(--next-button-text);
+                        border: none;
+                        cursor: pointer;
+                    }
+                    .next-button:disabled {
+                        background-color: var(--disabled-button-bg);
+                        cursor: not-allowed;
+                    }
+                `;
+                shadow.appendChild(styles);
+                
+                
                 // Add event listeners for the new buttons and textarea
                 if (selectedChoice) {
                     if (isInNotesSection && !isCorrect) {
@@ -931,7 +999,6 @@
                         const wordCount = shadow.getElementById('word-count-flashySurf');
                         const closeButton = shadow.getElementById('closeButton-flashySurf');
                         const backButton = shadow.getElementById('backButton-flashySurf');
-
                         // Update word count and enable/disable close button
                         const updateWordCount = () => {
                             const words = notesInput.value.trim().split(/\s+/).filter(word => word.length > 0);
@@ -1000,12 +1067,15 @@
                             chrome.storage.local.set({ 'lastCompleted': Number(new Date()) });
                         });
                     } else if (!isInNotesSection) {
+                        
+                        console.log("Starting points check");
+                        
                         if (isCorrect) {
                             // For correct answers, handle the close button timer
                             if (intervalId == 0) {
                                 const closeButton = shadow.getElementById('closeButton-flashySurf');
                                 const timerEl = shadow.getElementById("timefoudfuktktfkftlfgiuf");
-                                closeTimer = 5;
+                                closeTimer = 3;
                                 intervalId = setInterval(() => {
                                     closeTimer -= 0.1;
                                     if (closeTimer <= 0) {
@@ -1035,53 +1105,30 @@
                             });
                         }
                     }
-                }
+                    
+                } else {
+                        const skipButton = shadow.getElementById('skipButton-flashySurf');
+                skipButton.addEventListener('click', () => {
+                    if (confirm("Are you sure you want to skip this flashcard? This will cost you 9 points.")) {
+                        // Deduct 9 points
+                        chrome.storage.local.get(['points'], function (result) {
+                            if (result.points >= 9) {
+                                chrome.storage.local.set({ points: result.points - 9 }, function () {
+                                    // Close the widget
+                                    widgetEl.remove();
+                                    clearInterval(forcePause);
+                                    forcePause = 1;
+                                    chrome.storage.local.set({ 'forceCard': false });
+                                });
+                            } else {
+                                alert("You don't have enough points to skip this flashcard.");
+                            }
+                        });
+                    }
+                });
+            }
+                        });
 
-                // Add CSS for new elements to the styles
-                styles.textContent += `
-                    .notes-input {
-                        width: 80%;
-                        padding: 8px;
-                        border: 1px solid #ccc;
-                        border-radius: 4px;
-                        font-family: inherit;
-                        font-size: 0.9em;
-                        resize: vertical;
-                        color: black !important;
-                        background-color: white !important;
-                        margin: 0 auto;
-                        display: block;
-                    }
-                    .word-count {
-                        font-size: 0.8em;
-                        color: #666;
-                        text-align: right;
-                        margin-top: 4px;
-                        width: 80%;
-                        margin: 4px auto 0;
-                    }
-                    .back-button {
-                        padding: 8px 16px;
-                        border-radius: 4px;
-                        background-color: #6c757d;
-                        color: white;
-                        border: none;
-                        cursor: pointer;
-                        margin-right: 8px;
-                    }
-                    .next-button {
-                        padding: 8px 16px;
-                        border-radius: 4px;
-                        background-color: #28a745;
-                        color: white;
-                        border: none;
-                        cursor: pointer;
-                    }
-                    .next-button:disabled {
-                        background-color: #ccc;
-                        cursor: not-allowed;
-                    }
-                `;
 
             }
 
@@ -1096,6 +1143,8 @@
                     }
                     catch { }
                 }
+                
+                addPoints(isCorrect ? 4 : 1);
 
                 if (config.satMode) {
                     chrome.storage.local.get(['correctSATAnswers', 'incorrectSATAnswers', 'failedQuestions'], function (result) {
@@ -1244,8 +1293,9 @@
                 ::-webkit-scrollbar {
                     display: none;
                 }
+                
                 .title { font-weight: bold; font-size: large; }
-                .limited { flex: 1; overflow-y: scroll; box-shadow: inset 0 -20px 20px -20px rgba(0, 0, 0, 0.6); }
+                .limited { flex: 1; overflow-y: auto; box-shadow: inset 0 -20px 20px -20px rgba(0, 0, 0, 0.6); }
                 .close-button {
                     padding: 8px 16px;
                     border-radius: 4px;
@@ -1511,7 +1561,7 @@
                 }
                 .limited { 
                     flex: 1; 
-                    overflow-y: scroll; 
+                    overflow-y: auto; 
                 }
 
                 /* Button Styling */
@@ -1740,6 +1790,356 @@
             document.body.appendChild(widgetEl);
         
         }
+
+        
+        function showThemePreviewPopup(css) {
+            // remove any existing widget
+            const existingWidget = document.getElementById('flashcard-widget');
+            if (existingWidget) {
+                existingWidget.remove();
+            }
+            // Create mock flashcard for preview
+            const previewFlashcard = {
+                question: "This is what the flashcard would look like",
+                paragraph: "Hint: choice a is correct",
+                choices: [
+                    "A) This is what choice A would look like",
+                    "B) This is what choice B would look like",
+                    "C) This is what choice C would look like",
+                    "D) This is what choice D would look like"
+                ],
+                answer: "A",
+                explanation: "This is what the explanation would look like"
+            };
+
+            let selectedChoice = null;
+            let isCorrect = false;
+            let intervalId = 0;
+            let btnInterval = 0;
+
+            // Create container
+            const widgetEl = document.createElement('div');
+            widgetEl.id = 'flashcard-widget';
+            const shadow = widgetEl.attachShadow({mode: 'closed'});
+            
+            // Add event listeners to stop propagation **Fixes bug that allowed textbox keypresses to propogate into website hotkeys causing nuisance and possibly deeper errors to users**
+            shadow.addEventListener('keydown', (e) => {
+                e.stopPropagation();
+            });
+
+            shadow.addEventListener('keyup', (e) => {
+                e.stopPropagation();
+            });
+
+            shadow.addEventListener('keypress', (e) => {
+                e.stopPropagation();
+            });
+            // Add styles directly to widget
+            const styles = document.createElement('style');
+            function getAnswer() {
+                let answer = previewFlashcard.answer; // Answer Letter like "A"
+                previewFlashcard.choices.forEach((i) => {
+                    if (answer[0].toLowerCase() == i[0].toLowerCase()) {
+                        answer = i; // Answer choice
+                    }
+                })
+                return answer;
+            }
+            let notesText = '';
+            let isInNotesSection = false;
+            function render() {
+
+                let tips = [
+                    "You can use desmos.com to solve math problems!",
+                    "Taking notes improves memory by up to 30% even if you don't read them later!",
+                    "Try to understand the concept rather than memorizing the answer.",
+                    "Make sure to remember the strategy you use to answer this question so you reuse it or avoid it if you get the question wrong."
+                ]
+                shadow.innerHTML = `
+                    <div class="cover-container">
+                        <div class="background"></div>
+                        <div class="widget">
+                            <div class="title">FlashySurf - Flashcard Preview</div>
+                            ${selectedChoice ?
+                        isInNotesSection && !isCorrect ?
+                            `
+                                    <span class="limited">
+                                         <h3 style="color: var(--incorrect-text);">Take Notes</h3>
+                                        <p>Please describe how and why you got the question wrong and the right solution in your own words.</p>
+                                        <p><small>Did you know that notetaking improves memory by up to 30% even if you don't read them?</small></p>
+                                        <textarea id="notes-input-flashySurf" class="notes-input" 
+                                            placeholder="Please describe how and why you got the question wrong and the right solution in your own words..." 
+                                            rows="5">${notesText}</textarea>
+                                        <div class="word-count" id="word-count-flashySurf">0 words (minimum 10)</div>
+                                    </span>
+                                    <div>
+                                        <button class="back-button" id="backButton-flashySurf">Back to Explanation</button>
+                                        <button class="close-button" id="closeButton-flashySurf">Close Preview</button>
+                                    </div>
+                                `
+                            :
+                            `
+                            <span class="limited">
+                                 <span style="color: ${isCorrect ? 'var(--correct-text)' : 'var(--incorrect-text)'};">
+                                 ${isCorrect ? 'Correct' : 'Incorrect'}
+                                         </span>
+                                         <br>Question: ${previewFlashcard.question.length < 150 ? previewFlashcard.question : "<details> <summary>Click to show question:</summary> "+ previewFlashcard.question + " </details>"}
+                                         <br>Chosen Answer: ${selectedChoice}
+                                         <br>Actual Answer: ${getAnswer()}
+                                         <br>Explanation: ${previewFlashcard.explanation}
+                                     </span>
+                                     <div>
+                                    <button class="close-button" id="closeButton-flashySurf">Close Preview</button>
+                                     </div>
+                                 `
+                         : `
+                                 <div class="question limited">
+                                     <span>Question: ${previewFlashcard.question}</span>
+                                     <br>
+                                     ${previewFlashcard.paragraph ? `<span>Paragraph: ${previewFlashcard.paragraph}</span>` : ``}
+                                     <br>
+<br>
+                                     <span style="text-decoration: underline;"> Tip: ${tips[Math.floor(Math.random() * tips.length)]}</span> 
+                                 </div>
+                                 <div class="answer">
+                                     <div class="choices">
+                                         ${previewFlashcard.choices.map(choice => `
+                                             <button class="choice">${choice}</button>
+                                         `).join('')}
+                                     </div>
+                                 </div>
+                             `}
+                         </div>
+                     </div>
+                 `;
+                 
+                styles.textContent = `
+                 
+                    ${css}
+
+                    .background {
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        width: 10000vw;
+                        height: 100000vh;
+                        overflow: hidden;
+                        background-color: var(--overlay-bg) !important;
+                        opacity: 70%;
+                        z-index: 99999999999999;
+                    }
+                    .cover-container {
+                        color: var(--text-color); 
+                        overflow: hidden;
+                        
+                    }
+                    .widget {
+                        position: fixed;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        width: max(40vw, 35vh);
+                        border-radius: 1.5em;
+                        padding: 1.4em;
+                        background-color: var(--bg-color) !important;
+                        border: 0.075em solid var(--border-color);
+                        display: flex;
+                        flex-direction: column;
+                        font-family: monospace;
+                        gap: 1.5em;
+                        box-shadow: 0px 0px 60px 3px var(--shadow-color);
+                        z-index: 999999999999999;
+                        color: var(--text-color) !important;
+                    }
+                    .title { font-weight: bold; font-size: large; }
+                    .limited { max-height: 45vh; overflow-y: auto; }
+                    .choices { display: flex; flex-direction: column; gap: 0.2em; }
+                    .choice {
+                        padding: 2px 4px;
+                        border-radius: 6px;
+                        text-align: left;
+                        background-color: var(--choice-bg);
+                        border: none;
+                        height: auto !important;
+                        color: var(--text-color) !important;
+                        cursor: pointer;
+                    }
+                    .close-button {
+                        padding: 8px 16px;
+                        border-radius: 4px;
+                        background-color: var(--close-button-bg);
+                        color: var(--close-button-text);
+                        border: none;
+                        cursor: pointer;
+                    }
+                    .close-button:disabled {
+                        background-color: var(--disabled-button-bg);
+                        cursor: not-allowed;
+                    }
+                    
+                    .skip-button {
+                        font-size: 0.80rem;
+                        font-weight: bold;
+                        padding-top: 0.125em;
+                        margin-top: 0.5em;
+                        cursor: pointer;
+                        opacity: 0.75;
+                        background: none;
+                        border-width: 1px;
+                        color: var(--text-color) !important;
+                    }
+                    
+                summary {
+                    cursor: pointer !important;
+                }
+                    
+                    .notes-input {
+                        width: 80%;
+                        padding: 8px;
+                        border: 1px solid var(--notes-border);
+                        border-radius: 4px;
+                        font-family: inherit;
+                        font-size: 0.9em;
+                        resize: vertical;
+                        color: var(--notes-text) !important;
+                        background-color: var(--notes-bg) !important;
+                        margin: 0 auto;
+                        display: block;
+                    }
+                    .word-count {
+                        font-size: 0.8em;
+                        color: var(--word-count-text);
+                        text-align: right;
+                        margin-top: 4px;
+                        width: 80%;
+                        margin: 4px auto 0;
+                    }
+                    .back-button {
+                        padding: 8px 16px;
+                        border-radius: 4px;
+                        background-color: var(--back-button-bg);
+                        color: var(--back-button-text);
+                        border: none;
+                        cursor: pointer;
+                        margin-right: 8px;
+                    }
+                    .next-button {
+                        padding: 8px 16px;
+                        border-radius: 4px;
+                        background-color: var(--next-button-bg);
+                        color: var(--next-button-text);
+                        border: none;
+                        cursor: pointer;
+                    }
+                    .next-button:disabled {
+                        background-color: var(--disabled-button-bg);
+                        cursor: not-allowed;
+                    }
+                `;
+                shadow.appendChild(styles);
+                
+                
+                // Add event listeners for the new buttons and textarea
+                if (selectedChoice) {
+                    if (isInNotesSection && !isCorrect) {
+                        const notesInput = shadow.getElementById('notes-input-flashySurf');
+                        const wordCount = shadow.getElementById('word-count-flashySurf');
+                        const closeButton = shadow.getElementById('closeButton-flashySurf');
+                        const backButton = shadow.getElementById('backButton-flashySurf');
+                        // Update word count and enable/disable close button
+                        const updateWordCount = () => {
+                            const words = notesInput.value.trim().split(/\s+/).filter(word => word.length > 0);
+                            const count = words.length;
+                            wordCount.textContent = `${count} words (minimum 10)`;
+                            notesText = notesInput.value;
+                        };
+
+                        notesInput.addEventListener('input', updateWordCount);
+                        updateWordCount(); // Initial count
+
+                        // Back button to return to explanation
+                        backButton.addEventListener('click', () => {
+                            isInNotesSection = false;
+                            render();
+                        });
+
+                        // Close button closes widget
+                        closeButton.addEventListener('click', () => {
+                            widgetEl.remove();
+                        });
+                    } else if (!isInNotesSection) {
+                        const closeButton = shadow.getElementById('closeButton-flashySurf');
+                        
+                        // Close button for explanation screen
+                        closeButton.addEventListener('click', () => {
+                            if (isCorrect) {
+                                widgetEl.remove();
+                            } else {
+                                isInNotesSection = true;
+                                render();
+                            }
+                        });
+                        
+                        // Update button text based on correctness
+                        if (!isCorrect) {
+                            closeButton.textContent = 'Next: Take Notes';
+                        }
+                    }
+                    
+                } else {
+                    // No choice selected yet, nothing extra needed
+                }
+
+            }
+
+            function submittedAnswer(answer) {
+                selectedChoice = answer;
+                console.log(answer, previewFlashcard.answer, previewFlashcard.choices);
+                isCorrect = (answer[0].toLowerCase() == previewFlashcard.answer[0].toLowerCase());
+                if (!isCorrect) {
+                    try {
+                        isCorrect = (answer[0].toLowerCase() == previewFlashcard.answer[0][0].toLowerCase());
+                    }
+                    catch { }
+                }
+
+                render();
+            }
+
+            // Initial render
+            render();
+            document.body.appendChild(widgetEl);
+
+            // Event delegation for choices
+            console.log("Attaching Listners");
+
+            btnInterval = setInterval(() => {
+                Array.from(shadow.querySelectorAll(".choice")).forEach((btn) => {
+                    if (!Boolean(btn.attachedListeners)) {
+                        btn.addEventListener('click', (e) => {
+                            submittedAnswer(btn.textContent);
+                        });
+                        console.log(btn.textContent);
+                        btn.attachedListeners = true;
+                        clearInterval(btnInterval);
+                    }
+                });
+            }, 500);
+
+        }
+        function addPoints(pointsToAdd) {
+            chrome.storage.local.get(['points', 'pointsEarnedToday'], function (result) {
+                let currentPoints = result.points || 0;
+                chrome.storage.local.set({ points: currentPoints + pointsToAdd });
+                if (Number(Date.now()) > (result.pointsEarnedToday[1] + 24 * 60 * 60 * 1000)) {
+                    // Reset daily points if last earned was over 24 hours ago
+                    chrome.storage.local.set({ pointsEarnedToday: [pointsToAdd, Date.now()]});
+                    return;
+                }
+                chrome.storage.local.set({ pointsEarnedToday: [result.pointsEarnedToday[0] + pointsToAdd, Date.now()]});
+            });
+            
+        }
         
         chrome.storage.local.get(['forceCard', 'widgetChance', 'lastBreak', 'lastCompleted', 'ignoreUrls'], function (result) {
             if ((Number(Date.now()) > (result.lastBreak + 30 * 60 * 1000)) && (Number(Date.now()) > (result.lastCompleted + 3 * 60 * 1000)) && (userFlashCards.length != 0)) {
@@ -1775,6 +2175,10 @@
                     break;
                 case "addCollection":
                     showAddCollectionPopup();
+                    sendResponse({success: true});
+                    break;
+                case "previewTheme":
+                    showThemePreviewPopup(message.data);
                     sendResponse({success: true});
                     break;
                 default:

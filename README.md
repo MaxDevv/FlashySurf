@@ -23,6 +23,9 @@ Designed for learners who want to study without dedicated study sessions. Flashy
 - **Non-intrusive**: Designed to integrate into your browsing without being disruptive
 - **Customizable Frequency**: Control how often flashcards appear with the settings panel
 - **Performance Reports**: Generate personalized reports identifying your weakest topic areas
+- **Gamified Economy**: Earn points for studying and spend them on breaks, skips, or visual customizations
+- **Visual Themes**: Customize your study experience with purchaseable themes like Dark Mode, Galaxy, and Cherry Blossom
+- **Referral Program**: Earn bonus points by inviting friends to study with FlashySurf
 
 ## 📋 Requirements
 
@@ -83,9 +86,27 @@ When a question appears:
 
 The extension tracks your performance over time and uses semantic clustering to identify topic areas where you need more practice, automatically adjusting future question selection to target your weaknesses. With v2.0, you can now create and manage multiple flashcard collections, enabling you to study any subject matter.
 
+## 🏆 Points & Rewards System (v2.1)
+
+FlashySurf v2.1 introduces a gamified economy to keep you motivated.
+
+**Earning Points:**
+- **Correct Answer:** +4 Points
+- **Incorrect Answer:** +1 Point
+- **Daily Cap:** You can earn up to 50 points per day via flashcards
+- **Referrals:** Earn **75 Points** (uncapped) for every friend who installs via your unique referral link
+
+**Spending Points:**
+- **30-Minute Break:** Costs 20 Points. Pause flashcards entirely for half an hour
+- **Skip Card:** Costs 9 Points. Skip a question without answering
+- **Themes:** Spend points to unlock visual styles for your flashcards.
+
 ## 🛠️ Configuration
 
 Click on the FlashySurf icon in your browser toolbar to:
+- Check your Points Balance and Referral Stats
+- Browse and unlock visual Themes for your flashcards
+- Activate a 30-Minute Break (costs points)
 - Adjust the frequency of flashcard appearances
 - View your performance statistics across all active collections
 - Review your saved notes from incorrect answers
@@ -93,7 +114,7 @@ Click on the FlashySurf icon in your browser toolbar to:
 - Enable/disable specific flashcard collections
 - Access additional settings
 
-With v2.0, the configuration panel has been enhanced to support custom flashcard collections, allowing you to manage multiple collections and track your progress across different subjects.
+With v2.1, the configuration panel has been enhanced with a points system, theme store, and referral tracking. The configuration panel has also been enhanced to support custom flashcard collections, allowing you to manage multiple collections and track your progress across different subjects.
 
 ## 🧠 Learning Approach (SAT Specific)
 
@@ -107,6 +128,41 @@ FlashySurf uses principles of spaced repetition, adaptive learning, and passive 
 By integrating practice into your daily browsing, you'll build familiarity with SAT question patterns without dedicated study sessions while receiving personalized attention to your areas of weakness.
 
 # Changelog
+## 2.1
+
+### 2.1.0 (2025-12-30)
+
+**Major Feature: Gamification & Points System**
+- **Earn While You Learn**: Introduced an economy system. Earn **4 points** for every correct answer and **1 point** for incorrect answers (capped at 50 points/day)
+- **Spend Your Points**:
+  - **Breaks**: The 30-minute break button now costs **20 points**
+  - **Skips**: Stuck on a card? You can now skip a flashcard for **9 points**
+  - **Themes**: Buy cosmetic upgrades for your flashcards
+
+**Feature: Visual Themes**
+- Added a Theme Store in the settings popup
+- **5 New Themes**:
+  - **Light** (Default/Free)
+  - **Dark Mode** (20 points)
+  - **Gold** (200 points)
+  - **Galaxy** (275 points) - *Features animated CSS star fields*
+  - **Cherry Blossom** (375 points) - *Features animated falling petals*
+- Includes a "Preview" function to test themes on the current page before purchasing
+
+**Feature: Referral System**
+- Implemented a referral program using Firebase Cloud Messaging (FCM)
+- **Earn**: Get **75 points** instantly when a friend installs FlashySurf using your unique referral link
+- Added push notifications to alert you immediately when a referral bonus is received
+
+**Fixes & Improvements**
+- **Semantic Clustering Fixed**: Resolved a critical issue where the embedded semantic clustering database was outdated, ensuring the "similar questions" algorithm now actually serves semantically related content
+- **UI Improvements**:
+  - Added a "Skip Flashcard" button to the widget
+  - Updated the Break button to show a countdown timer directly on the button label (e.g., "On Break (29:59)")
+  - Prevented keyboard events from propagating to the host website while typing notes (fixes conflicts with site-specific hotkeys)
+  - Moved and reorganized help and onboarding to "How do I use FlashySurf?" section at the top for easier discovery
+- **Permissions Update**: Added `gcm`, `notifications`, and `identity` permissions to support the new referral system
+
 ## 2.0
 
 ### 2.0.5
