@@ -670,12 +670,8 @@ document.addEventListener('DOMContentLoaded', async function () {
                     }, (response) => {
                         if (response === undefined) {
 
-                            chrome.tabs.create({ url: "https://flashysurf.com", active: true }, (tab) => {
-                                // After tab is created, send message again
-                                chrome.tabs.sendMessage(tab.id, {
-                                    action: "previewTheme",
-                                    data: theme.css
-                                });
+                            chrome.storage.local.set({ pendingPreviewCss: theme.css }, () => {
+                                chrome.tabs.create({ url: "https://flashysurf.com", active: true });
                             });
                         }
                     });
@@ -978,32 +974,6 @@ document.addEventListener('DOMContentLoaded', async function () {
     });
     // Add flashcard collection button
     // Shows html popup widget of upload collection button, and it should be split up into like 2 sections, one with a big plus that is like click to upload collection, and another that is like text that explains flashccard collections, how to edit them (download, delete, reupload), how to create them and how to import them, ill make a webpage on my website whre users can create and upload and import collections on the website
-
-
-    /* Old prompt:    
-
-    now I'm working on custom flashcard collections, write the js in popup.js for selecting flashcards with the checkbox, also for downloading flashcards (it should only download the questions array as json), deleting collections (you hsould add a confirmation popup that says the flashcards and user data will be permanetly deleted),  also i left the sat flascards as a temp for how i want the ui to look, however when the sat flashcards are toggled unlike other flashcards they should be able to be downloaded or deleted and when theyre toggled it should only affect the satCardsEnabled variable, also when someone switches selected flashcards, it should alter which stats are shown, like thier stats should only show the combined stats and notes of the currently selected flashcard collections, and make sure it is known that the generate performance reportts button only works for SAT flashcards, and also if sat flashcards are deselected the the whole performance reports section should be hidden
-
-flashcard collection schema: 
-
-"    {
-
-        active: false,
-
-        correctlyAnswered: [],
-
-        incorrectlyAnswered: [],
-
-        notes: [],
-
-        questions: [],
-
-        id: "UUID"
-
-    }"
-
-the whole point of this is for us to work towards releasing v2.0 where users are allowed to upload thier own custom flashcard collections */
-
     var textAreas = document.getElementsByTagName('textarea');
 
     Array.prototype.forEach.call(textAreas, function (elem) {

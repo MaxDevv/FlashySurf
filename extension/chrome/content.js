@@ -2193,6 +2193,12 @@
                 showAddCollectionPopup();
             }
         })
+        chrome.storage.local.get(['pendingPreviewCss'], (result) => {
+            if (result.pendingPreviewCss) {
+                showThemePreviewPopup(result.pendingPreviewCss);
+                chrome.storage.local.remove('pendingPreviewCss');
+            }
+        });
         // Create stats badge
         /*
         chrome.storage.local.get(['correctSATAnswers', 'incorrectSATAnswers', 'devMode'], function(result) {
