@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "FlashySurf - Study without ever Studying",
     "version": "2.1.0",
-    "description": "Study without ever Studying | Flashysurf v2.0 is an advanced study tool where anyone can learn passively via web browsing flashcards",
+    "description": "Study without ever Studying | Flashysurf is an advanced study tool where anyone can learn passively via web browsing flashcards",
     "author": "MaxDev",
     "icons": {
       "16": "icons/16x16.png",
@@ -19,7 +19,7 @@
       "default_title": "FlashySurf Settings"
     },
     "permissions": [
-      "storage", "gcm", "notifications", "identity"
+      "storage", "gcm", "notifications"
     ],
     "host_permissions": [
       "*://*/*"
