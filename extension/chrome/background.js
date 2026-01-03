@@ -6,7 +6,7 @@ chrome.runtime.onInstalled.addListener(({ reason }) => {
   }
 
 
-  chrome.storage.local.get(['correctSATAnswers', 'incorrectSATAnswers', 'forceCard', 'widgetChance', 'devMode', 'lastCompleted', 'satNotes', 'answeredQuestions', 'lastBreak', 'failedQuestions', "uID", 'performanceReport', 'userFlashCards', 'satCardsEnabled', 'flashCardDevModeNum', 'forceAddCollection', 'nextShareRequest', 'points', 'pointsEarnedToday', "gcmID", "refferalCount", "refferalPoints", "userThemes"], (result) => {
+  chrome.storage.local.get(['correctSATAnswers', 'incorrectSATAnswers', 'forceCard', 'widgetChance', 'devMode', 'lastCompleted', 'satNotes', 'answeredQuestions', 'lastBreak', 'failedQuestions', "uID", 'performanceReport', 'userFlashCards', 'satCardsEnabled', 'flashCardDevModeNum', 'forceAddCollection', 'nextShareRequest', 'points', 'pointsEarnedToday', "gcmID", "refferalCount", "refferalPoints", "userThemes", "fcmIDSyncedWServer"], (result) => {
     let userID;
     if (result.correctSATAnswers === undefined) {
       chrome.storage.local.set({ correctSATAnswers: 0 });
@@ -41,6 +41,8 @@ chrome.runtime.onInstalled.addListener(({ reason }) => {
     if (result.uID === undefined) {
       userID = crypto.randomUUID();
       chrome.storage.local.set({ uID: userID });
+    } else {
+      userID = result.uID;
     }
 
     if (result.performanceReport === undefined) {
@@ -132,6 +134,7 @@ chrome.runtime.onInstalled.addListener(({ reason }) => {
     if (result.refferalPoints === undefined) {
       chrome.storage.local.set({ refferalPoints: 0 });
     }
+    
     if (result.userThemes === undefined) {
       chrome.storage.local.set({
         userThemes: {
@@ -164,7 +167,25 @@ chrome.runtime.onInstalled.addListener(({ reason }) => {
         }
       });
     }
+
+    if (result.fcmIDSyncedWServer == false) {
+      if (result.gcmID && userID) {
+        console.log('Syncing identity to server...');
+        fetch('https://referral-system-1085676987010.europe-west1.run.app/register-device', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ userId: userID, fcmToken: result.gcmID })
+        }).then(response => {
+          if (response.ok) {
+            chrome.storage.local.set({ fcmIDSyncedWServer: true });
+            console.log('Identity sync successful');
+          }
+        }).catch(err => console.error('Identity sync failed:', err));
+      }
+    }
   });
+
+
 });
 
 chrome.gcm.onMessage.addListener((message) => {
