@@ -129,7 +129,7 @@ By integrating practice into your daily browsing, you'll build familiarity with 
 
 # Changelog
 ## 2.1
-### 2.1.1 (2026-01-3)
+### 2.1.1 (2026-01-03)
 - Major Bugfix: I lowkey forgot a simple else statement that broke the entire user registration, I had to implment a whole backend fix system to prevent needing to revert the update bug lol.
 
 ### 2.1.0 (2025-12-30)

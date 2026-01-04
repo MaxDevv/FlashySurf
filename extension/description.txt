@@ -52,6 +52,10 @@ FlashySurf uses principles spaced repetition and adaptive learning to help you a
 
 RECENT UPDATES:
 
+v2.1.1 (January 2026) - Critical Bugfix
+• Resolved a critical user registration failure caused by a missing conditional statement
+• Implemented an enhanced backend validation system to maintain data integrity and prevent requiring version rollback
+
 v2.1.0 (December 2025) - MAJOR GAMIFICATION UPDATE :D
 • Gamified Points System: Earn 4 points for correct answers, 1 point for incorrect (50 points/day cap)
 • 5 New Visual Themes: Dark Mode (20 pts), Gold (200 pts), Galaxy (275 pts - animated stars), Cherry Blossom (375 pts - falling petals)
