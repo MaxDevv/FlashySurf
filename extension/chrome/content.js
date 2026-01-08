@@ -6,7 +6,7 @@
     }
     let config = {
         satMode: true,
-        devMode: true,
+        devMode: false,
         semanticSimmilarityInNotSATMode: false,
         useSemanticSimmilarity: true
     }
@@ -799,61 +799,6 @@
                 ]
                 chrome.storage.local.get(['points', 'pointsEarnedToday', 'userThemes'], function (result) {
 
-                    // Main data logging
-                    console.log("=== COMPLETE DATA DUMP ===");
-                    console.log("Raw result object:", result);
-                    console.log("\n--- Individual Values ---");
-                    console.log("result.points:", result.points);
-                    console.log("result.pointsEarnedToday:", result.pointsEarnedToday);
-                    console.log("result.pointsEarnedToday[0]:", result.pointsEarnedToday[0]);
-                    console.log("result.pointsEarnedToday[1]:", result.pointsEarnedToday[1]);
-                    console.log("Current timestamp (Date.now()):", Date.now());
-                    console.log("Current date/time:", new Date(Date.now()).toISOString());
-                    console.log("pointsEarnedToday timestamp as date:", new Date(result.pointsEarnedToday[1]).toISOString());
-
-                    console.log("\n=== BOOLEAN CALCULATIONS ===");
-
-                    // First condition: points < 750
-                    const pointsLessThan750 = result.points < 750;
-                    console.log("(result.points < 750):", pointsLessThan750);
-                    console.log(`  → ${result.points} < 750 = ${pointsLessThan750}`);
-
-                    // Second condition: pointsEarnedToday[0] < 50
-                    const pointsTodayLessThan50 = result.pointsEarnedToday[0] < 50;
-                    console.log("(result.pointsEarnedToday[0] < 50):", pointsTodayLessThan50);
-                    console.log(`  → ${result.pointsEarnedToday[0]} < 50 = ${pointsTodayLessThan50}`);
-
-                    // Combined AND condition
-                    const firstConditionGroup = pointsLessThan750 && pointsTodayLessThan50;
-                    console.log("\n((result.points < 750) && (result.pointsEarnedToday[0] < 50)):", firstConditionGroup);
-                    console.log(`  → ${pointsLessThan750} && ${pointsTodayLessThan50} = ${firstConditionGroup}`);
-
-                    // Time calculation parts
-                    const currentTime = Number(Date.now());
-                    const timestampPlusOneDay = result.pointsEarnedToday[1] + 24 * 60 * 60 * 1000;
-                    console.log("\n--- Time Calculation Breakdown ---");
-                    console.log("Current time (Date.now()):", currentTime);
-                    console.log("24 * 60 * 60 * 1000 (ms in a day):", 24 * 60 * 60 * 1000);
-                    console.log("result.pointsEarnedToday[1]:", result.pointsEarnedToday[1]);
-                    console.log("result.pointsEarnedToday[1] + 24hr:", timestampPlusOneDay);
-                    console.log("Time difference (ms):", currentTime - result.pointsEarnedToday[1]);
-                    console.log("Time difference (hours):", (currentTime - result.pointsEarnedToday[1]) / (60 * 60 * 1000));
-
-                    // Third condition: time comparison
-                    const timeExceeded = currentTime > timestampPlusOneDay;
-                    console.log("\n(Number(Date.now()) > (result.pointsEarnedToday[1] + 24 * 60 * 60 * 1000)):", timeExceeded);
-                    console.log(`  → ${currentTime} > ${timestampPlusOneDay} = ${timeExceeded}`);
-
-                    // Final OR condition
-                    const finalResult = firstConditionGroup || timeExceeded;
-                    console.log("\n=== FINAL RESULT ===");
-                    console.log("(firstConditionGroup || timeExceeded):", finalResult);
-                    console.log(`  → ${firstConditionGroup} || ${timeExceeded} = ${finalResult}`);
-
-                    console.log("\n=== SUMMARY ===");
-                    console.log(`Condition 1 (points < 750 AND pointsToday < 50): ${firstConditionGroup}`);
-                    console.log(`Condition 2 (more than 24 hours passed): ${timeExceeded}`);
-                    console.log(`Final result (Condition 1 OR Condition 2): ${finalResult}`);
                     shadow.innerHTML = `
                     <div class="cover-container">
                         <div class="background"></div>

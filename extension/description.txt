@@ -52,6 +52,11 @@ FlashySurf uses principles spaced repetition and adaptive learning to help you a
 
 RECENT UPDATES:
 
+v2.1.2 (January 2026) - Points System Bugfix
+• Fixed critical inaccuracies in the points adding system that prevented proper point allocation
+• Corrected logic in daily point cap and total point limit verification
+• Disabled developer mode that was left enabled in production
+
 v2.1.1 (January 2026) - Critical Bugfix
 • Resolved a critical user registration failure caused by a missing conditional statement
 • Implemented an enhanced backend validation system to maintain data integrity and prevent requiring version rollback
