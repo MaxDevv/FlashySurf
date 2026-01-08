@@ -14,7 +14,7 @@
     let satCardsEnabled = await chrome.storage.local.get("satCardsEnabled");
     config.satMode = satCardsEnabled.satCardsEnabled;
     if (!config.devMode) {
-        console.log = function () {};
+        console.log = function () { };
     }
     // i think itd be best to randomly select one flascard collection first, then do all the rest of the code working off that
     let userFlashCards = await chrome.storage.local.get("userFlashCards");
@@ -43,7 +43,7 @@
     }
 
     reallyDumbUneededRecursionForSelectingCollections();
-    
+
 
 
     if (!config.satMode && !config.semanticSimmilarityInNotSATMode) {
@@ -57,7 +57,7 @@
     function fetchDataset() {
         if (userFlashCards.length == 0) {
             return new Promise((resolve, reject) => {
-                resolve([]); 
+                resolve([]);
             });
         }
         if (config.satMode) {
@@ -78,7 +78,7 @@
             });
         } else {
             return new Promise((resolve, reject) => {
-                resolve(selectedFlashcards.questions); 
+                resolve(selectedFlashcards.questions);
             });
         }
     }
@@ -87,13 +87,13 @@
         let data;
         let dataSet = await fetchDataset();
         let flashcardList = [...dataSet["math"], ...dataSet["english"]];
-        
+
 
         let result = await chrome.storage.local.get(["failedQuestions", "answeredQuestions", "incorrectSATAnswers", "correctSATAnswers", "satNotes", "uID"]);
         let answeredQuestions = result.answeredQuestions;
         let failedQuestions = result.failedQuestions;
         let correctSATAnswers = result.correctSATAnswers;
-        let incorrectSATAnswers  = result.incorrectSATAnswers;
+        let incorrectSATAnswers = result.incorrectSATAnswers;
         let notes = result.satNotes;
         if (failedQuestions < 5 || (failedQuestions + answeredQuestions) < 25) return false;
         let clusters = Array.from({ length: 87 }, (_, i) => {
@@ -120,11 +120,11 @@
             clusters[question["cluster"]].failedQuestions += 1;
         }
 
-        let clusterAccuracies = clusters.map((val) => {return {id: val.id, accuracy: ((val.answeredQuestions + val.failedQuestions) > 0 ? ((val.answeredQuestions)/(val.answeredQuestions + val.failedQuestions)) : (correctSATAnswers/(incorrectSATAnswers + correctSATAnswers + 0.1))) }}).sort((b, a) => b.accuracy - a.accuracy);
+        let clusterAccuracies = clusters.map((val) => { return { id: val.id, accuracy: ((val.answeredQuestions + val.failedQuestions) > 0 ? ((val.answeredQuestions) / (val.answeredQuestions + val.failedQuestions)) : (correctSATAnswers / (incorrectSATAnswers + correctSATAnswers + 0.1))) } }).sort((b, a) => b.accuracy - a.accuracy);
         let strugglePoints = []
 
         clusterAccuracies.forEach((e) => {
-            if ((e.accuracy > 0) && (e.accuracy <  (correctSATAnswers/(incorrectSATAnswers + correctSATAnswers + 0.1))) && strugglePoints.length < 3) {
+            if ((e.accuracy > 0) && (e.accuracy < (correctSATAnswers / (incorrectSATAnswers + correctSATAnswers + 0.1))) && strugglePoints.length < 3) {
                 strugglePoints.push(e)
             }
         })
@@ -138,7 +138,7 @@
                     "cluster": strugglePoints[0].id,
                     "accuracy": strugglePoints[0].accuracy
                 },
-                {   
+                {
                     "cluster": strugglePoints[1].id,
                     "accuracy": strugglePoints[1].accuracy
                 },
@@ -149,7 +149,7 @@
             ],
             "userID": result.uID
         }
-        
+
         return data;
     }
 
@@ -183,7 +183,7 @@
         // Function to get a flashcard from failed questions
         function getFailedQuestionFlashcard(flashcardList, failedQuestions, answeredQuestions) {
             return new Promise((resolve) => {
-                
+
                 if (!config.satMode) {
                     // new system, better data but im lazy rn
                     // basically just loop through all the failed questions and answered questions and perform the operations i removed to make the data look like its from the old system
@@ -194,9 +194,9 @@
                     [...failedQuestions, ...answeredQuestions].sort((a, b) => a.time - b.time).forEach((e) => {
                         if (e.correct) {
                             answeredQuestionsOld.push(e.id)
-                        if (failedQuestionsOld.indexOf(e.id) != -1) {
-                            failedQuestionsOld.splice(failedQuestionsOld.indexOf(e.id), 1);
-                        }
+                            if (failedQuestionsOld.indexOf(e.id) != -1) {
+                                failedQuestionsOld.splice(failedQuestionsOld.indexOf(e.id), 1);
+                            }
                         } else {
                             failedQuestionsOld.push(e.id);
                             // wait is there no functionality to remove answered questions???, watever idc
@@ -291,7 +291,7 @@
         }
 
 
-        
+
         // Function to get a regular flashcard (avoiding answered questions)
         function getRegularFlashcard(flashcardList, answeredQuestions) {
             return new Promise((resolve) => {
@@ -352,7 +352,7 @@
                             const flashcard = await getFailedQuestionFlashcard(flashcardList, failedQuestions, answeredQuestions);
                             resolve(flashcard);
                         });
-                    
+
                     } else {
                         const flashcard = await getFailedQuestionFlashcard(flashcardList, selectedFlashcards.correctlyAnswered, selectedFlashcards.incorrectlyAnswered);
                         resolve(flashcard);
@@ -554,7 +554,7 @@
             render();
             document.body.appendChild(widgetEl);
         }
-        
+
         function createShareRequestWidget() {
             let forcePause;
             // Start pausing any background videos.
@@ -698,13 +698,13 @@
                     widgetEl.remove();
                     clearInterval(forcePause);
                 };
-                
+
                 // Dismiss button functionality
                 if (dismissButton) {
                     dismissButton.addEventListener('click', () => {
                         // TODO: Your logic here. 
                         // Set a flag in localStorage to prevent this from showing again.
-                        chrome.storage.local.set({'nextShareRequest': Date.now() + (60 * 24 * 60 * 60 * 1000)});
+                        chrome.storage.local.set({ 'nextShareRequest': Date.now() + (60 * 24 * 60 * 60 * 1000) });
                         // Mixpanel event
                         console.log("User chose not to see this message again.");
                         closeWidget();
@@ -718,7 +718,7 @@
                         // You could present a shareable link, or just use this as a positive signal.
                         // It's mainly for user affirmation, but you could track this click.
 
-                        chrome.storage.local.set({'nextShareRequest': Date.now() + (10 * 24 * 60 * 60 * 1000)})
+                        chrome.storage.local.set({ 'nextShareRequest': Date.now() + (10 * 24 * 60 * 60 * 1000) })
                         console.log("User pledged to share!");
                         closeWidget();
                     });
@@ -741,7 +741,7 @@
                 createReportChoiceWidget();
                 return;
             } else if (flashcard == "Share Request") {
-                
+
                 createShareRequestWidget();
                 return;
             }
@@ -762,8 +762,8 @@
             // Create container
             const widgetEl = document.createElement('div');
             widgetEl.id = 'flashcard-widget';
-            const shadow = widgetEl.attachShadow({mode: 'closed'});
-            
+            const shadow = widgetEl.attachShadow({ mode: 'closed' });
+
             // Add event listeners to stop propagation **Fixes bug that allowed textbox keypresses to propogate into website hotkeys causing nuisance and possibly deeper errors to users**
             shadow.addEventListener('keydown', (e) => {
                 e.stopPropagation();
@@ -798,15 +798,70 @@
                     "Make sure to remember the strategy you use to answer this question so you reuse it or avoid it if you get the question wrong."
                 ]
                 chrome.storage.local.get(['points', 'pointsEarnedToday', 'userThemes'], function (result) {
-                           
-                shadow.innerHTML = `
+
+                    // Main data logging
+                    console.log("=== COMPLETE DATA DUMP ===");
+                    console.log("Raw result object:", result);
+                    console.log("\n--- Individual Values ---");
+                    console.log("result.points:", result.points);
+                    console.log("result.pointsEarnedToday:", result.pointsEarnedToday);
+                    console.log("result.pointsEarnedToday[0]:", result.pointsEarnedToday[0]);
+                    console.log("result.pointsEarnedToday[1]:", result.pointsEarnedToday[1]);
+                    console.log("Current timestamp (Date.now()):", Date.now());
+                    console.log("Current date/time:", new Date(Date.now()).toISOString());
+                    console.log("pointsEarnedToday timestamp as date:", new Date(result.pointsEarnedToday[1]).toISOString());
+
+                    console.log("\n=== BOOLEAN CALCULATIONS ===");
+
+                    // First condition: points < 750
+                    const pointsLessThan750 = result.points < 750;
+                    console.log("(result.points < 750):", pointsLessThan750);
+                    console.log(`  → ${result.points} < 750 = ${pointsLessThan750}`);
+
+                    // Second condition: pointsEarnedToday[0] < 50
+                    const pointsTodayLessThan50 = result.pointsEarnedToday[0] < 50;
+                    console.log("(result.pointsEarnedToday[0] < 50):", pointsTodayLessThan50);
+                    console.log(`  → ${result.pointsEarnedToday[0]} < 50 = ${pointsTodayLessThan50}`);
+
+                    // Combined AND condition
+                    const firstConditionGroup = pointsLessThan750 && pointsTodayLessThan50;
+                    console.log("\n((result.points < 750) && (result.pointsEarnedToday[0] < 50)):", firstConditionGroup);
+                    console.log(`  → ${pointsLessThan750} && ${pointsTodayLessThan50} = ${firstConditionGroup}`);
+
+                    // Time calculation parts
+                    const currentTime = Number(Date.now());
+                    const timestampPlusOneDay = result.pointsEarnedToday[1] + 24 * 60 * 60 * 1000;
+                    console.log("\n--- Time Calculation Breakdown ---");
+                    console.log("Current time (Date.now()):", currentTime);
+                    console.log("24 * 60 * 60 * 1000 (ms in a day):", 24 * 60 * 60 * 1000);
+                    console.log("result.pointsEarnedToday[1]:", result.pointsEarnedToday[1]);
+                    console.log("result.pointsEarnedToday[1] + 24hr:", timestampPlusOneDay);
+                    console.log("Time difference (ms):", currentTime - result.pointsEarnedToday[1]);
+                    console.log("Time difference (hours):", (currentTime - result.pointsEarnedToday[1]) / (60 * 60 * 1000));
+
+                    // Third condition: time comparison
+                    const timeExceeded = currentTime > timestampPlusOneDay;
+                    console.log("\n(Number(Date.now()) > (result.pointsEarnedToday[1] + 24 * 60 * 60 * 1000)):", timeExceeded);
+                    console.log(`  → ${currentTime} > ${timestampPlusOneDay} = ${timeExceeded}`);
+
+                    // Final OR condition
+                    const finalResult = firstConditionGroup || timeExceeded;
+                    console.log("\n=== FINAL RESULT ===");
+                    console.log("(firstConditionGroup || timeExceeded):", finalResult);
+                    console.log(`  → ${firstConditionGroup} || ${timeExceeded} = ${finalResult}`);
+
+                    console.log("\n=== SUMMARY ===");
+                    console.log(`Condition 1 (points < 750 AND pointsToday < 50): ${firstConditionGroup}`);
+                    console.log(`Condition 2 (more than 24 hours passed): ${timeExceeded}`);
+                    console.log(`Final result (Condition 1 OR Condition 2): ${finalResult}`);
+                    shadow.innerHTML = `
                     <div class="cover-container">
                         <div class="background"></div>
                         <div class="widget">
                             <div class="title">FlashySurf - Flashcard</div>
                             ${selectedChoice ?
-                        isInNotesSection && !isCorrect ?
-                            `
+                            isInNotesSection && !isCorrect ?
+                                `
                                     <span class="limited">
                                          <h3 style="color: var(--incorrect-text);">Take Notes</h3>
                                         <p>Please describe how and why you got the question wrong and the right solution in your own words.</p>
@@ -822,29 +877,29 @@
                                         <span>Closable when you write at least 10 words</span>
                                     </div>
                                 `
-                            :
-                            `
+                                :
+                                `
                             <span class="limited">
                                  <span style="color: ${isCorrect ? 'var(--correct-text)' : 'var(--incorrect-text)'};">
-                                 ${isCorrect ? 'Correct' : 'Incorrect'} ${(((result.points < 750) && (result.pointsEarnedToday[0] < 50)) || ( Number(Date.now()) > (result.pointsEarnedToday[1] + 24 * 60 * 60 * 1000) )) ? `${isCorrect ? ' +4 ⬢' : ' +1 ⬢'} points Earned${isCorrect ? '!' : ''}` :`+0 ⬢ (Daily/Total limit reached)`}
+                                 ${isCorrect ? 'Correct' : 'Incorrect'} ${(((result.points < 750) && (result.pointsEarnedToday[0] < 50)) || (Number(Date.now()) > (result.pointsEarnedToday[1] + 24 * 60 * 60 * 1000))) ? `${isCorrect ? ' +4 ⬢' : ' +1 ⬢'} points Earned${isCorrect ? '!' : ''}` : `+0 ⬢ (Daily/Total limit reached)`}
 
 
                                         </span>
-                                        <br>Question: ${flashcard.question.length < 150 ? flashcard.question : "<details> <summary>Click to show question:</summary> "+ flashcard.question + " </details>"}
+                                        <br>Question: ${flashcard.question.length < 150 ? flashcard.question : "<details> <summary>Click to show question:</summary> " + flashcard.question + " </details>"}
                                         <br>Chosen Answer: ${selectedChoice}
                                         <br>Actual Answer: ${getAnswer()}
                                         <br>Explanation: ${flashcard.explanation}
                                     </span>
                                     <div>
                                     ${isCorrect ?
-                                `<button class="close-button" id="closeButton-flashySurf" disabled>Close</button>
+                                    `<button class="close-button" id="closeButton-flashySurf" disabled>Close</button>
                                         Closable in <span id="timefoudfuktktfkftlfgiuf">${closeTimer > 0 ? closeTimer.toFixed(1) : '0.0'}</span> seconds`
-                                :
-                                `<button class="next-button" id="nextButton-flashySurf">Next: Take Notes</button>`
-                            }
+                                    :
+                                    `<button class="next-button" id="nextButton-flashySurf">Next: Take Notes</button>`
+                                }
                                     </div>
                                 `
-                        : `
+                            : `
                                 <div class="question limited">
                                     <span>Question: ${flashcard.question}</span>
                                     <br>
@@ -865,8 +920,8 @@
                         </div>
                     </div>
                 `;
-                
-                styles.textContent = `
+
+                    styles.textContent = `
                 
                     ${result.userThemes.currentThemeCSS}
 
@@ -989,145 +1044,145 @@
                         cursor: not-allowed;
                     }
                 `;
-                shadow.appendChild(styles);
-                
-                
-                // Add event listeners for the new buttons and textarea
-                if (selectedChoice) {
-                    if (isInNotesSection && !isCorrect) {
-                        const notesInput = shadow.getElementById('notes-input-flashySurf');
-                        const wordCount = shadow.getElementById('word-count-flashySurf');
-                        const closeButton = shadow.getElementById('closeButton-flashySurf');
-                        const backButton = shadow.getElementById('backButton-flashySurf');
-                        // Update word count and enable/disable close button
-                        const updateWordCount = () => {
-                            const words = notesInput.value.trim().split(/\s+/).filter(word => word.length > 0);
-                            const count = words.length;
-                            wordCount.textContent = `${count} words (minimum 10)`;
-                            notesText = notesInput.value;
+                    shadow.appendChild(styles);
 
-                            if (count >= 10) {
-                                closeButton.disabled = false;
-                            } else {
-                                closeButton.disabled = true;
-                            }
-                        };
 
-                        notesInput.addEventListener('input', updateWordCount);
-                        updateWordCount(); // Initial count
+                    // Add event listeners for the new buttons and textarea
+                    if (selectedChoice) {
+                        if (isInNotesSection && !isCorrect) {
+                            const notesInput = shadow.getElementById('notes-input-flashySurf');
+                            const wordCount = shadow.getElementById('word-count-flashySurf');
+                            const closeButton = shadow.getElementById('closeButton-flashySurf');
+                            const backButton = shadow.getElementById('backButton-flashySurf');
+                            // Update word count and enable/disable close button
+                            const updateWordCount = () => {
+                                const words = notesInput.value.trim().split(/\s+/).filter(word => word.length > 0);
+                                const count = words.length;
+                                wordCount.textContent = `${count} words (minimum 10)`;
+                                notesText = notesInput.value;
 
-                        // Back button to return to explanation
-                        backButton.addEventListener('click', () => {
-                            isInNotesSection = false;
-                            render();
-                        });
+                                if (count >= 10) {
+                                    closeButton.disabled = false;
+                                } else {
+                                    closeButton.disabled = true;
+                                }
+                            };
 
-                        // Close button saves notes and closes widget
-                        closeButton.addEventListener('click', () => {
-                            // Save notes to storage
-                            const noteId = `${flashcard.id}_${new Date().toISOString().split('T')[0]}_${Math.round(Math.random()*10000).toString()}`;
-                            // WHO TF DESIGNED THIS, oh wait it was me, uhh no I blame this on chatgpt I barely use this but these comments arent trashy enough to be mine, now i gotta look through to see if anything depends on this trashy functionality and fix it
-                            // wait nvm i see the vision
+                            notesInput.addEventListener('input', updateWordCount);
+                            updateWordCount(); // Initial count
 
-                            if (config.satMode) {
-                                chrome.storage.local.get(['satNotes'], function (result) {
-                                    const notes = result.satNotes || {};
-                                    notes[noteId] = {
-                                        question: flashcard.question,
-                                        answer: getAnswer(),
-                                        userAnswer: selectedChoice,
-                                        notes: notesText,
-                                        timestamp: Date.now()
-                                    };
-                                    chrome.storage.local.set({ 'satNotes': notes });
-                                });
-                            } else {
-                                chrome.storage.local.get(['userFlashCards'], function (result) {
-                                    let userFlashCards = result.userFlashCards;
-                                    // get/find the right flascards
-                                    for (let i = 0; i < userFlashCards.length; i++) {
-                                        if (userFlashCards[i].id == selectedFlashcards.id) {
-                                            userFlashCards[i].notes[noteId] = {
-                                                question: flashcard.question,
-                                                answer: getAnswer(),
-                                                userAnswer: selectedChoice,
-                                                notes: notesText,
-                                                timestamp: Date.now()
-                                            };
+                            // Back button to return to explanation
+                            backButton.addEventListener('click', () => {
+                                isInNotesSection = false;
+                                render();
+                            });
+
+                            // Close button saves notes and closes widget
+                            closeButton.addEventListener('click', () => {
+                                // Save notes to storage
+                                const noteId = `${flashcard.id}_${new Date().toISOString().split('T')[0]}_${Math.round(Math.random() * 10000).toString()}`;
+                                // WHO TF DESIGNED THIS, oh wait it was me, uhh no I blame this on chatgpt I barely use this but these comments arent trashy enough to be mine, now i gotta look through to see if anything depends on this trashy functionality and fix it
+                                // wait nvm i see the vision
+
+                                if (config.satMode) {
+                                    chrome.storage.local.get(['satNotes'], function (result) {
+                                        const notes = result.satNotes || {};
+                                        notes[noteId] = {
+                                            question: flashcard.question,
+                                            answer: getAnswer(),
+                                            userAnswer: selectedChoice,
+                                            notes: notesText,
+                                            timestamp: Date.now()
+                                        };
+                                        chrome.storage.local.set({ 'satNotes': notes });
+                                    });
+                                } else {
+                                    chrome.storage.local.get(['userFlashCards'], function (result) {
+                                        let userFlashCards = result.userFlashCards;
+                                        // get/find the right flascards
+                                        for (let i = 0; i < userFlashCards.length; i++) {
+                                            if (userFlashCards[i].id == selectedFlashcards.id) {
+                                                userFlashCards[i].notes[noteId] = {
+                                                    question: flashcard.question,
+                                                    answer: getAnswer(),
+                                                    userAnswer: selectedChoice,
+                                                    notes: notesText,
+                                                    timestamp: Date.now()
+                                                };
+                                            }
                                         }
-                                    }
-                                    chrome.storage.local.set({ 'userFlashCards': userFlashCards }); // this feels like just the absolute perfect vector to like have all the flashcards erase themselves
+                                        chrome.storage.local.set({ 'userFlashCards': userFlashCards }); // this feels like just the absolute perfect vector to like have all the flashcards erase themselves
+                                    });
+                                }
+
+                                widgetEl.remove();
+                                clearInterval(forcePause);
+                                forcePause = 1;
+                                chrome.storage.local.set({ 'forceCard': false });
+                                chrome.storage.local.set({ 'lastCompleted': Number(new Date()) });
+                            });
+                        } else if (!isInNotesSection) {
+
+                            console.log("Starting points check");
+
+                            if (isCorrect) {
+                                // For correct answers, handle the close button timer
+                                if (intervalId == 0) {
+                                    const closeButton = shadow.getElementById('closeButton-flashySurf');
+                                    const timerEl = shadow.getElementById("timefoudfuktktfkftlfgiuf");
+                                    closeTimer = 3;
+                                    intervalId = setInterval(() => {
+                                        closeTimer -= 0.1;
+                                        if (closeTimer <= 0) {
+                                            closeTimer = 0.0;
+                                            closeButton.disabled = false;
+                                            chrome.storage.local.set({ 'forceCard': false });
+                                            chrome.storage.local.set({ 'lastCompleted': Number(new Date()) });
+                                            closeButton.onclick = () => {
+                                                widgetEl.remove();
+                                                clearInterval(forcePause);
+                                                forcePause = 1;
+                                                chrome.storage.local.set({ 'forceCard': false });
+                                            };
+                                            clearInterval(intervalId);
+                                        }
+                                        if (timerEl) timerEl.innerText = closeTimer.toFixed(1);
+                                    }, 100);
+                                }
+                            } else {
+                                // For incorrect answers, handle the next button (no timer, just the button)
+                                const nextButton = shadow.getElementById('nextButton-flashySurf');
+
+                                // Add click handler for next button
+                                nextButton.addEventListener('click', () => {
+                                    isInNotesSection = true;
+                                    render();
                                 });
                             }
+                        }
 
-                            widgetEl.remove();
-                            clearInterval(forcePause);
-                            forcePause = 1;
-                            chrome.storage.local.set({ 'forceCard': false });
-                            chrome.storage.local.set({ 'lastCompleted': Number(new Date()) });
-                        });
-                    } else if (!isInNotesSection) {
-                        
-                        console.log("Starting points check");
-                        
-                        if (isCorrect) {
-                            // For correct answers, handle the close button timer
-                            if (intervalId == 0) {
-                                const closeButton = shadow.getElementById('closeButton-flashySurf');
-                                const timerEl = shadow.getElementById("timefoudfuktktfkftlfgiuf");
-                                closeTimer = 3;
-                                intervalId = setInterval(() => {
-                                    closeTimer -= 0.1;
-                                    if (closeTimer <= 0) {
-                                        closeTimer = 0.0;
-                                        closeButton.disabled = false;
-                                        chrome.storage.local.set({ 'forceCard': false });
-                                        chrome.storage.local.set({ 'lastCompleted': Number(new Date()) });
-                                        closeButton.onclick = () => {
+                    } else {
+                        const skipButton = shadow.getElementById('skipButton-flashySurf');
+                        skipButton.addEventListener('click', () => {
+                            if (confirm("Are you sure you want to skip this flashcard? This will cost you 9 points.")) {
+                                // Deduct 9 points
+                                chrome.storage.local.get(['points'], function (result) {
+                                    if (result.points >= 9) {
+                                        chrome.storage.local.set({ points: result.points - 9 }, function () {
+                                            // Close the widget
                                             widgetEl.remove();
                                             clearInterval(forcePause);
                                             forcePause = 1;
                                             chrome.storage.local.set({ 'forceCard': false });
-                                        };
-                                        clearInterval(intervalId);
+                                        });
+                                    } else {
+                                        alert("You don't have enough points to skip this flashcard.");
                                     }
-                                    if (timerEl) timerEl.innerText = closeTimer.toFixed(1);
-                                }, 100);
-                            }
-                        } else {
-                            // For incorrect answers, handle the next button (no timer, just the button)
-                            const nextButton = shadow.getElementById('nextButton-flashySurf');
-
-                            // Add click handler for next button
-                            nextButton.addEventListener('click', () => {
-                                isInNotesSection = true;
-                                render();
-                            });
-                        }
-                    }
-                    
-                } else {
-                        const skipButton = shadow.getElementById('skipButton-flashySurf');
-                skipButton.addEventListener('click', () => {
-                    if (confirm("Are you sure you want to skip this flashcard? This will cost you 9 points.")) {
-                        // Deduct 9 points
-                        chrome.storage.local.get(['points'], function (result) {
-                            if (result.points >= 9) {
-                                chrome.storage.local.set({ points: result.points - 9 }, function () {
-                                    // Close the widget
-                                    widgetEl.remove();
-                                    clearInterval(forcePause);
-                                    forcePause = 1;
-                                    chrome.storage.local.set({ 'forceCard': false });
                                 });
-                            } else {
-                                alert("You don't have enough points to skip this flashcard.");
                             }
                         });
                     }
                 });
-            }
-                        });
 
 
             }
@@ -1143,7 +1198,7 @@
                     }
                     catch { }
                 }
-                
+
                 addPoints(isCorrect ? 4 : 1);
 
                 if (config.satMode) {
@@ -1177,16 +1232,16 @@
                             if (userFlashCards[i].id == selectedFlashcards.id) {
                                 if (isCorrect) {
                                     // New system tracks time, more work but also more data for semantic system
-                                    userFlashCards[i].correctlyAnswered.push({id: flashcard.id, time: Date.now()});
+                                    userFlashCards[i].correctlyAnswered.push({ id: flashcard.id, time: Date.now() });
                                 } else {
-                                    userFlashCards[i].incorrectlyAnswered.push({id: flashcard.id, time: Date.now()});
+                                    userFlashCards[i].incorrectlyAnswered.push({ id: flashcard.id, time: Date.now() });
                                 }
                             }
                         }
 
                         chrome.storage.local.set({ 'userFlashCards': userFlashCards }); // this feels like just the absolute perfect vector to like have all the flashcards erase themselves
                     });
-                    
+
                 }
                 render();
             }
@@ -1228,8 +1283,8 @@
             })
 
         }
-        
-        
+
+
         function showPerformanceReport(data) {
             let forcePause;
             if (!forcePause) {
@@ -1244,8 +1299,8 @@
             // Create container
             const widgetEl = document.createElement('div');
             widgetEl.id = 'performance-report-widget';
-            const shadow = widgetEl.attachShadow({mode: 'closed'});
-            
+            const shadow = widgetEl.attachShadow({ mode: 'closed' });
+
             // Add styles directly to widget
             const styles = document.createElement('style');
             styles.textContent = `
@@ -1324,10 +1379,10 @@
             `;
 
             function render(isLoading = true, errorMessage = null) {
-                const imageContent = errorMessage ? 
+                const imageContent = errorMessage ?
                     `<div class="error-text">${errorMessage}</div>` :
                     `<div style="width: 100%; display: flex; justify-content: center;">
-                        <img src="${isLoading ?  chrome.runtime.getURL('assets/loading.gif') : reportImageUrl}" 
+                        <img src="${isLoading ? chrome.runtime.getURL('assets/loading.gif') : reportImageUrl}" 
                             style="width: 80%; height: auto; display: block;" />
                     </div>`;
 
@@ -1422,8 +1477,8 @@
             async function loadCachedReport() {
                 return new Promise((resolve) => {
                     chrome.storage.local.get(['performanceReport'], (result) => {
-                        if (result.performanceReport && 
-                            result.performanceReport.image && 
+                        if (result.performanceReport &&
+                            result.performanceReport.image &&
                             result.performanceReport.timestamp &&
                             isCachedReportValid(result.performanceReport.timestamp)) {
                             resolve(result.performanceReport);
@@ -1452,18 +1507,18 @@
                     // Get the image as blob
                     reportImageBlob = await response.blob();
                     reportImageUrl = URL.createObjectURL(reportImageBlob);
-                    
+
                     // Convert blob to base64 for storage
                     const base64Image = await blobToBase64(reportImageBlob);
-                    
+
                     // Store the report in chrome storage
-                    chrome.storage.local.set({ 
+                    chrome.storage.local.set({
                         'performanceReport': {
                             "image": base64Image,
                             "timestamp": Date.now()
                         }
                     });
-                    
+
                     // Re-render with the actual image
                     render(false);
                 } catch (error) {
@@ -1476,7 +1531,7 @@
             async function initialize() {
                 // Check for cached report first
                 const cachedReport = await loadCachedReport();
-                
+
                 if (cachedReport) {
                     // Use cached report
                     reportImageBlob = base64ToBlob(cachedReport.image);
@@ -1740,43 +1795,43 @@
                     let file = files[0]
                     const reader = new FileReader();
                     let returnnnn = false;
-                    reader.onload = function(e) {
+                    reader.onload = function (e) {
                         try {
                             const newCollection = JSON.parse(e.target.result);
                             console.log(newCollection);
                             chrome.storage.local.get("userFlashCards", (res) => {
-                                    let replaceIdx = -1;
-                                    res.userFlashCards.forEach((collection) => {
-                                        if (collection.id == newCollection.id) {
-                                            if (confirm(`ALERT this collection "${collection.name}" already exists, do you intend to update it?`)) {
-                                                replaceIdx = res.userFlashCards.indexOf(collection);
-                                            } else {
-                                                returnnnn = true;
-                                                return;
-                                            }
+                                let replaceIdx = -1;
+                                res.userFlashCards.forEach((collection) => {
+                                    if (collection.id == newCollection.id) {
+                                        if (confirm(`ALERT this collection "${collection.name}" already exists, do you intend to update it?`)) {
+                                            replaceIdx = res.userFlashCards.indexOf(collection);
+                                        } else {
+                                            returnnnn = true;
+                                            return;
                                         }
-                                    if (returnnnn) return;
-
-                                    })
-                                    if (returnnnn) return;
-                                    if (replaceIdx != -1) {
-                                        res.userFlashCards[replaceIdx].questions = newCollection.questions;
-                                        res.userFlashCards[replaceIdx].name = newCollection.name;
-                                    } else {
-                                        res.userFlashCards.push({
-                                            active: true,
-                                            correctlyAnswered: [],
-                                            incorrectlyAnswered: [],
-                                            notes: {},
-                                            ...newCollection
-                                        })
                                     }
+                                    if (returnnnn) return;
 
-                                    chrome.storage.local.set({ userFlashCards: res.userFlashCards}).then(() => {
-                                        alert("Flashcard Collection added/updated, you may safely close this widget or upload more collections :D");
-                                    });
                                 })
-                                
+                                if (returnnnn) return;
+                                if (replaceIdx != -1) {
+                                    res.userFlashCards[replaceIdx].questions = newCollection.questions;
+                                    res.userFlashCards[replaceIdx].name = newCollection.name;
+                                } else {
+                                    res.userFlashCards.push({
+                                        active: true,
+                                        correctlyAnswered: [],
+                                        incorrectlyAnswered: [],
+                                        notes: {},
+                                        ...newCollection
+                                    })
+                                }
+
+                                chrome.storage.local.set({ userFlashCards: res.userFlashCards }).then(() => {
+                                    alert("Flashcard Collection added/updated, you may safely close this widget or upload more collections :D");
+                                });
+                            })
+
                         } catch (error) {
                             console.log('Error parsing JSON: ' + error.message);
                         }
@@ -1788,10 +1843,10 @@
             // --- Final Steps ---
             render();
             document.body.appendChild(widgetEl);
-        
+
         }
 
-        
+
         function showThemePreviewPopup(css) {
             // remove any existing widget
             const existingWidget = document.getElementById('flashcard-widget');
@@ -1820,8 +1875,8 @@
             // Create container
             const widgetEl = document.createElement('div');
             widgetEl.id = 'flashcard-widget';
-            const shadow = widgetEl.attachShadow({mode: 'closed'});
-            
+            const shadow = widgetEl.attachShadow({ mode: 'closed' });
+
             // Add event listeners to stop propagation **Fixes bug that allowed textbox keypresses to propogate into website hotkeys causing nuisance and possibly deeper errors to users**
             shadow.addEventListener('keydown', (e) => {
                 e.stopPropagation();
@@ -1883,7 +1938,7 @@
                                  <span style="color: ${isCorrect ? 'var(--correct-text)' : 'var(--incorrect-text)'};">
                                  ${isCorrect ? 'Correct' : 'Incorrect'}
                                          </span>
-                                         <br>Question: ${previewFlashcard.question.length < 150 ? previewFlashcard.question : "<details> <summary>Click to show question:</summary> "+ previewFlashcard.question + " </details>"}
+                                         <br>Question: ${previewFlashcard.question.length < 150 ? previewFlashcard.question : "<details> <summary>Click to show question:</summary> " + previewFlashcard.question + " </details>"}
                                          <br>Chosen Answer: ${selectedChoice}
                                          <br>Actual Answer: ${getAnswer()}
                                          <br>Explanation: ${previewFlashcard.explanation}
@@ -1892,7 +1947,7 @@
                                     <button class="close-button" id="closeButton-flashySurf">Close Preview</button>
                                      </div>
                                  `
-                         : `
+                        : `
                                  <div class="question limited">
                                      <span>Question: ${previewFlashcard.question}</span>
                                      <br>
@@ -1912,7 +1967,7 @@
                          </div>
                      </div>
                  `;
-                 
+
                 styles.textContent = `
                  
                     ${css}
@@ -2037,8 +2092,8 @@
                     }
                 `;
                 shadow.appendChild(styles);
-                
-                
+
+
                 // Add event listeners for the new buttons and textarea
                 if (selectedChoice) {
                     if (isInNotesSection && !isCorrect) {
@@ -2069,7 +2124,7 @@
                         });
                     } else if (!isInNotesSection) {
                         const closeButton = shadow.getElementById('closeButton-flashySurf');
-                        
+
                         // Close button for explanation screen
                         closeButton.addEventListener('click', () => {
                             if (isCorrect) {
@@ -2079,13 +2134,13 @@
                                 render();
                             }
                         });
-                        
+
                         // Update button text based on correctness
                         if (!isCorrect) {
                             closeButton.textContent = 'Next: Take Notes';
                         }
                     }
-                    
+
                 } else {
                     // No choice selected yet, nothing extra needed
                 }
@@ -2129,18 +2184,22 @@
         }
         function addPoints(pointsToAdd) {
             chrome.storage.local.get(['points', 'pointsEarnedToday'], function (result) {
-                let currentPoints = result.points || 0;
-                chrome.storage.local.set({ points: currentPoints + pointsToAdd });
-                if (Number(Date.now()) > (result.pointsEarnedToday[1] + 24 * 60 * 60 * 1000)) {
-                    // Reset daily points if last earned was over 24 hours ago
-                    chrome.storage.local.set({ pointsEarnedToday: [pointsToAdd, Date.now()]});
+                if (result.points < 750) {
                     return;
                 }
-                chrome.storage.local.set({ pointsEarnedToday: [result.pointsEarnedToday[0] + pointsToAdd, Date.now()]});
+                if (Number(Date.now()) > (result.pointsEarnedToday[1] + 24 * 60 * 60 * 1000)) {
+                    // Reset daily points if last earned was over 24 hours ago
+                    chrome.storage.local.set({ pointsEarnedToday: [pointsToAdd, Date.now()] });
+                    chrome.storage.local.set({ points: [pointsToAdd + result.points] });
+                } else if ((result.pointsEarnedToday + pointsToAdd) < 50) {
+                    chrome.storage.local.set({ pointsEarnedToday: [result.pointsEarnedToday[0] + pointsToAdd, Date.now()] });
+                    chrome.storage.local.set({ points: [pointsToAdd + result.points] });
+                }
             });
-            
+
+
         }
-        
+
         chrome.storage.local.get(['forceCard', 'widgetChance', 'lastBreak', 'lastCompleted', 'ignoreUrls'], function (result) {
             if ((Number(Date.now()) > (result.lastBreak + 30 * 60 * 1000)) && (Number(Date.now()) > (result.lastCompleted + 3 * 60 * 1000)) && (userFlashCards.length != 0)) {
 
@@ -2171,19 +2230,19 @@
             switch (message.action) {
                 case "showPerformanceReport":
                     showPerformanceReport(message.data);
-                    sendResponse({success: true});
+                    sendResponse({ success: true });
                     break;
                 case "addCollection":
                     showAddCollectionPopup();
-                    sendResponse({success: true});
+                    sendResponse({ success: true });
                     break;
                 case "previewTheme":
                     showThemePreviewPopup(message.data);
-                    sendResponse({success: true});
+                    sendResponse({ success: true });
                     break;
                 default:
                     console.log("Invalid event", message.action, message);
-                    sendResponse({success: false});
+                    sendResponse({ success: false });
             }
         });
 
