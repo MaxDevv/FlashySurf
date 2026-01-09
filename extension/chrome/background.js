@@ -6,7 +6,7 @@ chrome.runtime.onInstalled.addListener(({ reason }) => {
   }
 
 
-  chrome.storage.local.get(['correctSATAnswers', 'incorrectSATAnswers', 'forceCard', 'widgetChance', 'devMode', 'lastCompleted', 'satNotes', 'answeredQuestions', 'lastBreak', 'failedQuestions', "uID", 'performanceReport', 'userFlashCards', 'satCardsEnabled', 'flashCardDevModeNum', 'forceAddCollection', 'nextShareRequest', 'points', 'pointsEarnedToday', "gcmID", "refferalCount", "refferalPoints", "userThemes", "fcmIDSyncedWServer"], (result) => {
+  chrome.storage.local.get(['correctSATAnswers', 'incorrectSATAnswers', 'forceCard', 'widgetChance', 'devMode', 'lastCompleted', 'satNotes', 'answeredQuestions', 'lastBreak', 'failedQuestions', "uID", 'performanceReport', 'userFlashCards', 'satCardsEnabled', 'flashCardDevModeNum', 'forceAddCollection', 'nextShareRequest', 'points', 'pointsEarnedToday', "gcmID", "refferalCount", "refferalPoints", "userThemes", "fcmIDSyncedWServer", "ignoreUrls"], (result) => {
     let userID;
     if (result.correctSATAnswers === undefined) {
       chrome.storage.local.set({ correctSATAnswers: 0 });
