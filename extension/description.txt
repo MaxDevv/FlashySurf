@@ -52,6 +52,14 @@ FlashySurf uses principles spaced repetition and adaptive learning to help you a
 
 RECENT UPDATES:
 
+v2.1.4 (January 2026) - Minor Bugfix & Points System Update
+• Fixed points addition UI not reflecting points daily limit.
+• Bumped Daily Limit to 100 points
+
+v2.1.3 (January 2026) - Points System & Config Fix
+• Fixed devMode variable scope issue in config initialization
+• Fixed inverted comparison operator in points threshold validation
+
 v2.1.2 (January 2026) - Points System Bugfix
 • Fixed critical inaccuracies in the points adding system that prevented proper point allocation
 • Corrected logic in daily point cap and total point limit verification

@@ -10,7 +10,9 @@
         semanticSimmilarityInNotSATMode: false,
         useSemanticSimmilarity: true
     }
+    let maxDailyPoints = 100;
     config.devMode = await chrome.storage.local.get("devMode");
+    config.devMode = config.devMode.devMode;
     let satCardsEnabled = await chrome.storage.local.get("satCardsEnabled");
     config.satMode = satCardsEnabled.satCardsEnabled;
     if (!config.devMode) {
@@ -826,7 +828,7 @@
                                 `
                             <span class="limited">
                                  <span style="color: ${isCorrect ? 'var(--correct-text)' : 'var(--incorrect-text)'};">
-                                 ${isCorrect ? 'Correct' : 'Incorrect'} ${(((result.points < 750) && (result.pointsEarnedToday[0] < 50)) || (Number(Date.now()) > (result.pointsEarnedToday[1] + 24 * 60 * 60 * 1000))) ? `${isCorrect ? ' +4 ⬢' : ' +1 ⬢'} points Earned${isCorrect ? '!' : ''}` : `+0 ⬢ (Daily/Total limit reached)`}
+                                 ${isCorrect ? 'Correct' : 'Incorrect'} ${(((result.points < 750) && (result.pointsEarnedToday[0] < maxDailyPoints)) || (Number(Date.now()) > (result.pointsEarnedToday[1] + 24 * 60 * 60 * 1000))) ? `${isCorrect ? ' +4 ⬢' : ' +1 ⬢'} points Earned${isCorrect ? '!' : ''}` : `+0 ⬢ (Daily/Total limit reached)`}
 
 
                                         </span>
@@ -2129,16 +2131,42 @@
         }
         function addPoints(pointsToAdd) {
             chrome.storage.local.get(['points', 'pointsEarnedToday'], function (result) {
-                if (result.points < 750) {
+                console.log('addPoints called with pointsToAdd:', pointsToAdd);
+                console.log('Retrieved from storage - result:', result);
+                
+                if (result.points > 750) {
+                    console.log('Points check failed: result.points =', result.points, '> 750');
                     return;
                 }
+                console.log('Points check passed: result.points =', result.points);
+                
+                console.log('Current time:', Number(Date.now()));
+                console.log('Last earned timestamp:', result.pointsEarnedToday[1]);
+                console.log('Time difference (ms):', Number(Date.now()) - result.pointsEarnedToday[1]);
+                console.log('24 hours in ms:', 24 * 60 * 60 * 1000);
+                
                 if (Number(Date.now()) > (result.pointsEarnedToday[1] + 24 * 60 * 60 * 1000)) {
-                    // Reset daily points if last earned was over 24 hours ago
+                    console.log('24 hour reset triggered');
+                    console.log('Setting pointsEarnedToday to:', [pointsToAdd, Date.now()]);
                     chrome.storage.local.set({ pointsEarnedToday: [pointsToAdd, Date.now()] });
-                    chrome.storage.local.set({ points: [pointsToAdd + result.points] });
-                } else if ((result.pointsEarnedToday + pointsToAdd) < 50) {
-                    chrome.storage.local.set({ pointsEarnedToday: [result.pointsEarnedToday[0] + pointsToAdd, Date.now()] });
-                    chrome.storage.local.set({ points: [pointsToAdd + result.points] });
+                    console.log('Setting points to:', pointsToAdd + result.points);
+                    chrome.storage.local.set({ points: pointsToAdd + result.points });
+                } else {
+                    console.log('Still within 24 hour window');
+                    console.log('Current daily points earned:', result.pointsEarnedToday[0]);
+                    console.log('Points to add:', pointsToAdd);
+                    console.log('Sum:', result.pointsEarnedToday[0] + pointsToAdd);
+                    console.log('Is sum < '+maxDailyPoints+'?:', (result.pointsEarnedToday[0]) < maxDailyPoints);
+                    
+                    if ((result.pointsEarnedToday[0]) < maxDailyPoints) {
+                        console.log('Daily limit not reached, adding points');
+                        console.log('New pointsEarnedToday:', [result.pointsEarnedToday[0] + pointsToAdd, Date.now()]);
+                        chrome.storage.local.set({ pointsEarnedToday: [result.pointsEarnedToday[0] + pointsToAdd, Date.now()] });
+                        console.log('New total points:', pointsToAdd + result.points);
+                        chrome.storage.local.set({ points: pointsToAdd + result.points });
+                    } else {
+                        console.log('Daily limit reached, no points added');
+                    }
                 }
             });
 

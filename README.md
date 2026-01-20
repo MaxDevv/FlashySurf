@@ -129,6 +129,15 @@ By integrating practice into your daily browsing, you'll build familiarity with 
 
 # Changelog
 ## 2.1
+### 2.1.4 (2026-01-19)
+- Fixed points addition UI not reflecting points daily limit
+- Bumped Daily Limit to 100 points
+
+### 2.1.3 (2026-01-11)
+- Fixed devMode variable scope issue in config initialization
+- Added comprehensive debug logging to points system
+- Fixed inverted comparison operator in points threshold check
+
 ### 2.1.2 (2026-01-08)
 - Major Bugfix: Fixed critical inaccuracies in the points adding system that prevented proper point allocation
 - Corrected logic in daily point cap and total point limit verification
