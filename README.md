@@ -98,7 +98,7 @@ FlashySurf v2.1 introduces a gamified economy to keep you motivated.
 
 **Spending Points:**
 - **30-Minute Break:** Costs 20 Points. Pause flashcards entirely for half an hour
-- **Skip Card:** Costs 9 Points. Skip a question without answering
+- **Skip Card:** Costs 4 Points. Skip a question without answering
 - **Themes:** Spend points to unlock visual styles for your flashcards.
 
 ## 🛠️ Configuration
@@ -129,6 +129,10 @@ By integrating practice into your daily browsing, you'll build familiarity with 
 
 # Changelog
 ## 2.1
+### 2.1.5 (2026-02-26)
+- Reduced Skip Card cost from 9 points to 4 points
+- Fixed bug where flashcard would have a chance to reappear immediately after paying to skip
+
 ### 2.1.4 (2026-01-19)
 - Fixed points addition UI not reflecting points daily limit
 - Bumped Daily Limit to 100 points

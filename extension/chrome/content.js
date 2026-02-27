@@ -8,7 +8,8 @@
         satMode: true,
         devMode: false,
         semanticSimmilarityInNotSATMode: false,
-        useSemanticSimmilarity: true
+        useSemanticSimmilarity: true, 
+        skipCosts: 4
     }
     let maxDailyPoints = 100;
     config.devMode = await chrome.storage.local.get("devMode");
@@ -854,7 +855,7 @@
                                     <br>
 <br>
                                     <span style="text-decoration: underline;"> Tip: ${tips[Math.floor(Math.random() * tips.length)]}</span> 
-                                <button class="skip-button" id="skipButton-flashySurf">Skip Flashcard (Costs 9 Points)</button>
+                                <button class="skip-button" id="skipButton-flashySurf">Skip Flashcard (Costs ${config.skipCosts} Points)</button>
                                 </div>
                                 <div class="answer">
                                     <div class="choices">
@@ -1111,16 +1112,18 @@
                     } else {
                         const skipButton = shadow.getElementById('skipButton-flashySurf');
                         skipButton.addEventListener('click', () => {
-                            if (confirm("Are you sure you want to skip this flashcard? This will cost you 9 points.")) {
-                                // Deduct 9 points
+                            if (confirm("Are you sure you want to skip this flashcard? This will cost you "+config.skipCosts+" points.")) {
+                                // Deduct config.skipCosts points
                                 chrome.storage.local.get(['points'], function (result) {
-                                    if (result.points >= 9) {
-                                        chrome.storage.local.set({ points: result.points - 9 }, function () {
+                                    if (result.points >= config.skipCosts) {
+                                        chrome.storage.local.set({ points: result.points - config.skipCosts }, function () {
                                             // Close the widget
                                             widgetEl.remove();
                                             clearInterval(forcePause);
                                             forcePause = 1;
                                             chrome.storage.local.set({ 'forceCard': false });
+                                            chrome.storage.local.set({ 'lastCompleted': Number(new Date()) }); // Fx bug where flashcard would appear immideately after paying to skip
+
                                         });
                                     } else {
                                         alert("You don't have enough points to skip this flashcard.");

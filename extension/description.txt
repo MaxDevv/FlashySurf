@@ -29,7 +29,7 @@ KEY FEATURES:
 ├── Detailed explanations for every answer
 ├── Break timer (20 points) - pause flashcards for 30 minutes when you need focus
 ├── Smart question rotation preventing repetition
-├── Skip Card (9 points) - Skip questions without answering
+├── Skip Card (4 points) - Skip questions without answering
 ├── Advanced semantic clustering (SAT) - 87 topic clusters for precise weakness targeting
 └── Spaced repetition methodology for optimal retention
 
@@ -51,6 +51,10 @@ FlashySurf uses principles spaced repetition and adaptive learning to help you a
 - Performance-Based Selection: Question difficulty and topic selection adapt based on your historical performance
 
 RECENT UPDATES:
+
+v2.1.5 (February 2026) - Skip Cost Reduction & Bugfix
+• Reduced Skip Card cost from 9 points to 4 points
+• Fixed bug where a flashcard would have a chance to reappear immediately after paying to skip
 
 v2.1.4 (January 2026) - Minor Bugfix & Points System Update
 • Fixed points addition UI not reflecting points daily limit.
